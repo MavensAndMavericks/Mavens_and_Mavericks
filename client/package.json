@@ -6,10 +6,13 @@
   "dependencies": {
     "axios": "^0.16.2",
     "chart.js": "^2.7.1",
+    "passport": "^0.4.0",
+    "passport-google-oauth": "^1.0.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-router-dom": "^4.1.2",
-    "react-scripts": "1.0.14"
+    "react-scripts": "1.0.14",
+    "traitify": "^2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
