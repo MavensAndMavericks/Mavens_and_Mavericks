@@ -51,7 +51,7 @@ mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
 ////var MONGODB_URI = 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/mav2users",
+  process.env.MONGODB_URI || "mongodb://localhost/mav2app",
   {
     useMongoClient: true
   }

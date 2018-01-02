@@ -11,4 +11,4 @@ const userSchema = new Schema({
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;
-//DB in mongoose, (Robo 3t), should be "mav2users".
+//DB in mongoose, (Robo 3t), should be "mav2app".
