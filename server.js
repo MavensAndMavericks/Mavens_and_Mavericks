@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
-const PORT = process.env.PORT || 3500;
+const PORT = process.env.PORT || 7700;
 
 require("./keys.js"); //IN order to import the "googleAuth" variable for the google auth keys (needed) below.
 
@@ -49,9 +49,10 @@ passport.use(new GoogleStrategy( googleAuth,
 mongoose.Promise = global.Promise;
 
 // Connect to the Mongo DB
-////var MONGODB_URI = 
+////var MONGODB_URI = mongodb://heroku_p6dj1jmx:vdojlgvrsvdl6becgahtq7skel@ds237947.mlab.com:37947/heroku_p6dj1jmx
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/mav2app",
+  process.env.MONGODB_URI || "mongodb://localhost/mav2app", // !! DB in mongoose, (Robo 3t), should be "mav2users" !!
+
   {
     useMongoClient: true
   }
@@ -62,6 +63,3 @@ mongoose.connect(
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
-
-
-//DB in mongoose, (Robo 3t), should be "mav2users".
