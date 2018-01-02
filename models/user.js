@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema; //development DB in mongoose, (Robo 3t), should be titled "mavSquared".
 
 const userSchema = new Schema({
   firstName: { type: String, required: true },
@@ -11,4 +11,3 @@ const userSchema = new Schema({
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;
-//DB in mongoose, (Robo 3t), should be "mav2app".
