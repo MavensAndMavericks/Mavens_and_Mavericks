@@ -1,3 +1,5 @@
+// !! THIS PAGE IS AN EXAMPLE!! //
+
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
