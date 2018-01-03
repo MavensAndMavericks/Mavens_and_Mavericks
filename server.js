@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
-const PORT = process.env.PORT || 7700;
+const PORT = process.env.PORT || 3500;
 
 const traitify = require('traitify');
 const Chart = require('chart.js');
@@ -30,20 +30,20 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Serve up static assets
-app.use(express.static("client/build"));
+app.use(express.static("client/public")); //SHOULD THIS READ: "client/BUILD" or "client/PUBLIC"?!?! >> IS "build" a REACT term?
 
 // Add routes, both API routes and view(html) routes
 app.use(routes);
 
 
-// Configure Passport.js
-passport.use(new GoogleStrategy( keys.googleAuth,  //would it be "googleAuth" or keys.googleAuth" to reference the keys here as there is ONLY ONE export?
-  function(token, tokenSecret, profile, done) {
-      User.findOrCreate({ googleId: profile.id }, function (err, user) {
-        return done(err, user);
-      });
-  }
-));
+// Configure Passport.js // !! FOR SOME REASON the page does NOT RENDER when this is not uncommented !! >> Talk to TA.
+// passport.use(new GoogleStrategy( keys,  //this references the googleAuth keys in keys.js
+//   function(token, tokenSecret, profile, done) {
+//       User.findOrCreate({ googleId: profile.id }, function (err, user) {
+//         return done(err, user);
+//       });
+//   }
+// ));
 
 
 // Configure Chart.js
@@ -76,5 +76,5 @@ mongoose.connect(
 // Start the Server // Initialize Server Listiner with PORT Connection..
 //==========================================================================
 app.listen(PORT, function() {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+  console.log(`Hey there!! Your API Server now listening on PORT ${PORT}. Have fun. :)`);
 }); // Starting the API server

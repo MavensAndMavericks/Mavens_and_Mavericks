@@ -5,7 +5,7 @@ const assessmentSchema = new Schema({
   user_ID: { type: Schema.Types.ObjectId, ref: "User" },
   threeTopics: { type: Array, required: true }, 
   personalityResults: { type: Array, required: true },  //modify as necessary >> after reveiwing the Traitify API
-  careerResults: {type: String, required: true }  //modify as necessary >> after reveiwing the Traitify API
+  careerResults: {type: String, required: true },  //modify as necessary >> after reveiwing the Traitify API
   date: { type: Date, default: Date.now }
 });
 

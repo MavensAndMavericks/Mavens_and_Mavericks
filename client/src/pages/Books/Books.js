@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import API from "../../utils/API";
 
 //Componenet imports:
+import Nav from "../../components/Nav";
 import Parallax from "../../components/Parallax";
 import Jumbotron from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
@@ -19,7 +20,6 @@ class Books extends Component {
     author: "",
     synopsis: ""
   };
-
 
   deleteBook = id => {
     API.deleteBook(id)
@@ -50,6 +50,8 @@ class Books extends Component {
   render() {
     return (
       <Container fluid>
+        <Nav />
+        <br/>
 
         <Row>
           <Col size="md-12">

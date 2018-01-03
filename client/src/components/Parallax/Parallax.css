@@ -1,10 +1,8 @@
 .parallax {
 	/* The image used */
-	background-image: url("/New-York_Offices_background.jpg");
-
+	background-image: url("/assets/open-Eyes.jpeg");
 	/* Set a specific height */
-	height: 500px; 
-
+	height: 1000px; 
 	/* Create the parallax scrolling effect */
 	background-attachment: fixed;
 	background-position: center;

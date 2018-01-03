@@ -2,12 +2,14 @@ import React from "react";
 import Dropdown from "../Dropdown";
 
 const Nav = () =>
-  <nav className="navbar navbar-inverse navbar-fixed-top">
+  <nav className="navbar navbar-default navbar-fixed-top">
     <div className="container-fluid">
+      
       <div className="navbar-header">
-        <button type="button" className="collapsed navbar-toggle">
+        <button type="button" className="collapsed navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
           <span className="sr-only">Toggle navigation</span>
-          <span className="icon-bar" /> <span className="icon-bar" />
+          <span className="icon-bar" /> 
+          <span className="icon-bar" />
           <span className="icon-bar" />
         </button>
         <a href="/" className="navbar-brand">
@@ -15,9 +17,7 @@ const Nav = () =>
         </a>
       </div>
 
-      <div>
-          <Dropdown/>         
-      </div>
+       <Dropdown/>
       
     </div>
   </nav>;

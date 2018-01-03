@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth').OAuthStrategy;
 
 // GET /auth/google (BELOW)
 //   ... Use passport.authenticate() as route middleware to authenticate the
