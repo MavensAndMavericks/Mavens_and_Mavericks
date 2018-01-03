@@ -1,1 +1,1 @@
-export { default } from "./oAuthBtn";
+export { default } from "./OAuthBtn";

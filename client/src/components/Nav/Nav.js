@@ -1,7 +1,8 @@
 import React from "react";
+import Dropdown from "../Dropdown";
 
 const Nav = () =>
-  <nav className="navbar navbar-inverse navbar-top">
+  <nav className="navbar navbar-inverse navbar-fixed-top">
     <div className="container-fluid">
       <div className="navbar-header">
         <button type="button" className="collapsed navbar-toggle">
@@ -10,9 +11,14 @@ const Nav = () =>
           <span className="icon-bar" />
         </button>
         <a href="/" className="navbar-brand">
-          React Reading List
+          <img src="/favicon.png" alt="Mavens and Mavericks Logo" />
         </a>
       </div>
+
+      <div>
+          <Dropdown/>         
+      </div>
+      
     </div>
   </nav>;
 

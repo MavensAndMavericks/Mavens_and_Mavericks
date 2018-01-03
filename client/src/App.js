@@ -1,24 +1,33 @@
+//React Library imports:
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+//Page imports:
 import Books from "./pages/Books";
+//import Welcome from "./pages/Welcome"
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
+
+//Componenet imports:
 import Nav from "./components/Nav";
-import oAuth from "./components/oAuthBtn";
+//import OAuth from "./components/OAuthBtn";
+//=================================================================================
 
 const App = () =>
   <Router>
     <div>
       <Nav />
-      <oAuth/>
 
       <Switch>
-        <Route exact path="/" component={Books} />
+        <Route exact path="/" component={Books} /> 
         <Route exact path="/books" component={Books} />
         <Route exact path="/books/:id" component={Detail} />
-        <Route component={NoMatch} /> //REMINDER: "NoMatch" is the "Default" option in this layout, akin to the default measure in a swich-case block.
+        <Route component={NoMatch} /> 
       </Switch>
     </div>
   </Router>;
 
 export default App;
+
+// QUESTION: why don't we need to type "/api/books" instead of "/books" as the exact path listed in the second and third route options?!?!
+// REMINDER: "NoMatch" (located inside the React Router Class: Switch) === (is) the "Default" option in this layout, akin to "default" measure in a "Switch-Case block".

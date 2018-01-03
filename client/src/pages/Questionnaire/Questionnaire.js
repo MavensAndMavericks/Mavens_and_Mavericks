@@ -1,18 +1,19 @@
+// READ PLEASE: !! THIS EXAMPLE WAS TAKEN DIRECTLY FROM THE "BOOKS" PAGE EXAMPLE!! >> ONLY changed out the "books" name to keep from bundling incorreclty.. !!
+
 //React Library imports:
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
 
 //Componenet imports:
-import Parallax from "../../components/Parallax";
-import Jumbotron from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
+import { Input, TextArea, FormBtn } from "../../components/Form";
 import DeleteBtn from "../../components/DeleteBtn";
-
+import Jumbotron from "../../components/Jumbotron";
 
 //=================================================================================
-class Books extends Component {
+class Questionnaire extends Component {
   state = {
     books: [],
     title: "",
@@ -20,6 +21,17 @@ class Books extends Component {
     synopsis: ""
   };
 
+  componentDidMount() {
+    this.loadBooks();
+  }
+
+  loadBooks = () => {
+    API.getBooks()
+      .then(res =>
+        this.setState({ books: res.data, title: "", author: "", synopsis: "" })
+      )
+      .catch(err => console.log(err));
+  };
 
   deleteBook = id => {
     API.deleteBook(id)
@@ -56,7 +68,32 @@ class Books extends Component {
             <Jumbotron>
               <h1 className="text-center">Welcome to Maverns and Mavericks!</h1>
             </Jumbotron>
-            <Parallax/>
+            <form>
+              <Input
+                value={this.state.title}
+                onChange={this.handleInputChange}
+                name="title"
+                placeholder="Title (required)"
+              />
+              <Input
+                value={this.state.author}
+                onChange={this.handleInputChange}
+                name="author"
+                placeholder="Author (required)"
+              />
+              <TextArea
+                value={this.state.synopsis}
+                onChange={this.handleInputChange}
+                name="synopsis"
+                placeholder="Synopsis (Optional)"
+              />
+              <FormBtn
+                disabled={!(this.state.author && this.state.title)}
+                onClick={this.handleFormSubmit}
+              >
+                Submit Book
+              </FormBtn>
+            </form>
           </Col>
         </Row>
 
@@ -91,4 +128,4 @@ class Books extends Component {
   }
 }
 
-export default Books;
+export default Questionnaire;
