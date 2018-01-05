@@ -1,6 +1,7 @@
 .parallax {
 	/* The image used */
-	background-image: url("/assets/open-Eyes.jpeg");
+	/*background-image: url("/assets/open-Eyes-pic.jpeg");*/
+
 	/* Set a specific height */
 	height: 1000px; 
 	/* Create the parallax scrolling effect */

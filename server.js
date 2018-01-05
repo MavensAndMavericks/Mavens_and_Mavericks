@@ -1,12 +1,12 @@
 //WEB DEPENDENCIES:
 //===============================================
 const express = require("express");
-const path = require("path");
 const bodyParser = require("body-parser");
+const path = require("path");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
-const PORT = process.env.PORT || 3500;
+const PORT = process.env.PORT || 3001;
 
 const traitify = require('traitify');
 const Chart = require('chart.js');
@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Serve up static assets
-app.use('/public', express.static(path.join(__dirname + '/public'))); //SHOULD THIS READ: "client/BUILD" or "client/PUBLIC"?!?! >> IS "build" a REACT term?
+app.use('/', express.static(path.join(__dirname + '/client/public'))); //SHOULD THIS READ: "client/BUILD" or "client/PUBLIC"?!?! >> IS "build" a REACT term?
 
 // Add routes, both API routes and view(html) routes
 app.use(routes);
