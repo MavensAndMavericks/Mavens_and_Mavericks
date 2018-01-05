@@ -1,11 +1,16 @@
 //React Library imports:
+//=============================
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+
+//API Routing Import:
+//=============================
 import API from "../../utils/API";
 
 //Componenet imports:
+//=============================
 import Nav from "../../components/Nav";
-import Parallax from "../../components/Parallax";
+import Parallax1 from "../../components/Parallax1";
 import Jumbotron from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
@@ -58,7 +63,7 @@ class Books extends Component {
             <Jumbotron>
               <h1 className="text-center">Welcome to Maverns and Mavericks!</h1>
             </Jumbotron>
-            <Parallax/>
+            <Parallax1/>
           </Col>
         </Row>
 

@@ -3,9 +3,10 @@ const Schema = mongoose.Schema;
 
 const assessmentSchema = new Schema({
   user_ID: { type: Schema.Types.ObjectId, ref: "User" },
-  threeTopics: { type: Array, required: true }, 
+  threeTopics: { type: Array, required: true },
+  careerLevel: { type: String, required: true },
+  careerResults: {type: Array, required: true },  //modify as necessary >> after creating the career questionnaire
   personalityResults: { type: Array, required: true },  //modify as necessary >> after reveiwing the Traitify API
-  careerResults: {type: String, required: true },  //modify as necessary >> after reveiwing the Traitify API
   date: { type: Date, default: Date.now }
 });
 

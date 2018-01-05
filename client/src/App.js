@@ -4,21 +4,20 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //Page imports:
 import Books from "./pages/Books";
-//import Welcome from "./pages/Welcome"
+import Welcome from "./pages/Welcome"
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 
 //Componenet imports:
-import Nav from "./components/Nav";
+//import Nav from "./components/Nav";
 //import OAuth from "./components/OAuthBtn";
 //=================================================================================
 
 const App = () =>
   <Router>
     <div>
-      <Nav />
       <Switch>
-        <Route exact path="/" component={Books} /> 
+        <Route exact path="/" component={Welcome} /> 
         <Route exact path="/books" component={Books} />
         <Route exact path="/books/:id" component={Detail} />
         <Route component={NoMatch} /> 

@@ -1,8 +1,31 @@
+//React Library imports:
+//=============================
 import React, { Component } from "react";
-//import DeleteBtn from "../../components/DeleteBtn"; >> DO we need these buttons on this page?
-//import Jumbotron from "../../components/Jumbotron"; > DO we need these buttons on this page?
-import API from "../../utils/API";
-import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../../components/Grid";
-import { List, ListItem } from "../../components/List";
-import { Input, TextArea, FormBtn } from "../../components/Form";
+//import { Link } from "react-router-dom";
+
+//API Routing Import:
+//=============================
+//import API from "../../utils/API";
+
+//Componenet imports:
+//=============================
+import Parallax1 from "../../components/Parallax1";
+import { Col, Row } from "../../components/Grid";
+
+//=================================================================================
+class Welcome extends Component {
+
+  render() {
+    return (
+        <Row className="valign-wrapper">
+          <Col className="justify-content-center" size="md-12" style={{margin:"0px"}}>
+            <Parallax1/>
+          </Col>
+        </Row>
+    );
+  }
+}
+
+export default Welcome;
+
+// WHY does not the "valign-wrapper" work above??
