@@ -1,16 +1,18 @@
 //React Library import:
 //=============================
 import React from "react";
+import "./WelcomeMsg.css";
 
 //=================================================================================
-//onLoad="Materialize.showStaggeredList('#staggered-test')"
-
+//onLoad="Materialize.showStaggeredList('.staggered-text')"
 const WelcomeMsg = () =>
-  <div className="welcome-msg"> 
-    <h1>Welcome to Your Future</h1>
-    <hr/>
-    <p>Church-key migas raw denim poutine do jean shorts. Esse tumblr succulents kale chips bushwick. Humblebrag chartreuse pour-over vegan polaroid knausgaard tempor ipsum nisi.</p>
-    <a href="/books" className="btn btn-default btn-xl">Go To Books</a>  
-  </div>;
+	  <div className="welcome-msg"> 
+	    <h1>Welcome to your Future!</h1>
+	    <hr/>
+	    <p className="text-center">BLAH. Text Goes Here.</p>
+	    <a href="/books" className="btn btn-default btn-xl" style={{margin: "0 auto"}}>I don't like the center...</a>  
+	  </div>;
 
 export default WelcomeMsg;
+
+// Add this in belwo the <p> tag if wish to keep inside the WelcomeMsg Component: <a href="/books" className="btn btn-default btn-xl">Go To Books</a>

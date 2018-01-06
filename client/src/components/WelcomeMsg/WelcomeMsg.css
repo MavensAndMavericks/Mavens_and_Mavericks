@@ -1,2 +1,26 @@
 .welcome-msg {
+    color: white;
+	width: 800px;
+	height: 100px;
+	position: relative;
+    -webkit-animation: mymove 5s;  /* Safari 4.0 - 8.0 */
+    -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+    animation: mymove 5s;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
 }
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes mymove {
+    from {left: 750px;top: 0px}
+    to {left: 750px;top: 300px}
+}
+
+@keyframes mymove {
+    from {left: 750px;top: 0px}
+    to {left: 750px;top: 300px}
+}
+
+/*a.btn {
+    margin: 0 auto;
+}*/
