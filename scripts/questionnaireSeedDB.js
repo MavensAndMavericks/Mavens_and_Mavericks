@@ -11,7 +11,7 @@ mongoose.connect(
   }
 );
 
-const assessmentSeed = [
+const questionnaireSeed = [
   {
       user_ID: { type: Schema.Types.ObjectId, ref: "User" },
       threeTopics: ["JavaScript","Node.js","React"], 
@@ -46,9 +46,9 @@ const assessmentSeed = [
   }
 ];
 
-db.Assessment
+db.Questionnaire
   .remove({})
-  .then(() => db.User.collection.insertMany(assessmentSeed))
+  .then(() => db.User.collection.insertMany(questionnaireSeed))
   .then(data => {
     console.log(data.insertedIds.length + " users inserted!");
     process.exit(0);
