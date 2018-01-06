@@ -4,7 +4,7 @@ import React from "react";
 
 //=================================================================================
 const Footer = () =>
-  <footer className="page-footer">
+  <footer className="page-footer" style={{backgroundColor: "blue"}}>
     <div className="container">
       <div className="row">
         <div className="col l6 s12">
@@ -20,9 +20,8 @@ const Footer = () =>
       </div>
     </div>
     <div className="footer-copyright">
-      <div className="container">
-      © 2014 Copyright Text
-      <a className="grey-text text-lighten-4 right" href="/">More Links</a>
+      <div className="container text-center">
+      © 2017 Copyright Text
       </div>
     </div>
   </footer>;

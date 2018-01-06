@@ -10,8 +10,10 @@ import React, { Component } from "react";
 //Componenet imports:
 //=============================
 import Nav from "../../components/Nav";
+import Signup from "../../components/Signup";
 import Parallax1 from "../../components/Parallax1";
 import { Col, Row } from "../../components/Grid";
+import Footer from "../../components/Footer";
 
 //=================================================================================
 class Welcome extends Component {
@@ -19,12 +21,14 @@ class Welcome extends Component {
     return (
     	<div>
     		<Nav/>
+        <Signup/>
 	        <Row className="valign-wrapper">
 	          <Col className="justify-content-center" size="md-12" style={{margin:"0px"}}>
 	            <Parallax1/>
 	          </Col>
 	        </Row>
-        </div>
+        <Footer/>
+      </div>
     );
   }
 }

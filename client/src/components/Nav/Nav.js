@@ -1,8 +1,10 @@
 import React from "react";
 import Dropdown from "../Dropdown";
+import OAuthBtn from "../OAuthBtn";
+//import Signup from "../Signup";
 
 const Nav = () =>
-  <nav className="navbar navbar-default navbar-fixed-top">
+  <nav className="navbar navbar-default navbar-fixed-top" style={{padding: "50px"}}>
     <div className="container-fluid">
       
       <div className="navbar-header">
@@ -12,12 +14,16 @@ const Nav = () =>
           <span className="icon-bar" />
           <span className="icon-bar" />
         </button>
+
         <a href="/" className="navbar-brand">
           <img src="/favicon.png" alt="Mavens and Mavericks Logo" />
         </a>
       </div>
 
+
        <Dropdown/>
+       <OAuthBtn/>
+       
       
     </div>
   </nav>;
