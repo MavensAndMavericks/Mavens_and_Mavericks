@@ -46,7 +46,7 @@ app.use(routes);
 mongoose.Promise = global.Promise; // Set up promises with mongoose
 
 // Connect to the Mongo DB
-////var MONGODB_URI = mongodb://heroku_p6dj1jmx:vdojlgvrsvdl6becgahtq7skel@ds237947.mlab.com:37947/heroku_p6dj1jmx
+//var MONGODB_URI = mongodb://heroku_p6dj1jmx:vdojlgvrsvdl6becgahtq7skel@ds237947.mlab.com:37947/heroku_p6dj1jmx
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/mavSquared", // !! DB in mongoose, (Robo 3t), should be "mavSquared" !!
 
