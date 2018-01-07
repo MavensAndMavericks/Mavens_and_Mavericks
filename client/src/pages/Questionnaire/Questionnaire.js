@@ -11,6 +11,7 @@ import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 import DeleteBtn from "../../components/DeleteBtn";
 import Jumbotron from "../../components/Jumbotron";
+import Nav from "../../components/Nav";
 
 //=================================================================================
 class Questionnaire extends Component {
@@ -62,6 +63,7 @@ class Questionnaire extends Component {
   render() {
     return (
       <Container fluid>
+        <Nav/>
 
         <Row>
           <Col size="md-12">
