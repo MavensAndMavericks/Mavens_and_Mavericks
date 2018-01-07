@@ -7,16 +7,8 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001; //this PORT MUST MATCH the proxy port set in the package.json inside "client/utils" >> (on the REACT side)
-
 const traitify = require('traitify');
 const Chart = require('chart.js');
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth').OAuthStrategy;
-// Use the GoogleStrategy within Passport (As shown - in the configuration area - below.
-//   Strategies in passport require a `verify` function, which accept.
-//    ... credentials (in this case, a token, tokenSecret, and Google profile) -> which have been saved in keys.js,
-//    ... and invoke a callback with a user object.
-
 
 //LOCAL DEPENDENCY /IMPORTS
 //===============================================
@@ -35,16 +27,6 @@ app.use('/', express.static(path.join(__dirname + '/client/public'))); //SHOULD 
 
 // Add routes, both API routes and view(html) routes
 app.use(routes);
-
-
-// Configure Passport.js // !! FOR SOME REASON the page does NOT RENDER when this is not uncommented !! >> Talk to TA.
-// passport.use(new GoogleStrategy( keys,  //this references the googleAuth keys in keys.js
-//   function(token, tokenSecret, profile, done) {
-//       User.findOrCreate({ googleId: profile.id }, function (err, user) {
-//         return done(err, user);
-//       });
-//   }
-// ));
 
 
 // Configure Chart.js
