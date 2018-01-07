@@ -1,8 +1,8 @@
 const router = require("express").Router();
 const bookRoutes = require("./books");
 const userRoutes = require("./users");
-const assessmentRoutes = require("./assessment");
-const oAuthRoutes = require("./oauth");
+// const assessmentRoutes = require("./assessment");
+// const oAuthRoutes = require("./oauth");
 
 
 // const express = require("express");
@@ -11,8 +11,8 @@ const oAuthRoutes = require("./oauth");
 // Book routes
 router.use("/books", bookRoutes);
 router.use("/users", userRoutes);
-router.use("/assessment", assessmentRoutes);
-router.use("/auth", oAuthRoutes)
+// router.use("/assessment", assessmentRoutes);
+// router.use("/auth", oAuthRoutes)
 
 module.exports = router;
 
