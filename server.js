@@ -10,9 +10,10 @@ const PORT = process.env.PORT || 3001; //this PORT MUST MATCH the proxy port set
 const traitify = require('traitify');
 const Chart = require('chart.js');
 
+
 //LOCAL DEPENDENCY /IMPORTS
 //===============================================
-const keys = require("./keys.js"); //IN order to import the "googleAuth" variable for the google auth keys (needed) below. 
+// const keys = require("./keys.js"); //IN order to import the "googleAuth" variable for the google auth keys (needed) below. 
 
 
 
@@ -33,10 +34,10 @@ app.use(routes);
 //const myChart = new Chart(ctx, {...});
 
 
-// Configure Traitify
-traitify.setHost("lvh.me");
-traitify.setVersion("v1");
-traitify.setSecretKey("fakeKey");
+// // Configure Traitify
+// traitify.setHost("lvh.me");
+// traitify.setVersion("v1");
+// traitify.setSecretKey("fakeKey");
 
 
 
