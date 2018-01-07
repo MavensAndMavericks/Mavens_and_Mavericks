@@ -7,7 +7,7 @@ const OAuthBtn = props => (
   <div className="media">
 	  <div className="media-left">
 		  <span className="btn btn-primary" {...props}>
-		    <a href="/auth/google" className=" oauth-btn">Sign In with Google</a>
+		    <a href="/books" className=" oauth-btn">Sign In with Google</a>
 		  </span>
 	  </div>
   </div>

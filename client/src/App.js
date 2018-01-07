@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 //Page imports:
 import Books from "./pages/Books";
 import Welcome from "./pages/Welcome"
+import Questionnaire from "./pages/Questionnaire";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 
@@ -19,6 +20,7 @@ const App = () =>
       <Switch>
         <Route exact path="/" component={Welcome} /> 
         <Route exact path="/books" component={Books} />
+        <Route exact path="/questionnaire" component={Questionnaire} />
         <Route exact path="/books/:id" component={Detail} />
         <Route component={NoMatch} /> 
       </Switch>
