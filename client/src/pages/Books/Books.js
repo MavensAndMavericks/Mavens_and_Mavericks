@@ -26,11 +26,23 @@ class Books extends Component {
     synopsis: ""
   };
 
+  componentDidMount() {
+    this.loadBooks();
+  }
+
+  loadBooks = () => {
+   API.getBooks()
+     .then(res =>
+       this.setState({ books: res.data, title: "", author: "", synopsis: "" })
+     )
+     .catch(err => console.log(err));
+ };
+
   deleteBook = id => {
     API.deleteBook(id)
       .then(res => this.loadBooks())
       .catch(err => console.log(err));
-  };
+  };  
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -73,6 +85,7 @@ class Books extends Component {
               <h1 className="text-center">Why have a mentor?</h1>
             </Jumbotron>
             
+
             {this.state.books.length ? (
               <List className="text-center">
                 {this.state.books.map(book => (
