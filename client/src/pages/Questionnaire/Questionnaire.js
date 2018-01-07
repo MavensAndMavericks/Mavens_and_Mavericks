@@ -19,8 +19,13 @@ class Questionnaire extends Component {
     books: [],
     firstName: "",
     lastName: "",
-    author: "",
-    bioquestions: "",
+    bio1:"",
+    bio2:"",
+    bio3:"",
+    bio4:"",
+    bio5:"",
+    bio6:"",
+    bio7:"",
     radioquestions: ""
   };
 
@@ -88,50 +93,50 @@ class Questionnaire extends Component {
               
               <h5>1. What is your GitHub Link?</h5>
                 <Input
-                value={this.state.author}
+                value={this.state.bio1}
                 onChange={this.handleInputChange}
-                name="bioquestions"
+                name="bio1"
               />
                 <h5>2. What is your favorite inspirational quote?</h5>
                 <Input
-                value={this.state.author}
+                value={this.state.bio2}
                 onChange={this.handleInputChange}
-                name="bioquestions"
+                name="bio2"
               />
 
               <h5>3. How extensively have you coded in the past?</h5>
                 <Input
-                value={this.state.author}
+                value={this.state.bio3}
                 onChange={this.handleInputChange}
-                name="bioquestions"
+                name="bio3"
               />
 
               <h5>4. What is your current profession?</h5>
                 <Input
-                value={this.state.author}
+                value={this.state.bio4}
                 onChange={this.handleInputChange}
-                name="bioquestions"
+                name="bio4"
               />
 
               <h5>5. What is your previous schooling?</h5>
                 <Input
-                value={this.state.author}
+                value={this.state.bio5}
                 onChange={this.handleInputChange}
-                name="author"
+                name="bio5"
               />
 
               <h5>6. Has mentorship impacted your professional success, and if so, how?</h5>
               <TextArea
-                value={this.state.synopsis}
+                value={this.state.bio6}
                 onChange={this.handleInputChange}
-                name="bioquestions"
+                name="bio6"
               />
 
               <h5>7. What are you reasons for mentorship?</h5>
               <TextArea
-                value={this.state.synopsis}
+                value={this.state.bio7}
                 onChange={this.handleInputChange}
-                name="bioquestions"
+                name="bio7"
               />
 
               <Questions
