@@ -8,7 +8,7 @@ import API from "../../utils/API";
 //Componenet imports:
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
-import { Input, TextArea, FormBtn } from "../../components/Form";
+import { Input, TextArea, FormBtn, Questions } from "../../components/Form";
 import DeleteBtn from "../../components/DeleteBtn";
 import Jumbotron from "../../components/Jumbotron";
 import Nav from "../../components/Nav";
@@ -17,9 +17,11 @@ import Nav from "../../components/Nav";
 class Questionnaire extends Component {
   state = {
     books: [],
-    title: "",
+    firstName: "",
+    lastName: "",
     author: "",
-    synopsis: ""
+    bioquestions: "",
+    radioquestions: ""
   };
 
   componentDidMount() {
@@ -72,22 +74,70 @@ class Questionnaire extends Component {
             </Jumbotron>
             <form>
               <Input
-                value={this.state.title}
+                value={this.state.firstName}
                 onChange={this.handleInputChange}
-                name="title"
-                placeholder="Title (required)"
+                name="firstName"
+                placeholder="First Name"
               />
               <Input
+                value={this.state.lastName}
+                onChange={this.handleInputChange}
+                name="lastName"
+                placeholder="Last Name"
+              />
+              
+              <h5>1. What is your GitHub Link?</h5>
+                <Input
+                value={this.state.author}
+                onChange={this.handleInputChange}
+                name="bioquestions"
+              />
+                <h5>2. What is your favorite inspirational quote?</h5>
+                <Input
+                value={this.state.author}
+                onChange={this.handleInputChange}
+                name="bioquestions"
+              />
+
+              <h5>3. How extensively have you coded in the past?</h5>
+                <Input
+                value={this.state.author}
+                onChange={this.handleInputChange}
+                name="bioquestions"
+              />
+
+              <h5>4. What is your current profession?</h5>
+                <Input
+                value={this.state.author}
+                onChange={this.handleInputChange}
+                name="bioquestions"
+              />
+
+              <h5>5. What is your previous schooling?</h5>
+                <Input
                 value={this.state.author}
                 onChange={this.handleInputChange}
                 name="author"
-                placeholder="Author (required)"
               />
+
+              <h5>6. Has mentorship impacted your professional success, and if so, how?</h5>
               <TextArea
                 value={this.state.synopsis}
                 onChange={this.handleInputChange}
-                name="synopsis"
-                placeholder="Synopsis (Optional)"
+                name="bioquestions"
+              />
+
+              <h5>7. What are you reasons for mentorship?</h5>
+              <TextArea
+                value={this.state.synopsis}
+                onChange={this.handleInputChange}
+                name="bioquestions"
+              />
+
+              <Questions
+                value={this.state.questions}
+                onChange={this.handleInputChange}
+                name="radioquestions"
               />
               <FormBtn
                 disabled={!(this.state.author && this.state.title)}
