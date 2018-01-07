@@ -8,10 +8,10 @@ const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001; //this PORT MUST MATCH the proxy port set in the package.json inside "client/utils" >> (on the REACT side)
 
-const traitify = require('traitify');
+// const traitify = require('traitify');
 const Chart = require('chart.js');
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth').OAuthStrategy;
+// const passport = require('passport');
+// const GoogleStrategy = require('passport-google-oauth').OAuthStrategy;
 // Use the GoogleStrategy within Passport (As shown - in the configuration area - below.
 //   Strategies in passport require a `verify` function, which accept.
 //    ... credentials (in this case, a token, tokenSecret, and Google profile) -> which have been saved in keys.js,
@@ -20,7 +20,7 @@ const GoogleStrategy = require('passport-google-oauth').OAuthStrategy;
 
 //LOCAL DEPENDENCY /IMPORTS
 //===============================================
-const keys = require("./keys.js"); //IN order to import the "googleAuth" variable for the google auth keys (needed) below. 
+// const keys = require("./keys.js"); //IN order to import the "googleAuth" variable for the google auth keys (needed) below. 
 
 
 
@@ -51,10 +51,10 @@ app.use(routes);
 //const myChart = new Chart(ctx, {...});
 
 
-// Configure Traitify
-traitify.setHost("lvh.me");
-traitify.setVersion("v1");
-traitify.setSecretKey("fakeKey");
+// // Configure Traitify
+// traitify.setHost("lvh.me");
+// traitify.setVersion("v1");
+// traitify.setSecretKey("fakeKey");
 
 
 
