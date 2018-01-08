@@ -3,9 +3,15 @@ const Schema = mongoose.Schema;
 
 const questionnaireSchema = new Schema({
   user_ID: { type: Schema.Types.ObjectId, ref: "User" },
-  threeTopics: { type: Array, required: true },
+  firstName: { type: String, required: true },
+  lastName: { type: String, required: true },
+  gitHub: { type: String, required: true },
+  bioquestions: { type: Array, required: true },
+
   careerLevel: { type: String, required: true },
-  careerResults: {type: Array, required: true },  //modify as necessary >> after creating the career questionnaire
+  languages: { type: Array, required: true },
+  industryExperience: { type: Array, required: true },
+
   personalityResults: { type: Array, required: true },  //modify as necessary >> after reveiwing the Traitify API
   date: { type: Date, default: Date.now }
 });

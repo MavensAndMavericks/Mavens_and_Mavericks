@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Books from "./pages/Books";
 import Welcome from "./pages/Welcome"
 import Questionnaire from "./pages/Questionnaire";
+import MaverickProfile from "./pages/MaverickProfile";
+import MavenProfile from "./pages/MavenProfile";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 
@@ -21,6 +23,8 @@ const App = () =>
         <Route exact path="/" component={Welcome} /> 
         <Route exact path="/books" component={Books} />
         <Route exact path="/questionnaire" component={Questionnaire} />
+        <Route exact path="/questionnaire" component={MaverickProfile} />
+        <Route exact path="/questionnaire" component={MavenProfile} />
         <Route exact path="/books/:id" component={Detail} />
         <Route component={NoMatch} /> 
       </Switch>

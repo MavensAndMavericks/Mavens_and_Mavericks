@@ -1,6 +1,6 @@
 import React from "react";
 import Dropdown from "../Dropdown";
-import OAuthBtn from "../OAuthBtn";
+//import OAuthBtn from "../OAuthBtn"; //OAuth WAS located as a button on the Nav.
 //import Signup from "../Signup";
 
 const Nav = () =>
@@ -22,7 +22,6 @@ const Nav = () =>
 
 
        <Dropdown/>
-       <OAuthBtn/>
        
       
     </div>
