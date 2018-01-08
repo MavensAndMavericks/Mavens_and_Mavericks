@@ -8,13 +8,13 @@ import API from "../../utils/API";
 //Componenet imports:
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
-import { Input, TextArea, FormBtn, Questions } from "../../components/Form";
+import { Input, TextArea, FormBtn, QuestionsMentor } from "../../components/Form";
 import DeleteBtn from "../../components/DeleteBtn";
 import Jumbotron from "../../components/Jumbotron";
 import Nav from "../../components/Nav";
 
 //=================================================================================
-class Questionnaire extends Component {
+class QuestionnaireMentor extends Component {
   state = {
     books: [],
     firstName: "",
@@ -139,13 +139,12 @@ class Questionnaire extends Component {
                 name="bio7"
               />
 
-              <Questions
+              <QuestionsMentor
                 value={this.state.questions}
                 onChange={this.handleInputChange}
                 name="radioquestions"
               />
               <FormBtn
-                disabled={!(this.state.author && this.state.title)}
                 onClick={this.handleFormSubmit}
               >
                 Submit Book
@@ -185,4 +184,4 @@ class Questionnaire extends Component {
   }
 }
 
-export default Questionnaire;
+export default QuestionnaireMentor;
