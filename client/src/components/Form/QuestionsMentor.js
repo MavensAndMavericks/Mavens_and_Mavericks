@@ -43,7 +43,6 @@ export const Questions = props =>
 
             <input className="with-gap" name="group2" type="radio" id="q2" checked />
             <label for="group2"> HTML/CSS</label> 
-
         </div>
 
         <div row>

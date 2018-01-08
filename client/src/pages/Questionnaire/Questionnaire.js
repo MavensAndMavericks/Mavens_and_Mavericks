@@ -16,16 +16,9 @@ import Nav from "../../components/Nav";
 //=================================================================================
 class Questionnaire extends Component {
   state = {
-    books: [],
-    firstName: "",
-    lastName: "",
-    bio1:"",
-    bio2:"",
-    bio3:"",
-    bio4:"",
-    bio5:"",
-    bio6:"",
-    bio7:"",
+    questionnaire: [],
+    firstName,
+    lastName,
     radioquestions: ""
   };
 
@@ -33,31 +26,10 @@ class Questionnaire extends Component {
     this.loadBooks();
   }
 
-  loadBooks = () => {
-    API.getBooks()
-      .then(res =>
-        this.setState({ books: res.data, title: "", author: "", synopsis: "" })
-      )
-      .catch(err => console.log(err));
-  };
-
-  deleteBook = id => {
-    API.deleteBook(id)
-      .then(res => this.loadBooks())
-      .catch(err => console.log(err));
-  };
-
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
-
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.title && this.state.author) {
-      API.saveBook({
+      API.saveQuestionnaire({
         title: this.state.title,
         author: this.state.author,
         synopsis: this.state.synopsis
@@ -145,7 +117,7 @@ class Questionnaire extends Component {
                 name="radioquestions"
               />
               <FormBtn
-                disabled={!(this.state.author && this.state.title)}
+                disabled={!(this.state.firstName && this.state.lastName && this.state.radioquestions)}
                 onClick={this.handleFormSubmit}
               >
                 Submit Book
@@ -159,24 +131,6 @@ class Questionnaire extends Component {
             <Jumbotron>
               <h1 className="text-center">Why have a mentor?</h1>
             </Jumbotron>
-            
-            {this.state.books.length ? (
-              <List className="text-center">
-                {this.state.books.map(book => (
-                  <ListItem key={book._id}>
-                    <Link to={"/books/" + book._id}>
-                      <strong>
-                        {book.title} by {book.author}
-                      </strong>
-                    </Link>
-                    <DeleteBtn onClick={() => this.deleteBook(book._id)} />
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <h3 className="text-center">No Results to Display</h3>
-            )}
-
           </Col>
         </Row>
 
