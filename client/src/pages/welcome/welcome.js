@@ -21,7 +21,7 @@ class Welcome extends Component {
     return (
     	<div>
     		<Nav/>
-        <Signup/>
+        <Signup />
 	        <Row className="valign-wrapper">
 	          <Col className="justify-content-center" size="md-12" style={{margin:"0px"}}>
 	            <Parallax1/>
