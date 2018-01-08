@@ -1,13 +1,10 @@
 import React from "react";
 
-export const QuestionsMentor = props =>
-  // <div className="form-group">
-  //   <input className="group1" type="radio" id="test1"{...props} />
-  //   <label for="test1">Red</label>
-  // </div>;
+export const QuestionsMentee = props =>
+
 <div>
         <div row>
-            <h5>8. What is your current level of experience? </h5>
+            <h5>7. What is your current level of experience? </h5>
             <input className="with-gap" name="group1" type="radio" id="q1" checked />
             <label for="group1"> Novice</label>
 
@@ -22,7 +19,7 @@ export const QuestionsMentor = props =>
         </div>
 
         <div row>
-            <h5>9. What are you preferred languages? </h5>
+            <h5>8. What are you preferred languages? </h5>
             <input className="with-gap" name="group2" type="radio" id="q2" checked />
             <label for="group2"> JavaScript</label>
 
@@ -46,7 +43,7 @@ export const QuestionsMentor = props =>
         </div>
 
         <div row>
-            <h5>10. What is your industry of expertise? </h5>
+            <h5>9. What are your industry areas of interest? </h5>
             <input className="with-gap" name="group3" type="radio" id="q3" checked />
             <label for="group3"> Security</label>
 

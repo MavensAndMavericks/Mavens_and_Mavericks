@@ -1,1 +1,1 @@
-export { default } from "./Questionnaire.js";
+export { default } from "./QuestionnaireMentor.js";
