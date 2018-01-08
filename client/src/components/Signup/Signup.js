@@ -12,7 +12,8 @@ const Signup = () =>
     <ul>
       <li className="waves-effect waves-light"><a href="/"><i className="material-icons">wb_incandescent</i> Mentee Sign Up</a></li>
       <li className="waves-effect waves-light"><a href="/"><i className="material-icons">vpn_key</i> Mentor Sign Up</a></li>
-      <li className="waves-effect waves-light"><a href="/"><i className="material-icons">close</i> Close</a></li>
+      <li className="waves-effect waves-light"><a href="/"><i className="material-icons">computer</i> Sign In</a></li>
+     
     </ul>
 
   </div>
