@@ -18,7 +18,13 @@ class MavenQuestionnaire extends Component {
     firstName:"",
     lastName:"",
     gitHub:"",
-    bioquestions: [],
+    quote: "",
+    coded: "",
+    profession: "",
+    schooling: "",
+    impact:"",
+    reasons:"",
+    // bioquestions: [],
     careerLevel:"",
     languages: [],
     industryExperience: [],
@@ -101,41 +107,49 @@ class MavenQuestionnaire extends Component {
               <Col size="md-12"> 
                 <h5>1. What is your GitHub Link?</h5>
                   <Input
-                    value={this.state.gitHub}
+                    value={this.state.github}
+                    onChange={this.handleInputChange}
                     name="gitHub"
                   />
                 <h5>2. What is your favorite inspirational quote?</h5>
                   <Input
-                    value={this.state.bioquestions}
-                    name="bioquestions"
+                    value={this.state.quote}
+                    onChange={this.handleInputChange}
+                    name="quote"
                   />
                 <h5>3. How extensively have you coded in the past?</h5>
                   <Input
-                    value={this.state.bioquestions}
-                    name="bioquestions"
+                    value={this.state.coded}
+                    onChange={this.handleInputChange}
+                    name="coded"
                   />
                 <h5>4. What is your current profession?</h5>
                   <Input
-                    value={this.state.bioquestions}
-                    name="bioquestions"
+                    value={this.state.profession}
+                    onChange={this.handleInputChange}
+                    name="profession"
                   />
                 <h5>5. What is your previous schooling?</h5>
                   <Input
-                    value={this.state.bioquestions}
-                    name="bioquestions"
+                    value={this.state.schooling}
+                    onChange={this.handleInputChange}
+                    name="schooling"
                   />
                 <h5>6. Has mentorship impacted your professional success, and if so, how?</h5>
                   <TextArea
-                    value={this.state.bioquestions}
-                    name="bioquestions"
+                    value={this.state.impact}
+                    onChange={this.handleInputChange}
+                    name="impact"
                   />
                 <h5>7. What are you reasons for mentorship?</h5>
                   <TextArea
-                    value={this.state.bioquestions}
-                    name="bioquestions"
+                    value={this.state.reasons}
+                    onChange={this.handleInputChange}
+                    name="reasons"
                   />
 
                 <QuestionsMentor/>
+  
 
                 <FormBtn
                   disabled={!(this.state.firstName && this.state.lastName && this.state.gitHub && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.bioquestions)}
