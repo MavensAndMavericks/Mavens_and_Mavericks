@@ -19,13 +19,10 @@ const Signup = () =>
       <Modal
 
 	header='Modal Header'
-	trigger={<li className="waves-effect waves-light"><i className="material-icons">computer</i>Sign In</li>}>
+	trigger={<li className="modalClass"><i className="material-icons">computer</i>Sign In</li>}>
 	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 		incididunt ut labore et dolore magna aliqua.</p>
     </Modal> 
-    </ul>
-
-
     </ul>
   </div>
 
