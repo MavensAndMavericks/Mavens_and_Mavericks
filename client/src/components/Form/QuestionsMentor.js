@@ -4,10 +4,28 @@ import "./QuestionsMentor.css";
 
 class QuestionsMentor extends Component {
     state = {
-        careerLevel:"",
-        languages: [],
-        industryExperience: []
+        // careerLevel:"",
+        // languages: [],
+        // industryExperience: []
+        selectedOption: ""
     };
+
+//==========================================
+  getInitialState=() =>  {
+    return {
+      selectedOption: ''
+    };
+  };
+
+handleOptionChange = event => {
+  this.setState({
+    selectedOption: event.target.value
+  });
+};
+
+
+
+//=========================================
 
     handleFormSubmit = event => {
         event.preventDefault();
@@ -33,16 +51,20 @@ class QuestionsMentor extends Component {
                     <div row>
                         <h5>8. What is your current level of experience? </h5>
 
-                        <input className="with-gap" name="careerLevel" type="radio" id="q1" value={this.state.careerLevel} />
+                        <input className="with-gap" name="careerLevel" type="radio" id="q1" value="option1"
+                        checked={this.state.selectedOption === 'option1'} onChange={this.handleOptionChange}/>
                         <label for="careerLevel"> Novice</label>
 
-                        <input className="with-gap" name="careerLevel" type="radio" id="q1" value={this.state.careerLevel} />
+                        <input className="with-gap" name="careerLevel" type="radio" id="q1" value="option2"
+                        checked={this.state.selectedOption === 'option2'} onChange={this.handleOptionChange} />
                         <label for="careerLevel"> College</label>
 
-                        <input className="with-gap" name="careerLevel" type="radio" id="q1" value={this.state.careerLevel} />
+                        <input className="with-gap" name="careerLevel" type="radio" id="q1" value="option3" 
+                        checked={this.state.selectedOption === 'option3'} onChange={this.handleOptionChange}/>
                         <label for="careerLevel"> New Professional</label>
 
-                        <input className="with-gap" name="careerLevel" type="radio" id="q1" value={this.state.careerLevel} />
+                        <input className="with-gap" name="careerLevel" type="radio" id="q1" value="option4"
+                        checked={this.state.selectedOption === 'option4'} onChange={this.handleOptionChange} />
                         <label for="careerLevel"> Professional 5+ Years</label>    
 
                     </div>
