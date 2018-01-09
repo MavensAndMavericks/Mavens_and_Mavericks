@@ -9,7 +9,6 @@ import MavenQuestionnaire from "./pages/MavenQuestionnaire";
 import MaverickQuestionnaire from "./pages/MaverickQuestionnaire";
 import MaverickProfile from "./pages/MaverickProfile";
 import MavenProfile from "./pages/MavenProfile";
-import MaverickProfile from "./pages/MaverickProfile";
 import QandA from "./pages/QandA";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";

@@ -1,10 +1,7 @@
 import React from "react";
-import $ from "jquery";
 import "./Modal.css";
 
 const Modal = () =>
-$('#modal1').modal('open');
-
 
 <div className="jsxDiv">
 <a className="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
@@ -16,7 +13,5 @@ $('#modal1').modal('open');
   </div>
  </div>
 </div>
-
-
 
 export default Modal;
