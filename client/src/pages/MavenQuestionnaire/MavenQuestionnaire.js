@@ -2,14 +2,11 @@
 
 //React Library imports:
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import API from "../../utils/API";
 
 //Componenet imports:
 import { Col, Row, Container } from "../../components/Grid";
-import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn, QuestionsMentor } from "../../components/Form";
-import DeleteBtn from "../../components/DeleteBtn";
 import Jumbotron from "../../components/Jumbotron";
 import Nav from "../../components/Nav";
 
@@ -28,15 +25,15 @@ class MavenQuestionnaire extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.bioquestions)
+    if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.bioquestions) {
       API.saveQuestionnaire({
         firstName: this.state.firstName,
         lastName: this.state.lastName,
         gitHub: this.state.gitHub,
-        bioquestions: this.state.bioquestions
+        bioquestions: this.state.bioquestions,
         careerLevel: this.state.gitHub,
-        languages: this.state.radioquestions
-        industryExperience: this.state.gitHub,
+        languages: this.state.radioquestions,
+        industryExperience: this.state.industryExperience,
         personalityResults: this.state.personalityResults
       })
         .then(res => {window.location.pathname("/welcomeMaven")})
@@ -71,7 +68,7 @@ class MavenQuestionnaire extends Component {
               <h5>1. What is your GitHub Link?</h5>
                 <Input
                 value={this.state.gitHub}
-                name="bio1"
+                name="gitHub"
               />
                 <h5>2. What is your favorite inspirational quote?</h5>
                 <Input

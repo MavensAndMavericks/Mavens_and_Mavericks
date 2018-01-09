@@ -2,14 +2,11 @@
 
 //React Library imports:
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import API from "../../utils/API";
 
 //Componenet imports:
 import { Col, Row, Container } from "../../components/Grid";
-import { List, ListItem } from "../../components/List";
-import { Input, TextArea, FormBtn, QuestionsMentor } from "../../components/Form";
-import DeleteBtn from "../../components/DeleteBtn";
+import { Input, TextArea, FormBtn, QuestionsMentee } from "../../components/Form";
 import Jumbotron from "../../components/Jumbotron";
 import Nav from "../../components/Nav";
 
@@ -28,15 +25,15 @@ class MaverickQuestionnaire extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.bioquestions)
+    if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.bioquestions) {
       API.saveQuestionnaire({
         firstName: this.state.firstName,
         lastName: this.state.lastName,
         gitHub: this.state.gitHub,
-        bioquestions: this.state.radioquestions
+        bioquestions: this.state.bioquestions,
         careerLevel: this.state.gitHub,
-        languages: this.state.radioquestions
-        industryExperience: this.state.gitHub,
+        languages: this.state.radioquestions,
+        industryExperience: this.state.industryExperience,
         personalityResults: this.state.personalityResults
       })
         .then(res => {window.location.pathname("/welcomeMaverick")})
@@ -70,46 +67,46 @@ class MaverickQuestionnaire extends Component {
               
               <h5>1. What is your GitHub Link?</h5>
                 <Input
-                value={this.state.bio1}
-                name="bio1"
+                value={this.state.gitHub}
+                name="gitHub"
               />
                 <h5>2. What is your favorite inspirational quote?</h5>
                 <Input
-                value={this.state.bio2}
-                name="bio2"
+                value={this.state.bioquestions}
+                name="bioquestions"
               />
 
               <h5>3. How extensively have you coded in the past?</h5>
                 <Input
-                value={this.state.bio3}
-                name="bio3"
+                value={this.state.bioquestions}
+                name="bioquestions"
               />
 
               <h5>4. What is your current profession?</h5>
                 <Input
-                value={this.state.bio4}
-                name="bio4"
+                value={this.state.bioquestions}
+                name="bioquestions"
               />
 
               <h5>5. What is your previous schooling?</h5>
                 <Input
-                value={this.state.bio5}
-                name="bio5"
+                value={this.state.bioquestions}
+                name="bioquestions"
               />
 
               <h5>6. Has mentorship impacted your professional success, and if so, how?</h5>
               <TextArea
-                value={this.state.bio6}
-                name="bio6"
+                value={this.state.bioquestions}
+                name="bioquestions"
               />
 
               <h5>7. What are you reasons for mentorship?</h5>
               <TextArea
-                value={this.state.bio7}
-                name="bio7"
+                value={this.state.bioquestions}
+                name="bioquestions"
               />
 
-              <QuestionsMentor/>
+              <QuestionsMentee/>
 
               <FormBtn
                 disabled={!(this.state.firstName && this.state.lastName && this.state.gitHub && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.bioquestions)}
