@@ -1,4 +1,5 @@
 import React from "react";
+import Modal from "../Modal";
 import "./Signup.css";
 
 const Signup = () =>
@@ -10,11 +11,15 @@ const Signup = () =>
     </a>
 
     <ul>
-      <li className="waves-effect waves-light"><a href="/"><i className="material-icons">wb_incandescent</i> Mentee Sign Up</a></li>
-      <li className="waves-effect waves-light"><a href="/"><i className="material-icons">vpn_key</i> Mentor Sign Up</a></li>
-      <li className="waves-effect waves-light"><a href="/"><i className="material-icons">close</i> Close</a></li>
-    </ul>
+      
+      <li className="waves-effect waves-light"><a href="/MaverickQuestionnaire"><i className="material-icons">wb_incandescent</i> Mentee Sign Up</a></li>
+      <li className="waves-effect waves-light"><a href="/MavenQuestionnaire"><i className="material-icons">vpn_key</i> Mentor Sign Up</a></li>
+   
+   <Modal>
+      <li className="waves-effect waves-light"><a href="/"><i className="material-icons">computer</i> Sign In</a></li>
+    </Modal>
 
+    </ul>
   </div>
 
 export default Signup;
