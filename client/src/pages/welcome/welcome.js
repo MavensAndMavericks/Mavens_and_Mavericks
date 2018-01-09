@@ -16,7 +16,22 @@ import { Col, Row } from "../../components/Grid";
 import Footer from "../../components/Footer";
 
 //=================================================================================
+
+
+
+
 class Welcome extends Component {
+
+
+handleHideModal(){
+    this.setState({view: {showModal: false}})
+}
+handleShowModal(){
+    this.setState({view: {showModal: true}})
+}
+
+
+
   render() {
     return (
     	<div>
