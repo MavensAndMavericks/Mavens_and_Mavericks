@@ -39,7 +39,7 @@ class MavenQuestionnaire extends Component {
         industryExperience: this.state.gitHub,
         personalityResults: this.state.personalityResults
       })
-        .then(res => {window.location.pathname("/MavenProfile")})
+        .then(res => {window.location.pathname("/welcomeMaven")})
         .catch(err => console.log(err));
     }
   };

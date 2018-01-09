@@ -11,7 +11,7 @@ const Dropdown = props => (
       <ul className="dropdown-menu">
         <li><a href="/">How We Define Mentor</a></li>
         <li><a href="/">Example Projects</a></li>
-        <li><a href="/Questionnaire">Q &#x26; A</a></li>
+        <li><a href="/QandA">Q &#x26; A</a></li>
       </ul>
     </li>
 
