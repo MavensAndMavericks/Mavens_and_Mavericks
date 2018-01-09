@@ -13,8 +13,8 @@ const Signup = () =>
 
     <ul>
       
-      <li className="waves-effect waves-light"><a href="/Questionnaire"><i className="material-icons">wb_incandescent</i> Mentee Sign Up</a></li>
-      <li className="waves-effect waves-light"><a href="/Questionnaire"><i className="material-icons">vpn_key</i> Mentor Sign Up</a></li>  
+      <li className="waves-effect waves-light"><a href="/MaverickQuestionnaire"><i className="material-icons">wb_incandescent</i> Mentee Sign Up</a></li>
+      <li className="waves-effect waves-light"><a href="/MavenQuestionnaire"><i className="material-icons">vpn_key</i> Mentor Sign Up</a></li>  
  
       <Modal
 
@@ -25,6 +25,8 @@ const Signup = () =>
     </Modal> 
     </ul>
 
+
+    </ul>
   </div>
 
 export default Signup;

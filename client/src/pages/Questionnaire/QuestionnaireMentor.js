@@ -69,34 +69,52 @@ class QuestionnaireMentor extends Component {
 
   render() {
     return (
-      <Container fluid>
+      <div>
         <Nav/>
-
+        <Container>
         <Row>
           <Col size="md-12">
             <Jumbotron>
               <h1 className="text-center">Welcome to Maverns and Mavericks!</h1>
             </Jumbotron>
-            <form>
+            </Col>
+          </Row>
+
+          
+        <Row>
+        <form>
+          <Col size="md-6">
+            
               <Input
                 value={this.state.firstName}
                 onChange={this.handleInputChange}
                 name="firstName"
                 placeholder="First Name"
               />
+            </Col>
+              <Col size="md-6">
               <Input
                 value={this.state.lastName}
                 onChange={this.handleInputChange}
                 name="lastName"
                 placeholder="Last Name"
               />
-              
+              </Col>
+            </form>          
+ 
+        </Row>
+
+        <Row>
+          <Col size="md-12">
+            <form>
+
               <h5>1. What is your GitHub Link?</h5>
                 <Input
                 value={this.state.bio1}
                 onChange={this.handleInputChange}
                 name="bio1"
               />
+
                 <h5>2. What is your favorite inspirational quote?</h5>
                 <Input
                 value={this.state.bio2}
@@ -140,15 +158,17 @@ class QuestionnaireMentor extends Component {
               />
 
               <QuestionsMentor
-                value={this.state.questions}
+                value={this.state.radioquestions}
                 onChange={this.handleInputChange}
                 name="radioquestions"
               />
+
               <FormBtn
                 onClick={this.handleFormSubmit}
               >
                 Submit Book
               </FormBtn>
+
             </form>
           </Col>
         </Row>
@@ -180,6 +200,7 @@ class QuestionnaireMentor extends Component {
         </Row>
 
       </Container>
+      </div>
     );
   }
 }

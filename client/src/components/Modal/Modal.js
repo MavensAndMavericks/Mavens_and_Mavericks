@@ -1,3 +1,4 @@
+
 // import React from "react";
 
 // import "./Modal.css";
@@ -10,3 +11,5 @@
 // </Modal>
 
 // export default Modal;
+
+

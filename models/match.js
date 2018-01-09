@@ -5,8 +5,7 @@ const Schema = mongoose.Schema;
 
 const matchSchema = new Schema({
   	user_ID: { type: Schema.Types.ObjectId, ref: "User" },
-    matchList: { type: Array, required: true, limit: 15  },// this list should display on a “Match” Page.
-    
+    matchList: { type: Array, required: true, limit: 15  }// this list should display on a “Match” Page.
 });
 
 const Match = mongoose.model("Match", matchSchema);
