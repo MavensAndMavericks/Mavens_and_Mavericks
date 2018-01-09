@@ -1,6 +1,9 @@
 .fixed-action-btn{
-    bottom: 70%;/*desired value*/
+    bottom: 87%;/*desired value*/
+    right: 2%;
+    z-index: 2;
     }
+    
 .modalClass {
     padding-top: 15px;
     color: white

@@ -1,14 +1,21 @@
-.parallax2 {
-	/* The image used */
-	/*background-image: url("/assets/open-Eyes-pic.jpeg");*/
+.container {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
 
-	/* Set a specific height */
+.parallax2 {
+    z-index: 2;
+    padding: 0px;
+    margin: 0px;
 	height: 1500px; 
+
 	/* Create the parallax scrolling effect */
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+    
 }
 
  .animated {
@@ -34,4 +41,9 @@
  .fadeIn {
     -webkit-animation-name: fadeIn;
     animation-name: fadeIn;
+ }
+
+ .header {
+    z-index: 2;
+    text-align: center;
  }

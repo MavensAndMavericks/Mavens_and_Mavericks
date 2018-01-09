@@ -11,6 +11,7 @@ import React, { Component } from "react";
 //=============================
 import Nav from "../../components/Nav";
 import Signup from "../../components/Signup";
+//import WelcomeMsg from "../../components/WelcomeMsg";
 import Parallax1 from "../../components/Parallax1";
 import { Col, Row } from "../../components/Grid";
 import Footer from "../../components/Footer";
@@ -37,11 +38,15 @@ handleShowModal(){
     	<div>
     		<Nav/>
         <Signup />
+        <br/>
+        <br/>
+
 	        <Row className="valign-wrapper">
-	          <Col className="justify-content-center" size="md-12" style={{margin:"0px"}}>
-	            <Parallax1/>
+	          <Col size="md-12" style={{margin:"0px"}}>
+              <Parallax1/>
 	          </Col>
 	        </Row>
+
         <Footer/>
       </div>
     );

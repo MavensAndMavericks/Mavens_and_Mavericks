@@ -1,79 +1,106 @@
-import React from "react";
+import React, { Component } from "react";
+import API from "../../utils/API";
 import "./QuestionsMentor.css";
 
-export const QuestionsMentor = props =>
-  // <div className="form-group">
-  //   <input className="group1" type="radio" id="test1"{...props} />
-  //   <label for="test1">Red</label>
-  // </div>;
-<div>
-        <div row>
-            <h5>8. What is your current level of experience? </h5>
+class QuestionsMentor extends Component {
+    state = {
+        careerLevel:"",
+        languages: [],
+        industryExperience: []
+    };
 
-            <input className="with-gap" name="careerLevel" type="radio" id="q1" value={this.state.careerLevel} />
-            <label for="careerLevel"> Novice</label>
+    handleFormSubmit = event => {
+        event.preventDefault();
+        if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.bioquestions) {
+          API.saveQuestionnaire({
+            careerLevel: this.state.gitHub,
+            languages: this.state.radioquestions,
+            industryExperience: this.state.industryExperience
+          })
+            .then(res => {window.location.pathname("/welcomeMaven")})
+            .catch(err => console.log(err));
+        }
+    };
 
-            <input className="with-gap" name="careerLevel" type="radio" id="q1" value={this.state.careerLevel} />
-            <label for="careerLevel"> College</label>
+    render() {
+        return (
 
-            <input className="with-gap" name="careerLevel" type="radio" id="q1" value={this.state.careerLevel} />
-            <label for="careerLevel"> New Professional</label>
+              // <div className="form-group">
+              //   <input className="group1" type="radio" id="test1"{...props} />
+              //   <label for="test1">Red</label>
+              // </div>;
+            <div>
+                    <div row>
+                        <h5>8. What is your current level of experience? </h5>
 
-            <input className="with-gap" name="careerLevel" type="radio" id="q1" value={this.state.careerLevel} />
-            <label for="careerLevel"> Professional 5+ Years</label>    
+                        <input className="with-gap" name="careerLevel" type="radio" id="q1" value={this.state.careerLevel} />
+                        <label for="careerLevel"> Novice</label>
 
-        </div>
+                        <input className="with-gap" name="careerLevel" type="radio" id="q1" value={this.state.careerLevel} />
+                        <label for="careerLevel"> College</label>
 
-        <div row>
-            <h5>9. What are you preferred languages? </h5>
+                        <input className="with-gap" name="careerLevel" type="radio" id="q1" value={this.state.careerLevel} />
+                        <label for="careerLevel"> New Professional</label>
 
-            <input className="with-gap" name="languages" type="radio" id="q2" value={this.state.languages} />
-            <label for="languages"> JavaScript</label>
+                        <input className="with-gap" name="careerLevel" type="radio" id="q1" value={this.state.careerLevel} />
+                        <label for="careerLevel"> Professional 5+ Years</label>    
 
-            <input className="with-gap" name="languages" type="radio" id="q2" value={this.state.languages} />
-            <label for="languages"> Python</label>
+                    </div>
 
-            <input className="with-gap" name="languages" type="radio" id="q2" value={this.state.languages} />
-            <label for="languages"> PHP</label>  
+                    <div row>
+                        <h5>9. What are you preferred languages? </h5>
 
-            <input className="with-gap" name="languages" type="radio" id="q2" value={this.state.languages} />
-            <label for="languages"> Ruby</label>   
+                        <input className="with-gap" name="languages" type="radio" id="q2" value={this.state.languages} />
+                        <label for="languages"> JavaScript</label>
 
-            <input className="with-gap" name="languages" type="radio" id="q2" value={this.state.languages} />
-            <label for="languages"> C++</label>  
+                        <input className="with-gap" name="languages" type="radio" id="q2" value={this.state.languages} />
+                        <label for="languages"> Python</label>
 
-            <input className="with-gap" name="languages" type="radio" id="q2" value={this.state.languages} />
-            <label for="languages"> SQL</label> 
+                        <input className="with-gap" name="languages" type="radio" id="q2" value={this.state.languages} />
+                        <label for="languages"> PHP</label>  
 
-            <input className="with-gap" name="languages" type="radio" id="q2" value={this.state.languages} />
-            <label for="languages"> HTML/CSS</label> 
+                        <input className="with-gap" name="languages" type="radio" id="q2" value={this.state.languages} />
+                        <label for="languages"> Ruby</label>   
 
-        </div>
+                        <input className="with-gap" name="languages" type="radio" id="q2" value={this.state.languages} />
+                        <label for="languages"> C++</label>  
 
-        <div row>
-            <h5>10. What is your industry of expertise? </h5>
+                        <input className="with-gap" name="languages" type="radio" id="q2" value={this.state.languages} />
+                        <label for="languages"> SQL</label> 
 
-            <input className="with-gap" name="industryExperience" type="radio" id="q3" value={this.state.industryExperience} />
-            <label for="industryExperience"> Security</label>
+                        <input className="with-gap" name="languages" type="radio" id="q2" value={this.state.languages} />
+                        <label for="languages"> HTML/CSS</label> 
 
-            <input className="with-gap" name="industryExperience" type="radio" id="q3" value={this.state.industryExperience} />
-            <label for="industryExperience"> Commerce</label>
+                    </div>
 
-            <input className="with-gap" name="industryExperience" type="radio" id="q3" value={this.state.industryExperience} />
-            <label for="industryExperience"> Finance</label>  
+                    <div row>
+                        <h5>10. What is your industry of expertise? </h5>
 
-            <input className="with-gap" name="industryExperience" type="radio" id="q3" value={this.state.industryExperience} />
-            <label for="industryExperience"> Health</label>    
+                        <input className="with-gap" name="industryExperience" type="radio" id="q3" value={this.state.industryExperience} />
+                        <label for="industryExperience"> Security</label>
 
-            <input className="with-gap" name="industryExperience" type="radio" id="q3" value={this.state.industryExperience} />
-            <label for="industryExperience"> Gaming</label> 
+                        <input className="with-gap" name="industryExperience" type="radio" id="q3" value={this.state.industryExperience} />
+                        <label for="industryExperience"> Commerce</label>
 
-            <input className="with-gap" name="industryExperience" type="radio" id="q3" value={this.state.industryExperience} />
-            <label for="industryExperience"> Social Media</label> 
+                        <input className="with-gap" name="industryExperience" type="radio" id="q3" value={this.state.industryExperience} />
+                        <label for="industryExperience"> Finance</label>  
 
-            <input className="with-gap" name="industryExperience" type="radio" id="q3" value={this.state.industryExperience} />
-            <label for="industryExperience"> Marketing</label> 
+                        <input className="with-gap" name="industryExperience" type="radio" id="q3" value={this.state.industryExperience} />
+                        <label for="industryExperience"> Health</label>    
 
-        </div>
+                        <input className="with-gap" name="industryExperience" type="radio" id="q3" value={this.state.industryExperience} />
+                        <label for="industryExperience"> Gaming</label> 
 
-</div>
+                        <input className="with-gap" name="industryExperience" type="radio" id="q3" value={this.state.industryExperience} />
+                        <label for="industryExperience"> Social Media</label> 
+
+                        <input className="with-gap" name="industryExperience" type="radio" id="q3" value={this.state.industryExperience} />
+                        <label for="industryExperience"> Marketing</label> 
+
+                    </div>
+            </div>
+        )
+    }
+}
+
+export {QuestionsMentor};
