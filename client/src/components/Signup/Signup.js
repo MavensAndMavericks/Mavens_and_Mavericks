@@ -1,6 +1,7 @@
 import React from "react";
-import Modal from "../Modal";
+
 import "./Signup.css";
+import {Modal} from "react-materialize";
 
 const Signup = () =>
   <div className="fixed-action-btn toolbar sign-up">
@@ -13,11 +14,17 @@ const Signup = () =>
     <ul>
       
       <li className="waves-effect waves-light"><a href="/MaverickQuestionnaire"><i className="material-icons">wb_incandescent</i> Mentee Sign Up</a></li>
-      <li className="waves-effect waves-light"><a href="/MavenQuestionnaire"><i className="material-icons">vpn_key</i> Mentor Sign Up</a></li>
-   
-   <Modal>
-      <li className="waves-effect waves-light"><a href="/"><i className="material-icons">computer</i> Sign In</a></li>
-    </Modal>
+      <li className="waves-effect waves-light"><a href="/MavenQuestionnaire"><i className="material-icons">vpn_key</i> Mentor Sign Up</a></li>  
+ 
+      <Modal
+
+	header='Modal Header'
+	trigger={<li className="waves-effect waves-light"><i className="material-icons">computer</i>Sign In</li>}>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+		incididunt ut labore et dolore magna aliqua.</p>
+    </Modal> 
+    </ul>
+
 
     </ul>
   </div>

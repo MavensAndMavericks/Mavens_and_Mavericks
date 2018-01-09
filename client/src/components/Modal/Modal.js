@@ -1,17 +1,15 @@
-import React from "react";
-import "./Modal.css";
 
-const Modal = () =>
+// import React from "react";
 
-<div className="jsxDiv">
-<a className="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+// import "./Modal.css";
 
-<div id="modal1" className="modal">
-  <div className="modal-content">
-    <h4>Modal Header</h4>
-    <p>A bunch of text</p>
-  </div>
- </div>
-</div>
+// <Modal
+// 	header='Modal Header'
+// 	trigger={<Button waves='light'>OR ME!<Icon right>insert_chart</Icon></Button>}>
+// 	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+// 		incididunt ut labore et dolore magna aliqua.</p>
+// </Modal>
 
-export default Modal;
+// export default Modal;
+
+
