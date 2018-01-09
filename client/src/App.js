@@ -9,6 +9,9 @@ import MavenQuestionnaire from "./pages/MavenQuestionnaire";
 import MaverickQuestionnaire from "./pages/MaverickQuestionnaire";
 import MaverickProfile from "./pages/MaverickProfile";
 import MavenProfile from "./pages/MavenProfile";
+import AboutUs from "./pages/AboutUs";
+import MentorDef from "./pages/MentorDef";
+import ExampleProj from "./pages/ExampleProj";
 import QandA from "./pages/QandA";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
@@ -28,7 +31,11 @@ const App = () =>
         <Route exact path="/mavenquestionnaire" component={MavenQuestionnaire} />
         <Route exact path="/welcomeMaverick" component={MaverickProfile} />
         <Route exact path="/welcomeMaven" component={MavenProfile} />
-        <Route exact path="/q&a" component={QandA} />
+        
+        <Route exact path="/aboutus" component={AboutUs} />
+        <Route exact path="/mentorsarekey" component={MentorDef} />
+        <Route exact path="/openprojects" component={ExampleProj} />
+        <Route exact path="/QandA" component={QandA} />
         <Route exact path="/books/:id" component={Detail} />
         <Route component={NoMatch} /> 
       </Switch>

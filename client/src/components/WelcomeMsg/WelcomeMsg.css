@@ -1,6 +1,7 @@
 .welcome-msg {
     color: white;
-	width: 800px;
+    text-align: center;
+	width: 60%;
 	height: 100px;
 	position: relative;
     -webkit-animation: mymove 5s;  /* Safari 4.0 - 8.0 */

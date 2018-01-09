@@ -1,14 +1,14 @@
 .parallax1 {
-	/* The image used */
-	/*background-image: url("/assets/open-Eyes-pic.jpeg");*/
+    z-index: 2;
+    padding: 0px;
+    margin: 0px;
+    height: 1500px; 
 
-	/* Set a specific height */
-	height: 1500px; 
-	/* Create the parallax scrolling effect */
-	background-attachment: fixed;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
  .animated {

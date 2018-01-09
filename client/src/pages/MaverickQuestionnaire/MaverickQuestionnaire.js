@@ -1,5 +1,3 @@
-// READ PLEASE: !! THIS EXAMPLE WAS TAKEN DIRECTLY FROM THE "BOOKS" PAGE EXAMPLE!! >> ONLY changed out the "books" name to keep from bundling incorreclty.. !!
-
 //React Library imports:
 import React, { Component } from "react";
 import API from "../../utils/API";
@@ -9,6 +7,7 @@ import { Col, Row, Container } from "../../components/Grid";
 import { Input, TextArea, FormBtn, QuestionsMentee } from "../../components/Form";
 import Jumbotron from "../../components/Jumbotron";
 import Nav from "../../components/Nav";
+import Footer from "../../components/Footer";
 
 //=================================================================================
 class MaverickQuestionnaire extends Component {
@@ -43,92 +42,91 @@ class MaverickQuestionnaire extends Component {
 
   render() {
     return (
-      <Container fluid>
-        <Nav/>
+      <div>
+        <Container fluid style={{backgroundImage:"url(/assets/futuristic-Factory-Background)"}}>>
+          <Nav/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
 
-        <Row>
-          <Col size="md-12">
+          <Row>
+            <Col size="md-12">
 
-            <Jumbotron>
-              <h1 className="text-center">Welcome to Maverns and Mavericks!</h1>
-            </Jumbotron>
+              <Jumbotron>
+                <h1 className="text-center">Welcome to Mavens and Mavericks!</h1>
+              </Jumbotron>
 
-            <form>
-              <Input
-                value={this.state.firstName}
-                name="firstName"
-                placeholder="First Name"
-              />
-              <Input
-                value={this.state.lastName}
-                name="lastName"
-                placeholder="Last Name"
-              />
-              
-              <h5>1. What is your GitHub Link?</h5>
+              <form>
                 <Input
-                value={this.state.gitHub}
-                name="gitHub"
-              />
-                <h5>2. What is your favorite inspirational quote?</h5>
+                  value={this.state.firstName}
+                  name="firstName"
+                  placeholder="First Name"
+                />
                 <Input
-                value={this.state.bioquestions}
-                name="bioquestions"
-              />
+                  value={this.state.lastName}
+                  name="lastName"
+                  placeholder="Last Name"
+                />
+                
+                <h5>1. What is your GitHub Link?</h5>
+                  <Input
+                  value={this.state.gitHub}
+                  name="gitHub"
+                />
+                  <h5>2. What is your favorite inspirational quote?</h5>
+                  <Input
+                  value={this.state.bioquestions}
+                  name="bioquestions"
+                />
 
-              <h5>3. How extensively have you coded in the past?</h5>
-                <Input
-                value={this.state.bioquestions}
-                name="bioquestions"
-              />
+                <h5>3. How extensively have you coded in the past?</h5>
+                  <Input
+                  value={this.state.bioquestions}
+                  name="bioquestions"
+                />
 
-              <h5>4. What is your current profession?</h5>
-                <Input
-                value={this.state.bioquestions}
-                name="bioquestions"
-              />
+                <h5>4. What is your current profession?</h5>
+                  <Input
+                  value={this.state.bioquestions}
+                  name="bioquestions"
+                />
 
-              <h5>5. What is your previous schooling?</h5>
-                <Input
-                value={this.state.bioquestions}
-                name="bioquestions"
-              />
+                <h5>5. What is your previous schooling?</h5>
+                  <Input
+                  value={this.state.bioquestions}
+                  name="bioquestions"
+                />
 
-              <h5>6. Has mentorship impacted your professional success, and if so, how?</h5>
-              <TextArea
-                value={this.state.bioquestions}
-                name="bioquestions"
-              />
+                <h5>6. Has mentorship impacted your professional success, and if so, how?</h5>
+                <TextArea
+                  value={this.state.bioquestions}
+                  name="bioquestions"
+                />
 
-              <h5>7. What are you reasons for mentorship?</h5>
-              <TextArea
-                value={this.state.bioquestions}
-                name="bioquestions"
-              />
+                <h5>7. What are you reasons for mentorship?</h5>
+                <TextArea
+                  value={this.state.bioquestions}
+                  name="bioquestions"
+                />
 
-              <QuestionsMentee/>
+                <QuestionsMentee/>
 
-              <FormBtn
-                disabled={!(this.state.firstName && this.state.lastName && this.state.gitHub && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.bioquestions)}
-                onClick={this.handleFormSubmit}
-              >
-                Submit Book
-              </FormBtn>
+                <FormBtn
+                  disabled={!(this.state.firstName && this.state.lastName && this.state.gitHub && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.bioquestions)}
+                  onClick={this.handleFormSubmit}
+                >
+                  Submit Book
+                </FormBtn>
 
+              </form>
+            </Col>
+          </Row>
+        
+        </Container>
 
-            </form>
-          </Col>
-        </Row>
-
-        <Row>
-          <Col size="md-12">
-            <Jumbotron>
-              <h1 className="text-center">Jumbotron Block - Put inspirational Quote here?</h1>
-            </Jumbotron>
-          </Col>
-        </Row>
-
-      </Container>
+        <Footer/>
+      </div>
     );
   }
 }

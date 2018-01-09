@@ -11,20 +11,24 @@ import React, { Component } from "react";
 //=============================
 import Nav from "../../components/Nav";
 import Signup from "../../components/Signup";
-import Parallax2 from "../../components/Parallax2";
+import Parallax3 from "../../components/Parallax3";
 import { Col, Row } from "../../components/Grid";
 import Footer from "../../components/Footer";
 
 //=================================================================================
-class Welcome extends Component {
+class QandA extends Component {
   render() {
     return (
     	<div>
     		<Nav/>
         <Signup />
+        <br/>
+        <br/>
+        <br/>
+        
 	        <Row className="valign-wrapper">
 	          <Col className="justify-content-center" size="md-12" style={{margin:"0px"}}>
-	            <Parallax2/>
+	            <Parallax3/>
 	          </Col>
 	        </Row>
         <Footer/>
@@ -33,6 +37,6 @@ class Welcome extends Component {
   }
 }
 
-export default Welcome;
+export default QandA;
 
 // WHY does not the "valign-wrapper" work above??
