@@ -20,8 +20,7 @@ const Signup = () =>
 
 	header='Modal Header'
 	trigger={<li className="modalClass"><i className="material-icons">computer</i>Sign In</li>}>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-		incididunt ut labore et dolore magna aliqua.</p>
+	<p>SEND BIRD GOES HERE.</p>
     </Modal> 
     </ul>
   </div>
