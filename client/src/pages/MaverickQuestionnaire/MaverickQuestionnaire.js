@@ -50,7 +50,7 @@ class MaverickQuestionnaire extends Component {
         industryExperience: this.state.industryExperience,
         personalityResults: this.state.personalityResults
       })
-        .then(res => {window.location.pathname("/welcomeMaverick")})
+        .then(res => {window.location.pathname ="/welcomeMaverick"})
         .catch(err => console.log(err));
     }
   };
@@ -105,7 +105,7 @@ class MaverickQuestionnaire extends Component {
               <Row>
                 <Col size = "md-12">
                 
-                  <h5>1. What is your GitHub Link?</h5>
+                  <h5>1. What is your GitHub Handler?</h5>
                     <Input
                       value={this.state.gitHub}
                       onChange={this.handleInputChange}
