@@ -15,6 +15,7 @@ import Footer from "../../components/Footer";
 //=================================================================================
 class MavenQuestionnaire extends Component {
   state = {
+    questionnaires: [],
     firstName:"",
     lastName:"",
     gitHub:"",
@@ -57,21 +58,10 @@ class MavenQuestionnaire extends Component {
         //industryExperience: this.state.industryExperience,
         //personalityResults: this.state.personalityResults
       })
-        .then(res => {window.location.pathname("/welcomeMaven")})
-        .catch(err => console.log(err));
+        .catch(err => console.log(err))
+        .then( window.location.pathname ="/welcomeMaven"); //>>> <Link to={"/welcomeMaven/" + questionnaire._id}>  <<<!!?? Would this work ??!!
     }
   };
-
-  handleInputChange = event => {
-    // Getting the value and name of the input which triggered the change
-    const { name, value } = event.target;
-
-    // Updating the input's state
-    this.setState({
-      [name]: value
-    });
-  };
-
 
   render() {
     return (
@@ -122,7 +112,7 @@ class MavenQuestionnaire extends Component {
 
             <Row>
               <Col size="md-12"> 
-                <h5>1. What is your GitHub Link?</h5>
+                <h5>1. What is your GitHub Handler?</h5>
                   <Input
                     value={this.state.github}
                     onChange={this.handleInputChange}

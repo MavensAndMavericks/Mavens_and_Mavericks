@@ -1,6 +1,5 @@
 {
   "ignore": [
-    "client/*",
-    "keys.js"
+    "client/*"
   ]
 }
