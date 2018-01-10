@@ -18,7 +18,12 @@ class MavenQuestionnaire extends Component {
     firstName:"",
     lastName:"",
     gitHub:"",
-    bioquestions: [],
+    inspirationalQuote: "",
+    codingHistory: "",
+    profession: "",
+    education: "",
+    mentorIcon: "",
+    whyMentor: "",
     careerLevel:"",
     languages: [],
     industryExperience: [],
@@ -32,9 +37,14 @@ class MavenQuestionnaire extends Component {
         firstName: this.state.firstName,
         lastName: this.state.lastName,
         gitHub: this.state.gitHub,
-        bioquestions: this.state.bioquestions,
-        careerLevel: this.state.gitHub,
-        languages: this.state.radioquestions,
+        inspirationalQuote: this.state.inspirationalQuote,
+        codingHistory: this.state.codingHistory,
+        profession: this.state.profession,
+        education: this.state.education,
+        mentorIcon: this.state.mentorIcon,
+        whyMentor: this.state.whyMentor,
+        careerLevel: this.state.careerLevel,
+        languages: this.state.languages,
         industryExperience: this.state.industryExperience,
         personalityResults: this.state.personalityResults
       })
@@ -42,6 +52,17 @@ class MavenQuestionnaire extends Component {
         .catch(err => console.log(err));
     }
   };
+
+  handleInputChange = event => {
+    // Getting the value and name of the input which triggered the change
+    const { name, value } = event.target;
+
+    // Updating the input's state
+    this.setState({
+      [name]: value
+    });
+  };
+
 
   render() {
     return (
@@ -64,11 +85,13 @@ class MavenQuestionnaire extends Component {
                 <Input
                   value={this.state.firstName}
                   name="firstName"
+                  onChange={this.handleInputChange}
                   placeholder="First Name"
                 />
                 <Input
                   value={this.state.lastName}
                   name="lastName"
+                  onChange={this.handleInputChange}
                   placeholder="Last Name"
                 />
                 
@@ -76,41 +99,48 @@ class MavenQuestionnaire extends Component {
                   <Input
                   value={this.state.gitHub}
                   name="gitHub"
+                  onChange={this.handleInputChange}
                 />
                   <h5>2. What is your favorite inspirational quote?</h5>
                   <Input
-                  value={this.state.bioquestions}
-                  name="bioquestions"
+                  value={this.state.inspirationalQuote}
+                  name="inspirationalQuote"
+                  onChange={this.handleInputChange}
                 />
 
                 <h5>3. How extensively have you coded in the past?</h5>
                   <Input
-                  value={this.state.bioquestions}
-                  name="bioquestions"
+                  value={this.state.codingHistory}
+                  name="codingHistory"
+                  onChange={this.handleInputChange}
                 />
 
                 <h5>4. What is your current profession?</h5>
                   <Input
-                  value={this.state.bioquestions}
-                  name="bioquestions"
+                  value={this.state.profession}
+                  name="profession"
+                  onChange={this.handleInputChange}
                 />
 
                 <h5>5. What is your previous schooling?</h5>
                   <Input
-                  value={this.state.bioquestions}
-                  name="bioquestions"
+                  value={this.state.education}
+                  name="education"
+                  onChange={this.handleInputChange}
                 />
 
                 <h5>6. Has mentorship impacted your professional success, and if so, how?</h5>
                 <TextArea
-                  value={this.state.bioquestions}
-                  name="bioquestions"
+                  value={this.state.mentorIcon}
+                  name="mentorIcon"
+                  onChange={this.handleInputChange}
                 />
 
                 <h5>7. What are you reasons for mentorship?</h5>
                 <TextArea
-                  value={this.state.bioquestions}
-                  name="bioquestions"
+                  value={this.state.whyMentor}
+                  name="whyMentor"
+                  onChange={this.handleInputChange}
                 />
 
                 <QuestionsMentor/>
@@ -143,3 +173,7 @@ class MavenQuestionnaire extends Component {
 }
 
 export default MavenQuestionnaire;
+
+
+//    bioquestions: [],
+// bioquestions: this.state.bioquestions,

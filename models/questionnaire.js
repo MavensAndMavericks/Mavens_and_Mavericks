@@ -6,7 +6,13 @@ const questionnaireSchema = new Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   gitHub: { type: String, required: true },
-  bioquestions: { type: Array, required: true },
+
+  inspirationalQuote: { type: String, required: true },
+  codingHistory: { type: String, required: true },
+  profession: { type: String, required: true },
+  education: { type: String, required: true },
+  mentorIcon: { type: String, required: true },
+  whyMentor: { type: String, required: true },
 
   careerLevel: { type: String, required: true },
   languages: { type: Array, required: true },
@@ -19,3 +25,5 @@ const questionnaireSchema = new Schema({
 const Questionnaire = mongoose.model("Questionnaire", questionnaireSchema);
 
 module.exports = Questionnaire;
+
+// bioquestions: { type: Array, required: true },

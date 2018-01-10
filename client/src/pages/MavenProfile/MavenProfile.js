@@ -16,6 +16,8 @@ import { Col, Row } from "../../components/Grid";
 import Footer from "../../components/Footer";
 
 //=================================================================================
+// !! href for this page === "welcomeMaven" !!
+
 class Welcome extends Component {
   render() {
     return (
