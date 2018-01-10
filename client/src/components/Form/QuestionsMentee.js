@@ -25,27 +25,26 @@ class QuestionsMentee extends Component {
 
             <div row>
                 <h5>8. What are your preferred languages? </h5>
-                    <Input name='group2' type='checkbox' value='red' label='Javascript' />
-                    <Input name='group2' type='checkbox' value='yellow' label='Python' />
-                    <Input name='group2' type='checkbox' value='green' label='PHP'  />
-                    <Input name='group2' type='checkbox' value='brown' label='Ruby' />   
-                    <Input name='group2' type='checkbox' value='brown' label='C++' />
-                    <Input name='group2' type='checkbox' value='brown' label='SQL' />
-                    <Input name='group2' type='checkbox' value='brown' label='HTML/CSS' /> 
-            </div> 
+                    <Input name='group2' type='checkbox' value='Javascript' label='Javascript' />
+                    <Input name='group2' type='checkbox' value='Python' label='Python' />
+                    <Input name='group2' type='checkbox' value='PHP' label='PHP'  />
+                    <Input name='group2' type='checkbox' value='Ruby' label='Ruby' />   
+                    <Input name='group2' type='checkbox' value='C++' label='C++' />
+                    <Input name='group2' type='checkbox' value='SQL' label='SQL' />
+                    <Input name='group2' type='checkbox' value='HTML/CSS' label='HTML/CSS' />       </div> 
             <br/>
             <br/> 
 
             <div row>
               <h5>9. What is your industry area of interest? </h5>
-                <Input name='group3' type='checkbox' value='yellow' label='Security' />
-                <Input name='group3' type='checkbox' value='green' label='Commerce'  />
-                <Input name='group3' type='checkbox' value='brown' label='Finance' />            
-                <Input name='group3' type='checkbox' value='brown' label='Health' />   
-                <Input name='group3' type='checkbox' value='brown' label='Gaming' />
-                <Input name='group3' type='checkbox' value='brown' label='Social Media' />
-                <Input name='group3' type='checkbox' value='brown' label='Marketing' />
-            </div>
+                <Input name='group3' type='checkbox' value='Security' label='Security' />
+                <Input name='group3' type='checkbox' value='Commerce' label='Commerce'  />
+                <Input name='group3' type='checkbox' value='Finance' label='Finance' />            
+                <Input name='group3' type='checkbox' value='Health' label='Health' />   
+                <Input name='group3' type='checkbox' value='Gaming' label='Gaming' />
+                <Input name='group3' type='checkbox' value='Social Media' label='Social Media' />
+                <Input name='group3' type='checkbox' value='Marketing' label='Marketing' />
+        </div>
           </div>
 
     );
