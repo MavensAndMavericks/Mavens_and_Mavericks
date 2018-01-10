@@ -12,6 +12,8 @@ import React, { Component } from "react";
 import Nav from "../../components/Nav";
 import Signup from "../../components/Signup";
 //import WelcomeMsg from "../../components/WelcomeMsg";
+
+import SlideShow from "../../components/SlideShow";
 import Parallax1 from "../../components/Parallax1";
 import { Col, Row } from "../../components/Grid";
 import Footer from "../../components/Footer";
@@ -31,8 +33,6 @@ handleShowModal(){
     this.setState({view: {showModal: true}})
 }
 
-
-
   render() {
     return (
     	<div>
@@ -44,6 +44,7 @@ handleShowModal(){
 	        <Row className="valign-wrapper">
 	          <Col size="md-12" style={{margin:"0px"}}>
               <Parallax1/>
+              <SlideShow/>
 	          </Col>
 	        </Row>
 
@@ -54,5 +55,4 @@ handleShowModal(){
 }
 
 export default Welcome;
-
 // WHY does not the "valign-wrapper" work above??

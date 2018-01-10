@@ -7,12 +7,12 @@ const questionnaireSchema = new Schema({
   lastName: { type: String, required: true },
   gitHub: { type: String, required: true },
 
-  inspirationalQuote: { type: String, required: true },
-  codingHistory: { type: String, required: true },
+  quote: { type: String, required: true },
+  coded: { type: String, required: true },
   profession: { type: String, required: true },
-  education: { type: String, required: true },
-  mentorIcon: { type: String, required: true },
-  whyMentor: { type: String, required: true },
+  schooling: { type: String, required: true },
+  impact: { type: String, required: true },
+  reasons: { type: String, required: true },
 
   careerLevel: { type: String, required: true },
   languages: { type: Array, required: true },

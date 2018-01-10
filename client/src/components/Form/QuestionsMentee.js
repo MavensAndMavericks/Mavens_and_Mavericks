@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import {Input} from 'react-materialize'
-import API from "../../utils/API";
+//import API from "../../utils/API";
 import "./QuestionsMentor.css";
-
-
 
 
 class QuestionsMentee extends Component {
@@ -31,7 +29,8 @@ class QuestionsMentee extends Component {
                     <Input name='group2' type='checkbox' value='Ruby' label='Ruby' />   
                     <Input name='group2' type='checkbox' value='C++' label='C++' />
                     <Input name='group2' type='checkbox' value='SQL' label='SQL' />
-                    <Input name='group2' type='checkbox' value='HTML/CSS' label='HTML/CSS' />       </div> 
+                    <Input name='group2' type='checkbox' value='HTML/CSS' label='HTML/CSS' />       
+            </div> 
             <br/>
             <br/> 
 
@@ -44,7 +43,7 @@ class QuestionsMentee extends Component {
                 <Input name='group3' type='checkbox' value='Gaming' label='Gaming' />
                 <Input name='group3' type='checkbox' value='Social Media' label='Social Media' />
                 <Input name='group3' type='checkbox' value='Marketing' label='Marketing' />
-        </div>
+            </div>
           </div>
 
     );
