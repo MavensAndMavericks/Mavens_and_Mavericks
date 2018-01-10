@@ -1,69 +1,147 @@
-import React from "react";
+import React, { Component } from "react";
+import {Input} from 'react-materialize'
+import API from "../../utils/API";
+import "./QuestionsMentor.css";
 
-export const QuestionsMentee = props =>
 
-<div>
-        <div row>
-            <h5>7. What is your current level of experience? </h5>
-            <input className="with-gap" name="group1" type="radio" id="q1" />
-            <label for="group1"> Novice</label>
 
-            <input className="with-gap" name="group1" type="radio" id="q1" />
-            <label for="group1"> College</label>
 
-            <input className="with-gap" name="group1" type="radio" id="q1" checked />
-            <label for="group1"> New Professional</label>
+class QuestionsMentee extends Component {
 
-            <input className="with-gap" name="group1" type="radio" id="q1" />
-            <label for="group1"> Professional 5+ Years</label>    
-        </div>
 
-        <div row>
-            <h5>8. What are you preferred languages? </h5>
-            <input className="with-gap" name="group2" type="checkbox" id="q2" checked />
-            <label for="group2"> JavaScript</label>
 
-            <input className="with-gap" name="group2" type="checkbox" id="q2"  />
-            <label for="group2"> Python</label>
+    render() {
+        return (
+          <div>
+            <div row>
+                <h5>7. What is your current level of experience? </h5>
+                  <Input name='group1' type='radio' value='Novice' label='Novice' />
+                  <Input name='group1' type='radio' value='College' label='College' />
+                  <Input name='group1' type='radio' value='New Professional' label='New Professional' />
+                  <Input name='group1' type='radio' value='Professional 5+ Years' label='Professional 5+ Years' />
+            </div>
+            <br/>
+            <br/>
 
-            <input className="with-gap" name="group2" type="checkbox" id="q2"  />
-            <label for="group2"> PHP</label>  
+            <div row>
+                <h5>8. What are your preferred languages? </h5>
+                    <Input name='group2' type='checkbox' value='red' label='Javascript' />
+                    <Input name='group2' type='checkbox' value='yellow' label='Python' />
+                    <Input name='group2' type='checkbox' value='green' label='PHP'  />
+                    <Input name='group2' type='checkbox' value='brown' label='Ruby' />   
+                    <Input name='group2' type='checkbox' value='brown' label='C++' />
+                    <Input name='group2' type='checkbox' value='brown' label='SQL' />
+                    <Input name='group2' type='checkbox' value='brown' label='HTML/CSS' /> 
+            </div> 
+            <br/>
+            <br/> 
 
-            <input className="with-gap" name="group2" type="checkbox" id="q2"  />
-            <label for="group2"> Ruby</label>   
+            <div row>
+              <h5>9. What is your industry area of interest? </h5>
+                <Input name='group3' type='checkbox' value='yellow' label='Security' />
+                <Input name='group3' type='checkbox' value='green' label='Commerce'  />
+                <Input name='group3' type='checkbox' value='brown' label='Finance' />            
+                <Input name='group3' type='checkbox' value='brown' label='Health' />   
+                <Input name='group3' type='checkbox' value='brown' label='Gaming' />
+                <Input name='group3' type='checkbox' value='brown' label='Social Media' />
+                <Input name='group3' type='checkbox' value='brown' label='Marketing' />
+            </div>
+          </div>
 
-            <input className="with-gap" name="group2" type="checkbox" id="q2"  />
-            <label for="group2"> C++</label>  
+    );
+  }
+}
 
-            <input className="with-gap" name="group2" type="checkbox" id="q2"  />
-            <label for="group2"> SQL</label> 
+export {QuestionsMentee};
 
-            <input className="with-gap" name="group2" type="checkbox" id="q2"  />
-            <label for="group2"> HTML/CSS</label> 
-        </div>
 
-        <div row>
-            <h5>9. What are your industry areas of interest? </h5>
-            <input className="with-gap" name="group3" type="checkbox" id="q3" checked />
-            <label for="group3"> Security</label>
 
-            <input className="with-gap" name="group3" type="checkbox" id="q3"  />
-            <label for="group3"> Commerce</label>
 
-            <input className="with-gap" name="group3" type="checkbox" id="q3"  />
-            <label for="group3"> Finance</label>  
 
-            <input className="with-gap" name="group3" type="checkbox" id="q3"  />
-            <label for="group3"> Health</label>    
 
-            <input className="with-gap" name="group3" type="checkbox" id="q3"  />
-            <label for="group3"> Gaming</label> 
 
-            <input className="with-gap" name="group3" type="checkbox" id="q3"  />
-            <label for="group3"> Social Media</label> 
 
-            <input className="with-gap" name="group3" type="checkbox" id="q3"  />
-            <label for="group3"> Marketing</label> 
-        </div>
 
-</div>
+
+
+
+// import React from "react";
+// import {Input} from 'react-materialize'
+
+// export const QuestionsMentee = props =>
+
+// <div>
+
+
+
+
+//         <Input name='group1' type='radio' value='red' label='Red' />
+//         <Input name='group1' type='radio' value='yellow' label='Yellow' />
+//         <Input name='group1' type='radio' value='green' label='Green' className='with-gap' />
+//         <Input name='group1' type='radio' value='yellow' label='Yellow' />
+        
+
+//         <div row>
+//             <h5>7. What is your current level of experience? </h5>
+//             <input className="with-gap" name="group1" type="radio" id="q1" checked />
+//             <label> Novice</label>
+
+//             <input className="with-gap" name="group1" type="radio" id="q1" checked/>
+//             <label>College</label>
+
+//             <input className="with-gap" name="group1" type="radio" id="q1" checked />
+//             <label> New Professional</label>
+
+//             <input className="with-gap" name="group1" type="radio" id="q1" checked/>
+//             <label> Professional 5+ Years</label>    
+//         </div>
+
+//         <div row>
+//             <h5>8. What are you preferred languages? </h5>
+//             <input className="with-gap" name="group2" type="checkbox" id="q2" checked />
+//             <label htmlFor="group2"> JavaScript</label>
+
+//             <input className="with-gap" name="group2" type="checkbox" id="q2"  />
+//             <label for="group2"> Python</label>
+
+//             <input className="with-gap" name="group2" type="checkbox" id="q2"  />
+//             <label for="group2"> PHP</label>  
+
+//             <input className="with-gap" name="group2" type="checkbox" id="q2"  />
+//             <label for="group2"> Ruby</label>   
+
+//             <input className="with-gap" name="group2" type="checkbox" id="q2"  />
+//             <label for="group2"> C++</label>  
+
+//             <input className="with-gap" name="group2" type="checkbox" id="q2"  />
+//             <label for="group2"> SQL</label> 
+
+//             <input className="with-gap" name="group2" type="checkbox" id="q2"  />
+//             <label for="group2"> HTML/CSS</label> 
+//         </div>
+
+//         <div row>
+//             <h5>9. What are your industry areas of interest? </h5>
+//             <input className="with-gap" name="group3" type="checkbox" id="q3" checked />
+//             <label for="group3"> Security</label>
+
+//             <input className="with-gap" name="group3" type="checkbox" id="q3"  />
+//             <label for="group3"> Commerce</label>
+
+//             <input className="with-gap" name="group3" type="checkbox" id="q3"  />
+//             <label for="group3"> Finance</label>  
+
+//             <input className="with-gap" name="group3" type="checkbox" id="q3"  />
+//             <label for="group3"> Health</label>    
+
+//             <input className="with-gap" name="group3" type="checkbox" id="q3"  />
+//             <label for="group3"> Gaming</label> 
+
+//             <input className="with-gap" name="group3" type="checkbox" id="q3"  />
+//             <label for="group3"> Social Media</label> 
+
+//             <input className="with-gap" name="group3" type="checkbox" id="q3"  />
+//             <label for="group3"> Marketing</label> 
+//         </div>
+
+// </div>

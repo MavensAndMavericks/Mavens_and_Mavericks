@@ -77,8 +77,8 @@ class MavenQuestionnaire extends Component {
           <form>
             <Row>
               <Col size ="md-6">
-                <span class="icon-small">
-                  <i class="small material-icons">person_pin</i>
+                <span className="icon-small">
+                  <i className="small material-icons">person_pin</i>
                     <h5>First Name</h5>
                 </span>
                   <Input
@@ -90,8 +90,8 @@ class MavenQuestionnaire extends Component {
               </Col>
 
               <Col size= "md-6">
-                <span class="icon-small">
-                  <i class="small material-icons">person_pin</i>
+                <span className="icon-small">
+                  <i className="small material-icons">person_pin</i>
                     <h5>Last Name</h5>
                 </span>
                   <Input

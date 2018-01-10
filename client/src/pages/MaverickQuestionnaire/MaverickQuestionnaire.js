@@ -147,10 +147,11 @@ class MaverickQuestionnaire extends Component {
                       name="accomplish"
                     />
 
-                  <QuestionsMentee/>
+                  <QuestionsMentee
+                  />
 
                   <FormBtn
-                    disabled={!(this.state.firstName && this.state.lastName && this.state.gitHub && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.bioquestions)}
+                    // disabled={!(this.state.firstName && this.state.lastName && this.state.gitHub && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.bioquestions)}
                     onClick={this.handleFormSubmit}
                   >
                     Submit Book
