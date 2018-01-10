@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default {
 //BOOKS
-  // Gets all books
+  // Gets ALL books
   getBooks: function() {
     return axios.get("/api/books");
   },
@@ -20,7 +20,7 @@ export default {
   },
 
 //USERS
-  // Gets all users
+  // Gets ALL users
   getUsers: function() {
     return axios.get("/api/users");
   },
@@ -38,20 +38,20 @@ export default {
   },
 
 //QUESTIONNAIRE
-  // Gets all questionnaires
+  // Gets ALL questionnaires
   getQuestionnaires: function() {
-    return axios.get("/api/questionnaire");
+    return axios.get("/api/questionnaires");
   },
   // Gets the questionnaire with the given id
   getQuestionnaire: function(id) {
-    return axios.get("/api/questionnaire/" + id);
+    return axios.get("/api/questionnaires/" + id);
   },
   // Deletes the questionnaire with the given id
   deleteQuestionnaire: function(id) {
-    return axios.delete("/api/questionnaire/" + id);
+    return axios.delete("/api/questionnaires/" + id);
   },
   // Saves a questionnaire to the database
   saveQuestionnaire: function(questionnaireData) {
-    return axios.post("/api/questionnaire", questionnaireData);
+    return axios.post("/api/questionnaires", questionnaireData);
   }
 };

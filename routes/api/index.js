@@ -8,7 +8,7 @@ const questionnaireRoutes = require("./questionnaires");
 // Page routes
 router.use("/books", bookRoutes);
 router.use("/users", userRoutes);
-router.use("/questionnaire", questionnaireRoutes);
+router.use("/questionnaires", questionnaireRoutes);
 // router.use("/auth", oAuthRoutes)
 
 module.exports = router;

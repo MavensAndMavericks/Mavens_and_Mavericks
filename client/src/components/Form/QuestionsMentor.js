@@ -1,14 +1,10 @@
 import React, { Component } from "react";
 import {Input} from 'react-materialize'
-import API from "../../utils/API";
+//import API from "../../utils/API";
 import "./QuestionsMentor.css";
 
 
-
-
 class QuestionsMentor extends Component {
-
-
 
     render() {
         return (
@@ -53,4 +49,3 @@ class QuestionsMentor extends Component {
 }
 
 export {QuestionsMentor};
-

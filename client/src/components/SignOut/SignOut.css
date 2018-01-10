@@ -1,0 +1,5 @@
+.fixed-action-btn{
+    bottom: 87%;/*desired value*/
+    right: 2%;
+    z-index: 2;
+    }

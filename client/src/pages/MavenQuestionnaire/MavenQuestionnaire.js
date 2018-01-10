@@ -24,11 +24,11 @@ class MavenQuestionnaire extends Component {
     schooling: "",
     impact:"",
     reasons:"",
-    // bioquestions: [],
+
     careerLevel:"",
     languages: [],
     industryExperience: [],
-    personalityResults: []
+    //personalityResults: []
   };
 
   handleInputChange = event => {
@@ -40,21 +40,38 @@ class MavenQuestionnaire extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.bioquestions) {
+    if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons ) {
       API.saveQuestionnaire({
         firstName: this.state.firstName,
         lastName: this.state.lastName,
         gitHub: this.state.gitHub,
-        bioquestions: this.state.bioquestions,
-        careerLevel: this.state.gitHub,
-        languages: this.state.radioquestions,
-        industryExperience: this.state.industryExperience,
-        personalityResults: this.state.personalityResults
+        quote: this.state.inspirationalQuote,
+        coded: this.state.codingHistory,
+        profession: this.state.profession,
+        schooling: this.state.education,
+        impact: this.state.mentorIcon,
+        reasons: this.state.whyMentor,
+
+        //careerLevel: this.state.careerLevel,
+        //languages: this.state.languages,
+        //industryExperience: this.state.industryExperience,
+        //personalityResults: this.state.personalityResults
       })
         .then(res => {window.location.pathname("/welcomeMaven")})
         .catch(err => console.log(err));
     }
   };
+
+  handleInputChange = event => {
+    // Getting the value and name of the input which triggered the change
+    const { name, value } = event.target;
+
+    // Updating the input's state
+    this.setState({
+      [name]: value
+    });
+  };
+
 
   render() {
     return (
@@ -148,11 +165,10 @@ class MavenQuestionnaire extends Component {
                     name="reasons"
                   />
 
-                <QuestionsMentor/>
-  
+                <QuestionsMentor/>  
 
                 <FormBtn
-                  disabled={!(this.state.firstName && this.state.lastName && this.state.gitHub && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.bioquestions)}
+                  disabled={!(this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons)}
                   onClick={this.handleFormSubmit}
                 >
                   Submit Book
@@ -160,15 +176,6 @@ class MavenQuestionnaire extends Component {
               </Col>
             </Row>
           </form>
-
-
-          <Row>
-            <Col size="md-12">
-              <Jumbotron>
-                <h1 className="text-center">Jumbotron Block - Put inspirational Quote here?</h1>
-              </Jumbotron>
-            </Col>
-          </Row>
 
         </Container>
 
@@ -179,3 +186,8 @@ class MavenQuestionnaire extends Component {
 }
 
 export default MavenQuestionnaire;
+
+//    bioquestions: [],
+// bioquestions: this.state.bioquestions,
+
+ //&& this.state.careerLevel && this.state.languages && this.state.industryExperience
