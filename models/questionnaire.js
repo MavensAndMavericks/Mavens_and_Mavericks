@@ -5,6 +5,7 @@ const questionnaireSchema = new Schema({
   //user_ID: { type: Schema.Types.ObjectId, ref: "User" },
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
+  type: { type: String, required: true },
   gitHub: { type: String, required: true },
 
   quote: { type: String, required: true },

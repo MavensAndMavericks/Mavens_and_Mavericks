@@ -15,6 +15,7 @@ class MaverickQuestionnaire extends Component {
   state = {
     firstName:"",
     lastName:"",
+    type: "maverick",
     gitHub:"",
     quote: "",
     coded: "",
@@ -83,7 +84,9 @@ class MaverickQuestionnaire extends Component {
           <Row className="header">
             <Col size="md-12">
               <Jumbotron>
-                <h1 className="text-center">Welcome to Mavens and Mavericks!</h1>
+                <h1 className="text-center">Welcome Maverick.</h1>
+                <h5 className="text-center">Searching for a peronalized connection with Tech leaders in your community?</h5>
+                <h5 className="text-center">Answer our questions below to be matched experienced leaders in the Tech Community.</h5>
               </Jumbotron>
             </Col>
           </Row>
@@ -169,7 +172,7 @@ class MaverickQuestionnaire extends Component {
                     // disabled={!(this.state.firstName && this.state.lastName && this.state.gitHub && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.bioquestions)}
                     onClick={this.handleFormSubmit}
                   >
-                    Submit Book
+                    Submit Answers
                   </FormBtn>
                 </Col>
               </Row>

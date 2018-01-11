@@ -1,7 +1,7 @@
 //React Library imports:
 //=============================
 import React, { Component } from "react";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 //API Routing Import:
 //=============================
@@ -21,6 +21,7 @@ class ProfileBio extends Component {
 		questionnaires: [],
 		firstName:"", 
 		lastName: "", 
+		type: ""
 		gitHub: "",
 		quote: "", 
 		coded: "", 
@@ -71,7 +72,6 @@ class ProfileBio extends Component {
 	    });
 	};
 
-
 	render() {
 		return(
 			<div>	
@@ -81,29 +81,47 @@ class ProfileBio extends Component {
 				    	<Col size="sm-12">
 				    		<div className="profile-bio">
 						    	<h3 className="text-center">ProfileBio</h3>
-						    </div>	   
+						    </div>
+						   <Jumbotron> 			            
+				           {this.state.questionnaires.length ? (
+				              <List className="text-center">
+				                {this.state.questionnaires.map(questionnaire => (
+
+				                  <ListItem key={questionnaire._id}>
+				                     <Col size="sm-4">	
+				                      <img className="img-responsive" src={"http://placehold.it/300x300&text=slide1"} alt="Github Profile Pic"/> 
+				                     </Col>
+
+				                     <Col size="sm-8">	
+				                      <h2>
+				                        <strong>Name: {questionnaire.firstName} {questionnaire.lastName}</strong>
+				                      </h2>
+				                      <h3> 
+ 									  	<Link to={"https://github.com/" + questionnaire.gitHub} target="_blank">
+ 							               	<strong>Github Handler: {questionnaire.gitHub}</strong>
+ 							           	</Link>
+ 									   </h3>
+				                      <h4>Industries of Interest {questionnaire.industries} </h4>
+ 									  <h4>Languages: {questionnaire.languages} </h4>
+ 									  <h4>Reason for Mentorship {questionnaire.impact} </h4>
+				                     </Col>
+				                  </ListItem>
+				                ))}
+				              </List>
+				            ) : (
+				              <h3 className="text-center">No Results to Display</h3>
+				           )}
+				           <Jumbotron>
+
 						</Col>
 					</Row>
 
 					<Row>
 						<Col size="sm-12">						
 			               <Jumbotron>
-			                 <h1 className="text-center">Why have a mentor?</h1>
+			                 <h1 className="text-center">Matched Mentor?</h1>
 			               </Jumbotron>
-			            
-				           {this.state.questionnaires.length ? (
-				              <List className="text-center">
-				                {this.state.questionnaires.map(questionnaire => (
-				                  <ListItem key={questionnaire._id}>
-				                      <strong>
-				                        {questionnaire.firstName} by {questionnaire.lastName}
-				                      </strong>
-				                  </ListItem>
-				                ))}
-				              </List>
-				            ) : (
-				              <h3 className="text-center">No Results to Display</h3>
-				           )}					
+					
 						</Col>
 
 					</Row>
@@ -115,31 +133,22 @@ class ProfileBio extends Component {
 }
 	
 export default ProfileBio;
-// {this.state.questionnaires.length ? (
-// 								{this.state.questionnaires.map(questionnaire => (
 
-// 									<Col size="sm-4"    key={questionnaire._id}   >
-// 										<aside className="profile-bio">
-// 									    	<img className="img-responsive" src={"http://placehold.it/300x300&text=slide1"} alt="Github Profile Pic"/>
-// 									    </aside>	
-// 									</Col>
-
-// 									<Col size="sm-8">
-// 										<article>
-// 									    	<h2>First: {questionnaire.firstName} <span>Last: {questionnaire.lastName} </span></h2>
-// 									    	<h3> 
-// 									    		<Link to={"https://github.com/" + questionnaire.gitHub}>
-// 							                        Github Handler: {questionnaire.gitHub}
-// 							                    </Link>
-// 									    	</h3>
+//Img tage above
+//src={questionnaire.image}
 
 
-// 									    	<h4>Industries of Interest {questionnaire.industries} </h4>
-// 									    	<h4>Languages: {questionnaire.languages} </h4>
-// 									    	<h4>Reason for Mentorship {questionnaire.impact} </h4>
-// 									   	</article>	
-// 									</Col>
-// 								 ))}
-// 							) : (
-// 							    <h3 className="text-center">No Results to Display</h3>
-// 							)}
+{/*
+	componentDidMount() {
+	    this.loadQuestionnaire(this.state._id);
+	}
+
+	loadQuestionnaire = id => {
+	   API.getQuestionnaire(id)
+	     .then(res =>
+	       this.setState({ questionnaires: res.data, firstName: "", lastName: "", gitHub: "", quote: "", code: "",  profession: "", schooling: "", impact: "", resasons: "" })
+	     )
+	     .catch(err => console.log(err));
+	}; */} 
+
+// {this.state.questionnaires.filter(questionnaire => questionnaire.firstName === "Amanda") => (
