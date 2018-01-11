@@ -1,5 +1,3 @@
-// READ PLEASE: !! THIS EXAMPLE WAS TAKEN DIRECTLY FROM THE "BOOKS" PAGE EXAMPLE!! >> ONLY changed out the "books" name to keep from bundling incorreclty.. !!
-
 //React Library imports:
 import React, { Component } from "react";
 import API from "../../utils/API";
@@ -72,23 +70,46 @@ class MavenQuestionnaire extends Component {
 
 
   handleMatching = (res) => {
-    //res // This should be our current client's results
-    if (res.type === "maven") {
+
+     // This should be our current client's results
+     const currentResults = res.data;
+    if (currentResults.type === "maven") {
       //then search for all those in "mavericks"
       API.getQuestionnaire()
-        .then(res =>
+        .then(res => {
           const maverick = res.data.filter(questionnaire => questionnaire.type === "maverick")
-        )
-        .catch(err => console.log(err));
+        }).catch(err => console.log(err));
       };
+  //Maven Logic
+  //1. iterate over mavericks to find least amount of difference between languages
+  //  a loop
+  
+  for (i=0; i < maverick.length; i++){
+  
+   let currentUserLang = currentResults.languages;
+   let maverickLang = maverick[i].languages;
+  let matching = [];
+
+   currentUserLang.forEach(function(element, maverickLang){
+     for (let lang of maverickLang){
+    if (element === lang){
+        maverickLang[]
+    }
+
+     }
+   })
+
+//    arr.forEach(function callback(currentValue[, index[, array]]) {
+//     //your iterator
+// }[, thisArg]);
+
+  //2. iterate over mavericks to find least amount of difference between industries
+  //  a loop 
+  // a match === array of first 15 matches, assign this array to the match model
+
+  }
+ 
   };
-
-API.getQuestionnaires()
-       .then(res =>
-         this.setState({ questionnaires: res.data, firstName: "", lastName: "", gitHub: "", quote: "", code: "",  profession: "", schooling: "", impact: "", resasons: "" })
-       )
-
-
 
   render() {
     return (

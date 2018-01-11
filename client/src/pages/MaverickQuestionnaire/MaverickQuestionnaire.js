@@ -60,6 +60,17 @@ class MaverickQuestionnaire extends Component {
     }
   };
 
+   //Maverick Logic
+  //1. if res.type === "maverick"
+  //2. get questionnaires, filter through them to get type "maven"
+  //3. iterate over mavens to find career levels > maverick level
+  // a loop
+  //4. iterate over mavens to find least amount of difference between languages
+  //  a loop 
+  //5. iterate over mavens to find least amount of difference between industries
+  //  a loop 
+  // a match === array of first 15 matches, assign this array to the match model
+
   render() {
     return (
       <div>
