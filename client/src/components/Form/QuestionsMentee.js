@@ -13,10 +13,10 @@ class QuestionsMentee extends Component {
           <div>
             <div row>
                 <h5>7. What is your current level of experience? </h5>
-                  <Input name='group1' type='radio' value='Novice' label='Novice' />
-                  <Input name='group1' type='radio' value='College' label='College' />
-                  <Input name='group1' type='radio' value='New Professional' label='New Professional' />
-                  <Input name='group1' type='radio' value='Professional 5+ Years' label='Professional 5+ Years' />
+                  <Input name='group1' type='radio' value='1' label='Novice' />
+                  <Input name='group1' type='radio' value='2' label='College' />
+                  <Input name='group1' type='radio' value='3' label='New Professional' />
+               
             </div>
             <br/>
             <br/>
