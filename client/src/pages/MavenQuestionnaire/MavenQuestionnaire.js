@@ -29,8 +29,9 @@ class MavenQuestionnaire extends Component {
     careerLevel:"",
     languages: [],
     industryExperience: [],
-    //personalityResults: []
+    personalityResults: []
   };
+
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -39,25 +40,31 @@ class MavenQuestionnaire extends Component {
     });
   };
 
+
+
+
+
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons ) {
+      console.log("hey");
       API.saveQuestionnaire({
         firstName: this.state.firstName,
         lastName: this.state.lastName,
         gitHub: this.state.gitHub,
-        quote: this.state.inspirationalQuote,
-        coded: this.state.codingHistory,
+        quote: this.state.quote,
+        coded: this.state.coded,
         profession: this.state.profession,
-        schooling: this.state.education,
-        impact: this.state.mentorIcon,
-        reasons: this.state.whyMentor,
+        schooling: this.state.schooling,
+        impact: this.state.impact,
+        reasons: this.state.reasons
 
-        //careerLevel: this.state.careerLevel,
-        //languages: this.state.languages,
-        //industryExperience: this.state.industryExperience,
-        //personalityResults: this.state.personalityResults
-      })
+
+        // careerLevel: this.state.careerLevel,
+        // languages: this.state.languages,
+        // industryExperience: this.state.industryExperience,
+        // personalityResults: this.state.personalityResults
+      })    
         .catch(err => console.log(err))
         .then( window.location.pathname ="/welcomeMaven"); //>>> <Link to={"/welcomeMaven/" + questionnaire._id}>  <<<!!?? Would this work ??!!
     }

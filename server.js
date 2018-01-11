@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001; //this PORT MUST MATCH the proxy port set in the package.json inside "client/utils" >> (on the REACT side)
-const traitify = require('traitify');
+// const traitify = require('traitify');
 const Chart = require('chart.js');
 
 //SERVER SET-UP (Routing MIDDLEWARE Definition)
