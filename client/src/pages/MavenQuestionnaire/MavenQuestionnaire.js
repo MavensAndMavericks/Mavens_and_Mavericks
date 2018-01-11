@@ -76,7 +76,9 @@ class MavenQuestionnaire extends Component {
           <Row className="header">
             <Col size="md-12">
               <Jumbotron>
-                <h1 className="text-center">Welcome to Mavens and Mavericks!</h1>
+                <h1 className="text-center">Welcome Maven.</h1>
+                <h5 className="text-center">Looking to discover new talent, establish new partnerships, and leave a legacy?</h5>
+                <h5 className="text-center">Answer our questions below to join our team of Tech Influencers.</h5>
               </Jumbotron>
             </Col>
           </Row>
@@ -161,7 +163,7 @@ class MavenQuestionnaire extends Component {
                   disabled={!(this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons)}
                   onClick={this.handleFormSubmit}
                 >
-                  Submit Book
+                  Submit Answers
                 </FormBtn>
               </Col>
             </Row>

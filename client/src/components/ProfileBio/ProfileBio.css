@@ -6,3 +6,15 @@
 	background-color: #26a69a;
 	opacity: .90;
 }
+
+Jumbotron {
+	color: white;
+    text-align: center;
+	background-color: #26a69a;	
+}
+
+/*.jumbo-bio {
+    color: white;
+    text-align: center;
+	background-color: #26a69a;
+}*/

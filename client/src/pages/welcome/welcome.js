@@ -56,3 +56,4 @@ handleShowModal(){
 
 export default Welcome;
 // WHY does not the "valign-wrapper" work above??
+//<h2>Looking to discover new talent, establish new partnerships, and leave a legacy?</h2>
