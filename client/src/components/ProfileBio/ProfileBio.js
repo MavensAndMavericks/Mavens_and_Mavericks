@@ -21,6 +21,7 @@ class ProfileBio extends Component {
 		questionnaires: [],
 		firstName:"", 
 		lastName: "", 
+		type: ""
 		gitHub: "",
 		quote: "", 
 		coded: "", 

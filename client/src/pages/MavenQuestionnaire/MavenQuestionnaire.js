@@ -18,6 +18,7 @@ class MavenQuestionnaire extends Component {
     questionnaires: [],
     firstName:"",
     lastName:"",
+    type: "maven",
     gitHub:"",
     quote: "",
     coded: "",
@@ -41,13 +42,11 @@ class MavenQuestionnaire extends Component {
   };
 
 
-
-
-
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons ) {
-      console.log("hey");
+      console.log("Hey!  Lorna so cool! :)  We're Jelly.");
+      
       API.saveQuestionnaire({
         firstName: this.state.firstName,
         lastName: this.state.lastName,
@@ -64,11 +63,32 @@ class MavenQuestionnaire extends Component {
         // languages: this.state.languages,
         // industryExperience: this.state.industryExperience,
         // personalityResults: this.state.personalityResults
-      })    
-        .catch(err => console.log(err))
-        .then( window.location.pathname ="/welcomeMaven"); //>>> <Link to={"/welcomeMaven/" + questionnaire._id}>  <<<!!?? Would this work ??!!
+      })          
+        .then(res => this.handleMatching(res))
+        .catch(err => console.log(err));
+        // .then( window.location.pathname ="/welcomeMaven"); //>>> <Link to={"/welcomeMaven/" + questionnaire._id}>  <<<!!?? Would this work ??!!
     }
   };
+
+
+  handleMatching = (res) => {
+    //res // This should be our current client's results
+    if (res.type === "maven") {
+      //then search for all those in "mavericks"
+      API.getQuestionnaire()
+        .then(res =>
+          const maverick = res.data.filter(questionnaire => questionnaire.type === "maverick")
+        )
+        .catch(err => console.log(err));
+      };
+  };
+
+API.getQuestionnaires()
+       .then(res =>
+         this.setState({ questionnaires: res.data, firstName: "", lastName: "", gitHub: "", quote: "", code: "",  profession: "", schooling: "", impact: "", resasons: "" })
+       )
+
+
 
   render() {
     return (

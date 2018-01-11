@@ -15,6 +15,7 @@ class MaverickQuestionnaire extends Component {
   state = {
     firstName:"",
     lastName:"",
+    type: "maverick",
     gitHub:"",
     quote: "",
     coded: "",
