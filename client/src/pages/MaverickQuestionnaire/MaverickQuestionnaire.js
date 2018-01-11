@@ -39,14 +39,18 @@ class MaverickQuestionnaire extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.bioquestions) {
+    if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.career && this.state.impact && this.state.reasons && this.state.accomplish) {
       API.saveQuestionnaire({
         firstName: this.state.firstName,
         lastName: this.state.lastName,
         gitHub: this.state.gitHub,
-        bioquestions: this.state.bioquestions,
-        careerLevel: this.state.gitHub,
-        languages: this.state.radioquestions,
+        quote: this.state.quote,
+        coded: this.state.coded,
+        profession: this.state.profession,
+        career: this.state.career,
+        impact: this.state.impact,
+        reasons: this.state.reasons,
+        accomplish: this.state.accomplish,
         industryExperience: this.state.industryExperience,
         personalityResults: this.state.personalityResults
       })
