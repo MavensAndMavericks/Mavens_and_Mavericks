@@ -15,7 +15,7 @@ class MaverickQuestionnaire extends Component {
   state = {
     firstName:"",
     lastName:"",
-    type: "maverick",
+    // type: "maverick",
     gitHub:"",
     quote: "",
     coded: "",
@@ -25,10 +25,10 @@ class MaverickQuestionnaire extends Component {
     reasons:"",
     accomplish:"",
     // bioquestions: [],
-    careerLevel:"",
-    languages: [],
-    industryExperience: [],
-    personalityResults: []
+    // careerLevel:"",
+    // languages: [],
+    // industryExperience: [],
+    // personalityResults: []
   };
 
     handleInputChange = event => {
@@ -40,8 +40,7 @@ class MaverickQuestionnaire extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.career && this.state.impact && this.state.reasons && this.state.accomplish) {
-      API.saveQuestionnaire({
+    if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.career && this.state.impact && this.state.reasons && this.state.accomplish) {      API.saveQuestionnaire({
         firstName: this.state.firstName,
         lastName: this.state.lastName,
         gitHub: this.state.gitHub,

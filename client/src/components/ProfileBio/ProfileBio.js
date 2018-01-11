@@ -21,7 +21,7 @@ class ProfileBio extends Component {
 		questionnaires: [],
 		firstName:"", 
 		lastName: "", 
-		type: ""
+		type: "",
 		gitHub: "",
 		quote: "", 
 		coded: "", 
@@ -111,7 +111,7 @@ class ProfileBio extends Component {
 				            ) : (
 				              <h3 className="text-center">No Results to Display</h3>
 				           )}
-				           <Jumbotron>
+				           </Jumbotron>
 
 						</Col>
 					</Row>
@@ -138,7 +138,7 @@ export default ProfileBio;
 //src={questionnaire.image}
 
 
-{/*
+/*
 	componentDidMount() {
 	    this.loadQuestionnaire(this.state._id);
 	}
@@ -149,6 +149,6 @@ export default ProfileBio;
 	       this.setState({ questionnaires: res.data, firstName: "", lastName: "", gitHub: "", quote: "", code: "",  profession: "", schooling: "", impact: "", resasons: "" })
 	     )
 	     .catch(err => console.log(err));
-	}; */} 
+	}; */
 
 // {this.state.questionnaires.filter(questionnaire => questionnaire.firstName === "Amanda") => (

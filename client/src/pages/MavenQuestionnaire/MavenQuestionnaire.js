@@ -13,10 +13,10 @@ import Footer from "../../components/Footer";
 //=================================================================================
 class MavenQuestionnaire extends Component {
   state = {
-    questionnaires: [],
+    // questionnaires: [],
     firstName:"",
     lastName:"",
-    type: "maven",
+    // type: "maven",
     gitHub:"",
     quote: "",
     coded: "",
@@ -43,7 +43,7 @@ class MavenQuestionnaire extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons ) {
-      console.log("Hey!  Lorna so cool! :)  We're Jelly.");
+      // console.log("Hey!  Lorna so cool! :)  We're Jelly.");
       
       API.saveQuestionnaire({
         firstName: this.state.firstName,
@@ -62,42 +62,42 @@ class MavenQuestionnaire extends Component {
         // industryExperience: this.state.industryExperience,
         // personalityResults: this.state.personalityResults
       })          
-        .then(res => this.handleMatching(res))
-        .catch(err => console.log(err));
-        // .then( window.location.pathname ="/welcomeMaven"); //>>> <Link to={"/welcomeMaven/" + questionnaire._id}>  <<<!!?? Would this work ??!!
+        // .then(res => this.handleMatching(res))
+        .catch(err => console.log(err))
+        .then( window.location.pathname ="/welcomeMaven"); //>>> <Link to={"/welcomeMaven/" + questionnaire._id}>  <<<!!?? Would this work ??!!
     }
   };
 
 
-  handleMatching = (res) => {
+  // handleMatching = (res) => {
 
-     // This should be our current client's results
-     const currentResults = res.data;
-    if (currentResults.type === "maven") {
-      //then search for all those in "mavericks"
-      API.getQuestionnaire()
-        .then(res => {
-          const maverick = res.data.filter(questionnaire => questionnaire.type === "maverick")
-        }).catch(err => console.log(err));
-      };
+  //    // This should be our current client's results
+  //    const currentResults = res.data;
+  //   if (currentResults.type === "maven") {
+  //     //then search for all those in "mavericks"
+  //     API.getQuestionnaire()
+  //       .then(res => {
+  //         const maverick = res.data.filter(questionnaire => questionnaire.type === "maverick")
+  //       }).catch(err => console.log(err));
+  //     };
   //Maven Logic
   //1. iterate over mavericks to find least amount of difference between languages
   //  a loop
   
-  for (i=0; i < maverick.length; i++){
+  // for (i=0; i < maverick.length; i++){
   
-   let currentUserLang = currentResults.languages;
-   let maverickLang = maverick[i].languages;
-  let matching = [];
+  //  let currentUserLang = currentResults.languages;
+  //  let maverickLang = maverick[i].languages;
+  // let matching = [];
 
-   currentUserLang.forEach(function(element, maverickLang){
-     for (let lang of maverickLang){
-    if (element === lang){
-        maverickLang[]
-    }
+  //  currentUserLang.forEach(function(element, maverickLang){
+  //    for (let lang of maverickLang){
+  //   if (element === lang){
+  //       maverickLang[]
+  //   }
 
-     }
-   })
+  //    }
+  //  })
 
 //    arr.forEach(function callback(currentValue[, index[, array]]) {
 //     //your iterator
@@ -107,9 +107,9 @@ class MavenQuestionnaire extends Component {
   //  a loop 
   // a match === array of first 15 matches, assign this array to the match model
 
-  }
+  // }
  
-  };
+  // };
 
   render() {
     return (
