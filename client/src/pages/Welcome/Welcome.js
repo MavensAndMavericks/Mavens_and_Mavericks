@@ -20,7 +20,7 @@ import Footer from "../../components/Footer";
 
 //=================================================================================
 
-
+//looking at welcome.js issue
 
 
 class Welcome extends Component {
