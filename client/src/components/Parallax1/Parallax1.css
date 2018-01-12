@@ -3,7 +3,7 @@
     padding: 0px;
     margin: 0px;
     height: 1500px; 
-
+    filter: grayscale(10%);
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
