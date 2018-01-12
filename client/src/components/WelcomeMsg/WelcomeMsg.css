@@ -1,6 +1,8 @@
 .welcome-msg {
     color: white;
     text-align: center;
+ 
+    font-weight: 50px;
 	width: 60%;
 	height: 100px;
 	position: relative;
@@ -8,18 +10,18 @@
     -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
     animation: mymove 5s;
     animation-fill-mode: forwards;
-    animation-delay: 1s;
+    /* animation-delay: 0.5s; */
 }
 
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes mymove {
-    from {left: 750px;top: 0px}
-    to {left: 750px;top: 300px}
+    from {left: 20%;top: 0%}
+    to {left: 20%;top: 27%}
 }
 
 @keyframes mymove {
-    from {left: 750px;top: 0px}
-    to {left: 750px;top: 300px}
+    from {left: 20%;top: 0%}
+    to {left: 20%;top: 27%}
 }
 
 /*a.btn {
