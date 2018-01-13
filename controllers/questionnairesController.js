@@ -42,7 +42,7 @@ module.exports = {
       .then(users => {
         return db.User.find({
           _id: { $nin: user._id },
-          type: { $in: ["maverick"] },
+          type: { $in: ["maverick"] }, //or maverick ==> (!user.type)
           languages: { $in: user.languages }
         });
       })
