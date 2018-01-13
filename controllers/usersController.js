@@ -34,5 +34,21 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  findMatches: function(req, res) {
+    db.User
+      .findById({ _id: req.params.id })
+      .then(user => {
+        // there are languages on this user
+
+        return db.User.find({
+          _id: { $nin: user._id }
+          type: { $in: ['mentor'] }
+          languages: { $in: user.languages }
+        });
+      })
+      .then(() => {
+
+      });
   }
 };
