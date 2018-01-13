@@ -14,4 +14,8 @@ router
   .put(usersController.update)
   .delete(usersController.remove);
 
+router
+  .route('/:id/matches')
+  .get(usersController.findMatches)
+
 module.exports = router;

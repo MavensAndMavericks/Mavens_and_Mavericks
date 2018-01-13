@@ -53,5 +53,13 @@ export default {
   // Saves a questionnaire to the database
   saveQuestionnaire: function(questionnaireData) {
     return axios.post("/api/questionnaires", questionnaireData);
+  },
+
+  getMavens: function(questionnaireData) {
+    return axios.post("/api/questionnaires", questionnaireData);
+  },
+
+  getMavericks: function(questionnaireData) {
+  return axios.post("/api/questionnaires", questionnaireData);
   }
 };

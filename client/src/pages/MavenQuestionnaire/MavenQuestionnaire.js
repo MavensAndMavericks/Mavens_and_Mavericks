@@ -68,6 +68,30 @@ class MavenQuestionnaire extends Component {
     }
   };
 
+// handleMatching = (res) = > {
+//   var length = res.length[i];
+//   var jlength = res.length[j];
+
+//   API.getQuestionnaires({
+//     for (var i=0; i < res.length; i++){
+//       if(type==="maverick"){
+//         for (var j=0; j< length; j++){
+
+//           if (this.state.maverickLanguages === this.state.mavenLanguages){
+//             for (var k= 0; k< jlength; k++){
+//               // if-else statement for industry
+//             }
+//           }
+//         }
+//       }
+//     }
+//   })
+// }
+
+
+
+
+
 
   // handleMatching = (res) => {
 
