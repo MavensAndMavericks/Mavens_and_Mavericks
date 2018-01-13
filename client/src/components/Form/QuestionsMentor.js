@@ -15,6 +15,8 @@ class QuestionsMentor extends Component {
                   <Input name='group1' type='radio' value='2' label='College' />
                   <Input name='group1' type='radio' value='3' label='New Professional' />
                   <Input name='group1' type='radio' value='4' label='Professional 5+ Years' />
+                  <Input name='group1' type='radio' value='4' label='Expert' />
+
             </div>
             <br/>
             <br/>
@@ -41,6 +43,9 @@ class QuestionsMentor extends Component {
                 <Input name='group3' type='checkbox' value='Gaming' label='Gaming' />
                 <Input name='group3' type='checkbox' value='Social Media' label='Social Media' />
                 <Input name='group3' type='checkbox' value='Marketing' label='Marketing' />
+                <Input name='group3' type='checkbox' value='Marketing' label='Electrical Engineering' />
+                <Input name='group3' type='checkbox' value='Marketing' label='Artifical Intelligence' />
+                <Input name='group3' type='checkbox' value='Marketing' label='Web Design' />
             </div>
           </div>
 
