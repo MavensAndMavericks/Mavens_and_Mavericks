@@ -21,6 +21,10 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
+    <!-- Sendbird CDN -->   
+    <script src="SendBird.min.js"></script>
+       <script src="widget.SendBird.js"></script>
+
     <!-- Google Fonts - CSS -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     
@@ -30,6 +34,13 @@
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
+
+    <div id="sb_widget"></div>
+    <script>
+       var appId = "FB7BB4B3-4917-4831-B2E0-EB94FB4A4BD7";
+       sbWidget.startWithConnect(appId);
+    </script>
+
     <div id="root"></div>
   </body>
 </html>
