@@ -1,7 +1,8 @@
 //React Library imports:
 import React, { Component } from "react";
 import API from "../../utils/API";
-import {Input} from 'react-materialize'
+import {Input} from 'react-materialize';
+
 
 //Componenet imports:
 import { Col, Row, Container } from "../../components/Grid";
@@ -13,7 +14,7 @@ import "./MavenQuestionnaire.css";
 import Footer from "../../components/Footer";
 
 //=================================================================================
-const langList = {
+const langList = [
   "Javascript",
   "Python",
   "PHP",
@@ -21,9 +22,9 @@ const langList = {
   "C++",
   "SQL",
   "HTMl/CSS"
-};
+];
 
-const industryList = {
+const industryList = [
   "Security",
   "Commerce",
   "Finance",
@@ -34,8 +35,7 @@ const industryList = {
   "Marketing",
   "Electrical Engineering",
   "Artifical Intelligence"
-}
-
+]
 
 ////////////////////////////////////////////////////////////////////
 class MavenQuestionnaire extends Component {
@@ -69,11 +69,15 @@ class MavenQuestionnaire extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     for (const checkbox of this.selectedCheckboxes) {
-      if industryList.includes(checkbox){
-        this.state.industryExperience = checkbox
+      if (industryList.includes(checkbox)){
+        this.setState({
+          industryExperience: checkbox
+        })
       }
-      else if langList.includes(checkbox){
-        this.state.languages = checkbox
+      else if (langList.includes(checkbox)){        
+        this.setState({
+          languages: checkbox
+        })
       }
     };
     if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons ) {
@@ -89,7 +93,7 @@ class MavenQuestionnaire extends Component {
         schooling: this.state.schooling,
         impact: this.state.impact,
         reasons: this.state.reasons,
-        careerLevel: selectedOption,
+        careerLevel: this.state.careerLevel,
         languages: this.state.languages,
         industryExperience: this.state.industryExperience
   
@@ -173,7 +177,7 @@ class MavenQuestionnaire extends Component {
     } else {
       this.selectedCheckboxes.add(label); //..otherwise, (it's "off", so we need to) toggle "on".
     }
-  }
+  };
 
   createCheckbox = label => (
     <Checkbox
@@ -181,30 +185,30 @@ class MavenQuestionnaire extends Component {
       handleCheckboxChange={this.toggleCheckbox}
       key={label}
     />
-  )
+  );
 
 //For: Lanauage Opts Checkboxes
   createLangCheckboxes = () => (
     langList.map(this.createCheckbox)
-  )
+  );
 
 //For: IndustryExperience Checkboxes
   createIndustryCheckboxes = () => (
     industryList.map(this.createCheckbox)
-  )
+  );
 
 //Radio Button Handling
-  getInitialState: function () {
+  getInitialState= () => {
     return {
-      selectedOption: "careerLevel2",
+      careerLevel: "careerLevel2"
     };
-  },
+  };
 
-  handleOptionChange: function (changeEvent) {
+  handleOptionChange= function (changeEvent) {
     this.setState({
-      selectedOption1: changeEvent.target.value
+      careerLevel: changeEvent.target.value
     });
-  },
+  };
 
   render() {
     return (
@@ -305,10 +309,10 @@ class MavenQuestionnaire extends Component {
                 <div>
                   <div row className="radio">
                       <h5>8. What is your current level of experience? </h5>
-                        <Input onChange={this.handleOptionChange} type='radio' value="careerLevel2" checked={this.state.selectedOption === "careerLevel2"} label='College' />
-                        <Input onChange={this.handleOptionChange} type='radio' value="careerLevel3" checked={this.state.selectedOption === "careerLevel3"} label='New Professional' />
-                        <Input onChange={this.handleOptionChange} type='radio' value="careerLevel4" checked={this.state.selectedOption === "careerLevel4"} label='Professional 5+ Years' />
-                        <Input onChange={this.handleOptionChange} type='radio' value="careerLevel5" checked={this.state.selectedOption === "careerLevel5"} label='Expert' />
+                        <Input onChange={this.handleOptionChange} type='radio' value="careerLevel2" checked={this.state.careerLevel === "careerLevel2"} label='College' />
+                        <Input onChange={this.handleOptionChange} type='radio' value="careerLevel3" checked={this.state.careerLevel === "careerLevel3"} label='New Professional' />
+                        <Input onChange={this.handleOptionChange} type='radio' value="careerLevel4" checked={this.state.careerLevel === "careerLevel4"} label='Professional 5+ Years' />
+                        <Input onChange={this.handleOptionChange} type='radio' value="careerLevel5" checked={this.state.careerLevel === "careerLevel5"} label='Expert' />
 
                   </div>
                   <br/>
@@ -322,8 +326,8 @@ class MavenQuestionnaire extends Component {
                   <br/> 
 
                   <div row className="checkbox">
-                    <h5>10. What is your industry area of expertise? </h5>
-                    {this.createIndustryCheckboxes()}
+                      <h5>10. What is your industry area of expertise? </h5>
+                      {this.createIndustryCheckboxes()}
                   </div>
                 </div>
 

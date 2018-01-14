@@ -242,7 +242,7 @@ class MaverickQuestionnaire extends Component {
  
                 <div>
                   <div row>
-                      <h5>8. What is your current level of experience? </h5>
+                      <h5>7. What is your current level of experience? </h5>
                         <Input name='careerLevel' onChange={this.handleInputChange} type='radio' value={this.state.careerLevel1} label='College' />
                         <Input name='careerLevel' onChange={this.handleInputChange} type='radio' value={this.state.careerLevel2} label='New Professional' />
                         <Input name='careerLevel' onChange={this.handleInputChange} type='radio' value={this.state.careerLevel3} label='Professional 5+ Years' />
@@ -253,7 +253,7 @@ class MaverickQuestionnaire extends Component {
                   <br/>
 
                   <div row>
-                      <h5>9. What are your preferred languages? </h5>
+                      <h5>8. What are your preferred languages? </h5>
                           <Input name='languages' onChange={this.handleInputChange} type='checkbox' value={this.state.languagesJS} label='Javascript' />
                           <Input name='languages' onChange={this.handleInputChange} type='checkbox' value={this.state.languagesPython} label='Python' />
                           <Input name='languages' onChange={this.handleInputChange} type='checkbox' value={this.state.languagesPHP} label='PHP'  />
@@ -266,7 +266,7 @@ class MaverickQuestionnaire extends Component {
                   <br/> 
 
                   <div row>
-                    <h5>10. What is your industry area of expertise? </h5>
+                    <h5>9. What is your industry area of expertise? </h5>
                       <Input name='industry' onChange={this.handleInputChange} type='checkbox' value={this.state.industrysecurity} label='Security' />
                       <Input name='industry' onChange={this.handleInputChange} type='checkbox' value={this.state.industrycommerce} label='Commerce'  />
                       <Input name='industry' onChange={this.handleInputChange} type='checkbox' value={this.state.industryfinance} label='Finance' />            
