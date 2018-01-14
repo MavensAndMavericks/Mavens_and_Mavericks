@@ -282,7 +282,7 @@ class MaverickQuestionnaire extends Component {
 
 
                 <FormBtn
-                  disabled={!(this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons)}
+                  disabled={!(this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.goals && this.state.profession && this.state.reasons)}
                   onClick={this.handleFormSubmit}
                 >
                   Submit Answers
