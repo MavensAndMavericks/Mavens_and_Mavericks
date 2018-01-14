@@ -36,17 +36,18 @@ module.exports = {
      .catch(err => res.status(422).json(err));
  },
 
- findMatches: function(req, res) {
-   db.User
-     .findById({ _id: req.params.id })
-     .then(users => {
-       return db.User.find({
-         _id: { $nin: user._id },
-         type: { $in: ["maverick"] }, //or maverick ==> (!user.type)
-         languages: { $in: user.languages }
-       });
-     })
-     // .then(() => {
+  findMatches: function(req, res) {
+    db.User
+      .findById({ _id: req.params.id })
+      .then(users => {
+        return db.User.find({
+          _id: { $nin: user._id },
+          type: { $in: [!user.type] }, // we could replace "!user.type" with >> ["maverick"] or ["maven"], depending on type/occasion
+          languages: { $in: user.languages }
+        });
+      })
+      // .then(() => {
+
 
      // });
  }
