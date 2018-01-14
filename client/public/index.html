@@ -38,7 +38,19 @@
     <div id="sb_widget"></div>
     <script>
        var appId = "FB7BB4B3-4917-4831-B2E0-EB94FB4A4BD7";
-       sbWidget.startWithConnect(appId);
+       var userId = "";
+       var nickname = "";
+       sbWidget.startWithConnect(appId, userId, nickname, function() {
+        // on sign in
+        db.questionnaires.find(
+            { github: github name used for log in },
+            )
+        }
+        // get user info from database
+        // use github name as userId
+        // use first and last as nickname
+      
+    });
     </script>
 
     <div id="root"></div>
