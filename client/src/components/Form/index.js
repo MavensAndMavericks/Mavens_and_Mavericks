@@ -1,4 +1,4 @@
-export * from "./Input";
+export * from "./InputBox";
 export * from "./TextArea";
 export * from "./FormBtn";
 export * from "./QuestionsMentor";

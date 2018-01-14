@@ -1,10 +1,11 @@
 //React Library imports:
 import React, { Component } from "react";
 import API from "../../utils/API";
+import {Input} from 'react-materialize'
 
 //Componenet imports:
 import { Col, Row, Container } from "../../components/Grid";
-import { Input, TextArea, FormBtn, QuestionsMentor } from "../../components/Form";
+import { InputBox, TextArea, FormBtn } from "../../components/Form"; //QuestionsMentor
 import Jumbotron from "../../components/Jumbotron";
 import Nav from "../../components/Nav";
 import "./MavenQuestionnaire.css";
@@ -16,19 +17,36 @@ class MavenQuestionnaire extends Component {
     // questionnaires: [],
     firstName:"",
     lastName:"",
-    // type: "maven",
+    type: "maven",
     gitHub:"",
     quote: "",
     coded: "",
     profession: "",
     schooling: "",
-    impact:"",
-    reasons:"",
-
-    careerLevel:"",
-    languages: [],
-    industryExperience: [],
-    personalityResults: []
+    impact: "",
+    reasons: "",
+    careerLevel2: "",
+    careerLevel3: "",
+    careerLevel4: "",
+    careerLevel5: "",
+    languagesJS: "",
+    languagesPython: "",
+    languagesPHP: "",
+    languagesRuby: "",
+    languagesCplus: "",
+    languagesSQL: "",
+    languagesHTML: "",
+    industrysecurity: "",
+    industrycommerce: "",
+    industryfinance: "",
+    industryhealth: "",
+    industrygaming: "",
+    industrysocialmedia: "",
+    industrywebdesign: "",
+    industrymarketing: "",
+    industryelectrical: "",
+    industryAI: "",
+    //personalityResults: []
   };
 
 
@@ -48,18 +66,18 @@ class MavenQuestionnaire extends Component {
       API.saveQuestionnaire({
         firstName: this.state.firstName,
         lastName: this.state.lastName,
+        type: this.state.type,
         gitHub: this.state.gitHub,
         quote: this.state.quote,
         coded: this.state.coded,
         profession: this.state.profession,
         schooling: this.state.schooling,
         impact: this.state.impact,
-        reasons: this.state.reasons
-
-
-        // careerLevel: this.state.careerLevel,
-        // languages: this.state.languages,
-        // industryExperience: this.state.industryExperience,
+        reasons: this.state.reasons,
+        careerLevel: [this.state.careerLevel2, this.state.careerLevel3, this.state.careerLevel4,this.state.careerLevel5],
+        languages: [this.state.languagesPython, this.state.languagesPHP, this.state.languagesRuby, this.state.languagesCplus, this.state.languagesSQL, this.state.languagesHTML],
+        industryExperience: [this.state.industrysecurity, this.state.industryfinance, this.state.industryhealth, this.state.industrygaming, this.state.industrysocialmedia, this.state.industrywebdesign, this.state.industrymarketing, this.state.industryelectrical, this.state.industryAI]
+  
         // personalityResults: this.state.personalityResults
       })          
         // .then(res => this.handleMatching(res))
@@ -87,8 +105,6 @@ class MavenQuestionnaire extends Component {
 //     }
 //   })
 // }
-
-
 
 
 
@@ -162,7 +178,7 @@ class MavenQuestionnaire extends Component {
                   <i className="small material-icons">person_pin</i>
                     <h5>First Name</h5>
                 </span>
-                  <Input
+                  <InputBox
                     value={this.state.firstName}
                     onChange={this.handleInputChange}
                     name="firstName"
@@ -175,7 +191,7 @@ class MavenQuestionnaire extends Component {
                   <i className="small material-icons">person_pin</i>
                     <h5>Last Name</h5>
                 </span>
-                  <Input
+                  <InputBox
                     value={this.state.lastName}
                     onChange={this.handleInputChange}
                     name="lastName"
@@ -185,33 +201,34 @@ class MavenQuestionnaire extends Component {
             </Row>
 
             <Row>
+
               <Col size="md-12"> 
                 <h5>1. What is your GitHub Handler?</h5>
-                  <Input
+                  <InputBox
                     value={this.state.github}
                     onChange={this.handleInputChange}
                     name="gitHub"
                   />
                 <h5>2. What is your favorite inspirational quote?</h5>
-                  <Input
+                  <InputBox
                     value={this.state.quote}
                     onChange={this.handleInputChange}
                     name="quote"
                   />
                 <h5>3. How extensively have you coded in the past?</h5>
-                  <Input
+                  <InputBox
                     value={this.state.coded}
                     onChange={this.handleInputChange}
                     name="coded"
                   />
                 <h5>4. What is your current profession?</h5>
-                  <Input
+                  <InputBox
                     value={this.state.profession}
                     onChange={this.handleInputChange}
                     name="profession"
                   />
                 <h5>5. What is your previous schooling?</h5>
-                  <Input
+                  <InputBox
                     value={this.state.schooling}
                     onChange={this.handleInputChange}
                     name="schooling"
@@ -229,7 +246,47 @@ class MavenQuestionnaire extends Component {
                     name="reasons"
                   />
 
-                <QuestionsMentor/>  
+ 
+                <div>
+                  <div row>
+                      <h5>8. What is your current level of experience? </h5>
+                        <Input name='careerLevel' onChange={this.handleInputChange} type='radio' value={this.state.careerLevel2} label='College' />
+                        <Input name='careerLevel' onChange={this.handleInputChange} type='radio' value={this.state.careerLevel3} label='New Professional' />
+                        <Input name='careerLevel' onChange={this.handleInputChange} type='radio' value={this.state.careerLevel4} label='Professional 5+ Years' />
+                        <Input name='careerLevel' onChange={this.handleInputChange} type='radio' value={this.state.careerLevel5} label='Expert' />
+
+                  </div>
+                  <br/>
+                  <br/>
+
+                  <div row>
+                      <h5>9. What are your preferred languages? </h5>
+                          <Input name='languages' onChange={this.handleInputChange} type='checkbox' value={this.state.languagesJS} label='Javascript' />
+                          <Input name='languages' onChange={this.handleInputChange} type='checkbox' value={this.state.languagesPython} label='Python' />
+                          <Input name='languages' onChange={this.handleInputChange} type='checkbox' value={this.state.languagesPHP} label='PHP'  />
+                          <Input name='languages' onChange={this.handleInputChange} type='checkbox' value={this.state.languagesRuby} label='Ruby' />   
+                          <Input name='languages' onChange={this.handleInputChange} type='checkbox' value={this.state.languagesC++} label='C++' />
+                          <Input name='languages' onChange={this.handleInputChange} type='checkbox' value={this.state.languagesSQL} label='SQL' />
+                          <Input name='languages' onChange={this.handleInputChange} type='checkbox' value={this.state.languagesHTML} label='HTML/CSS' /> 
+                  </div> 
+                  <br/>
+                  <br/> 
+
+                  <div row>
+                    <h5>10. What is your industry area of expertise? </h5>
+                      <Input name='industry' onChange={this.handleInputChange} type='checkbox' value={this.state.industrysecurity} label='Security' />
+                      <Input name='industry' onChange={this.handleInputChange} type='checkbox' value={this.state.industrycommerce} label='Commerce'  />
+                      <Input name='industry' onChange={this.handleInputChange} type='checkbox' value={this.state.industryfinance} label='Finance' />            
+                      <Input name='industry' onChange={this.handleInputChange} type='checkbox' value={this.state.industryhealth} label='Health' />   
+                      <Input name='industry' onChange={this.handleInputChange} type='checkbox' value={this.state.industrygaming} label='Gaming' />
+                      <Input name='industry' onChange={this.handleInputChange} type='checkbox' value={this.state.industrysocialmedia} label='Social Media' />
+                      <Input name='industry' onChange={this.handleInputChange} type='checkbox' value={this.state.industrywebdesign} label='Web Design' />
+                      <Input name='industry' onChange={this.handleInputChange} type='checkbox' value={this.state.industrymarketing} label='Marketing' />
+                      <Input name='industry' onChange={this.handleInputChange} type='checkbox' value={this.state.industryelectrical} label='Electrical Engineering' />
+                      <Input name='industry' onChange={this.handleInputChange} type='checkbox' value={this.state.industryAI} label='Artifical Intelligence' />
+                  </div>
+                </div>
+
 
                 <FormBtn
                   disabled={!(this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons)}
@@ -237,6 +294,7 @@ class MavenQuestionnaire extends Component {
                 >
                   Submit Answers
                 </FormBtn>
+
               </Col>
             </Row>
           </form>
@@ -255,3 +313,7 @@ export default MavenQuestionnaire;
 // bioquestions: this.state.bioquestions,
 
  //&& this.state.careerLevel && this.state.languages && this.state.industryExperience
+
+
+
+//We removed this component and input the full radio questions: <QuestionsMentor/>
