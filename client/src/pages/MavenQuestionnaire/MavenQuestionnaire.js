@@ -32,6 +32,7 @@ const industryList = [
   "Electrical Engineering",
   "Artifical Intelligence"
 ]
+
 ////////////////////////////////////////////////////////////////////
 class MavenQuestionnaire extends Component {
   state = {
@@ -48,15 +49,42 @@ class MavenQuestionnaire extends Component {
     reasons: "",
     careerLevel: "",
     languages: "",
-    industryExperience: ""
+    industryExperience: "",
+    checkboxState: true,
+    checkboxValue: []
+    
+
 //personalityResults: []
   };
+
+
+  toggle = (event) => {
+    if (this.state.checkboxValue.includes(event.target.value)){
+          this.setState({checkboxValue: this.state.checkboxValue.splice("", event.target.value)})
+      }
+      else {
+        this.setState({checkboxValue: event.target.value})
+      }
+
+    this.setState({
+      checkboxState: !this.state.checkboxState,
+
+      
+    });
+    console.log(this.state.checkboxState)
+    console.log(this.state.checkboxValue)
+    console.log(event.target.value)
+  };
+
+  
+
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
   };
+
   handleFormSubmit = event => {
     event.preventDefault();
 
@@ -84,88 +112,37 @@ class MavenQuestionnaire extends Component {
         .then( window.location.pathname ="/welcomeMaven"); //>>> <Link to={"/welcomeMaven/" + questionnaire._id}>  <<<!!?? Would this work ??!!
     }
   };
-// handleMatching = (res) = > {
-//   var length = res.length[i];
-//   var jlength = res.length[j];
-//   API.getQuestionnaires({
-//     for (var i=0; i < res.length; i++){
-//       if(type==="maverick"){
-//         for (var j=0; j< length; j++){
-//           if (this.state.maverickLanguages === this.state.mavenLanguages){
-//             for (var k= 0; k< jlength; k++){
-//               // if-else statement for industry
-//             }
-//           }
-//         }
-//       }
-//     }
-//   })
-// }
-  // handleMatching = (res) => {
-  //    // This should be our current client's results
-  //    const currentResults = res.data;
-  //   if (currentResults.type === "maven") {
-  //     //then search for all those in "mavericks"
-  //     API.getQuestionnaire()
-  //       .then(res => {
-  //         const maverick = res.data.filter(questionnaire => questionnaire.type === "maverick")
-  //       }).catch(err => console.log(err));
-  //     };
-  //Maven Logic
-  //1. iterate over mavericks to find least amount of difference between languages
-  //  a loop
-  
-  // for (i=0; i < maverick.length; i++){
-  
-  //  let currentUserLang = currentResults.languages;
-  //  let maverickLang = maverick[i].languages;
-  // let matching = [];
-  //  currentUserLang.forEach(function(element, maverickLang){
-  //    for (let lang of maverickLang){
-  //   if (element === lang){
-  //       maverickLang[]
-  //   }
-  //    }
-  //  })
-//    arr.forEach(function callback(currentValue[, index[, array]]) {
-//     //your iterator
-// }[, thisArg]);
-  //2. iterate over mavericks to find least amount of difference between industries
-  //  a loop 
-  // a match === array of first 15 matches, assign this array to the match model
-  // }
- 
-  // };
+
 
 //Checkbox Button Handling
 
-componentWillMount = () => {
-  this.selectedCheckboxes = new Set();
-}
-  toggleCheckbox = label => { //toggling ON/OFF every time RENDERED...
-    if (this.selectedCheckboxes.has(label)) { //...if "on"
-      this.selectedCheckboxes.delete(label); //..toggle "off"
-    } else {
-      this.selectedCheckboxes.add(label); //..otherwise, (it's "off", so we need to) toggle "on".
-    }
-  };
+// componentWillMount = () => {
+//   this.selectedCheckboxes = new Set();
+// }
+//   toggleCheckbox = label => { //toggling ON/OFF every time RENDERED...
+//     if (this.selectedCheckboxes.has(label)) { //...if "on"
+//       this.selectedCheckboxes.delete(label); //..toggle "off"
+//     } else {
+//       this.selectedCheckboxes.add(label); //..otherwise, (it's "off", so we need to) toggle "on".
+//     }
+//   };
 
-  createCheckbox = label => (
-    <Checkbox
-      label={label}
-      handleCheckboxChange={this.toggleCheckbox}
-      key={label}
-    />
-  );
+//   createCheckbox = label => (
+//     <Checkbox
+//       label={label}
+//       handleCheckboxChange={this.toggleCheckbox}
+//       key={label}
+//     />
+//   );
 
-//For: Lanauage Opts Checkboxes
-  createLangCheckboxes = () => (
-    langList.map(this.createCheckbox)
-  );
-//For: IndustryExperience Checkboxes
-  createIndustryCheckboxes = () => (
-    industryList.map(this.createCheckbox)
-  );
+// //For: Lanauage Opts Checkboxes
+//   createLangCheckboxes = () => (
+//     langList.map(this.createCheckbox)
+//   );
+// //For: IndustryExperience Checkboxes
+//   createIndustryCheckboxes = () => (
+//     industryList.map(this.createCheckbox)
+//   );
 
 
 //Radio Button Handling
@@ -284,19 +261,22 @@ componentWillMount = () => {
                   </div>
                   <br/>
 
+=========THIS IS A TEST============
 
-                  <br/>
-                  <div row className="checkbox">
-                      <h5>9. What are your preferred languages? </h5>
-                      {this.createLangCheckboxes()}
-                  </div> 
-                  <br/>
-                  <br/> 
-                  <div row className="checkbox">
-                      <h5>10. What is your industry area of expertise? </h5>
-                      {this.createIndustryCheckboxes()}
-                  </div>
-                </div>
+                   <div row className="checkbox">
+                     <h5>8. test </h5>
+
+<Input onChange={this.toggle.bind(this)} type="checkbox"  checked = {this.state.checkboxValue.value} value="test" label='omg' />
+
+
+                       
+                 </div>
+                 <br/>
+
+===============================
+
+
+</div>
 
                 <FormBtn
                   disabled={!(this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons)}
@@ -315,4 +295,62 @@ componentWillMount = () => {
 }
 export default MavenQuestionnaire;
 //className="backgroundPic" style={{backgroundImage:"url(/assets/futuristic-Factory-Background)"}}
+
 //We removed this component and input the full radio questions: <QuestionsMentor/>
+
+
+
+
+
+// handleMatching = (res) = > {
+//   var length = res.length[i];
+//   var jlength = res.length[j];
+//   API.getQuestionnaires({
+//     for (var i=0; i < res.length; i++){
+//       if(type==="maverick"){
+//         for (var j=0; j< length; j++){
+//           if (this.state.maverickLanguages === this.state.mavenLanguages){
+//             for (var k= 0; k< jlength; k++){
+//               // if-else statement for industry
+//             }
+//           }
+//         }
+//       }
+//     }
+//   })
+// }
+  // handleMatching = (res) => {
+  //    // This should be our current client's results
+  //    const currentResults = res.data;
+  //   if (currentResults.type === "maven") {
+  //     //then search for all those in "mavericks"
+  //     API.getQuestionnaire()
+  //       .then(res => {
+  //         const maverick = res.data.filter(questionnaire => questionnaire.type === "maverick")
+  //       }).catch(err => console.log(err));
+  //     };
+  //Maven Logic
+  //1. iterate over mavericks to find least amount of difference between languages
+  //  a loop
+  
+  // for (i=0; i < maverick.length; i++){
+  
+  //  let currentUserLang = currentResults.languages;
+  //  let maverickLang = maverick[i].languages;
+  // let matching = [];
+  //  currentUserLang.forEach(function(element, maverickLang){
+  //    for (let lang of maverickLang){
+  //   if (element === lang){
+  //       maverickLang[]
+  //   }
+  //    }
+  //  })
+//    arr.forEach(function callback(currentValue[, index[, array]]) {
+//     //your iterator
+// }[, thisArg]);
+  //2. iterate over mavericks to find least amount of difference between industries
+  //  a loop 
+  // a match === array of first 15 matches, assign this array to the match model
+  // }
+ 
+  // };
