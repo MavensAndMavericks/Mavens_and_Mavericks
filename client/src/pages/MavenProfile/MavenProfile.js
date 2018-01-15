@@ -16,8 +16,8 @@ import ProjectBoard from "../../components/ProjectBoard";
 import { Col, Row } from "../../components/Grid";
 import Footer from "../../components/Footer";
 import "./MavenProfile.css";
-import API from "../../utils/API";
-import Sendbird from "../../components/Sendbird";
+// import API from "../../utils/API";
+
 
 //import Parallax5 from "../../components/Parallax5";
 
@@ -25,12 +25,7 @@ import Sendbird from "../../components/Sendbird";
 // !! href for this page === "welcomeMaven" !!
 
 class MavenProfile extends Component {
-   logIn= (props) => {
-    const isLoggedIn = props.isLoggedIn;
-    if(isLoggedIn) {
-      return <Sendbird />
-    }
-  }
+
 
   render() {
   
@@ -49,7 +44,7 @@ class MavenProfile extends Component {
                 <ProfileBio/>
                 <ProjectBoard/>
 
-                <Sendbird isLoggedIn={true} />
+                
                
 
               </div>
