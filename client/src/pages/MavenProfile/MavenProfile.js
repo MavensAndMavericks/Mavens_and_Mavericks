@@ -48,9 +48,10 @@ class MavenProfile extends Component {
 
                 <ProfileBio/>
                 <ProjectBoard/>
+
                 <Sendbird isLoggedIn={true} />
                
-              
+
               </div>
 
 	          </Col>

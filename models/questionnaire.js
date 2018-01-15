@@ -13,7 +13,7 @@ const questionnaireSchema = new Schema({
   schooling: { type: String, required: true },
   impact: { type: String, required: true },
   reasons: { type: String, required: true },
-  careerLevel: { type: Array, required: true },
+  careerLevel: { type: String, required: false },
   languages: { type: Array, required: true },
   industryExperience: { type: Array, required: true },
   //personalityResults: { type: Array, required: true },  //modify as necessary >> after reveiwing the Traitify API
