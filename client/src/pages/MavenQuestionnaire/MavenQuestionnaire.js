@@ -136,7 +136,12 @@ class MavenQuestionnaire extends Component {
   // }
  
   // };
+
 //Checkbox Button Handling
+
+componentWillMount = () => {
+  this.selectedCheckboxes = new Set();
+}
   toggleCheckbox = label => { //toggling ON/OFF every time RENDERED...
     if (this.selectedCheckboxes.has(label)) { //...if "on"
       this.selectedCheckboxes.delete(label); //..toggle "off"
@@ -144,6 +149,7 @@ class MavenQuestionnaire extends Component {
       this.selectedCheckboxes.add(label); //..otherwise, (it's "off", so we need to) toggle "on".
     }
   };
+
   createCheckbox = label => (
     <Checkbox
       label={label}
@@ -151,6 +157,7 @@ class MavenQuestionnaire extends Component {
       key={label}
     />
   );
+
 //For: Lanauage Opts Checkboxes
   createLangCheckboxes = () => (
     langList.map(this.createCheckbox)
@@ -278,21 +285,6 @@ class MavenQuestionnaire extends Component {
                   <br/>
 
 
-=========THIS IS A TEST============
-
-                    <div row className="checkbox">
-                      <h5>8. test </h5>
-                        <Input onChange={this.handleOptionChange} type='checkbox' value="lorna" checked={this.state.languages.value} label='lorna' />
-                        <Input onChange={this.handleOptionChange} type='checkbox' value="amanda" checked={this.state.languages.value} label='amanda' />
-                        <Input onChange={this.handleOptionChange} type='checkbox'  value="lisa" checked={this.state.languages.value} label='Lisa' />
-                        <Input onChange={this.handleOptionChange} type='checkbox'  value="austin" checked={this.state.languages.value} label='austin' />
-                  </div>
-                  <br/>
-
-===============================
-
-
-
                   <br/>
                   <div row className="checkbox">
                       <h5>9. What are your preferred languages? </h5>
@@ -305,6 +297,7 @@ class MavenQuestionnaire extends Component {
                       {this.createIndustryCheckboxes()}
                   </div>
                 </div>
+
                 <FormBtn
                   disabled={!(this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons)}
                   onClick={this.handleFormSubmit}

@@ -24,10 +24,7 @@
     <!-- Sendbird CDN -->   
     <script src="SendBird.min.js"></script>
     <script src="widget.SendBird.js"></script>
-        <script>
-       var appId = "FB7BB4B3-4917-4831-B2E0-EB94FB4A4BD7";
-       sbWidget.startWithConnect(appId);
-    </script>
+
 
     <!-- Google Fonts - CSS -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -40,12 +37,19 @@
     </noscript>
 
 <div id="sb_widget"></div>
+
    <script>
        // function logIn() {
        //     sbWidgetToggle.show();
        // };
        var sbWidgetToggle = document.getElementById("sb_widget");
-       sbWidgetToggle.hide();
+
+       // sbWidgetToggle.hide();
+
+       if (window.location.pathname ==="/MavenQuestionnaire" || windowlocation.pathname ==="/MaverickQuestionnaire" || window.location.pathname ==="/" )  {
+        sbWidgetToggle.hide();    
+       }
+    
        // document.querySelector(".btn").addEventListener("click", function(){
        //     logIn();
        // });
