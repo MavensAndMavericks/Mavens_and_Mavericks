@@ -15,7 +15,9 @@ import ProfileBio from "../../components/ProfileBio";
 import ProjectBoard from "../../components/ProjectBoard";
 import { Col, Row } from "../../components/Grid";
 import Footer from "../../components/Footer";
-import "./MavenProfile.css"
+import "./MavenProfile.css";
+import API from "../../utils/API";
+import Sendbird from "../../components/Sendbird";
 
 //import Parallax5 from "../../components/Parallax5";
 
@@ -23,7 +25,15 @@ import "./MavenProfile.css"
 // !! href for this page === "welcomeMaven" !!
 
 class MavenProfile extends Component {
+   logIn= (props) => {
+    const isLoggedIn = props.isLoggedIn;
+    if(isLoggedIn) {
+      return <Sendbird />
+    }
+  }
+
   render() {
+  
     return (
     	<div>
     		<Nav/>
@@ -38,6 +48,8 @@ class MavenProfile extends Component {
 
                 <ProfileBio/>
                 <ProjectBoard/>
+                <Sendbird isLoggedIn={true} />
+               
               
               </div>
 
@@ -51,3 +63,12 @@ class MavenProfile extends Component {
 }
 
 export default MavenProfile;
+
+  // componentDidMount() {
+  //   this.showSendbirdWidget();
+  // }
+  //   showSendbirdWidget = () => {
+  //   API.getProfiles()
+  //     console.log("I'm should be showing the widget")
+  //     .catch(err => console.log(err));
+  // }
