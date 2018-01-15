@@ -38,6 +38,9 @@ class MavenProfile extends Component {
 
                 <ProfileBio/>
                 <ProjectBoard/>
+
+                    <div id="sb_widget"></div>
+
               
               </div>
 
