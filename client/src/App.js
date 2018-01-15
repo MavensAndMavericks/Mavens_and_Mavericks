@@ -15,6 +15,7 @@ import ExampleProj from "./pages/ExampleProj";
 import QandA from "./pages/QandA";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
+import Sendbird from "./components/Sendbird";
 
 //Componenet imports:
 //import Nav from "./components/Nav";
@@ -40,7 +41,7 @@ const App = () =>
         <Route component={NoMatch} /> 
       </Switch>
     </div>
-  </Router>;
+  </Router>
 
 export default App;
 

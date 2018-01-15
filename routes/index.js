@@ -10,4 +10,11 @@ router.use(function(req, res) {
   res.sendFile(path.join(__dirname, "../client/public/index.html")); //does this need to read "/client/PUBLIC/index.html" instead of "client/BUILD/index.html"??
 });
 
+ 
+ // getProfiles: function(questionnaireData) {
+ // return axios.get("/welcomeMaven", function(){
+ //   var sbWidgetToggle = document.getElementById("sb_widget");
+ //   sbWidgetToggle.show();
+ // })
+
 module.exports = router;
