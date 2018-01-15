@@ -170,7 +170,12 @@ class MavenQuestionnaire extends Component {
  
   // };
 
+////////////////////////////////////
 //Checkbox Button Handling
+  componentWillMount = () => {
+    this.selectedCheckboxes = new Set();
+  }
+
   toggleCheckbox = label => { //toggling ON/OFF every time RENDERED...
     if (this.selectedCheckboxes.has(label)) { //...if "on"
       this.selectedCheckboxes.delete(label); //..toggle "off"
@@ -181,11 +186,12 @@ class MavenQuestionnaire extends Component {
 
   createCheckbox = label => (
     <Checkbox
+      type="checkbox"
       label={label}
       handleCheckboxChange={this.toggleCheckbox}
-      key={label}
+      key={label}    
     />
-  );
+  );                     
 
 //For: Lanauage Opts Checkboxes
   createLangCheckboxes = () => (
@@ -197,6 +203,7 @@ class MavenQuestionnaire extends Component {
     industryList.map(this.createCheckbox)
   );
 
+///////////////////////////////////////////////////
 //Radio Button Handling
   getInitialState= () => {
     return {
@@ -204,7 +211,7 @@ class MavenQuestionnaire extends Component {
     };
   };
 
-  handleOptionChange= function (changeEvent) {
+  handleOptionChange= (changeEvent) => {
     this.setState({
       careerLevel: changeEvent.target.value
     });
@@ -305,15 +312,13 @@ class MavenQuestionnaire extends Component {
                     name="reasons"
                   />
 
- 
                 <div>
-                  <div row className="radio">
-                      <h5>8. What is your current level of experience? </h5>
-                        <Input onChange={this.handleOptionChange} type='radio' value="careerLevel2" checked={this.state.careerLevel === "careerLevel2"} label='College' />
-                        <Input onChange={this.handleOptionChange} type='radio' value="careerLevel3" checked={this.state.careerLevel === "careerLevel3"} label='New Professional' />
-                        <Input onChange={this.handleOptionChange} type='radio' value="careerLevel4" checked={this.state.careerLevel === "careerLevel4"} label='Professional 5+ Years' />
-                        <Input onChange={this.handleOptionChange} type='radio' value="careerLevel5" checked={this.state.careerLevel === "careerLevel5"} label='Expert' />
-
+                  <div row>
+                    <h5>8. What is your current level of experience? </h5>
+                      <Input onChange={this.handleOptionChange} type='radio' value="careerLevel2" checked={false} label='College' />
+                      <Input onChange={this.handleOptionChange} type='radio' value="careerLevel3" checked={false} label='New Professional' />
+                      <Input onChange={this.handleOptionChange} type='radio' value="careerLevel4" checked={false} label='Professional 5+ Years' />
+                      <Input onChange={this.handleOptionChange} type='radio' value="careerLevel5" checked={false} label='Expert' />
                   </div>
                   <br/>
                   <br/>

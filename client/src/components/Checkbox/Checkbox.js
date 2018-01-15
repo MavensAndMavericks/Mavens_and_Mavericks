@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import {Input} from 'react-materialize';
 
 class Checkbox extends Component {
   state = {
@@ -23,9 +24,9 @@ class Checkbox extends Component {
     const { isChecked } = this.state;
 
     return (
-      <div className="checkbox">
+      <div>
         <label>
-          <input
+          <Input
             type="checkbox"
             value={label}
             checked={isChecked}
@@ -45,3 +46,7 @@ Checkbox.propTypes = {
 };
 
 export default Checkbox;
+//className="checkbox"
+
+//<Input name='industry' onChange={this.handleInputChange} type='checkbox' value={this.state.industrysecurity} label='Security' />
+                      
