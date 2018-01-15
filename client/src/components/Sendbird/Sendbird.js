@@ -1,24 +1,10 @@
-import React, {Component} from "react";
 
-const Sendbird = () =>
-	<div id="sb_widget"></div>
+// import React, {Component} from "react";
 
-
-// class Sendbird extends Component {
-	
-// 	logIn = () => {
-
-//   		var sbWidgetToggle = document.getElementById("sb_widget");
-// 	// sbWidgetToggle.show();
-//   }
-//   render() {
-//   	return(
-//   		<div id="sb_widget"></div>
-//   	)
-//   };
-// } 
-
+// const Sendbird = () =>
+// 	<div id="sb_widget"></div>
   	
 
 
-export default Sendbird;
+// export default Sendbird;
+

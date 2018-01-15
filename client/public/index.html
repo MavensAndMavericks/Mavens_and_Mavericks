@@ -24,10 +24,7 @@
     <!-- Sendbird CDN -->   
     <script src="SendBird.min.js"></script>
     <script src="widget.SendBird.js"></script>
-        <script>
-       var appId = "FB7BB4B3-4917-4831-B2E0-EB94FB4A4BD7";
-       sbWidget.startWithConnect(appId);
-    </script>
+
 
     <!-- Google Fonts - CSS -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -39,29 +36,33 @@
       You need to enable JavaScript to run this app.
     </noscript>
 
+<div id="sb_widget"></div>
 
-    <!-- <div id="sb_widget"></div> -->
-    <script>
-        // function logIn() {
-        //     sbWidgetToggle.show();
-        // };
-        // var sbWidgetToggle = document.getElementById("sb_widget");
-        // sbWidgetToggle.hide();
-        // document.querySelector(".btn").addEventListener("click", function(){
-        //     logIn(); 
-        // });
-        
-       var appId = "FB7BB4B3-4917-4831-B2E0-EB94FB4A4BD7";
-       var userId = "";
-       var nickname = "";
-       sbWidget.startWithConnect(appId, userId, nickname, function() {
-        // on sign in 
-        // get user info from database
-        // use github name as userId
-        // use first and last as nickname
-      
-    });
-    </script>
+   <script>
+       // function logIn() {
+       //     sbWidgetToggle.show();
+       // };
+       var sbWidgetToggle = document.getElementById("sb_widget");
+
+       if (window.location.pathname ==="/MavenQuestionnaire" || window.location.pathname ==="/MaverickQuestionnaire" || window.location.pathname ==="/" )  {
+        sbWidgetToggle.hide();    
+       }
+    
+       // document.querySelector(".btn").addEventListener("click", function(){
+       //     logIn();
+       // });
+       
+      var appId = "FB7BB4B3-4917-4831-B2E0-EB94FB4A4BD7";
+      var userId = "";
+      var nickname = "";
+      sbWidget.startWithConnect(appId, userId, nickname, function() {
+       // on sign in
+       // get user info from database
+       // use github name as userId
+       // use first and last as nickname
+     
+   });
+   </script>
 
     <div id="root"></div>
   </body>
