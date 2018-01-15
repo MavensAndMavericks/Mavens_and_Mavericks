@@ -1,7 +1,8 @@
-import React, {Component} from "react";
 
-const Sendbird = () =>
-	<div id="sb_widget"></div>
+// import React, {Component} from "react";
+
+// const Sendbird = () =>
+// 	<div id="sb_widget"></div>
 
 
 // class Sendbird extends Component {
@@ -21,4 +22,5 @@ const Sendbird = () =>
   	
 
 
-export default Sendbird;
+// export default Sendbird;
+
