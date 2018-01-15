@@ -9,7 +9,6 @@ class Checkbox extends Component {
 
   toggleCheckboxChange = () => {
     const { handleCheckboxChange, label } = this.props;
-
     this.setState(({ isChecked }) => (
       {
         isChecked: !isChecked,
@@ -40,13 +39,10 @@ class Checkbox extends Component {
   }
 }
 
+
 Checkbox.propTypes = {
   label: PropTypes.string.isRequired,
   handleCheckboxChange: PropTypes.func.isRequired,
 };
-
 export default Checkbox;
-//className="checkbox"
 
-//<Input name='industry' onChange={this.handleInputChange} type='checkbox' value={this.state.industrysecurity} label='Security' />
-                      

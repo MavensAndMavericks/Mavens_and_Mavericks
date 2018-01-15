@@ -2,8 +2,11 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import {Input} from 'react-materialize';
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> master
 //Componenet imports:
 import { Col, Row, Container } from "../../components/Grid";
 import { InputBox, TextArea, FormBtn } from "../../components/Form"; //QuestionsMentor
@@ -12,7 +15,6 @@ import Jumbotron from "../../components/Jumbotron";
 import Nav from "../../components/Nav";
 import "./MavenQuestionnaire.css";
 import Footer from "../../components/Footer";
-
 //=================================================================================
 const langList = [
   "Javascript",
@@ -23,7 +25,10 @@ const langList = [
   "SQL",
   "HTMl/CSS"
 ];
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 const industryList = [
   "Security",
   "Commerce",
@@ -36,7 +41,10 @@ const industryList = [
   "Electrical Engineering",
   "Artifical Intelligence"
 ]
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 ////////////////////////////////////////////////////////////////////
 class MavenQuestionnaire extends Component {
   state = {
@@ -56,18 +64,15 @@ class MavenQuestionnaire extends Component {
     industryExperience: ""
 //personalityResults: []
   };
-
-
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
   };
-
-
   handleFormSubmit = event => {
     event.preventDefault();
+<<<<<<< HEAD
     for (const checkbox of this.selectedCheckboxes) {
       if (industryList.includes(checkbox)){
         this.setState({
@@ -80,6 +85,9 @@ class MavenQuestionnaire extends Component {
         })
       }
     };
+=======
+
+>>>>>>> master
     if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons ) {
       // console.log("Hey!  Lorna so cool! :)  We're Jelly.");   
       API.saveQuestionnaire({
@@ -104,16 +112,13 @@ class MavenQuestionnaire extends Component {
         .then( window.location.pathname ="/welcomeMaven"); //>>> <Link to={"/welcomeMaven/" + questionnaire._id}>  <<<!!?? Would this work ??!!
     }
   };
-
 // handleMatching = (res) = > {
 //   var length = res.length[i];
 //   var jlength = res.length[j];
-
 //   API.getQuestionnaires({
 //     for (var i=0; i < res.length; i++){
 //       if(type==="maverick"){
 //         for (var j=0; j< length; j++){
-
 //           if (this.state.maverickLanguages === this.state.mavenLanguages){
 //             for (var k= 0; k< jlength; k++){
 //               // if-else statement for industry
@@ -124,12 +129,7 @@ class MavenQuestionnaire extends Component {
 //     }
 //   })
 // }
-
-
-
-
   // handleMatching = (res) => {
-
   //    // This should be our current client's results
   //    const currentResults = res.data;
   //   if (currentResults.type === "maven") {
@@ -148,27 +148,60 @@ class MavenQuestionnaire extends Component {
   //  let currentUserLang = currentResults.languages;
   //  let maverickLang = maverick[i].languages;
   // let matching = [];
-
   //  currentUserLang.forEach(function(element, maverickLang){
   //    for (let lang of maverickLang){
   //   if (element === lang){
   //       maverickLang[]
   //   }
-
   //    }
   //  })
-
 //    arr.forEach(function callback(currentValue[, index[, array]]) {
 //     //your iterator
 // }[, thisArg]);
-
   //2. iterate over mavericks to find least amount of difference between industries
   //  a loop 
   // a match === array of first 15 matches, assign this array to the match model
-
   // }
  
   // };
+//Checkbox Button Handling
+  toggleCheckbox = label => { //toggling ON/OFF every time RENDERED...
+    if (this.selectedCheckboxes.has(label)) { //...if "on"
+      this.selectedCheckboxes.delete(label); //..toggle "off"
+    } else {
+      this.selectedCheckboxes.add(label); //..otherwise, (it's "off", so we need to) toggle "on".
+    }
+  };
+  createCheckbox = label => (
+    <Checkbox
+      label={label}
+      handleCheckboxChange={this.toggleCheckbox}
+      key={label}
+    />
+  );
+//For: Lanauage Opts Checkboxes
+  createLangCheckboxes = () => (
+    langList.map(this.createCheckbox)
+  );
+//For: IndustryExperience Checkboxes
+  createIndustryCheckboxes = () => (
+    industryList.map(this.createCheckbox)
+  );
+
+
+//Radio Button Handling
+  getInitialState= () => {
+    return {
+      careerLevel: "careerLevel2"
+    };
+  };
+  handleOptionChange= (changeEvent) => {
+    this.setState({
+      careerLevel: changeEvent.target.value,
+      languages: changeEvent.target.value,
+    });
+  };
+
 
 ////////////////////////////////////
 //Checkbox Button Handling
@@ -226,7 +259,6 @@ class MavenQuestionnaire extends Component {
           <br/>
           <br/>
           <br/>
-
           <Row className="header">
             <Col size="md-12">
               <Jumbotron>
@@ -236,7 +268,6 @@ class MavenQuestionnaire extends Component {
               </Jumbotron>
             </Col>
           </Row>
-
           <form>
             <Row>
               <Col size ="md-6">
@@ -251,7 +282,6 @@ class MavenQuestionnaire extends Component {
                     placeholder="Required"
                   />
               </Col>
-
               <Col size= "md-6">
                 <span className="icon-small">
                   <i className="small material-icons">person_pin</i>
@@ -265,9 +295,7 @@ class MavenQuestionnaire extends Component {
                   />
               </Col>
             </Row>
-
             <Row>
-
               <Col size="md-12"> 
                 <h5>1. What is your GitHub Handler?</h5>
                   <InputBox
@@ -311,52 +339,82 @@ class MavenQuestionnaire extends Component {
                     onChange={this.handleInputChange}
                     name="reasons"
                   />
+        
+
 
                 <div>
+<<<<<<< HEAD
                   <div row>
                     <h5>8. What is your current level of experience? </h5>
                       <Input onChange={this.handleOptionChange} type='radio' value="careerLevel2" checked={false} label='College' />
                       <Input onChange={this.handleOptionChange} type='radio' value="careerLevel3" checked={false} label='New Professional' />
                       <Input onChange={this.handleOptionChange} type='radio' value="careerLevel4" checked={false} label='Professional 5+ Years' />
                       <Input onChange={this.handleOptionChange} type='radio' value="careerLevel5" checked={false} label='Expert' />
+=======
+                  <div row className="radio">
+                      <h5>8. What is your current level of experience? </h5>
+                        <Input onChange={this.handleOptionChange} name="experience" type='radio' value="College" checked={this.state.careerLevel.value} label='College' />
+                        <Input onChange={this.handleOptionChange} name="experience" type='radio' value="test" checked={this.state.careerLevel.value} label='New Professional' />
+                        <Input onChange={this.handleOptionChange} name="experience" type='radio' value="Professional 5+ Years" checked={this.state.careerLevel.value} label='Professional 5+ Years' />
+                        <Input onChange={this.handleOptionChange} name="experience" type='radio' value="Expert" checked={this.state.careerLevel.value} label='Expert' />
+>>>>>>> master
                   </div>
                   <br/>
+
+
+=========THIS IS A TEST============
+
+                    <div row className="checkbox">
+                      <h5>8. test </h5>
+                        <Input onChange={this.handleOptionChange} type='checkbox' value="lorna" checked={this.state.languages.value} label='lorna' />
+                        <Input onChange={this.handleOptionChange} type='checkbox' value="amanda" checked={this.state.languages.value} label='amanda' />
+                        <Input onChange={this.handleOptionChange} type='checkbox'  value="lisa" checked={this.state.languages.value} label='Lisa' />
+                        <Input onChange={this.handleOptionChange} type='checkbox'  value="austin" checked={this.state.languages.value} label='austin' />
+                  </div>
                   <br/>
 
+<<<<<<< HEAD
+=======
+===============================
+
+
+
+                  <br/>
+>>>>>>> master
                   <div row className="checkbox">
                       <h5>9. What are your preferred languages? </h5>
                       {this.createLangCheckboxes()}
                   </div> 
                   <br/>
                   <br/> 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
                   <div row className="checkbox">
                       <h5>10. What is your industry area of expertise? </h5>
                       {this.createIndustryCheckboxes()}
                   </div>
                 </div>
-
-
                 <FormBtn
                   disabled={!(this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons)}
                   onClick={this.handleFormSubmit}
                 >
                   Submit Answers
                 </FormBtn>
-
               </Col>
             </Row>
           </form>
-
         </Container>
-
         <Footer/>
       </div>
     );
   }
 }
-
 export default MavenQuestionnaire;
 //className="backgroundPic" style={{backgroundImage:"url(/assets/futuristic-Factory-Background)"}}
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 //We removed this component and input the full radio questions: <QuestionsMentor/>
