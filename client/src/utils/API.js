@@ -62,4 +62,5 @@ export default {
   getMavericks: function(questionnaireData) {
   return axios.post("/api/questionnaires", questionnaireData);
   }
-};
+ }
+
