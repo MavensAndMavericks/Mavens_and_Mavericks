@@ -19,6 +19,10 @@ const langList = [
   "Ruby",
   "C++",
   "SQL",
+  "Go",
+  "Scala",
+  "React",
+  "Vue",
   "HTMl/CSS"
 ];
 const industryList = [
@@ -76,7 +80,7 @@ class MavenQuestionnaire extends Component {
       })          
         // .then(res => this.handleMatching(res))
         .catch(err => console.log(err))
-        .then( window.location.pathname ="/welcomeMaven"); //>>> <Link to={"/welcomeMaven/" + questionnaire._id}>  <<<!!?? Would this work ??!!
+        .then( window.location.pathname ="/welcomeMaven/?"+questionnaire._id); //>>> <Link to={"/welcomeMaven/?" + questionnaire._id}>  <<<!!?? Would this work ??!!
     }
   };
 
