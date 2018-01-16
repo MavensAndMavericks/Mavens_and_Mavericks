@@ -267,7 +267,6 @@ class MavenQuestionnaire extends Component {
                   />        
 
                 <div>
-
                   <div row className="radio">
                       <h5>8. What is your current level of experience? </h5>
                         <Input onChange={this.handleOptionChange} name="experience" type='radio' value="College" checked={this.state.careerLevel.value} label='College' />
@@ -285,7 +284,7 @@ class MavenQuestionnaire extends Component {
 
               <form>
                 <div row className="checkbox">
-                  <h5>9. testing-1 </h5>
+                  <h5>9. What are your preferred languages? </h5>
                   <div className="input-group">
                     {this.createIndustryCheckboxes()}
                   </div>
@@ -294,7 +293,7 @@ class MavenQuestionnaire extends Component {
                 <br/>
 
                 <div row className="checkbox">
-                  <h5>10. testing-1 </h5>
+                  <h5>10. What is your industry area of expertise? </h5>
                   <div className="input-group">
                     {this.createLangCheckboxes()}
                   </div>
