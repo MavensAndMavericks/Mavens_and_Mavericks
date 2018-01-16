@@ -24,6 +24,7 @@
     "chart.js": "^2.7.1",
     "express": "^4.15.4",
     "mongoose": "^4.11.7",
+    "prop-types": "^15.6.0",
     "react-materialize": "^1.1.2",
     "sendbird": "^3.0.49",
     "traitify": "^2.2.0"
