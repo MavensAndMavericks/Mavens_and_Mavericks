@@ -49,17 +49,23 @@ export default {
   // Deletes the questionnaire with the given id
   deleteQuestionnaire: function(id) {
     return axios.delete("/api/questionnaires/" + id);
+  },  
+  // Gets the questionnaire by given github
+  findByGithub: function(questionnaireData) {
+    return axios.get("/api/questionnaires", questionnaireData);
   },
   // Saves a questionnaire to the database
   saveQuestionnaire: function(questionnaireData) {
     return axios.post("/api/questionnaires", questionnaireData);
   },
 
-  getMavens: function(questionnaireData) {
+  ///////////////////////////
+
+  postMavens: function(questionnaireData) {
     return axios.post("/api/questionnaires", questionnaireData);
   },
 
-  getMavericks: function(questionnaireData) {
+  postMavericks: function(questionnaireData) {
   return axios.post("/api/questionnaires", questionnaireData);
   }
  }

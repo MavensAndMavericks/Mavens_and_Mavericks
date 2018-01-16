@@ -41,6 +41,7 @@ const industryList = [
 ////////////////////////////////////////////////////////////////////
 class MavenQuestionnaire extends Component {
   state = {
+    id:"",
     firstName:"",
     lastName:"",
     type: "maven",
@@ -80,10 +81,19 @@ class MavenQuestionnaire extends Component {
       })          
         // .then(res => this.handleMatching(res))
         .catch(err => console.log(err))
-        .then( window.location.pathname ="/welcomeMaven/?"+questionnaire._id); //>>> <Link to={"/welcomeMaven/?" + questionnaire._id}>  <<<!!?? Would this work ??!!
+        .then(this.getID(this.state.github));
     }
   };
 
+  getID = (github) => {
+     API.findByGithub(github)
+       .then(res =>
+         this.setState({ id: res.data._id })
+       )
+       .catch(err => console.log(err))
+       .then(res => console.log(res.data._id))
+       //.then( window.location.pathname ="/welcomeMaven/?"+ this.state.id ); //>>> <Link to={"/welcomeMaven/?" + questionnaire._id}>  <<<!!?? Would this work ??!!
+  };
   //////////////////////////////////////////////////////////////////////////////////
   // constructor() {
   //   super()

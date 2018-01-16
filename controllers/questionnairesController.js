@@ -16,6 +16,12 @@ module.exports = {
      .then(dbModel => res.json(dbModel))
      .catch(err => res.status(422).json(err));
  },
+ findByGithub: function(req, res) {
+   db.Questionnaire
+    .find({
+      github: req.params.github
+    })
+ },
  create: function(req, res) {
    db.Questionnaire
      .create(req.body)
