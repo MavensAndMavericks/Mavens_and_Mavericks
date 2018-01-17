@@ -7,7 +7,6 @@ router
   .get(questionnairesController.findAll)
   .post(questionnairesController.create);
 
-
 // Matches with "/api/questionnaires/:id"
 router
   .route("/:id")
@@ -19,3 +18,5 @@ router
   router
   .route('/:id/matches')
   .get(questionnairesController.findMatches);
+
+module.exports = router;

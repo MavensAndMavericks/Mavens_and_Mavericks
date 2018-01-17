@@ -24,12 +24,10 @@ export default {
   getUsers: function() {
     return axios.get("/api/users");
   },
-
   // Gets the user with the given id
   getUser: function(id) {
-    return axios.get("/welcomeMaven/" + id);
+    return axios.get("/api/users/" + id);
   },
-  
   // Deletes the user with the given id
   deleteUser: function(id) {
     return axios.delete("/api/users/" + id);
@@ -51,26 +49,17 @@ export default {
   // Deletes the questionnaire with the given id
   deleteQuestionnaire: function(id) {
     return axios.delete("/api/questionnaires/" + id);
-  },  
-
+  },
   // Saves a questionnaire to the database
   saveQuestionnaire: function(questionnaireData) {
     return axios.post("/api/questionnaires", questionnaireData);
   },
 
-  ///////////////////////////
-
-  // postMavenProfile: function( id ) {
-  //   return axios.get("/welcomeMaven/" + id);
+  // getMavens: function(questionnaireData) {
+  //   return axios.post("/api/questionnaires", questionnaireData);
   // },
 
-  // postMaverickProfile: function( id, stateId ) {
-  // return axios.get("/welcomeMaverick/" + id, stateId);
+  // getMavericks: function(questionnaireData) {
+  // return axios.post("/api/questionnaires", questionnaireData);
   // }
-
-
  }
-
-
-// app.get("/api/:characters?", function(req, res) {
-//   var chosen = req.params.characters;
