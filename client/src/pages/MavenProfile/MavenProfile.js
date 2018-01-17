@@ -9,7 +9,8 @@ import React, { Component } from "react";
 
 //Componenet imports:
 //=============================
-import Nav from "../../components/Nav";
+import Nav2 from "../../components/Nav2";
+// import MavenHeader from "../../components/MavenHeader";
 import SignOut from "../../components/SignOut";
 import ProfileBio from "../../components/ProfileBio";
 import ProjectBoard from "../../components/ProjectBoard";
@@ -31,7 +32,8 @@ class MavenProfile extends Component {
   
     return (
     	<div>
-    		<Nav/>
+    		<Nav2/> 
+
         <SignOut />
 
 	        <Row>
@@ -40,8 +42,11 @@ class MavenProfile extends Component {
               <div className="background-image" style={{backgroundImage:"url(/assets/consumer-Electronic.jpeg)", marginTop:"75px"}}>
                 <br/>
                 <br/>
+                <br/>
 
                 <ProfileBio/>
+                <br/>
+
                 <ProjectBoard/>
 
                 
@@ -59,6 +64,8 @@ class MavenProfile extends Component {
 }
 
 export default MavenProfile;
+
+// <MavenHeader/>
 
   // componentDidMount() {
   //   this.showSendbirdWidget();

@@ -55,12 +55,15 @@ export default {
     return axios.post("/api/questionnaires", questionnaireData);
   },
 
-  getMavens: function(questionnaireData) {
-    return axios.post("/api/questionnaires", questionnaireData);
-  },
-
-  getMavericks: function(questionnaireData) {
-  return axios.post("/api/questionnaires", questionnaireData);
+  getProfile: function() {
+    return axios.get("/welcomeMaven/:id?")
   }
- }
 
+  // getMavens: function(questionnaireData) {
+  //   return axios.post("/api/questionnaires", questionnaireData);
+  // },
+
+  // getMavericks: function(questionnaireData) {
+  // return axios.post("/api/questionnaires", questionnaireData);
+  // }
+ }

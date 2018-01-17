@@ -11,7 +11,7 @@ import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn, QuestionsMentor } from "../../components/Form";
 import DeleteBtn from "../../components/DeleteBtn";
 import Jumbotron from "../../components/Jumbotron";
-import Nav from "../../components/Nav";
+import Nav1 from "../../components/Nav1";
 
 //=================================================================================
 class QuestionnaireMentor extends Component {
@@ -53,7 +53,7 @@ class QuestionnaireMentor extends Component {
   render() {
     return (
       <div>
-        <Nav/>
+        <Nav1/>
         <Container>
         <Row>
           <Col size="md-12">

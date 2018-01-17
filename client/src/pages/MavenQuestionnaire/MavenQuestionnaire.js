@@ -7,9 +7,10 @@ import {Input} from 'react-materialize';
 import { Col, Row, Container } from "../../components/Grid";
 import { InputBox, TextArea, FormBtn } from "../../components/Form"; //QuestionsMentor
 import Jumbotron from "../../components/Jumbotron";
-import Nav from "../../components/Nav";
+import Nav1 from "../../components/Nav1";
 import "./MavenQuestionnaire.css";
 import Footer from "../../components/Footer";
+import Signup from "../../components/Signup";
 
 //=================================================================================
 const langList = [
@@ -19,6 +20,10 @@ const langList = [
   "Ruby",
   "C++",
   "SQL",
+  "Go",
+  "Scala",
+  "React",
+  "Vue",
   "HTMl/CSS"
 ];
 const industryList = [
@@ -37,6 +42,7 @@ const industryList = [
 ////////////////////////////////////////////////////////////////////
 class MavenQuestionnaire extends Component {
   state = {
+    id:"",
     firstName:"",
     lastName:"",
     type: "maven",
@@ -74,9 +80,17 @@ class MavenQuestionnaire extends Component {
         industryExperience: this.state.industryExperience
         // personalityResults: this.state.personalityResults
       })          
-        // .then(res => this.handleMatching(res))
+        
         .catch(err => console.log(err))
-        .then( window.location.pathname ="/welcomeMaven"); //>>> <Link to={"/welcomeMaven/" + questionnaire._id}>  <<<!!?? Would this work ??!!
+        .then(res => {
+          console.log(res.data._id); 
+          this.setState({id: res.data._id});
+
+          ///PASS THE ID TO SENDBIRD HERE!!!!
+          // .then(res => this.handleMatching(res))
+
+          window.location.pathname = "/welcomeMaven/" + this.state.id + "/"
+        })
     }
   };
 
@@ -178,7 +192,8 @@ class MavenQuestionnaire extends Component {
     return (
       <div>
         <Container fluid >
-          <Nav/>
+          <Nav1/>
+          <Signup />
           <br/>
           <br/>
           <br/>
@@ -284,7 +299,7 @@ class MavenQuestionnaire extends Component {
 
               <form>
                 <div row className="checkbox">
-                  <h5>9. What are your preferred languages? </h5>
+                  <h5>9. What is your industry area of expertise? </h5>
                   <div className="input-group">
                     {this.createIndustryCheckboxes()}
                   </div>
@@ -293,7 +308,7 @@ class MavenQuestionnaire extends Component {
                 <br/>
 
                 <div row className="checkbox">
-                  <h5>10. What is your industry area of expertise? </h5>
+                  <h5>10. What are your preferred languages? </h5>
                   <div className="input-group">
                     {this.createLangCheckboxes()}
                   </div>
@@ -323,6 +338,21 @@ export default MavenQuestionnaire;
 //////////////////////////////
 //////////////////////////
 
+
+
+  // getID = (github) => {
+  //    API.findByGithub(github)
+  //      .then(res =>
+  //        this.setState({ id: res.data._id })
+  //      )
+  //      .catch(err => console.log(err))
+  //      .then(res => console.log(res.data._id))
+  //      //.then( window.location.pathname ="/welcomeMaven/?"+ this.state.id ); //>>> <Link to={"/welcomeMaven/?" + questionnaire._id}>  <<<!!?? Would this work ??!!
+  // };
+
+//////////////////////////////
+//////////////////////////////
+//////////////////////////////
 
   // toggle = (event) => {
   //   if (this.state.checkboxValue.includes(event.target.value)){

@@ -35,3 +35,17 @@
     -webkit-animation-name: fadeIn;
     animation-name: fadeIn;
  }
+
+/*MEDIUM SCREEN SIZE*/
+@media screen and (max-width: 845px) and (min-width: 605px) {
+    .parallax1 {
+        height: 1300px; 
+    }
+}
+
+/*SMALL SCREEN SIZE*/
+@media screen and (max-width: 604px) {
+    .parallax1 {
+        height: 1000px; 
+    }
+}

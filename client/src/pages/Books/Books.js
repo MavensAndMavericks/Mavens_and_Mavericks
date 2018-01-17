@@ -9,7 +9,7 @@ import API from "../../utils/API";
 
 //Componenet imports:
 //=============================
-import Nav from "../../components/Nav";
+import Nav1 from "../../components/Nav1";
 import Parallax1 from "../../components/Parallax1";
 import Jumbotron from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
@@ -67,7 +67,7 @@ class Books extends Component {
   render() {
     return (
       <Container fluid>
-        <Nav />
+        <Nav1 />
         <br/>
 
         <Row>

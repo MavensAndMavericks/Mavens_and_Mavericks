@@ -7,9 +7,10 @@ import {Input} from 'react-materialize';
 import { Col, Row, Container } from "../../components/Grid";
 import { InputBox, TextArea, FormBtn } from "../../components/Form"; //QuestionsMentor
 import Jumbotron from "../../components/Jumbotron";
-import Nav from "../../components/Nav";
+import Nav1 from "../../components/Nav1";
 import "./MaverickQuestionnaire.css";
 import Footer from "../../components/Footer";
+import Signup from "../../components/Signup";
 
 //=================================================================================
 const langList = [
@@ -19,6 +20,10 @@ const langList = [
   "Ruby",
   "C++",
   "SQL",
+  "Go",
+  "Scala",
+  "React",
+  "Vue",
   "HTMl/CSS"
 ];
 const industryList = [
@@ -76,7 +81,7 @@ class MaverickQuestionnaire extends Component {
       })          
         // .then(res => this.handleMatching(res))
         .catch(err => console.log(err))
-        .then( window.location.pathname ="/welcomeMaverick"); //>>> <Link to={"/welcomeMaverick/" + questionnaire._id}>  <<<!!?? Would this work ??!!
+        .then( window.location.pathname ="/welcomeMaverick"); //>>> <Link to={"/welcomeMaverick/?" + questionnaire._id}>  <<<!!?? Would this work ??!!
     }
   };
 
@@ -178,7 +183,8 @@ class MaverickQuestionnaire extends Component {
     return (
       <div>
         <Container fluid >
-          <Nav/>
+          <Nav1/>
+          <Signup />
           <br/>
           <br/>
           <br/>
@@ -278,7 +284,7 @@ class MaverickQuestionnaire extends Component {
 
               <form>
                 <div row className="checkbox">
-                  <h5>8. What are your preferred languages? </h5>
+                  <h5>8. What is your industry area of interest? </h5>
                   <div className="input-group">
                     {this.createIndustryCheckboxes()}
                   </div>
@@ -287,7 +293,7 @@ class MaverickQuestionnaire extends Component {
                 <br/>
 
                 <div row className="checkbox">
-                  <h5>9. What is your industry area of interest? </h5>
+                  <h5>9.  What are your preferred languages? </h5>
                   <div className="input-group">
                     {this.createLangCheckboxes()}
                   </div>

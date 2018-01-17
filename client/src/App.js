@@ -30,13 +30,14 @@ const App = () =>
         <Route exact path="/books" component={Books} />
         <Route exact path="/maverickquestionnaire" component={MaverickQuestionnaire} />
         <Route exact path="/mavenquestionnaire" component={MavenQuestionnaire} />
-        <Route exact path="/welcomeMaverick" component={MaverickProfile} />
-        <Route exact path="/welcomeMaven" component={MavenProfile} />
+        <Route exact path="/welcomeMaverick/:id?"  component={MaverickProfile} />
+        <Route exact path="/welcomeMaven/:id?" component={MavenProfile} />
         
         <Route exact path="/aboutus" component={AboutUs} />
         <Route exact path="/mentorsarekey" component={MentorDef} />
         <Route exact path="/openprojects" component={ExampleProj} />
         <Route exact path="/QandA" component={QandA} />
+        
         <Route exact path="/books/:id" component={Detail} />
         <Route component={NoMatch} /> 
       </Switch>
