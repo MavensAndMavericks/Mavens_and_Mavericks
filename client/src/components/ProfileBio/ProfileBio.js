@@ -11,14 +11,15 @@ import API from "../../utils/API";
 //=============================
 import { Col, Row, Container } from "../Grid";
 import Jumbotron from "../Jumbotron";
-import { List, ListItem } from "../List";
 import "./ProfileBio.css";
+// import { List, ListItem } from "../List";
 
 
 //=================================================================================
 class ProfileBio extends Component {
 	state = {
-		questionnaires: [],
+		questionnaire: [],
+		id: "",
 		firstName:"", 
 		lastName: "", 
 		type: "",
@@ -28,29 +29,50 @@ class ProfileBio extends Component {
 		profession: "",
 		schooling: "",
 		impact: "",
-		reasons: ""
+		reasons: "",
+		careerLevel: "",
+	    languages: [],
+	    industryExperience: []
 	};
 
-	componentDidMount() {
-	    this.loadQuestionnaires();
-	}
+	// getAllUrlParams(url) {
+	//   var queryString = url ? url.split('welcomeMaven/')[1] : window.location.search.slice(1); // retreives query string from url (optional) or window
+	//   var URLid = {};
 
-	loadQuestionnaires = () => {
-	   API.getQuestionnaires()
+	//   if (queryString) { // if query string exists, push it's value up into the URLid
+	//   	JSON.stringify(queryString);
+	//   	URLid.push(queryString);
+	//   	console.log(queryString);
+	//   }  
+	// };
+
+	componentDidMount() {
+	    this.loadQuestionnaire();
+	};
+
+	loadQuestionnaire = id => {
+	   API.getProfile()
 	     .then(res =>
-	       this.setState({ questionnaires: res.data, firstName: "", lastName: "", gitHub: "", quote: "", code: "",  profession: "", schooling: "", impact: "", resasons: "" })
+	       this.setState({ 
+	       	questionnaire: res.data,
+	       	// id:res.data._id,
+	       	// firstName:res.data.firstNam,
+	        // lastName:res.data.lastName,
+	        // gitHub:res.data.github,
+	        // quote:res.data.quote,
+	        // code:res.data.code,
+	        // profession:res.data.profession,
+	        // schooling:res.data.schooling,
+	        // impact:res.data.impact,
+	        // reasons:res.data.reasons,
+	        // careerLevel:res.data.careerLevel,
+	        // languages:res.data.languages,
+	        // industryExperience:res.data.industryExperience 
+	    	})
+	       //.then(console.log(this.state.questionnaire))
 	     )
 	     .catch(err => console.log(err));
-	};   
-
-
-
-	// handlePageLoad = event => {
- //    	event.preventDefault();
-	//     API.loadQuestionnaires())
-	//         .catch(err => console.log(err))
-	//     }
- //  	};
+	}; 
 
 	handleFormSubmit = event => {
 	    event.preventDefault();
@@ -80,53 +102,55 @@ class ProfileBio extends Component {
 			    	<Row>
 				    	<Col size="sm-12">
 				    		<div className="profile-bio">
-						    	<h3 className="text-center">ProfileBio</h3>
-						    </div>
-						   <Jumbotron> 			            
-				           {this.state.questionnaires.length ? (
-				              <List className="text-center">
-				                {this.state.questionnaires.map(questionnaire => (
+				    			{/*<br/>
+						    	<h3 className="text-center">ProfileBio</h3>*/}
+						    
+							   <Jumbotron className="jumbotron"> 			            
+					           {this.state.questionnaire.length ? (
+					              
+					                  <main key={this.state._id}>
+					                     <Col size="sm-4">	
+					                      <img className="img-responsive" src={"http://placehold.it/300x300&text=slide1"} alt="Github Profile Pic"/> 
+					                     </Col>
 
-				                  <ListItem key={questionnaire._id}>
-				                     <Col size="sm-4">	
-				                      <img className="img-responsive" src={"http://placehold.it/300x300&text=slide1"} alt="Github Profile Pic"/> 
-				                     </Col>
+					                     <Col size="sm-8">	
+					                      <h2>
+					                      	<h3>ID TEST: { this.state.questionnaire._id } </h3>
+					                        <strong>Name: {this.state.questionnaire.firstName} {this.state.questionnaire.lastName}</strong>
+					                      </h2>
+					                      <h3> 
+	 									  	<Link to={"https://github.com/" + this.state.gitHub} target="_blank">
+	 							               	<strong>Github Handler: {this.state.gitHub}</strong>
+	 							           	</Link>
+	 									   </h3>
+					                      <h4>Industries of Interest {this.state.industries} </h4>
+	 									  <h4>Languages: {this.state.languages} </h4>
+	 									  <h4>Reason for Mentorship {this.state.impact} </h4>
+					                     </Col>
+					                  </main>
 
-				                     <Col size="sm-8">	
-				                      <h2>
-				                        <strong>Name: {questionnaire.firstName} {questionnaire.lastName}</strong>
-				                      </h2>
-				                      <h3> 
- 									  	<Link to={"https://github.com/" + questionnaire.gitHub} target="_blank">
- 							               	<strong>Github Handler: {questionnaire.gitHub}</strong>
- 							           	</Link>
- 									   </h3>
-				                      <h4>Industries of Interest {questionnaire.industries} </h4>
- 									  <h4>Languages: {questionnaire.languages} </h4>
- 									  <h4>Reason for Mentorship {questionnaire.impact} </h4>
-				                     </Col>
-				                  </ListItem>
-				                ))}
-				              </List>
-				            ) : (
-				              <h3 className="text-center">No Results to Display</h3>
-				           )}
-				           </Jumbotron>
+					            ) : (
 
+					              <h3 className="text-center">No Results to Display</h3>
+					           )}
+
+					           </Jumbotron>
+				           </div>
 						</Col>
 					</Row>
 
+					<br/>
+	                <br/>
 					<Row>
 						<Col size="sm-12">						
 			               <Jumbotron>
 			                 <h1 className="text-center">Matched Mentor?</h1>
-			               </Jumbotron>
-					
+			               </Jumbotron>					
 						</Col>
-
 					</Row>
 
 				</Container>
+
 			</div>
 		);
 	}
@@ -138,17 +162,30 @@ export default ProfileBio;
 //src={questionnaire.image}
 
 
-/*
-	componentDidMount() {
-	    this.loadQuestionnaire(this.state._id);
-	}
+/////////////////////////////////////////////////
 
-	loadQuestionnaire = id => {
-	   API.getQuestionnaire(id)
-	     .then(res =>
-	       this.setState({ questionnaires: res.data, firstName: "", lastName: "", gitHub: "", quote: "", code: "",  profession: "", schooling: "", impact: "", resasons: "" })
-	     )
-	     .catch(err => console.log(err));
-	}; */
+	// componentDidMount() {
+	//     this.loadQuestionnaires();
+	// }
 
-// {this.state.questionnaires.filter(questionnaire => questionnaire.firstName === "Amanda") => (
+	// loadQuestionnaires = () => {
+	//    API.getQuestionnaire(id)
+	//      .then(res =>
+	//        this.setState({ questionnaire: res.data, firstName: "", lastName: "", gitHub: "", quote: "", code: "",  profession: "", schooling: "", impact: "", resasons: "" })
+	//      )
+	//      .catch(err => console.log(err));
+	// };   
+
+/////////////////////////////////////////////////
+
+
+	// handlePageLoad = event => {
+ //    	event.preventDefault();
+	//     API.loadQuestionnaires())
+	//         .catch(err => console.log(err))
+	//     }
+ //  	};
+
+
+
+

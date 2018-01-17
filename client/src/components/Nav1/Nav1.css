@@ -1,0 +1,25 @@
+.navbar-brand1 {
+/*	margin-top:45px; */
+	position: fixed;
+	top: 60px;
+	left: 2%;
+	/*margin:"0 auto";*/
+}
+
+/*MEDIUM SCREEN SIZE*/
+@media screen and (max-width: 1000px) and (min-width: 605px) {
+	.navbar-brand1 {
+		position: fixed;
+		top: 60px;
+		left: 2%;
+	}
+}
+
+/*SMALL SCREEN SIZE*/
+@media screen and (max-width: 604px) {
+	.navbar-brand1 {
+		position: fixed;
+		top: 60px;
+		left: 2%;
+	}
+}

@@ -1,17 +1,19 @@
-.nav-header {
+.nav-header-maven {
 	font-family: 'Roboto', sans-serif;
 	position: fixed;
 	top: -5px;
 	right: 30%;
+    z-index: 2;
 }
 
 /*MEDIUM SCREEN SIZE*/
 @media screen and (max-width: 1000px) and (min-width: 605px) {
-	.nav-header {
+	.nav-header-maven {
 		font-family: 'Roboto', sans-serif;
 		position: fixed;
 		top: -5px;
 		right: 22%;
+		z-index: 2;
 	}
 
 	h3 {
@@ -21,11 +23,12 @@
 
 /*SMALL SCREEN SIZE*/
 @media screen and (max-width: 604px) {
-	.nav-header {
+	.nav-header-maven {
 		font-family: 'Roboto', sans-serif;
 		position: fixed;
 		top: -5px;
 		right: 20%;
+		z-index: 2;
 	}
 
 	h3 {
