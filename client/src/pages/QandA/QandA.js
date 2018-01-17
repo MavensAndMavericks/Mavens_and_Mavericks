@@ -9,7 +9,7 @@ import React, { Component } from "react";
 
 //Componenet imports:
 //=============================
-import Nav from "../../components/Nav";
+import Nav1 from "../../components/Nav1";
 import Signup from "../../components/Signup";
 import Parallax3 from "../../components/Parallax3";
 import { Col, Row } from "../../components/Grid";
@@ -20,7 +20,7 @@ class QandA extends Component {
   render() {
     return (
     	<div>
-    		<Nav/>
+    		<Nav1/>
         <Signup />
         <br/>
         <br/>

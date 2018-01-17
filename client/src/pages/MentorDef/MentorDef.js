@@ -9,7 +9,7 @@ import React, { Component } from "react";
 
 //Componenet imports:
 //=============================
-import Nav from "../../components/Nav";
+import Nav1 from "../../components/Nav1";
 import Signup from "../../components/Signup";
 import Parallax2 from "../../components/Parallax2";
 import { Col, Row } from "../../components/Grid";
@@ -20,7 +20,7 @@ class MentorDef extends Component {
   render() {
     return (
     	<div>
-    		<Nav/>
+    		<Nav1/>
         <Signup />
         <br/>
         <br/>

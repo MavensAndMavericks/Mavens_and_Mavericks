@@ -11,8 +11,8 @@ import API from "../../utils/API";
 //=============================
 import { Col, Row, Container } from "../Grid";
 import Jumbotron from "../Jumbotron";
-import { List, ListItem } from "../List";
 import "./ProfileBio.css";
+// import { List, ListItem } from "../List";
 
 
 //=================================================================================
@@ -47,27 +47,27 @@ class ProfileBio extends Component {
 	// };
 
 	componentDidMount() {
-	    this.loadQuestionnaire(this.state.id);
+	    this.loadQuestionnaire();
 	};
 
 	loadQuestionnaire = id => {
-	   API.getQuestionnaire(id)
+	   API.getProfile()
 	     .then(res =>
 	       this.setState({ 
 	       	questionnaire: res.data,
-	       	id:res.data._id,
-	       	firstName:res.data.firstNam,
-	        lastName:res.data.lastName,
-	        gitHub:res.data.github,
-	        quote:res.data.quote,
-	        code:res.data.code,
-	        profession:res.data.profession,
-	        schooling:res.data.schooling,
-	        impact:res.data.impact,
-	        reasons:res.data.reasons,
-	        careerLevel:res.data.careerLevel,
-	        languages:res.data.languages,
-	        industryExperience:res.data.industryExperience 
+	       	// id:res.data._id,
+	       	// firstName:res.data.firstNam,
+	        // lastName:res.data.lastName,
+	        // gitHub:res.data.github,
+	        // quote:res.data.quote,
+	        // code:res.data.code,
+	        // profession:res.data.profession,
+	        // schooling:res.data.schooling,
+	        // impact:res.data.impact,
+	        // reasons:res.data.reasons,
+	        // careerLevel:res.data.careerLevel,
+	        // languages:res.data.languages,
+	        // industryExperience:res.data.industryExperience 
 	    	})
 	       //.then(console.log(this.state.questionnaire))
 	     )
@@ -102,42 +102,45 @@ class ProfileBio extends Component {
 			    	<Row>
 				    	<Col size="sm-12">
 				    		<div className="profile-bio">
-						    	<h3 className="text-center">ProfileBio</h3>
-						    </div>
-						   <Jumbotron> 			            
-				           {this.state.questionnaire.length ? (
-				              
-				              <List className="text-center">
-				                  <ListItem key={this.state._id}>
-				                     <Col size="sm-4">	
-				                      <img className="img-responsive" src={"http://placehold.it/300x300&text=slide1"} alt="Github Profile Pic"/> 
-				                     </Col>
+				    			{/*<br/>
+						    	<h3 className="text-center">ProfileBio</h3>*/}
+						    
+							   <Jumbotron className="jumbotron"> 			            
+					           {this.state.questionnaire.length ? (
+					              
+					                  <main key={this.state._id}>
+					                     <Col size="sm-4">	
+					                      <img className="img-responsive" src={"http://placehold.it/300x300&text=slide1"} alt="Github Profile Pic"/> 
+					                     </Col>
 
-				                     <Col size="sm-8">	
-				                      <h2>
-				                        <strong>Name: {this.state.firstName} {this.state.lastName}</strong>
-				                      </h2>
-				                      <h3> 
- 									  	<Link to={"https://github.com/" + this.state.gitHub} target="_blank">
- 							               	<strong>Github Handler: {this.state.gitHub}</strong>
- 							           	</Link>
- 									   </h3>
-				                      <h4>Industries of Interest {this.state.industries} </h4>
- 									  <h4>Languages: {this.state.languages} </h4>
- 									  <h4>Reason for Mentorship {this.state.impact} </h4>
-				                     </Col>
-				                  </ListItem>
-				              </List>
+					                     <Col size="sm-8">	
+					                      <h2>
+					                      	<h3>ID TEST: { this.state.questionnaire._id } </h3>
+					                        <strong>Name: {this.state.questionnaire.firstName} {this.state.questionnaire.lastName}</strong>
+					                      </h2>
+					                      <h3> 
+	 									  	<Link to={"https://github.com/" + this.state.gitHub} target="_blank">
+	 							               	<strong>Github Handler: {this.state.gitHub}</strong>
+	 							           	</Link>
+	 									   </h3>
+					                      <h4>Industries of Interest {this.state.industries} </h4>
+	 									  <h4>Languages: {this.state.languages} </h4>
+	 									  <h4>Reason for Mentorship {this.state.impact} </h4>
+					                     </Col>
+					                  </main>
 
-				            ) : (
+					            ) : (
 
-				              <h3 className="text-center">No Results to Display</h3>
-				           )}
+					              <h3 className="text-center">No Results to Display</h3>
+					           )}
 
-				           </Jumbotron>
+					           </Jumbotron>
+				           </div>
 						</Col>
 					</Row>
 
+					<br/>
+	                <br/>
 					<Row>
 						<Col size="sm-12">						
 			               <Jumbotron>

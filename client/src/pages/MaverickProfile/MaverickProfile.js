@@ -9,7 +9,7 @@ import React, { Component } from "react";
 
 //Componenet imports:
 //=============================
-import Nav from "../../components/Nav";
+import Nav2 from "../../components/Nav2";
 import SignOut from "../../components/SignOut";
 import ProfileBio from "../../components/ProfileBio";
 import ProjectBoard from "../../components/ProjectBoard";
@@ -26,7 +26,7 @@ class MaverickProfile extends Component {
   render() {
     return (
       <div>
-        <Nav/>
+        <Nav2/>
         <SignOut />
 
           <Row>

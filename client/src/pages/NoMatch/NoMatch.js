@@ -6,7 +6,7 @@ const NoMatch = () =>
   <Container fluid>
     <Row>
       <Col size="md-12">
-        <Jumbotron>
+        <Jumbotron style={{margin:"0 auto"}}>
           <h1>404 Page Not Found</h1>
           <h1>
             <span role="img" aria-label="Face With Rolling Eyes Emoji">

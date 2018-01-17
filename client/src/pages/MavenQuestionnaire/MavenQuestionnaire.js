@@ -7,9 +7,10 @@ import {Input} from 'react-materialize';
 import { Col, Row, Container } from "../../components/Grid";
 import { InputBox, TextArea, FormBtn } from "../../components/Form"; //QuestionsMentor
 import Jumbotron from "../../components/Jumbotron";
-import Nav from "../../components/Nav";
+import Nav1 from "../../components/Nav1";
 import "./MavenQuestionnaire.css";
 import Footer from "../../components/Footer";
+import Signup from "../../components/Signup";
 
 //=================================================================================
 const langList = [
@@ -191,7 +192,8 @@ class MavenQuestionnaire extends Component {
     return (
       <div>
         <Container fluid >
-          <Nav/>
+          <Nav1/>
+          <Signup />
           <br/>
           <br/>
           <br/>
@@ -297,7 +299,7 @@ class MavenQuestionnaire extends Component {
 
               <form>
                 <div row className="checkbox">
-                  <h5>9. What are your preferred languages? </h5>
+                  <h5>9. What is your industry area of expertise? </h5>
                   <div className="input-group">
                     {this.createIndustryCheckboxes()}
                   </div>
@@ -306,7 +308,7 @@ class MavenQuestionnaire extends Component {
                 <br/>
 
                 <div row className="checkbox">
-                  <h5>10. What is your industry area of expertise? </h5>
+                  <h5>10. What are your preferred languages? </h5>
                   <div className="input-group">
                     {this.createLangCheckboxes()}
                   </div>
