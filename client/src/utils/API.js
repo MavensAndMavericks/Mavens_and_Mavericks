@@ -24,10 +24,12 @@ export default {
   getUsers: function() {
     return axios.get("/api/users");
   },
+
   // Gets the user with the given id
   getUser: function(id) {
-    return axios.get("/api/users/" + id);
+    return axios.get("/welcomeMaven/" + id);
   },
+  
   // Deletes the user with the given id
   deleteUser: function(id) {
     return axios.delete("/api/users/" + id);
@@ -50,10 +52,7 @@ export default {
   deleteQuestionnaire: function(id) {
     return axios.delete("/api/questionnaires/" + id);
   },  
-  // Gets the questionnaire by given github
-  findByGithub: function(questionnaireData) {
-    return axios.get("/api/questionnaires", questionnaireData);
-  },
+
   // Saves a questionnaire to the database
   saveQuestionnaire: function(questionnaireData) {
     return axios.post("/api/questionnaires", questionnaireData);
@@ -61,12 +60,17 @@ export default {
 
   ///////////////////////////
 
-  postMavens: function(questionnaireData) {
-    return axios.post("/api/questionnaires", questionnaireData);
-  },
+  // postMavenProfile: function( id ) {
+  //   return axios.get("/welcomeMaven/" + id);
+  // },
 
-  postMavericks: function(questionnaireData) {
-  return axios.post("/api/questionnaires", questionnaireData);
-  }
+  // postMaverickProfile: function( id, stateId ) {
+  // return axios.get("/welcomeMaverick/" + id, stateId);
+  // }
+
+
  }
 
+
+// app.get("/api/:characters?", function(req, res) {
+//   var chosen = req.params.characters;

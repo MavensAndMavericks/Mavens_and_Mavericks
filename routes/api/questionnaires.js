@@ -6,7 +6,7 @@ router
   .route("/")
   .get(questionnairesController.findAll)
   .post(questionnairesController.create);
-  .get(questionnairesController.findByGithub);
+
 
 // Matches with "/api/questionnaires/:id"
 router
@@ -19,5 +19,3 @@ router
   router
   .route('/:id/matches')
   .get(questionnairesController.findMatches);
-
-module.exports = router;

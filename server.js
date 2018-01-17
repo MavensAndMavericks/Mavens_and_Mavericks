@@ -19,6 +19,13 @@ app.use(bodyParser.json());
 // Serve up static assets
 app.use('/', express.static(path.join(__dirname + '/client/public'))); //SHOULD THIS READ: "client/BUILD" or "client/PUBLIC"?!?! >> IS "build" a REACT term?
 
+
+app.get("/welcomeMaven/:id?", function(req, res) {
+  const id = req.params.id;  
+  // console.log(id);
+  res.send(id)
+});
+
 // Add routes, both API routes and view(html) routes
 app.use(routes);
 

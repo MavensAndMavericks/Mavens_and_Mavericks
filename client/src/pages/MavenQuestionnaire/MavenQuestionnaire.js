@@ -79,21 +79,20 @@ class MavenQuestionnaire extends Component {
         industryExperience: this.state.industryExperience
         // personalityResults: this.state.personalityResults
       })          
-        // .then(res => this.handleMatching(res))
+        
         .catch(err => console.log(err))
-        .then(this.getID(this.state.github));
+        .then(res => {
+          console.log(res.data._id); 
+          this.setState({id: res.data._id});
+
+          ///PASS THE ID TO SENDBIRD HERE!!!!
+          // .then(res => this.handleMatching(res))
+
+          window.location.pathname = "/welcomeMaven/" + this.state.id + "/"
+        })
     }
   };
 
-  getID = (github) => {
-     API.findByGithub(github)
-       .then(res =>
-         this.setState({ id: res.data._id })
-       )
-       .catch(err => console.log(err))
-       .then(res => console.log(res.data._id))
-       //.then( window.location.pathname ="/welcomeMaven/?"+ this.state.id ); //>>> <Link to={"/welcomeMaven/?" + questionnaire._id}>  <<<!!?? Would this work ??!!
-  };
   //////////////////////////////////////////////////////////////////////////////////
   // constructor() {
   //   super()
@@ -337,6 +336,21 @@ export default MavenQuestionnaire;
 //////////////////////////////
 //////////////////////////
 
+
+
+  // getID = (github) => {
+  //    API.findByGithub(github)
+  //      .then(res =>
+  //        this.setState({ id: res.data._id })
+  //      )
+  //      .catch(err => console.log(err))
+  //      .then(res => console.log(res.data._id))
+  //      //.then( window.location.pathname ="/welcomeMaven/?"+ this.state.id ); //>>> <Link to={"/welcomeMaven/?" + questionnaire._id}>  <<<!!?? Would this work ??!!
+  // };
+
+//////////////////////////////
+//////////////////////////////
+//////////////////////////////
 
   // toggle = (event) => {
   //   if (this.state.checkboxValue.includes(event.target.value)){
