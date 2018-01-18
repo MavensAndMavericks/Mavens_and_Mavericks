@@ -2,15 +2,13 @@ const path = require("path");
 const express = require("express");
 const app = express();
 const router = require("express").Router();
-
 const apiRoutes = require("./api"); //this requires in the "index.js" from "routes/api/index.js"
-const questionnairesController = require("../controllers/questionnairesController");
 
-
+// const questionnairesController = require("../controllers/questionnairesController");
 //if at profile, specifically show profile:
-app.get("/welcomeMaven/:id?", function(req, res) {
-  questionnairesController.findById
-});
+// app.get("/welcomeMaven/:id?", function(req, res) {
+//   questionnairesController.findById
+// });
 
 // API Routes
 router.use("/api", apiRoutes);
@@ -28,4 +26,4 @@ router.use(function(req, res) {
  //   sbWidgetToggle.show();
  // })
 
-module.exports = router;
+module.exports = router, app;
