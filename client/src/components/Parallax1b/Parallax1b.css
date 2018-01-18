@@ -1,8 +1,8 @@
-.parallax1 {
+.parallax1b {
     z-index: 2;
     padding: 0px;
     margin: 0px;
-    height: 1500px; 
+    height: 800px; 
     filter: grayscale(10%);
     /* Create the parallax scrolling effect */
     background-attachment: fixed;

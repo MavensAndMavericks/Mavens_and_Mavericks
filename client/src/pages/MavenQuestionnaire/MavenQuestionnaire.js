@@ -91,6 +91,7 @@ class MavenQuestionnaire extends Component {
 
           window.location.pathname = "/welcomeMaven/" + this.state.id + "/"
          
+
         })
     }
   };
