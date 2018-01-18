@@ -50,7 +50,7 @@ class ProfileBio extends Component {
 	    this.loadQuestionnaire();
 	};
 
-	loadQuestionnaire = id => {
+	loadQuestionnaire = () => {
 	   API.getProfile()
 	     .then(res =>
 	       this.setState({ 
