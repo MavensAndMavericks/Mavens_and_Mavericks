@@ -15,6 +15,7 @@ import Signup from "../../components/Signup";
 
 import SlideShow from "../../components/SlideShow";
 import Parallax1 from "../../components/Parallax1";
+import Parallax1b from "../../components/Parallax1b";
 import { Col, Row } from "../../components/Grid";
 import Footer from "../../components/Footer";
 
@@ -45,6 +46,7 @@ handleShowModal(){
 	          <Col size="md-12" style={{margin:"0px"}}>
               <Parallax1/>
               <SlideShow/>
+              <Parallax1b/>
 	          </Col>
 	        </Row>
 

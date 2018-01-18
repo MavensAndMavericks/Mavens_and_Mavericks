@@ -56,7 +56,7 @@ export default {
   },
 
   getProfile: function() {
-    return axios.get("/welcomeMaven/:id?")
+    return axios.get("/api/mavens/:id?");
   }
 
   // getMavens: function(questionnaireData) {
