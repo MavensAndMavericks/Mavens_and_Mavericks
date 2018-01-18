@@ -90,6 +90,7 @@ class MavenQuestionnaire extends Component {
           // .then(res => this.handleMatching(res))
 
           window.location.pathname = "/welcomeMaven/" + this.state.id + "/"
+         
         })
     }
   };
