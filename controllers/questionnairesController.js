@@ -13,7 +13,11 @@ module.exports = {
  findById: function(req, res) {
    db.Questionnaire
      .findById(req.params.id)
-     .then(dbProfile => res.json(dbProfile))
+     .then(dbProfile => {
+        console.log('QUERYYYY', req.params.id);
+        console.log(dbProfile)
+        res.json(dbProfile);
+      })
      .catch(err => res.status(422).json(err));
  },
  create: function(req, res) {
@@ -37,7 +41,7 @@ module.exports = {
  },
 
   findMatches: function(req, res) {
-    db.User
+    db.Questionnaire
       .findById({ _id: req.params.id })
       .then(users => {
         return db.User.find({
