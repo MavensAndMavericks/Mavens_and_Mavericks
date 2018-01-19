@@ -60,7 +60,38 @@ export default {
     return axios.get("/api/questionnaires/" + id + "/matches");
   },
 
+  // Gets the github profile for the given github
+  // getGithub: function(github) {
+  //   axios.get("https://api.github.com/users/" + github + "/repos")
+  //   .then(function(res) {
+  //     githubProfile => res.json(githubProfile);
+  //     console.log(res.data);
+  //     console.log(res.status);
+  //   })
+  //   .catch(err => res.status(422).json(err));
+  // }
+
+
+///////////////////////////////////////////////////////////////////////
+// $.ajax({
+//  url: "https://api.github.com/users/wisnioa/repos",
+//  jsonp: true,
+//  method: "GET",
+//  dataType: "json",
+//  success: function(res) {
+//    console.log(res)
+//  }
+// });
+
 //////////////////
+
+//get('https://api.github.com/users/' + username)
+  //.then(function(response){
+  //   console.log(response.data); // ex.: { user: 'Your User'}
+  //   console.log(response.status); // ex.: 200
+  // }); 
+
+///////////////////////////////////////////////////////////////////
   // getProfile: function() {
   //   return axios.get("/api/mavens");
   // }
