@@ -38,13 +38,13 @@ export default {
   },
 
 //QUESTIONNAIRE
-  // Gets ALL questionnaires
-  getQuestionnaires: function() {
-    return axios.get("/api/questionnaires");
-  },
-  // Gets the questionnaire with the given id
+  // Gets the questionnaire with the given id (in the URL/PARAMS)
   getQuestionnaire: function(id) {
     return axios.get("/api/questionnaires/" + id);
+  },
+  // Gets ALL questionnaires
+  getQuestionnaires: function() {
+    return axios.get("/api/questionnaires/");
   },
   // Deletes the questionnaire with the given id
   deleteQuestionnaire: function(id) {
@@ -52,13 +52,25 @@ export default {
   },
   // Saves a questionnaire to the database
   saveQuestionnaire: function(questionnaireData) {
-    return axios.post("/api/questionnaires", questionnaireData);
+    return axios.post("/api/questionnaires/", questionnaireData);
   },
 
-  getProfile: function() {
-    return axios.get("/api/mavens/:id?");
-  }
+  // Saves a questionnaire to the database
+  getMatches: function(id) {
+    return axios.get("/api/questionnaires/" + id + "/matches");
+  },
 
+//////////////////
+  // getProfile: function() {
+  //   return axios.get("/api/mavens");
+  // }
+
+  // saveProfile: function() {
+  //   return axios.post("/api/mavens/:id");
+  // }
+
+
+//////////////////
   // getMavens: function(questionnaireData) {
   //   return axios.post("/api/questionnaires", questionnaireData);
   // },

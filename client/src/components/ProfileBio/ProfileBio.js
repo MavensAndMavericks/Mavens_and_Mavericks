@@ -12,7 +12,7 @@ import API from "../../utils/API";
 import { Col, Row, Container } from "../Grid";
 import Jumbotron from "../Jumbotron";
 import "./ProfileBio.css";
-// import { List, ListItem } from "../List";
+//import { List, ListItem } from "../List";
 
 
 //=================================================================================
@@ -47,17 +47,24 @@ class ProfileBio extends Component {
 	// };
 
 	componentDidMount() {
-	    this.loadQuestionnaire();
+		console.log("Pathname = " + window.location.pathname);
+	    const url = window.location.pathname;
+	    const id = url.split("/")[3];
+	    console.log("id = " + id);
+
+	    this.loadQuestionnaire(id);
 	};
 
-	loadQuestionnaire = () => {
-	   API.getProfile()
+
+	loadQuestionnaire = (id) => {
+	   API.getQuestionnaire(id)
 	     .then(res =>
 	       this.setState({ 
-	       	questionnaire: res.data,
+	       	questionnaire:res.data,
 	       	// id:res.data._id,
 	       	// firstName:res.data.firstNam,
-	        // lastName:res.data.lastName,
+	        // lastName:res.data.lastName//,
+	        //lastName: "wayne"//,
 	        // gitHub:res.data.github,
 	        // quote:res.data.quote,
 	        // code:res.data.code,
@@ -69,7 +76,6 @@ class ProfileBio extends Component {
 	        // languages:res.data.languages,
 	        // industryExperience:res.data.industryExperience 
 	    	})
-	       //.then(console.log(this.state.questionnaire))
 	     )
 	     .catch(err => console.log(err));
 	}; 
@@ -106,7 +112,7 @@ class ProfileBio extends Component {
 						    	<h3 className="text-center">ProfileBio</h3>*/}
 						    
 							   <Jumbotron className="jumbotron"> 			            
-					           {this.state.questionnaire.length ? (
+					           {this.state.questionnaire ? (
 					              
 					                  <main key={this.state._id}>
 					                     <Col size="sm-4">	
@@ -119,13 +125,13 @@ class ProfileBio extends Component {
 					                        <strong>Name: {this.state.questionnaire.firstName} {this.state.questionnaire.lastName}</strong>
 					                      </h2>
 					                      <h3> 
-	 									  	<Link to={"https://github.com/" + this.state.gitHub} target="_blank">
-	 							               	<strong>Github Handler: {this.state.gitHub}</strong>
+	 									  	<Link to={"https://github.com/" + this.state.questionnaire.gitHub} target="_blank">
+	 							               	<strong>Github Handler: {this.state.questionnaire.gitHub}</strong>
 	 							           	</Link>
 	 									   </h3>
-					                      <h4>Industries of Interest {this.state.industries} </h4>
-	 									  <h4>Languages: {this.state.languages} </h4>
-	 									  <h4>Reason for Mentorship {this.state.impact} </h4>
+					                      <h4>Industries of Interest {this.state.questionnaire.industries} </h4>
+	 									  <h4>Languages: {this.state.questionnaire.languages} </h4>
+	 									  <h4>Reason for Mentorship {this.state.questionnaire.impact} </h4>
 					                     </Col>
 					                  </main>
 
@@ -157,7 +163,6 @@ class ProfileBio extends Component {
 }
 	
 export default ProfileBio;
-
 //Img tage above
 //src={questionnaire.image}
 
