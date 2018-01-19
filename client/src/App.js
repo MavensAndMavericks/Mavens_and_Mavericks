@@ -30,7 +30,7 @@ const App = () =>
         <Route exact path="/books" component={Books} />
         <Route exact path="/maverickquestionnaire" component={MaverickQuestionnaire} />
         <Route exact path="/mavenquestionnaire" component={MavenQuestionnaire} />
-        <Route exact path="/welcomeMaverick/:id?"  component={MaverickProfile} />
+        {/*<Route exact path="/api/questionnaires/:id?"  component={MaverickProfile} />*/}
         <Route exact path="/api/questionnaires/:id?" component={MavenProfile} />
         
         <Route exact path="/aboutus" component={AboutUs} />

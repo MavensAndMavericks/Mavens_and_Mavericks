@@ -60,16 +60,27 @@ export default {
     return axios.get("/api/questionnaires/" + id + "/matches");
   },
 
-  // Gets the github profile for the given github
-  // getGithub: function(github) {
-  //   axios.get("https://api.github.com/users/" + github + "/repos")
-  //   .then(function(res) {
-  //     githubProfile => res.json(githubProfile);
-  //     console.log(res.data);
-  //     console.log(res.status);
-  //   })
-  //   .catch(err => res.status(422).json(err));
-  // }
+//////////// MAKE THIS WORK ...SOON...
+  // // Gets the github profile projects for the given github
+  getGithubProjects: function(github) {
+    axios.get("https://api.github.com/users/wisnioa/repos") //"https://api.github.com/users/" + github + "/repos"
+    .then(function(res) {
+      res => res.json(res.data);
+      console.log(res.data);
+      console.log(res.status);
+    })
+  },
+  
+  // Gets the github profile PIC for the given github
+  getGithubUrl: function(github) {
+    axios.get("https://api.github.com/users/wisnioa") //"https://api.github.com/users/" + github
+    .then(function(res) {
+      res => res.json(res.data);
+      console.log(res.data);
+      console.log(res.status);
+    })
+  }
+
 
 
 ///////////////////////////////////////////////////////////////////////
