@@ -6,7 +6,7 @@ const Parallax1b = () =>
 	<div>
 	    <div className="parallax1b" data-type="content" style={{backgroundImage:"url(/assets/vr-Action.jpeg)"}}>
 	    	<div>
-	    		<h4>Learn More</h4>
+	    		<h4 style={{color: "white"}}>Learn More</h4>
 	    	</div>
 	    </div>
 	</div>

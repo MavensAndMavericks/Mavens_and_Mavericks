@@ -129,7 +129,7 @@ class ProfileBio extends Component {
 	 							               	<strong>Github Handler: {this.state.questionnaire.gitHub}</strong>
 	 							           	</Link>
 	 									   </h3>
-					                      <h4>Industries of Interest {this.state.questionnaire.industries} </h4>
+					                      <h4>Industries of Interest: {this.state.questionnaire.industryExperience} </h4>
 	 									  <h4>Languages: {this.state.questionnaire.languages} </h4>
 	 									  <h4>Reason for Mentorship {this.state.questionnaire.impact} </h4>
 					                     </Col>
