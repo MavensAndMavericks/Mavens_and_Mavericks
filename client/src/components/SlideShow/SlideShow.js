@@ -13,7 +13,7 @@ const SlideShow = () =>
   <div>
       <Carousel
         className="slide-show"
-        fixedItem={<a href="/aboutus" className='btn'>What Can a Mentor Do for You?</a>}
+        fixedItem={<a href="/mentorsarekey" className='btn'>What Can a Mentor Do for You?</a>} //aboutus
         options={{ fullWidth: true, indicators: true, duration: 200 }} 
         images={[
           "/assets/paired-Programming-fancy.jpg",

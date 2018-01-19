@@ -32,19 +32,9 @@ class ProfileBio extends Component {
 		reasons: "",
 		careerLevel: "",
 	    languages: [],
-	    industryExperience: []
+	    industryExperience: [],
+	    githubUrl: ""
 	};
-
-	// getAllUrlParams(url) {
-	//   var queryString = url ? url.split('welcomeMaven/')[1] : window.location.search.slice(1); // retreives query string from url (optional) or window
-	//   var URLid = {};
-
-	//   if (queryString) { // if query string exists, push it's value up into the URLid
-	//   	JSON.stringify(queryString);
-	//   	URLid.push(queryString);
-	//   	console.log(queryString);
-	//   }  
-	// };
 
 	componentDidMount() {
 		console.log("Pathname = " + window.location.pathname);
@@ -60,37 +50,22 @@ class ProfileBio extends Component {
 	   API.getQuestionnaire(id)
 	     .then(res =>
 	       this.setState({ 
-	       	questionnaire:res.data,
-	       	// id:res.data._id,
-	       	// firstName:res.data.firstNam,
-	        // lastName:res.data.lastName//,
-	        //lastName: "wayne"//,
-	        // gitHub:res.data.github,
-	        // quote:res.data.quote,
-	        // code:res.data.code,
-	        // profession:res.data.profession,
-	        // schooling:res.data.schooling,
-	        // impact:res.data.impact,
-	        // reasons:res.data.reasons,
-	        // careerLevel:res.data.careerLevel,
-	        // languages:res.data.languages,
-	        // industryExperience:res.data.industryExperience 
-	    	})
+	       	questionnaire:res.data
+	       })
 	     )
+	     .then(() => this.loadGithub(this.state.gitHub)) // MUST MAKE THIS A FUNCTION that renders a FUNCTION >>> by making this a function in a PROMISE chain, it will NOT PROCESS until the promise BEFORE IT has rendered its result!!! :)
 	     .catch(err => console.log(err));
 	}; 
 
-	handleFormSubmit = event => {
-	    event.preventDefault();
-	    if (this.state.title && this.state.author) {
-	      API.saveBook({
-	        title: this.state.title,
-	        author: this.state.author,
-	        synopsis: this.state.synopsis
-	      })
-	        .then(res => this.loadBooks())
-	        .catch(err => console.log(err));
-	    }
+
+	loadGithub = (github) => {
+		API.getGithub(github)
+		  .then(res =>
+	       this.setState({ 
+	   		githubUrl: res.data //.avatar_url >>>> to find the pic
+	        })
+	       )
+	      .catch(err => console.log(err));
 	};
 
 	handleInputChange = event => {
@@ -116,22 +91,22 @@ class ProfileBio extends Component {
 					              
 					                  <main key={this.state._id}>
 					                     <Col size="sm-4">	
-					                      <img className="img-responsive" src={"http://placehold.it/300x300&text=slide1"} alt="Github Profile Pic"/> 
+					                      <img className="img-responsive" src={this.state.githubUrl.avatar_url} alt="Github Profile Pic"/> 
 					                     </Col>
 
 					                     <Col size="sm-8">	
-					                      <h2>
-					                      	<h3>ID TEST: { this.state.questionnaire._id } </h3>
+					                      <h3>
 					                        <strong>Name: {this.state.questionnaire.firstName} {this.state.questionnaire.lastName}</strong>
-					                      </h2>
-					                      <h3> 
-	 									  	<Link to={"https://github.com/" + this.state.questionnaire.gitHub} target="_blank">
-	 							               	<strong>Github Handler: {this.state.questionnaire.gitHub}</strong>
-	 							           	</Link>
-	 									   </h3>
-					                      <h4>Industries of Interest: {this.state.questionnaire.industryExperience} </h4>
-	 									  <h4>Languages: {this.state.questionnaire.languages} </h4>
-	 									  <h4>Reason for Mentorship {this.state.questionnaire.impact} </h4>
+					                      </h3>
+					                      <h4> 
+					                      	<strong>Github Handler: </strong>
+		 									  	<Link to={"https://github.com/" + this.state.questionnaire.gitHub} target="_blank">
+		 							               	<strong>{this.state.questionnaire.gitHub}</strong>
+		 							           	</Link>
+	 									   </h4>
+					                      <h5>Industries of Interest: {this.state.questionnaire.industryExperience} </h5>
+	 									  <h5>Languages: {this.state.questionnaire.languages} </h5>
+	 									  <h5>Reason for Mentorship: {this.state.questionnaire.impact} </h5>
 					                     </Col>
 					                  </main>
 
@@ -163,10 +138,13 @@ class ProfileBio extends Component {
 }
 	
 export default ProfileBio;
+//{this.state.questionnaire.industryExperience.forEach(experience=> ( experience + ", " ))}
+
+//////////////////////////////////////////////////
 //Img tage above
 //src={questionnaire.image}
 
-
+//<h3>ID TEST: { this.state.questionnaire._id } </h3>
 /////////////////////////////////////////////////
 
 	// componentDidMount() {

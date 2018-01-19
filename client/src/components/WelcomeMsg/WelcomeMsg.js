@@ -9,7 +9,7 @@ const WelcomeMsg = () =>
 	  <div className="welcome-msg"> 
 	    <h1>Welcome to your Future!</h1>
 	    <hr/>
-	    <p className="text-center">BLAH. Text Goes Here.</p> 
+	    {/*<p className="text-center">BLAH. Text Goes Here.</p> */}
 	  </div>;
 
 export default WelcomeMsg;
