@@ -37,7 +37,9 @@ const industryList = [
   "Marketing",
   "Electrical Engineering",
   "Artifical Intelligence"
+
 ];
+
 
 ////////////////////////////////////////////////////////////////////
 class MavenQuestionnaire extends Component {
@@ -53,12 +55,13 @@ class MavenQuestionnaire extends Component {
     schooling: "",
     impact: "",
     reasons: "",
-    careerLevel: "",
+    careerLevel: "",   
     languages: [],
     industryExperience: []
     //personalityResults: []
   };
   
+
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -94,13 +97,6 @@ class MavenQuestionnaire extends Component {
     }
   };
 
-  //////////////////////////////////////////////////////////////////////////////////
-  // constructor() {
-  //   super()
-  //   this.state - {
-  //     industryExperience: []
-  //   }
-  // };
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -108,6 +104,7 @@ class MavenQuestionnaire extends Component {
       [name]: value
     });
   };
+
 
   // // Checkbox Button Handling:
  //////////Language Checkboxes
@@ -172,6 +169,7 @@ class MavenQuestionnaire extends Component {
       )
     })
   );
+
 
 
 //Radio Button Handling
@@ -289,6 +287,7 @@ class MavenQuestionnaire extends Component {
                         <Input onChange={this.handleOptionChange} name="experience" type='radio' value="Professional 5+ Years" checked={this.state.careerLevel.value} label='Professional 5+ Years' />
                         <Input onChange={this.handleOptionChange} name="experience" type='radio' value="Expert" checked={this.state.careerLevel.value} label='Expert' />
                   </div>
+
                 </div>
                 <br/>
               </Col>
@@ -313,6 +312,7 @@ class MavenQuestionnaire extends Component {
                     {this.createLangCheckboxes()}
                   </div>
                 </div>
+
 
                 <FormBtn
                   disabled={!(this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons)}
@@ -426,6 +426,7 @@ export default MavenQuestionnaire;
 //className="backgroundPic" style={{backgroundImage:"url(/assets/futuristic-Factory-Background)"}}
 
 //We removed this component and input the full radio questions: <QuestionsMentor/>
+
 
 
 // handleMatching = (res) = > {
