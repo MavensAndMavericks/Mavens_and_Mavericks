@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- char set and lang pref -->
+    <meta charset="utf-8">
+    <!-- meta data for responsive ability and manifest json file -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#2F80ED">
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="/favicon.png">
+    <!-- WHY WON'T THE FOLLOWING WORK?!?! : "%PUBLIC_URL%/favicon.icon" -->
+    <!-- Bootstrap CSS and Script -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/sandstone/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Materialize CSS and Script -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    <!-- Sendbird CDN -->   
+    <script src="/SendBird.min.js"></script>
+    <script src="/widget.SendBird.js"></script>
+
+    <!-- Google Fonts - CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <title>Mavens and Mavericks</title>
+</head>
+
+<body>
+    <noscript>
+        You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="sb_widget"></div>
+    <div id="root"></div>
+</body>
+<script src="SendBird.min.js"></script>
+<script src="widget.SendBird.js"></script>
+<script>
+// var sbWidgetToggle = document.getElementById("sb_widget");
+
+ if (window.location.pathname ==="/MavenQuestionnaire" || window.location.pathname ==="/MaverickQuestionnaire" || window.location.pathname ==="/" )  {
+  sbWidgetToggle.hide();    
+ }
+
+// document.querySelector(".btn").addEventListener("click", function(){
+//     logIn();
+// });
+
+// var appId = "FB7BB4B3-4917-4831-B2E0-EB94FB4A4BD7";
+// var userId = "";
+// var nickname = "";
+
+//WHERE IS "sbWidget" defined??  Is this supposed to read: "sbWidgetToggle"
+// sbWidget.startWithConnect(appId, userId, nickname, function() {
+
+    // on sign in
+    // get user info from database
+    // use github name as userId
+    // use first and last as nickname
+
+//});
+</script>
+<!-- <script src="/SendBird.min.js"></script>
+<script src="/widget.SendBird.js"></script> -->
+<!-- <script>
+  sbWidget.start('FB7BB4B3-4917-4831-B2E0-EB94FB4A4BD7');
+</script> -->
+</html>
