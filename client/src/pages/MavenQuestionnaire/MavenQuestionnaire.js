@@ -89,12 +89,8 @@ class MavenQuestionnaire extends Component {
           ///PASS THE ID TO SENDBIRD HERE!!!!
           // .then(res => this.handleMatching(res))
 
-<<<<<<< HEAD
           window.location.pathname = "/welcomeMaven/" + this.state.id + "/"
          
-=======
-          window.location.pathname = "/api/questionnaires/" + this.state.id + "/" 
->>>>>>> master
         })
     }
   };

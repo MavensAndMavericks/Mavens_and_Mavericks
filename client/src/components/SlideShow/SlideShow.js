@@ -1,32 +1,33 @@
 //React:
 import React, { Component } from "react";
 
-//Dependency import:
-import { Carousel} from "react-materialize";
-import $ from "jquery";
-//Component imports:
+import {Carousel} from "react-materialize";
+
+// import * as $ from 'jquery';
 
 import "./SlideShow.css";
 
-//import Parallax1 from "../Parallax1";
+//================================================================================
 
-//=================================================================================
+
+
+
+
+
 class SlideShow extends Component {
 
-componentDidMount(){
-  this.runCarousel();
-}
+  componentDidMount() {
+
+    setInterval()
+  }
 
 
-runCarousel = () =>{
-$(".slide-show").carousel();
-}
 
 render(){
   return (
   <div>
       <Carousel
-        className="slide-show"
+        className="carousel"
         fixedItem={<a href="/aboutus" className='btn'>What Can a Mentor Do for You?</a>}
         options={{ fullWidth: true, indicators: true, duration: 200 }}
         images={[

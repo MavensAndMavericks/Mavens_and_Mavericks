@@ -47,21 +47,6 @@ class ProfileBio extends Component {
 	// };
 
 	componentDidMount() {
-<<<<<<< HEAD
-		console.log("PathName  ="+ window.location.pathname);
-		const pathName = window.location.pathname;
-		const id = pathName.split("/")[2];
-		console.log(id);
-		this.loadQuestionnaire(id);
-		
-	};
-
-	loadQuestionnaire = (id) => {
-	   API.getProfile(id)
-	     .then(res =>
-	       this.setState({ 
-	       	questionnaire: res.data._id,
-=======
 		console.log("Pathname = " + window.location.pathname);
 	    const url = window.location.pathname;
 	    const id = url.split("/")[3];
@@ -76,7 +61,6 @@ class ProfileBio extends Component {
 	     .then(res =>
 	       this.setState({ 
 	       	questionnaire:res.data,
->>>>>>> master
 	       	// id:res.data._id,
 	       	// firstName:res.data.firstNam,
 	        // lastName:res.data.lastName//,
