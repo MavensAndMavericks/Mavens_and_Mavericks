@@ -20,7 +20,7 @@ router
 
 // Matches with "/api/questionnaires/:id/matches"
 router
-    .route('/:id/matches')
+    .route('/:id')
     .get(questionnairesController.findMatches);
 
 module.exports = router;
