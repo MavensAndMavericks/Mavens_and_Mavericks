@@ -11,7 +11,6 @@ import {Carousel} from "react-materialize";
 
 import React, { Component } from "react";
 
-import * as $ from 'jquery';
 
 //Componenet imports:
 import "./SlideShow.css";
@@ -30,9 +29,10 @@ const SlideShow = () =>
           "/assets/group-Learning-girl.jpeg",
           "/assets/pair-Excitement.jpeg"
         ]}
-      /> 
-    );
-  }
-}
+      />
+      </div>
+
+
+
 
 export default SlideShow;
