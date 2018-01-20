@@ -1,6 +1,6 @@
 //React Libary Imports
 //=============================
-import React, { Component } from "react";
+import { Component } from "react"; //react
 
 //API Routing Import:
 //=============================
@@ -9,7 +9,7 @@ import API from "../../utils/API";
 //Componenet imports:
 //=============================
 import "./ProjectBoard.css";
-import { Col, Row } from "../Grid";
+//import { Col, Row } from "../Grid";
 
 //=================================================================================
 class ProjectBoard extends Component {
@@ -54,20 +54,20 @@ class ProjectBoard extends Component {
 
 	render() {
 		return null;
-		return(
-			<Row className="container">
-		    	<Col size="md-12" className="project-board" >
-		    		<div style={{backgroundColor:"white"}}>
-		    			<h3 className="text-center">ProjectBoard</h3>
-		    			<div>
-							{this.state.githubProjects}
-		    			</div>
+		// return(
+		// 	<Row className="container">
+		//     	<Col size="md-12" className="project-board" >
+		//     		<div style={{backgroundColor:"white"}}>
+		//     			<h3 className="text-center">ProjectBoard</h3>
+		//     			<div>
+		// 					{this.state.githubProjects}
+		//     			</div>
 
-		    		</div>
+		//     		</div>
 
-				</Col>
-		   	</Row>
-		);
+		// 		</Col>
+		//    	</Row>
+		// );
 	}
 }
 

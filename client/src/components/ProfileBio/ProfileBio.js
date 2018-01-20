@@ -12,6 +12,7 @@ import API from "../../utils/API";
 import { Col, Row, Container } from "../Grid";
 import Jumbotron from "../Jumbotron";
 import "./ProfileBio.css";
+import SendbirdComponent from "../SendbirdComponent"
 //import { List, ListItem } from "../List";
 
 
@@ -98,13 +99,13 @@ class ProfileBio extends Component {
 					                     </Col>
 
 					                     <Col size="sm-8">	
-					                      <h3>
-					                        <strong>Name: {this.state.questionnaire.firstName} {this.state.questionnaire.lastName}</strong>
+					                      <h3>Name: 
+					                        <strong className="userFullName">{this.state.questionnaire.firstName} {this.state.questionnaire.lastName}</strong>
 					                      </h3>
 					                      <h4> 
 					                      	<strong>Github Handler: </strong>
 		 									  	<Link to={"https://github.com/" + this.state.githubUrl.login} target="_blank">
-		 							               	<strong>{this.state.githubUrl.login}</strong>
+		 							               	<strong className="githubHandler">{this.state.githubUrl.login}</strong>
 		 							           	</Link>
 	 									   </h4>
 					                      <h5>Industries of Interest: {this.state.questionnaire.industryExperience} </h5>
@@ -135,6 +136,7 @@ class ProfileBio extends Component {
 
 				</Container>
 
+				<SendbirdComponent/>
 			</div>
 		);
 	}

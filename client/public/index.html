@@ -22,8 +22,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
     <!-- Sendbird CDN -->   
-    <script src="/SendBird.min.js"></script>
-    <script src="/widget.SendBird.js"></script>
+    <!-- <script src="/SendBird.min.js"></script>
+    <script src="/widget.SendBird.js"></script> -->
 
 
     <!-- Google Fonts - CSS -->
@@ -36,10 +36,11 @@
       You need to enable JavaScript to run this app.
     </noscript>
 
-<div id="sb_widget"></div>
-
-   <script>
+<!-- <div id="sb_widget"></div>
+ -->
+   <!-- <script>
        var sbWidgetToggle = document.getElementById("sb_widget");
+       
        if (window.location.pathname ==="/MavenQuestionnaire" || window.location.pathname ==="/MaverickQuestionnaire" || window.location.pathname ==="/" )  {
         sbWidgetToggle.hide();    
        }
@@ -51,16 +52,23 @@
       var appId = "FB7BB4B3-4917-4831-B2E0-EB94FB4A4BD7";
       var userId = "";
       var nickname = "";
-      //WHERE IS "sbWidget" defined??  Is this supposed to read: "sbWidgetToggle"
-      sbWidget.startWithConnect(appId, userId, nickname, function() {
-        
-       // on sign in
-       // get user info from database
-       // use github name as userId
+
+  //WHERE IS "sbWidget" defined??  Is this supposed to read: "sbWidgetToggle"
+      sbWidget.startWithConnect(appId, userId, nickname, function() {     
+    // on sign in
+      const githubHandler = document.getElementByClassName("githubHandler");
+      const userFullName = document.getElementByClassName("userFullName");
+       
+    // get user info from database
        // use first and last as nickname
-     
-   });
-   </script>
+      console.log("userFullName = " + userFullName );
+      // use github name as userId
+      console.log("githubHandler = " + githubHandler);
+
+      nickname = userFullName;
+      userId = githubHandler;
+      })();
+   </script> -->
 
     <div id="root"></div>
   </body>
