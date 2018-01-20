@@ -7,7 +7,7 @@ import Books from "./pages/Books";
 import Welcome from "./pages/Welcome"
 import MavenQuestionnaire from "./pages/MavenQuestionnaire";
 import MaverickQuestionnaire from "./pages/MaverickQuestionnaire";
-import MaverickProfile from "./pages/MaverickProfile";
+//import MaverickProfile from "./pages/MaverickProfile";
 import MavenProfile from "./pages/MavenProfile";
 import AboutUs from "./pages/AboutUs";
 import MentorDef from "./pages/MentorDef";

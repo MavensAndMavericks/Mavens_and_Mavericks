@@ -19,20 +19,20 @@ import "./ProfileBio.css";
 class ProfileBio extends Component {
 	state = {
 		questionnaire: [],
-		id: "",
-		firstName:"", 
-		lastName: "", 
-		type: "",
-		gitHub: "",
-		quote: "", 
-		coded: "", 
-		profession: "",
-		schooling: "",
-		impact: "",
-		reasons: "",
-		careerLevel: "",
-	    languages: [],
-	    industryExperience: [],
+		// id: "",
+		// firstName:"", 
+		// lastName: "", 
+		// type: "",
+		// gitHub: "",
+		// quote: "", 
+		// coded: "", 
+		// profession: "",
+		// schooling: "",
+		// impact: "",
+		// reasons: "",
+		// careerLevel: "",
+	 //    languages: [],
+	 //    industryExperience: [],
 	    githubUrl: ""
 	};
 
@@ -50,19 +50,19 @@ class ProfileBio extends Component {
 	   API.getQuestionnaire(id)
 	     .then(res =>
 	       this.setState({ 
-	       	questionnaire:res.data
+	       	questionnaire:res.data 
 	       })
 	     )
-	     .then(() => this.loadGithub(this.state.gitHub)) // MUST MAKE THIS A FUNCTION that renders a FUNCTION >>> by making this a function in a PROMISE chain, it will NOT PROCESS until the promise BEFORE IT has rendered its result!!! :)
+	     .then(() => this.loadGithub(this.state.qustionnaire.gitHub)) // MUST MAKE THIS A FUNCTION that renders a FUNCTION >>> by making this a function in a PROMISE chain, it will NOT PROCESS until the promise BEFORE IT has rendered its result!!! :)
 	     .catch(err => console.log(err));
 	}; 
 
 
-	loadGithub = (github) => {
-		API.getGithub(github)
+	loadGithub = () => {
+		API.getGithubUrl(github)
 		  .then(res =>
 	       this.setState({ 
-	   		githubUrl: res.data //.avatar_url >>>> to find the pic
+	   		githubUrl: res.data.id //single obj //.avatar_url >>>> to find the pic
 	        })
 	       )
 	      .catch(err => console.log(err));
@@ -91,6 +91,7 @@ class ProfileBio extends Component {
 					              
 					                  <main key={this.state._id}>
 					                     <Col size="sm-4">	
+					                      <strong>this.STATE.githubUrl{this.state.githubUrl}</strong>
 					                      <img className="img-responsive" src={this.state.githubUrl.avatar_url} alt="Github Profile Pic"/> 
 					                     </Col>
 

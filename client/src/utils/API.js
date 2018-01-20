@@ -63,24 +63,21 @@ export default {
 //////////// MAKE THIS WORK ...SOON...
   // // Gets the github profile projects for the given github
   getGithubProjects: function(github) {
-    axios.get("https://api.github.com/users/wisnioa/repos") //"https://api.github.com/users/" + github + "/repos"
-    .then(function(res) {
-      res => res.json(res.data);
-      console.log(res.data);
+    axios.get("https://api.github.com/users/wisnioa/repos", function(req, res) { //"https://api.github.com/users/" + github + "/repos"
+      console.log("github repos" + res.data);
       console.log(res.status);
+      res.json(res.data);
     })
   },
-  
-  // Gets the github profile PIC for the given github
-  getGithubUrl: function(github) {
-    axios.get("https://api.github.com/users/wisnioa") //"https://api.github.com/users/" + github
-    .then(function(res) {
-      res => res.json(res.data);
-      console.log(res.data);
-      console.log(res.status);
-    })
-  }
 
+  // Gets the github profile PIC for the given github
+  getGithubUrl: function() {
+    axios.get("https://api.github.com/users/wisnioa", function(req, res) { //"https://api.github.com/users/" + github
+      console.log("github urls" + res.data);
+      console.log(res.status);
+      res.json(res.data);
+    })
+  },
 
 
 ///////////////////////////////////////////////////////////////////////
