@@ -60,7 +60,46 @@ export default {
     return axios.get("/api/questionnaires/" + id + "/matches");
   },
 
+//////////// MAKE THIS WORK ...SOON...
+  // // Gets the github profile projects for the given github
+  getGithubProjects: function(github) {
+    return axios.get("https://api.github.com/users/" + github + "/repos", function(req, res) { //"https://api.github.com/users/" + github + "/repos"
+      console.log("github repos" + res.data);
+      console.log(res.status);
+      res.json(res.data);
+    })
+  },
+
+  // Gets the github profile PIC for the given github
+  getGithubUrl: function(github) {
+    return axios.get("https://api.github.com/users/" + github, function(req, res) { //"https://api.github.com/users/" + github
+      console.log("github urls" + res.data);
+      console.log(res.status);
+      res.json(res.data);
+    })
+  },
+
+
+///////////////////////////////////////////////////////////////////////
+// $.ajax({
+//  url: "https://api.github.com/users/wisnioa/repos",
+//  jsonp: true,
+//  method: "GET",
+//  dataType: "json",
+//  success: function(res) {
+//    console.log(res)
+//  }
+// });
+
 //////////////////
+
+//get('https://api.github.com/users/' + username)
+  //.then(function(response){
+  //   console.log(response.data); // ex.: { user: 'Your User'}
+  //   console.log(response.status); // ex.: 200
+  // }); 
+
+///////////////////////////////////////////////////////////////////
   // getProfile: function() {
   //   return axios.get("/api/mavens");
   // }

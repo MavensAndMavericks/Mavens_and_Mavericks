@@ -27,9 +27,15 @@ render(){
   return (
   <div>
       <Carousel
+<<<<<<< HEAD
         className="carousel"
         fixedItem={<a href="/aboutus" className='btn'>What Can a Mentor Do for You?</a>}
         options={{ fullWidth: true, indicators: true, duration: 200 }}
+=======
+        className="slide-show"
+        fixedItem={<a href="/mentorsarekey" className='btn'>What Can a Mentor Do for You?</a>} //aboutus
+        options={{ fullWidth: true, indicators: true, duration: 200 }} 
+>>>>>>> master
         images={[
           "/assets/paired-Programming-fancy.jpg",
           "/assets/group-Learning-girl.jpeg",

@@ -15,6 +15,7 @@
     "react-materialize": "^1.1.2",
     "react-router-dom": "^4.1.2",
     "react-scripts": "1.0.14",
+    "sendbird": "^3.0.51",
     "traitify": "^2.2.0"
   },
   "scripts": {

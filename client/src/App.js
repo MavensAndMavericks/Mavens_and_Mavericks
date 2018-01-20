@@ -7,7 +7,7 @@ import Books from "./pages/Books";
 import Welcome from "./pages/Welcome"
 import MavenQuestionnaire from "./pages/MavenQuestionnaire";
 import MaverickQuestionnaire from "./pages/MaverickQuestionnaire";
-import MaverickProfile from "./pages/MaverickProfile";
+//import MaverickProfile from "./pages/MaverickProfile";
 import MavenProfile from "./pages/MavenProfile";
 import AboutUs from "./pages/AboutUs";
 import MentorDef from "./pages/MentorDef";
@@ -30,7 +30,7 @@ const App = () =>
         <Route exact path="/books" component={Books} />
         <Route exact path="/maverickquestionnaire" component={MaverickQuestionnaire} />
         <Route exact path="/mavenquestionnaire" component={MavenQuestionnaire} />
-        <Route exact path="/welcomeMaverick/:id?"  component={MaverickProfile} />
+        {/*<Route exact path="/api/questionnaires/:id?"  component={MaverickProfile} />*/}
         <Route exact path="/api/questionnaires/:id?" component={MavenProfile} />
         
         <Route exact path="/aboutus" component={AboutUs} />

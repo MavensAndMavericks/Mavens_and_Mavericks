@@ -22,8 +22,8 @@
     
 
     <!-- Sendbird CDN -->   
-    <script src="SendBird.min.js"></script>
-    <script src="widget.SendBird.js"></script>
+    <script src="/SendBird.min.js"></script>
+    <script src="/widget.SendBird.js"></script>
 
 
     <!-- Google Fonts - CSS -->
@@ -39,9 +39,7 @@
 <div id="sb_widget"></div>
 
    <script>
-
        var sbWidgetToggle = document.getElementById("sb_widget");
-
        if (window.location.pathname ==="/MavenQuestionnaire" || window.location.pathname ==="/MaverickQuestionnaire" || window.location.pathname ==="/" )  {
         sbWidgetToggle.hide();    
        }
@@ -53,7 +51,6 @@
       var appId = "FB7BB4B3-4917-4831-B2E0-EB94FB4A4BD7";
       var userId = "";
       var nickname = "";
-
       //WHERE IS "sbWidget" defined??  Is this supposed to read: "sbWidgetToggle"
       sbWidget.startWithConnect(appId, userId, nickname, function() {
         
