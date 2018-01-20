@@ -19,20 +19,20 @@ import "./ProfileBio.css";
 class ProfileBio extends Component {
 	state = {
 		questionnaire: [],
-		id: "",
-		firstName:"", 
-		lastName: "", 
-		type: "",
-		gitHub: "",
-		quote: "", 
-		coded: "", 
-		profession: "",
-		schooling: "",
-		impact: "",
-		reasons: "",
-		careerLevel: "",
-	    languages: [],
-	    industryExperience: [],
+		// id: "",
+		// firstName:"", 
+		// lastName: "", 
+		// type: "",
+		// gitHub: "",
+		// quote: "", 
+		// coded: "", 
+		// profession: "",
+		// schooling: "",
+		// impact: "",
+		// reasons: "",
+		// careerLevel: "",
+	 //    languages: [],
+	 //    industryExperience: [],
 	    githubUrl: ""
 	};
 
@@ -50,19 +50,22 @@ class ProfileBio extends Component {
 	   API.getQuestionnaire(id)
 	     .then(res =>
 	       this.setState({ 
-	       	questionnaire:res.data
+	       	questionnaire:res.data 
 	       })
 	     )
-	     .then(() => this.loadGithub(this.state.gitHub)) // MUST MAKE THIS A FUNCTION that renders a FUNCTION >>> by making this a function in a PROMISE chain, it will NOT PROCESS until the promise BEFORE IT has rendered its result!!! :)
+	     .then(() => {
+	     	console.log("questionnaire.gitHub = " + this.state.questionnaire.gitHub)
+	     	this.loadGithub(this.state.questionnaire.gitHub)
+	     }) // MUST MAKE THIS A FUNCTION that renders a FUNCTION >>> by making this a function in a PROMISE chain, it will NOT PROCESS until the promise BEFORE IT has rendered its result!!! :)
 	     .catch(err => console.log(err));
 	}; 
 
 
-	loadGithub = (github) => {
-		API.getGithub(github)
+	loadGithub = (gitHub) => {
+		API.getGithubUrl(gitHub)
 		  .then(res =>
 	       this.setState({ 
-	   		githubUrl: res.data //.avatar_url >>>> to find the pic
+	   		githubUrl: res.data //single obj //.avatar_url >>>> to find the pic
 	        })
 	       )
 	      .catch(err => console.log(err));
@@ -100,8 +103,8 @@ class ProfileBio extends Component {
 					                      </h3>
 					                      <h4> 
 					                      	<strong>Github Handler: </strong>
-		 									  	<Link to={"https://github.com/" + this.state.questionnaire.gitHub} target="_blank">
-		 							               	<strong>{this.state.questionnaire.gitHub}</strong>
+		 									  	<Link to={"https://github.com/" + this.state.githubUrl.login} target="_blank">
+		 							               	<strong>{this.state.githubUrl.login}</strong>
 		 							           	</Link>
 	 									   </h4>
 					                      <h5>Industries of Interest: {this.state.questionnaire.industryExperience} </h5>
@@ -139,6 +142,9 @@ class ProfileBio extends Component {
 	
 export default ProfileBio;
 //{this.state.questionnaire.industryExperience.forEach(experience=> ( experience + ", " ))}
+
+//////////////////////////////////////////////////
+//<h3><strong>{this.state.githubUrl.login}</strong></h3>
 
 //////////////////////////////////////////////////
 //Img tage above

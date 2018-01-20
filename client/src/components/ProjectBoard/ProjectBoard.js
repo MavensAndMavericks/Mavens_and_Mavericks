@@ -53,6 +53,7 @@ class ProjectBoard extends Component {
 
 
 	render() {
+		return null;
 		return(
 			<Row className="container">
 		    	<Col size="md-12" className="project-board" >

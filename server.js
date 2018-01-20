@@ -6,12 +6,27 @@ const path = require("path");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
+const axios = require("axios");
 const PORT = process.env.PORT || 3001; //this PORT MUST MATCH the proxy port set in the package.json inside "client/utils" >> (on the REACT side)
 // const traitify = require('traitify');
 const Chart = require('chart.js');
 
 //SERVER SET-UP (Routing MIDDLEWARE Definition)
 //=========================================================================================
+
+function github() {
+	axios.get("https://api.github.com/users/wisnioa/repos", function(req, res) { //"https://api.github.com/users/" + github + "/repos"
+      console.log("github repos" + res.data);
+      console.log(res.status);
+      res.send(res.data);
+	})
+}
+
+github();
+
+
+
+
 // Configure Body-Parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -23,7 +38,6 @@ app.use('/', express.static(path.join(__dirname + '/client/public'))); //SHOULD 
 
 // Add routes, both API routes and view(html) routes
 app.use(routes);
-
 
 // Configure Chart.js
 //const myChart = new Chart(ctx, {...});
