@@ -1,14 +1,24 @@
-//React:
-import React from "react";
+
+// import React, { Component } from "react";
+
+// import * as $ from 'jquery';
+
+
 
 //Dependency import:
 import {Carousel} from "react-materialize";
+
+
+import React, { Component } from "react";
+
+import * as $ from 'jquery';
 
 //Componenet imports:
 import "./SlideShow.css";
 //import Parallax1 from "../Parallax1";
 
 //=================================================================================
+
 const SlideShow = () =>
   <div>
       <Carousel
@@ -20,9 +30,9 @@ const SlideShow = () =>
           "/assets/group-Learning-girl.jpeg",
           "/assets/pair-Excitement.jpeg"
         ]}
-      />        
-  </div>
+      /> 
+    );
+  }
+}
 
 export default SlideShow;
-
-//!! WHY does't the duration work?? //doesn't prompt next slide... ever.
