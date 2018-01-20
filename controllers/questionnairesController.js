@@ -44,10 +44,10 @@ module.exports = {
     db.Questionnaire
       .findById({ _id: req.params.id })
       .then(users => {
-        return db.User.find({
-          _id: { $nin: user._id },
-          type: { $in: [!user.type] }, // we could replace "!user.type" with >> ["maverick"] or ["maven"], depending on type/occasion
-          languages: { $in: user.languages }
+        return dbProfile.find({
+          _id: { $nin: dbProfile._id },
+          type: { $in: [dbProfile.type] }, // we could replace "!user.type" with >> ["maverick"] or ["maven"], depending on type/occasion
+          languages: { $in: dbProfile.languages }
         });
       })
       // .then(() => {

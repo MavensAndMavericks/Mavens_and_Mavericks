@@ -147,13 +147,7 @@ class ProfileBio extends Component {
 
 					<br/>
 	                <br/>
-					<Row>
-						<Col size="sm-12">						
-			               <Jumbotron>
-			                 <h1 className="text-center">Matched Mentor?</h1>
-			               </Jumbotron>					
-						</Col>
-					</Row>
+					
 
 				</Container>
 
