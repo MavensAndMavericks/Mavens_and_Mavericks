@@ -16,10 +16,10 @@ import "./SlideShow.css";
 
 class SlideShow extends Component {
 
-  componentDidMount() {
+  // componentDidMount() {
 
-    setInterval()
-  }
+  //   setInterval()
+  // }
 
 
 
