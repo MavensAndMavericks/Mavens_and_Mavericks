@@ -1,11 +1,6 @@
 
-// import React, { Component } from "react";
 
-// import * as $ from 'jquery';
-
-
-
-import {Carousel} from "react-materialize";
+import {Slider} from "react-materialize";
 
 
 import React, { Component } from "react";
@@ -18,8 +13,8 @@ import "./SlideShow.css";
 
 const SlideShow = () =>
   <div>
-      <Carousel
-        className="slide-show"
+      <Slider
+        className="slider"
         fixedItem={<a href="/mentorsarekey" className='btn'>What Can a Mentor Do for You?</a>} //aboutus
         options={{ fullWidth: true, indicators: true, duration: 200 }} 
         images={[

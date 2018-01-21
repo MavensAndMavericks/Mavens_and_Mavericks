@@ -23,10 +23,6 @@
     "body-parser": "^1.17.2",
     "chart.js": "^2.7.1",
     "express": "^4.15.4",
-<<<<<<< HEAD
-    "i": "^0.3.6",
-=======
->>>>>>> master
     "jquery": "^3.2.1",
     "mongoose": "^4.11.7",
     "prop-types": "^15.6.0",
