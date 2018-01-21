@@ -58,22 +58,7 @@ module.exports = {
 };
 
 
-//   findMatches: function(req, res) {
-//     db.Questionnaire
-//       .findById({ _id: req.params.id })
-//       .then(users => {
-//         return db.User.find({
-//           _id: { $nin: user._id },
-//           type: { $in: [!user.type] }, // we could replace "!user.type" with >> ["maverick"] or ["maven"], depending on type/occasion
-//           languages: { $in: user.languages }
-//         });
-//       })
-//       // .then(() => {
-
-
-//      // });
-//  }
-// };
+//  
 
 // var dbProfile = db.Questionnaire
 // .findById({ _id: req.params.id })
