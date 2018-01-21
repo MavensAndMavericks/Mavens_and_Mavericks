@@ -12,7 +12,8 @@ const Dropdown = props => (
         <span className="icon-bar" />
         <span className="icon-bar" />
       </button>
-    </div>
+      </div>
+    
 
     <ul className="nav navbar-nav navbar-right navbar-collapse-1">
       <li><a href="/aboutus">About Us</a></li>
@@ -27,6 +28,9 @@ const Dropdown = props => (
         </ul>
       </li> 
     </ul>
+
+
+
 
   </div>
 

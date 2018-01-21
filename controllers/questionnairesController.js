@@ -44,10 +44,10 @@ module.exports = {
     db.Questionnaire
       .findById({ _id: req.params.id })
       .then(users => {
-        return db.User.find({
-          _id: { $nin: user._id },
-          type: { $in: [!user.type] }, // we could replace "!user.type" with >> ["maverick"] or ["maven"], depending on type/occasion
-          languages: { $in: user.languages }
+        return dbProfile.find({
+          _id: { $nin: dbProfile._id },
+          type: { $in: [dbProfile.type] }, // we could replace "!user.type" with >> ["maverick"] or ["maven"], depending on type/occasion
+          languages: { $in: dbProfile.languages }
         });
       })
       // .then(() => {
@@ -56,3 +56,147 @@ module.exports = {
      // });
  }
 };
+
+
+//   findMatches: function(req, res) {
+//     db.Questionnaire
+//       .findById({ _id: req.params.id })
+//       .then(users => {
+//         return db.User.find({
+//           _id: { $nin: user._id },
+//           type: { $in: [!user.type] }, // we could replace "!user.type" with >> ["maverick"] or ["maven"], depending on type/occasion
+//           languages: { $in: user.languages }
+//         });
+//       })
+//       // .then(() => {
+
+
+//      // });
+//  }
+// };
+
+// var dbProfile = db.Questionnaire
+// .findById({ _id: req.params.id })
+
+// var careerLevelQuery;
+
+// if (dbProfile.type === "maven") {
+
+//     switch (dbProfile.careerLevel) {
+//         case "New Professional":
+//             //MATCH WITH COLLEGE USER
+//             careerLevelQuery = { $in: ["college"]};
+
+//             break;
+//         case "Professional 5+":
+//             //MATCH WITH NEW PROFESSIONAL AND COLLEGE USERS 
+//               careerLevelQuery = { $in: ["new professional"]};
+
+
+//             break;
+//         case "Expert":
+//             //MATCH WITH PROFESSIONAL 5+, NEW PROFESSIONAL AND COLLEGE USERS 
+//             break;
+
+//     } else if (dbProfile.type === "maverick") {
+//         switch (dbProfile.careerLevel) {
+//             case "College":
+//                 //MATCH WITH PROFESSIONAL 5+, NEW PROFESSIONAL AND EXPERT USERS 
+//                 break;
+//             case "New Professional":
+//                 //MATCH WITH PROFESSIONAL 5+ AND EXPERT USERS 
+//                 break;
+//             case "Professional 5+":
+//                 //MATCH WITH EXPERT
+//                 break;
+
+//         }
+
+//     }
+
+// }
+
+
+// return dbProfile.findAll({
+//   _id: { $nin: dbProfile._id },
+//   type: { $nin: [dbProfile.type] },
+//   careerLevel: careerLevelQuery,
+//   languages: { $in: dbProfile.languages },
+
+// }).then((results) => {
+//   res.json(results);
+// })
+
+
+
+
+
+
+
+
+
+//MATCHING SWITCH CASE
+// findMatches: function(req, res) {
+//     db.Questionnaire
+//         .findById({ _id: req.params.id })
+//         .then(dbProfile => {
+//             return dbProfile.find({
+//                 _id: { $nin: dbProfile._id },
+//                 type: { $nin: [dbProfile.type] },
+//                 if (dbProfile.type === "maven") {
+
+//                     switch (dbProfile.careerLevel) {
+//                         case "New Professional":
+//                             //MATCH WITH COLLEGE USER
+//                             return dbProfile.findAll({
+//                                   careerLevel: { $in: [dbProfile.careerLevel.college]}
+//                                 })
+
+//                             break;
+//                         case "Professional 5+":
+//                             //MATCH WITH NEW PROFESSIONAL AND COLLEGE USERS 
+//                               return dbProfile.findAll({
+//                                   careerLevel: { $in: ["new professional"]}
+//                                 })
+
+
+//                             break;
+//                         case "Expert":
+//                             //MATCH WITH PROFESSIONAL 5+, NEW PROFESSIONAL AND COLLEGE USERS 
+//                             break;
+
+//                     } else if (dbProfile.type === "maverick") {
+//                         switch (dbProfile.careerLevel) {
+//                             case "College":
+//                                 //MATCH WITH PROFESSIONAL 5+, NEW PROFESSIONAL AND EXPERT USERS 
+//                                 break;
+//                             case "New Professional":
+//                                 //MATCH WITH PROFESSIONAL 5+ AND EXPERT USERS 
+//                                 break;
+//                             case "Professional 5+":
+//                                 //MATCH WITH EXPERT
+//                                 break;
+
+//                         }
+
+//                     }
+
+//                 }
+
+//                 languages: { $in: dbProfile.languages },
+//                 industry: { $in: }
+//             });
+//         })
+//     // .then(() => {
+
+
+//     // });
+// }
+// };
+
+
+
+
+
+
+
