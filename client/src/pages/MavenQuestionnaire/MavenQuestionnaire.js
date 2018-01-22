@@ -92,7 +92,8 @@ class MavenQuestionnaire extends Component {
           //CALL THE UTILS/API FUNCTION THAT MAKES THE MATCHING QUERY HERE!!!!!!
           // .then(res => this.handleMatching(res))
 
-          window.location.pathname = "/api/questionnaires/" + this.state.id + "/" 
+          window.location.pathname = "/api/questionnaires/" + this.state.id + "/"
+         
         })
     }
   };

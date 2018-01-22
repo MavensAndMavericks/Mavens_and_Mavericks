@@ -1,18 +1,20 @@
-//React:
-import React from "react";
 
-//Dependency import:
-import {Carousel} from "react-materialize";
+
+import {Slider, Slide} from "react-materialize";
+
+
+import React, { Component } from "react";
+
 
 //Componenet imports:
 import "./SlideShow.css";
-//import Parallax1 from "../Parallax1";
 
 //=================================================================================
+
 const SlideShow = () =>
   <div>
-      <Carousel
-        className="slide-show"
+      {/* <Slider
+        className="slider"
         fixedItem={<a href="/mentorsarekey" className='btn'>What Can a Mentor Do for You?</a>} //aboutus
         options={{ fullWidth: true, indicators: true, duration: 200 }} 
         images={[
@@ -20,9 +22,36 @@ const SlideShow = () =>
           "/assets/group-Learning-girl.jpeg",
           "/assets/pair-Excitement.jpeg"
         ]}
-      />        
-  </div>
+      /> */}
+
+<Slider
+style={{height:"600px"}}>
+
+// fixedItem={<a href="/mentorsarekey" className='btn'>What Can a Mentor Do for You?</a>} >
+	<Slide
+
+		src="/assets/paired-Programming-fancy.jpg">
+		{/* // title="This is our big Tagline!"> */}
+		{/* // Here's our small slogan. */}
+	</Slide>
+	<Slide
+
+		src="/assets/group-Learning-girl.jpeg">
+		{/* // title="Left aligned Caption" */}
+		{/* // placement="left" */}
+		{/* Here's our small slogan. */}
+	</Slide>
+	<Slide
+  
+		src="/assets/pair-Excitement.jpeg">
+		{/* title="Right aligned Caption"
+		placement="right">
+		Here's our small slogan. */}
+	</Slide>
+</Slider>
+      </div>
+
+
+
 
 export default SlideShow;
-
-//!! WHY does't the duration work?? //doesn't prompt next slide... ever.

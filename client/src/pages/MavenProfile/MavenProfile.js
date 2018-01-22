@@ -13,6 +13,7 @@ import Nav2 from "../../components/Nav2";
 // import MavenHeader from "../../components/MavenHeader";
 import SignOut from "../../components/SignOut";
 import ProfileBio from "../../components/ProfileBio";
+import ProfileMatch from "../../components/ProfileMatch";
 import ProjectBoard from "../../components/ProjectBoard";
 import { Col, Row } from "../../components/Grid";
 import Footer from "../../components/Footer";
@@ -48,6 +49,8 @@ class MavenProfile extends Component {
                 <br/>
 
                 <ProjectBoard/>
+
+                <ProfileMatch/>
 
                 
                
