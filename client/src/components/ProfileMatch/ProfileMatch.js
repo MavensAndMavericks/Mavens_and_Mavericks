@@ -38,24 +38,24 @@ class ProfileMatch extends Component {
 	};
 
 
-	componentDidMount(id) {
-		this.loadMatches(id);
-	};
+	// componentDidMount(id) {
+	// 	this.loadMatches(id);
+	// };
 
-	//Matching Logic =========================================
-	loadMatches = (id) => {
-	   API.getMatches(id)
+	// //Matching Logic =========================================
+	// loadMatches = (id) => {
+	//    API.getMatches(id)
 
-	   //var count = 0;
-	   //for(i=0; i <)
-	     .then(res =>
-	       this.setState({ 
-	       	questionnaire:res.data,
+	//    //var count = 0;
+	//    //for(i=0; i <)
+	//      .then(res =>
+	//        this.setState({ 
+	//        	questionnaire:res.data,
 
-	    	})
-	     )
-	     .catch(err => console.log(err));
-	}; 
+	//     	})
+	//      )
+	//      .catch(err => console.log(err));
+	// }; 
 
 
 	render() {
