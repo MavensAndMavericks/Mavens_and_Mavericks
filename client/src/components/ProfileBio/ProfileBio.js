@@ -9,17 +9,21 @@ import API from "../../utils/API";
 
 //Componenet imports:
 //=============================
+import SendBird from 'sendbird';
+// import SendbirdLogin from "../SendbirdLogin"
 import { Col, Row, Container } from "../Grid";
 import Jumbotron from "../Jumbotron";
+import { InputBox } from "../../components/Form";
 import "./ProfileBio.css";
-import SendbirdComponent from "../SendbirdComponent"
-//import { List, ListItem } from "../List";
 
 
 //=================================================================================
 class ProfileBio extends Component {
 	state = {
 		questionnaire: [],
+		userId: "",
+	    nickname: "",
+	    error: "",
 		// id: "",
 		// firstName:"", 
 		// lastName: "", 
@@ -54,10 +58,11 @@ class ProfileBio extends Component {
 	       	questionnaire:res.data 
 	       })
 	     )
-	     .then(() => {
-	     	console.log("questionnaire.gitHub = " + this.state.questionnaire.gitHub)
-	     	this.loadGithub(this.state.questionnaire.gitHub)
-	     }) // MUST MAKE THIS A FUNCTION that renders a FUNCTION >>> by making this a function in a PROMISE chain, it will NOT PROCESS until the promise BEFORE IT has rendered its result!!! :)
+	     .then(() => {// MUST MAKE THIS A FUNCTION that renders a FUNCTION >>> by making this a function in a PROMISE chain, it will NOT PROCESS until the promise BEFORE IT has rendered its result!!! :)
+	     	console.log("questionnaire.gitHub = " + this.state.questionnaire.gitHub);
+	     	this.loadGithub(this.state.questionnaire.gitHub);
+	     	this._onSignUp(); // !! PASSING THE GITHUB/FULLNAME TO SENDBIRD HERE !!
+	     }) 
 	     .catch(err => console.log(err));
 	}; 
 
@@ -71,6 +76,33 @@ class ProfileBio extends Component {
 	       )
 	      .catch(err => console.log(err));
 	};
+
+
+	//Sendbird USERNAME/NICKNAME Handling
+	_onSignUp = () => {
+	      const { userId, nickname } = this.state;
+	      const sb = new SendBird({ "appId": "FB7BB4B3-4917-4831-B2E0-EB94FB4A4BD7" });
+	      sb.connect(userId, (user, error) => {
+	          if (error) {
+	              this.setState({ error });
+	          } else {
+	              sb.updateCurrentUserInfo(nickname, null, (user, error) => {
+	                  if (error) {
+	                      this.setState({ error });
+	                  } else {
+	                      this.setState({
+	                          userId: this.state.gitHub,
+	                          nickname: (this.state.firstName) + " " + (this.state.lastName),
+	                          error: ''
+	                      }, () => {
+	                          this.props.navigation.navigate('Menu');
+	                      });
+	                  }
+	              })
+	          }
+	      })
+	}
+
 
 	handleInputChange = event => {
 	    const { name, value } = event.target;
@@ -100,7 +132,7 @@ class ProfileBio extends Component {
 
 					                     <Col size="sm-8">	
 					                      <h3>Name: 
-					                        <strong className="userFullName">{this.state.questionnaire.firstName} {this.state.questionnaire.lastName}</strong>
+					                        <strong className>{this.state.questionnaire.firstName} {this.state.questionnaire.lastName}</strong>
 					                      </h3>
 					                      <h4> 
 					                      	<strong>Github Handler: </strong>
@@ -136,10 +168,43 @@ class ProfileBio extends Component {
 
 				</Container>
 
-				<SendbirdComponent/>
+				<Container>
+	                <Row style={{backgroundColor: '#fff', flex: 1}}>
+	                  
+	                  <Col size ="md-4" style={styles.containerStyle}>
+	                        <InputBox
+	                            label="User ID"
+	                            placeholder="user id"
+	                            value={this.state.userId}
+	                            onChangeText={this._userIdChanged}
+	                        />
+	                    </Col>
+
+	                    <Col size ="md-4" style={styles.containerStyle}>
+	                        <InputBox
+	                            label="Nickname"
+	                            placeholder="nickname"
+	                            value={this.state.nickname}
+	                            onChangeText={this._nicknameChanged}
+	                        />
+	                    </Col>
+
+	                    <Col size ="md-4" style={styles.containerStyle}>
+	                        <div>{this.state.error}</div>
+	                    </Col>
+
+	                </Row>
+	            </Container>
+
 			</div>
 		);
 	}
+}
+
+const styles = {
+    containerStyle: {
+        marginTop: 10
+    }
 }
 	
 export default ProfileBio;

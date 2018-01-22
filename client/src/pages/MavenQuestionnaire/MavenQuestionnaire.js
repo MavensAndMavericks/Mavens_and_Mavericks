@@ -89,7 +89,7 @@ class MavenQuestionnaire extends Component {
           console.log(res.data._id); 
           this.setState({id: res.data._id});
 
-          ///PASS THE ID TO SENDBIRD HERE!!!!
+          //CALL THE UTILS/API FUNCTION THAT MAKES THE MATCHING QUERY HERE!!!!!!
           // .then(res => this.handleMatching(res))
 
           window.location.pathname = "/api/questionnaires/" + this.state.id + "/" 
@@ -169,8 +169,6 @@ class MavenQuestionnaire extends Component {
       )
     })
   );
-
-
 
 //Radio Button Handling
   getInitialState= () => {
@@ -481,3 +479,4 @@ export default MavenQuestionnaire;
   // }
  
   // };
+  //////////////////////////////////////////////////////////////////////////////////////

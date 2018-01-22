@@ -36,9 +36,9 @@
       You need to enable JavaScript to run this app.
     </noscript>
 
-<!-- <div id="sb_widget"></div>
- -->
-   <!-- <script>
+<div id="sb_widget"></div>
+
+   <script>
        var sbWidgetToggle = document.getElementById("sb_widget");
        
        if (window.location.pathname ==="/MavenQuestionnaire" || window.location.pathname ==="/MaverickQuestionnaire" || window.location.pathname ==="/" )  {
@@ -56,19 +56,20 @@
   //WHERE IS "sbWidget" defined??  Is this supposed to read: "sbWidgetToggle"
       sbWidget.startWithConnect(appId, userId, nickname, function() {     
     // on sign in
-      const githubHandler = document.getElementByClassName("githubHandler");
-      const userFullName = document.getElementByClassName("userFullName");
+    //   const githubHandler = document.getElementByClassName("githubHandler");
+    //   const userFullName = document.getElementByClassName("userFullName");
        
-    // get user info from database
-       // use first and last as nickname
-      console.log("userFullName = " + userFullName );
-      // use github name as userId
-      console.log("githubHandler = " + githubHandler);
+    // // get user info from database
+    //    // use first and last as nickname
+    //   console.log("userFullName = " + userFullName );
+    //   // use github name as userId
+    //   console.log("githubHandler = " + githubHandler);
 
-      nickname = userFullName;
-      userId = githubHandler;
-      })();
-   </script> -->
+    //   nickname = userFullName;
+    //   userId = githubHandler;
+      });
+      
+   </script>
 
     <div id="root"></div>
   </body>

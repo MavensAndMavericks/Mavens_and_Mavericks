@@ -1,3 +1,3 @@
-export { default } from "./SendbirdComponent";
+// export { default } from "./SendbirdComponent";
 
 
