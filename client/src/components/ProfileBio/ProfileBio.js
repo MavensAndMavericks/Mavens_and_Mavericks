@@ -7,18 +7,25 @@ import { Link } from "react-router-dom";
 //=============================
 import API from "../../utils/API";
 
+//External Imports:
+//=============================
+import SendBird from 'sendbird';
+
 //Componenet imports:
 //=============================
 import { Col, Row, Container } from "../Grid";
 import Jumbotron from "../Jumbotron";
+// import SendbirdLogin from "../SendbirdLogin"
 import "./ProfileBio.css";
-//import { List, ListItem } from "../List";
 
 
 //=================================================================================
 class ProfileBio extends Component {
 	state = {
 		questionnaire: [],
+		// userId: "",
+	 //    nickname: "",
+	 //    error: "",
 		// id: "",
 		// firstName:"", 
 		// lastName: "", 
@@ -54,10 +61,12 @@ class ProfileBio extends Component {
 	       	questionnaire:res.data 
 	       })
 	     )
-	     .then(() => {
-	     	console.log("questionnaire.gitHub = " + this.state.questionnaire.gitHub)
-	     	this.loadGithub(this.state.questionnaire.gitHub)
-	     }) // MUST MAKE THIS A FUNCTION that renders a FUNCTION >>> by making this a function in a PROMISE chain, it will NOT PROCESS until the promise BEFORE IT has rendered its result!!! :)
+	     .then(() => {// MUST MAKE THIS A FUNCTION that renders a FUNCTION >>> by making this a function in a PROMISE chain, it will NOT PROCESS until the promise BEFORE IT has rendered its result!!! :)
+	     	console.log("questionnaire.gitHub = " + this.state.questionnaire.gitHub);
+	     	this.loadGithub(this.state.questionnaire.gitHub);
+	     	console.log("_onSignUp is using the following gitHub, and firstName/lastName :" + this.state.questionnaire.gitHub + ", " + this.state.questionnaire.firstName + ", " + this.state.questionnaire.lastName);
+	     	this._onSignUp(this.state.questionnaire.github, this.state.questionnaire.firstName, this.state.questionnaire.lastName); // !! PASSING THE GITHUB/FULLNAME TO SENDBIRD HERE !!
+	     }) 
 	     .catch(err => console.log(err));
 	}; 
 
@@ -72,12 +81,58 @@ class ProfileBio extends Component {
 	      .catch(err => console.log(err));
 	};
 
+
+	//Sendbird USERNAME/NICKNAME Handling
+	_onSignUp = (github, firstName, lastName) => {
+	      const nickname  = firstName + " " + lastName;
+	      const userId = github;
+	      const appId = "FB7BB4B3-4917-4831-B2E0-EB94FB4A4BD7";
+
+	     const sb = new SendBird({ "appId": "FB7BB4B3-4917-4831-B2E0-EB94FB4A4BD7" });
+	      
+	      sb.connect(userId, nickname, function() {
+	      	this.userId = userId;
+	      	this.nickname = nickname;
+	      })
+	}
+	      // sb.connect(userId, (error) => {
+	      //     if (error) {
+	      //     	  console.log("error = " + error);
+	      //         this.setState({ error });
+	      //     } else {
+	      //         sb.updateCurrentUserInfo(nickname, null, (error) => {
+	      //             if (error) {
+	      //             	  console.log("error = " + error);
+	      //                 this.setState({ error });
+	      //             } else {
+	      //                 this.setState({
+	      //                     userId: userId,
+	      //                     nickname: nickname,
+	      //                     error: ''
+	      //                 }, () => {
+	      //                     const { userid, nickName } = this.props;
+	      //                 });
+	      //             }
+	      //         })
+	      //     }
+	      // })
+	//}
+
+	_userIdChanged = (userId) => {
+        this.setState({ userId });
+    }
+
+    _nicknameChanged = (nickname) => {
+        this.setState({ nickname });
+    }
+
 	handleInputChange = event => {
 	    const { name, value } = event.target;
 	    this.setState({
 	      [name]: value
 	    });
-	};
+	}
+
 
 	render() {
 		return(
@@ -99,13 +154,13 @@ class ProfileBio extends Component {
 					                     </Col>
 
 					                     <Col size="sm-8">	
-					                      <h3>
-					                        <strong>Name: {this.state.questionnaire.firstName} {this.state.questionnaire.lastName}</strong>
+					                      <h3>Name: 
+					                        <strong className="userFullName">{this.state.questionnaire.firstName} {this.state.questionnaire.lastName}</strong>
 					                      </h3>
 					                      <h4> 
 					                      	<strong>Github Handler: </strong>
 		 									  	<Link to={"https://github.com/" + this.state.githubUrl.login} target="_blank">
-		 							               	<strong>{this.state.githubUrl.login}</strong>
+		 							               	<strong className="githubHandler">{this.state.githubUrl.login}</strong>
 		 							           	</Link>
 	 									   </h4>
 					                      <h5>Industries of Interest: {this.state.questionnaire.industryExperience} </h5>
@@ -130,13 +185,38 @@ class ProfileBio extends Component {
 
 				</Container>
 
+				{/*<div id="sb_widget"></div>*/}
+
+{/*				<Container>
+	                <Row style={{backgroundColor: '#fff', flex: 1}}>
+	                  
+	                  <Col size ="md-2" style={styles.containerStyle}>
+	                        <InputBox
+	                            label="User ID"
+	                            placeholder="user id"
+	                            value={this.state.userId}
+	                            onChangeText={this._userIdChanged}
+	                        />
+	                    </Col>
+
+	                    <Col size ="md-2" style={styles.containerStyle}>
+	                        <InputBox
+	                            label="Nickname"
+	                            placeholder="nickname"
+	                            value={this.state.nickname}
+	                            onChangeText={this._nicknameChanged}
+	                        />
+	                    </Col>
+
+	                </Row>
+	            </Container>
+*/}
 			</div>
 		);
 	}
 }
 	
 export default ProfileBio;
-//{this.state.questionnaire.industryExperience.forEach(experience=> ( experience + ", " ))}
 
 //////////////////////////////////////////////////
 //<h3><strong>{this.state.githubUrl.login}</strong></h3>
@@ -161,8 +241,6 @@ export default ProfileBio;
 	// };   
 
 /////////////////////////////////////////////////
-
-
 	// handlePageLoad = event => {
  //    	event.preventDefault();
 	//     API.loadQuestionnaires())

@@ -18,9 +18,15 @@ router
     .put(questionnairesController.update)
     .delete(questionnairesController.remove);
 
+// Matches with "/api/questionnaires/:github"
+router
+    .route("/:github")
+    .get(questionnairesController.findOne)
+
 // Matches with "/api/questionnaires/:id/matches"
-// router
-//     .route('/:id')
-//     .get(questionnairesController.findMatches);
+router
+    .route('/:id/matches')
+    .get(questionnairesController.findMatches);
+
 
 module.exports = router;

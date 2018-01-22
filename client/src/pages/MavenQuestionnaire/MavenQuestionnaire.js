@@ -49,6 +49,7 @@ class MavenQuestionnaire extends Component {
     lastName:"",
     type: "maven",
     gitHub:"",
+    password:"",
     quote: "",
     coded: "",
     profession: "",
@@ -65,13 +66,14 @@ class MavenQuestionnaire extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons ) {
+    if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.password ) {
       // console.log("Hey!  Lorna so cool! :)  We're Jelly.");   
       API.saveQuestionnaire({
         firstName: this.state.firstName,
         lastName: this.state.lastName,
         type: this.state.type,
         gitHub: this.state.gitHub,
+        password: this.state.password,
         quote: this.state.quote,
         coded: this.state.coded,
         profession: this.state.profession,
@@ -89,10 +91,10 @@ class MavenQuestionnaire extends Component {
           console.log(res.data._id); 
           this.setState({id: res.data._id});
 
-          ///PASS THE ID TO SENDBIRD HERE!!!!
+          //CALL THE UTILS/API FUNCTION THAT MAKES THE MATCHING QUERY HERE!!!!!!
           // .then(res => this.handleMatching(res))
 
-          window.location.pathname = "/api/questionnaires/" + this.state.id + "/"
+          window.location.pathname = "/api/questionnaires/" + this.state.id + "/maven"
          
         })
     }
@@ -171,8 +173,6 @@ class MavenQuestionnaire extends Component {
     })
   );
 
-
-
 //Radio Button Handling
   getInitialState= () => {
     return {
@@ -201,7 +201,7 @@ class MavenQuestionnaire extends Component {
             <Col size="md-12">
               <Jumbotron>
                 <h1 className="text-center">Welcome Maven.</h1>
-                <h5 className="text-center">Looking to discover new talent, establish new partnerships, and leave a legacy?</h5>
+                <h5 className="text-center">Looking to discover new talent, establish new <br/> partnerships, and leave a legacy?</h5>
                 <h5 className="text-center">Answer our questions below to join our team of Tech Influencers.</h5>
               </Jumbotron>
             </Col>
@@ -237,6 +237,13 @@ class MavenQuestionnaire extends Component {
 
             <Row>
               <Col size="md-12"> 
+                <h5> Create a Password. (Must be at least 6 characters long)</h5>
+                  <InputBox
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.handleInputChange}
+                    name="password"
+                  />
                 <h5>1. What is your GitHub Handler?</h5>
                   <InputBox
                     value={this.state.github}
@@ -482,3 +489,4 @@ export default MavenQuestionnaire;
   // }
  
   // };
+  //////////////////////////////////////////////////////////////////////////////////////

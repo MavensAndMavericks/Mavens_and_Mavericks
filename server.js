@@ -13,20 +13,6 @@ const Chart = require('chart.js');
 
 //SERVER SET-UP (Routing MIDDLEWARE Definition)
 //=========================================================================================
-
-function github() {
-	axios.get("https://api.github.com/users/wisnioa/repos", function(req, res) { //"https://api.github.com/users/" + github + "/repos"
-      console.log("github repos" + res.data);
-      console.log(res.status);
-      res.send(res.data);
-	})
-}
-
-github();
-
-
-
-
 // Configure Body-Parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
