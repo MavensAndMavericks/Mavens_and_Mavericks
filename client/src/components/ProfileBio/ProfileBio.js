@@ -21,9 +21,9 @@ import "./ProfileBio.css";
 class ProfileBio extends Component {
 	state = {
 		questionnaire: [],
-		userId: "",
-	    nickname: "",
-	    error: "",
+		// userId: "",
+	 //    nickname: "",
+	 //    error: "",
 		// id: "",
 		// firstName:"", 
 		// lastName: "", 
@@ -82,12 +82,14 @@ class ProfileBio extends Component {
 	_onSignUp = () => {
 	      const { userId, nickname } = this.state;
 	      const sb = new SendBird({ "appId": "FB7BB4B3-4917-4831-B2E0-EB94FB4A4BD7" });
-	      sb.connect(userId, (user, error) => {
+	      sb.connect(userId, (error) => {
 	          if (error) {
+	          	  console.log("error = " + error);
 	              this.setState({ error });
 	          } else {
-	              sb.updateCurrentUserInfo(nickname, null, (user, error) => {
+	              sb.updateCurrentUserInfo(nickname, null, (error) => {
 	                  if (error) {
+	                  	  console.log("error = " + error);
 	                      this.setState({ error });
 	                  } else {
 	                      this.setState({
@@ -95,7 +97,7 @@ class ProfileBio extends Component {
 	                          nickname: (this.state.firstName) + " " + (this.state.lastName),
 	                          error: ''
 	                      }, () => {
-	                          this.props.navigation.navigate('Menu');
+	                          this.props.sendbird;
 	                      });
 	                  }
 	              })
@@ -103,6 +105,13 @@ class ProfileBio extends Component {
 	      })
 	}
 
+	_userIdChanged = (userId) => {
+        this.setState({ userId });
+    }
+
+    _nicknameChanged = (nickname) => {
+        this.setState({ nickname });
+    }
 
 	handleInputChange = event => {
 	    const { name, value } = event.target;
@@ -162,10 +171,12 @@ class ProfileBio extends Component {
 
 				</Container>
 
-				<Container>
+				<div id="sb_widget"></div>
+
+{/*				<Container>
 	                <Row style={{backgroundColor: '#fff', flex: 1}}>
 	                  
-	                  <Col size ="md-4" style={styles.containerStyle}>
+	                  <Col size ="md-2" style={styles.containerStyle}>
 	                        <InputBox
 	                            label="User ID"
 	                            placeholder="user id"
@@ -174,7 +185,7 @@ class ProfileBio extends Component {
 	                        />
 	                    </Col>
 
-	                    <Col size ="md-4" style={styles.containerStyle}>
+	                    <Col size ="md-2" style={styles.containerStyle}>
 	                        <InputBox
 	                            label="Nickname"
 	                            placeholder="nickname"
@@ -183,13 +194,9 @@ class ProfileBio extends Component {
 	                        />
 	                    </Col>
 
-	                    <Col size ="md-4" style={styles.containerStyle}>
-	                        <div>{this.state.error}</div>
-	                    </Col>
-
 	                </Row>
 	            </Container>
-
+*/}
 			</div>
 		);
 	}
@@ -202,7 +209,6 @@ const styles = {
 }
 	
 export default ProfileBio;
-//{this.state.questionnaire.industryExperience.forEach(experience=> ( experience + ", " ))}
 
 //////////////////////////////////////////////////
 //<h3><strong>{this.state.githubUrl.login}</strong></h3>
@@ -227,8 +233,6 @@ export default ProfileBio;
 	// };   
 
 /////////////////////////////////////////////////
-
-
 	// handlePageLoad = event => {
  //    	event.preventDefault();
 	//     API.loadQuestionnaires())

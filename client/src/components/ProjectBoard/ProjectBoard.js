@@ -19,37 +19,37 @@ class ProjectBoard extends Component {
 		githubProjects: []
 	};
 
-	componentDidMount() {;
-	    console.log("Pathname = " + window.location.pathname);
-	    const url = window.location.pathname;
-	    const id = url.split("/")[3];
-	    console.log("id = " + id);
+	// componentDidMount() {;
+	//     console.log("Pathname = " + window.location.pathname);
+	//     const url = window.location.pathname;
+	//     const id = url.split("/")[3];
+	//     console.log("id = " + id);
 
-	    this.loadQuestionnaire(id);
-	};
+	//     this.loadQuestionnaire(id);
+	// };
 
 
-	loadQuestionnaire = (id) => {
-	   API.getQuestionnaire(id)
-	     .then(res =>
-	       this.setState({ 
-	       	questionnaire: res.data,
-	       	gitHub: res.data.gitHub
-	       })
-	     )
-	     .then(() => this.loadGithub(this.state.gitHub))
-	     .catch(err => console.log(err));
-	};
+	// loadQuestionnaire = (id) => {
+	//    API.getQuestionnaire(id)
+	//      .then(res =>
+	//        this.setState({ 
+	//        	questionnaire: res.data,
+	//        	gitHub: res.data.gitHub
+	//        })
+	//      )
+	//      .then(() => this.loadGithub(this.state.gitHub))
+	//      .catch(err => console.log(err));
+	// };
 
-	loadGithub = (github) => {
-		API.getGithub(github)
-		  .then(res =>
-	       this.setState({ 
-	       	   githubProjects: res.data
-	        })
-	      )
-	      .catch(err => console.log(err));
-	}
+	// loadGithub = (github) => {
+	// 	API.getGithub(github)
+	// 	  .then(res =>
+	//        this.setState({ 
+	//        	   githubProjects: res.data
+	//         })
+	//       )
+	//       .catch(err => console.log(err));
+	// }
 
 
 	render() {
