@@ -7,6 +7,14 @@ const questionnaireSchema = new Schema({
   lastName: { type: String, required: true },
   type: { type: String, required: true },
   gitHub: { type: String, required: true },
+  password: { type: String, required: "A password of at least 6 characaters is required", 
+    validate: [ //requires this to be at least 6 charcters
+      function(input) {
+        return input.length >= 6;
+      },
+      "Password should be longer."
+    ]
+  },
   quote: { type: String, required: true },
   coded: { type: String, required: true },
   profession: { type: String, required: true },

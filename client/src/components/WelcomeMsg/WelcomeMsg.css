@@ -1,5 +1,5 @@
 .welcome-msg {
-    color: white;
+    color: white;/* #3e3f3a*/
     text-align: center;
  
     font-weight: 50px;
@@ -11,6 +11,10 @@
     animation: mymove 5s;
     animation-fill-mode: forwards;
     /* animation-delay: 0.5s; */
+}
+
+hr {
+    color: #3e3f3a;
 }
 
 /* Safari 4.0 - 8.0 */
@@ -27,3 +31,9 @@
 /*a.btn {
     margin: 0 auto;
 }*/
+
+
+
+
+
+

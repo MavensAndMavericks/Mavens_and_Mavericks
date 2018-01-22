@@ -1,4 +1,13 @@
-.slider {
-
-height: 600px;
+.carousel {
+/*width: 200%;*/
+height: 150%;
 }
+
+.carousel.carousel-slider{
+	height: 150%;
+}
+
+.slider.carousel-item.active {
+	height: 600px
+}
+

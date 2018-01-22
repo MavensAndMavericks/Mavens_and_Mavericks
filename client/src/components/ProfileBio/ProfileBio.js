@@ -7,13 +7,15 @@ import { Link } from "react-router-dom";
 //=============================
 import API from "../../utils/API";
 
-//Componenet imports:
+//External Imports:
 //=============================
 import SendBird from 'sendbird';
-// import SendbirdLogin from "../SendbirdLogin"
+
+//Componenet imports:
+//=============================
 import { Col, Row, Container } from "../Grid";
 import Jumbotron from "../Jumbotron";
-import { InputBox } from "../../components/Form";
+// import SendbirdLogin from "../SendbirdLogin"
 import "./ProfileBio.css";
 
 
@@ -61,7 +63,8 @@ class ProfileBio extends Component {
 	     .then(() => {// MUST MAKE THIS A FUNCTION that renders a FUNCTION >>> by making this a function in a PROMISE chain, it will NOT PROCESS until the promise BEFORE IT has rendered its result!!! :)
 	     	console.log("questionnaire.gitHub = " + this.state.questionnaire.gitHub);
 	     	this.loadGithub(this.state.questionnaire.gitHub);
-	     	this._onSignUp(); // !! PASSING THE GITHUB/FULLNAME TO SENDBIRD HERE !!
+	     	console.log("_onSignUp is using the following gitHub, and firstName/lastName :" + this.state.questionnaire.gitHub + ", " + this.state.questionnaire.firstName + ", " + this.state.questionnaire.lastName);
+	     	this._onSignUp(this.state.questionnaire.github, this.state.questionnaire.firstName, this.state.questionnaire.lastName); // !! PASSING THE GITHUB/FULLNAME TO SENDBIRD HERE !!
 	     }) 
 	     .catch(err => console.log(err));
 	}; 
@@ -79,31 +82,40 @@ class ProfileBio extends Component {
 
 
 	//Sendbird USERNAME/NICKNAME Handling
-	_onSignUp = () => {
-	      const { userId, nickname } = this.state;
-	      const sb = new SendBird({ "appId": "FB7BB4B3-4917-4831-B2E0-EB94FB4A4BD7" });
-	      sb.connect(userId, (error) => {
-	          if (error) {
-	          	  console.log("error = " + error);
-	              this.setState({ error });
-	          } else {
-	              sb.updateCurrentUserInfo(nickname, null, (error) => {
-	                  if (error) {
-	                  	  console.log("error = " + error);
-	                      this.setState({ error });
-	                  } else {
-	                      this.setState({
-	                          userId: this.state.gitHub,
-	                          nickname: (this.state.firstName) + " " + (this.state.lastName),
-	                          error: ''
-	                      }, () => {
-	                          this.props.sendbird;
-	                      });
-	                  }
-	              })
-	          }
+	_onSignUp = (github, firstName, lastName) => {
+	      const nickname  = firstName + " " + lastName;
+	      const userId = github;
+	      const appId = "FB7BB4B3-4917-4831-B2E0-EB94FB4A4BD7";
+
+	     const sb = new SendBird({ "appId": "FB7BB4B3-4917-4831-B2E0-EB94FB4A4BD7" });
+	      
+	      sb.connect(userId, nickname, function() {
+	      	this.userId = userId;
+	      	this.nickname = nickname;
 	      })
 	}
+	      // sb.connect(userId, (error) => {
+	      //     if (error) {
+	      //     	  console.log("error = " + error);
+	      //         this.setState({ error });
+	      //     } else {
+	      //         sb.updateCurrentUserInfo(nickname, null, (error) => {
+	      //             if (error) {
+	      //             	  console.log("error = " + error);
+	      //                 this.setState({ error });
+	      //             } else {
+	      //                 this.setState({
+	      //                     userId: userId,
+	      //                     nickname: nickname,
+	      //                     error: ''
+	      //                 }, () => {
+	      //                     const { userid, nickName } = this.props;
+	      //                 });
+	      //             }
+	      //         })
+	      //     }
+	      // })
+	//}
 
 	_userIdChanged = (userId) => {
         this.setState({ userId });
@@ -118,7 +130,8 @@ class ProfileBio extends Component {
 	    this.setState({
 	      [name]: value
 	    });
-	};
+	}
+
 
 	render() {
 		return(
@@ -141,7 +154,7 @@ class ProfileBio extends Component {
 
 					                     <Col size="sm-8">	
 					                      <h3>Name: 
-					                        <strong className>{this.state.questionnaire.firstName} {this.state.questionnaire.lastName}</strong>
+					                        <strong className="userFullName">{this.state.questionnaire.firstName} {this.state.questionnaire.lastName}</strong>
 					                      </h3>
 					                      <h4> 
 					                      	<strong>Github Handler: </strong>
@@ -171,7 +184,7 @@ class ProfileBio extends Component {
 
 				</Container>
 
-				<div id="sb_widget"></div>
+				{/*<div id="sb_widget"></div>*/}
 
 {/*				<Container>
 	                <Row style={{backgroundColor: '#fff', flex: 1}}>
@@ -200,12 +213,6 @@ class ProfileBio extends Component {
 			</div>
 		);
 	}
-}
-
-const styles = {
-    containerStyle: {
-        marginTop: 10
-    }
 }
 	
 export default ProfileBio;

@@ -20,6 +20,16 @@ module.exports = {
       })
      .catch(err => res.status(422).json(err));
  },
+ findOne: function(req, res) {
+  db.Questionnaire
+    .findOne({"gitHub": req.params.github}, "_id type") //should locate where the github matches the github id provided, and return the related ID and type.
+    .then(dbProfile => {
+      console.log('Github Handler used for gitHub Query for Type and ID : ', req.params.github);
+      console.log(dbProfile)
+      res.json(dbProfile);
+    })
+   .catch(err => res.status(422).json(err));
+ }, 
  create: function(req, res) {
    db.Questionnaire
      .create(req.body)

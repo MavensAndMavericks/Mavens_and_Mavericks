@@ -1,57 +1,42 @@
-
-
-import {Slider, Slide} from "react-materialize";
-
-
-import React, { Component } from "react";
-
+///React Library imports:
+//=============================
+import {Slider, Slide, Carousel} from "react-materialize";
+import React from "react";
 
 //Componenet imports:
+//=============================
 import "./SlideShow.css";
 
 //=================================================================================
 
 const SlideShow = () =>
-  <div>
-      {/* <Slider
-        className="slider"
-        fixedItem={<a href="/mentorsarekey" className='btn'>What Can a Mentor Do for You?</a>} //aboutus
-        options={{ fullWidth: true, indicators: true, duration: 200 }} 
-        images={[
-          "/assets/paired-Programming-fancy.jpg",
-          "/assets/group-Learning-girl.jpeg",
-          "/assets/pair-Excitement.jpeg"
-        ]}
-      /> */}
+  <Carousel options={{ fullWidth: true }}>
+	<Slider >
+		<Slide
+			src="/assets/paired-Programming-fancy.jpg"
+	
+			title="Discover the difference a Mentor can make."
+			placement="center"> 
+			<a className="btn btn-lg btn-primary" href="/mentorsarekey">What can a mentor do for you?</a>
+		</Slide>
 
-<Slider
-style={{height:"600px"}}>
+		<Slide
+			src="/assets/group-Learning-girl.jpeg" 
+			title='"Mentorship is an incredibly huge responsibility. There has to be trust there on a very deep level"'
+			placement="left"> {/*left aligned Caption*/}
+			Jimmy Chin
+		</Slide>
 
-// fixedItem={<a href="/mentorsarekey" className='btn'>What Can a Mentor Do for You?</a>} >
-	<Slide
-
-		src="/assets/paired-Programming-fancy.jpg">
-		{/* // title="This is our big Tagline!"> */}
-		{/* // Here's our small slogan. */}
-	</Slide>
-	<Slide
-
-		src="/assets/group-Learning-girl.jpeg">
-		{/* // title="Left aligned Caption" */}
-		{/* // placement="left" */}
-		{/* Here's our small slogan. */}
-	</Slide>
-	<Slide
-  
-		src="/assets/pair-Excitement.jpeg">
-		{/* title="Right aligned Caption"
-		placement="right">
-		Here's our small slogan. */}
-	</Slide>
-</Slider>
-      </div>
-
-
+		<Slide
+			src="/assets/pair-Excitement.jpeg" 
+			title='"Mentors are by far the most important aspects of businesses."'
+			placement="right"> {/*right aligned Caption*/}
+			Daymond John
+		</Slide>
+	</Slider>
+ </Carousel>
 
 
 export default SlideShow;
+
+{/*options={{fullWidth:true, indicators:true}} */}	

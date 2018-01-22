@@ -42,6 +42,10 @@ export default {
   getQuestionnaire: function(id) {
     return axios.get("/api/questionnaires/" + id);
   },
+  // Gets the questionnaire with the given github (in the URL/PARAMS)
+  getQuestionnaireGithub: function(github) {
+    return axios.get("/api/questionnaires/" + github);
+  },
   // Gets ALL questionnaires
   getQuestionnaires: function() {
     return axios.get("/api/questionnaires/");

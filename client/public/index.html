@@ -21,20 +21,17 @@
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-   
-   
     <!-- Materialize CSS and Script -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    
 
+    <!-- GoogleFonts CSS  -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
 
     <!-- Sendbird CDN -->   
-    <!-- <script src="/SendBird.min.js"></script>
-    <script src="/widget.SendBird.js"></script> -->
+    <script src="/SendBird.min.js"></script>
+    <script src="/widget.SendBird.js"></script>
 
 
     <!-- Google Fonts - CSS -->
@@ -51,7 +48,7 @@
 
    <script>
 
-       var sbWidgetToggle = document.getElementById("sb_widget");
+       const sbWidgetToggle = document.getElementById("sb_widget");
        
        if (window.location.pathname ==="/MavenQuestionnaire" || window.location.pathname ==="/MaverickQuestionnaire" || window.location.pathname ==="/" )  {
         sbWidgetToggle.hide();    
@@ -61,26 +58,25 @@
        //     logIn();
        // });
        
-      var appId = "FB7BB4B3-4917-4831-B2E0-EB94FB4A4BD7";
-      var userId = "";
-      var nickname = "";
-
-  //WHERE IS "sbWidget" defined??  Is this supposed to read: "sbWidgetToggle"
-      sbWidget.startWithConnect(appId, userId, nickname, function() {     
-    // on sign in
-    //   const githubHandler = document.getElementByClassName("githubHandler");
-    //   const userFullName = document.getElementByClassName("userFullName");
-       
-    // // get user info from database
-    //    // use first and last as nickname
-    //   console.log("userFullName = " + userFullName );
-    //   // use github name as userId
-    //   console.log("githubHandler = " + githubHandler);
-
-    //   nickname = userFullName;
-    //   userId = githubHandler;
-      });
+      const appId = "FB7BB4B3-4917-4831-B2E0-EB94FB4A4BD7";
+      const userId = "";
+      const nickname = "";
       
+      //WHERE IS "sbWidget" defined??  Is this supposed to read: "sbWidgetToggle"
+      sbWidget.startWithConnect(appId, userId, nickname, function() {
+        // on sign in
+        //   const githubHandler = document.getElementByClassName("githubHandler");
+        //   const userFullName = document.getElementByClassName("userFullName");
+           
+        // // get user info from database
+        //    // use first and last as nickname
+        //   console.log("userFullName = " + userFullName );
+        //   // use github name as userId
+        //   console.log("githubHandler = " + githubHandler);
+
+        //   nickname = userFullName;
+        //   userId = githubHandler; 
+       });
    </script>
 
 
