@@ -52,6 +52,63 @@ module.exports = {
 
 
 
+
+findMatches: function(req, res) {
+var careerLevelQuery;
+var languageQuery;
+
+let dbProfile = db.Questionnaire
+.findById({ _id: req.params.id })
+
+
+//CONDITIONAL FOR CAREER LEVEL============================
+if (dbProfile.type === "maven") {
+    $switch: {
+        (dbProfile.careerLevel)
+        branches: [
+          { case: { $eq: ["New Professional"] }, then: careerLevelQuery = { $in: ["College", "Novice"]} },
+          { case: { $eq: ["Professional 5+ Years"]}, then: careerLevelQuery = { $in: ["New Professional", "College", "Novice"]} },
+          { case: { $eq: ["Expert"]}, then: careerLevelQuery = { $in: ["Professional 5+ years", "New Professional", "College", "Novice"]} },
+          { case: { $eq: ["College"]}, then: careerLevelQuery = { $in: ["Novice"]} }
+        ]
+    }
+}
+else {
+    $switch: {
+        branches: [
+          { case: { $eq: ["Novice"]}, then: careerLevelQuery = { $in: ["College", "Professional 5+ years", "New Professional", "Expert"]} },
+          { case: { $eq: ["College"]}, then: careerLevelQuery = { $in: ["Professional 5+ years", "New Professional", "Expert"]} },
+          { case: { $eq: ["New Professional"] }, then: careerLevelQuery = { $in: ["College"]} },
+          { case: { $eq: ["Professional 5+ Years"]}, then: careerLevelQuery = { $in: ["New Professional", "College"]} }        
+        ]
+    }
+}
+
+return dbProfile.findAll({
+    _id: { $nin: dbProfile._id },
+    type: { $nin: dbProfile.type },
+    careerLevel: careerLevelQuery,
+    languages: { $in: dbProfile.languages },
+    industryExperience: { $in: dbProfile.industryExperience },
+
+}).then((dbProfile) => {
+    res.json(dbProfile);
+})
+
+}
+}
+// return dbProfile.findAll({
+//     _id: { $nin: dbProfile._id },
+//     type: { $nin: dbProfile.type },
+//     careerLevel: careerLevelQuery,
+//     languages: { $in: dbProfile.languages },
+
+// }).then((dbProfile) => {
+//     res.json(dbProfile);
+// })
+
+////////////////==========THIS IS JEDDS PSUEDOCODE===================                                
+
 // findMatches: function(req, res) {
 // var dbProfile = db.Questionnaire
 // .findById({ _id: req.params.id })
@@ -114,84 +171,86 @@ module.exports = {
 // )
 
 
+//========================+++++++++++THIS IS THE NEW SHIT++++++++++++++++++++++++++++++++++=
 
 
+// findMatches: function(req, res) {
+//   var careerLevelQuery;
+//   var careerLevelAnswer;
 
-findMatches: function(req, res) {
-  var careerLevelQuery;
-  var careerLevelAnswer;
-
-    var dbProfile = db.Questionnaire;
-    dbProfile.find({
-            type: { $nin: [dbProfile.type] },
-        })
-        .aggregate(
-            [{
-                $Questionnaire: {
-                    type: {
-                        $cond: {
-                            if: { $eq: ["maven"] },
-                              $switch: {
-                                  branches: [
-                                      { case: careerLevelQuery = {$eq: ["New Professional"]}, then: 
-                                        dbProfile.find({
-                                          type:{$eq: ["maverick"]},
-                                          careerLevel :{$in: ["College"]}
-                                        }) },
-                                      { case: careerLevelQuery= {$eq: ["Professional 5+ Years"]}, then: 
-                                        dbProfile.find({
-                                          type:{$eq: ["maverick"]},
-                                          careerLevel :{$in: ["College", "New Professional"]}
-                                        }) },
-                                      { case: careerLevelQuery= {$eq: ["Expert"]}, then: 
-                                       dbProfile.find({
-                                          type:{$eq: ["maverick"]},
-                                          careerLevel :{$in: ["College", "New Professional", "Professional 5+ Years"]}
-                                        }) },
-                                  ]}
-                                  .then(users => {
-                                  return dbProfile.find({
-                                    _id: { $nin: dbProfile._id },
-                                    type: { $in: [dbProfile.type] }, // we could replace "!user.type" with >> ["maverick"] or ["maven"], depending on type/occasion
-                                    languages: { $in: dbProfile.languages }
-                                  });
-                                }) 
+//     var dbProfile = db.Questionnaire;
+//     dbProfile.find({
+//             type: { $nin: [dbProfile.type] },
+//         })
+//         .aggregate(
+//             [{
+//                 $Questionnaire: {
+//                     type: {
+//                         $cond: {
+//                             if: { $eq: ["maven"] },
+//                               $switch: {
+//                                   branches: [
+//                                       { case: careerLevelQuery = {$eq: ["New Professional"]}, then: 
+//                                         dbProfile.find({
+//                                           type:{$eq: ["maverick"]},
+//                                           careerLevel :{$in: ["College"]}
+//                                         }) },
+//                                       { case: careerLevelQuery= {$eq: ["Professional 5+ Years"]}, then: 
+//                                         dbProfile.find({
+//                                           type:{$eq: ["maverick"]},
+//                                           careerLevel :{$in: ["College", "New Professional"]}
+//                                         }) },
+//                                       { case: careerLevelQuery= {$eq: ["Expert"]}, then: 
+//                                        dbProfile.find({
+//                                           type:{$eq: ["maverick"]},
+//                                           careerLevel :{$in: ["College", "New Professional", "Professional 5+ Years"]}
+//                                         }) },
+//                                   ]}
+//                                   .then(users => {
+//                                   return dbProfile.find({
+//                                     _id: { $nin: dbProfile._id },
+//                                     type: { $in: [dbProfile.type] }, // we could replace "!user.type" with >> ["maverick"] or ["maven"], depending on type/occasion
+//                                     languages: { $in: dbProfile.languages }
+//                                   });
+//                                 }) 
                                 
-                                ,else: { $eq: ["maverick"] },   
-                                  $switch: {
-                                    branches: [
-                                      { case: careerLevelQuery = {$eq: ["Professional 5+ Years"]}, then: 
-                                        dbProfile.find({
-                                          type:{$eq: ["maven"]},
-                                          careerLevel :{$in: ["Expert"]}
-                                        }) },
-                                      { case: careerLevelQuery= {$eq: ["New Professional"]}, then: 
-                                        dbProfile.find({
-                                          type:{$eq: ["maven"]},
-                                          careerLevel :{$in: ["Expert", "Professional 5+ Years"]}
-                                        }) },
-                                      { case: careerLevelQuery= {$eq: ["College"]}, then: 
-                                       dbProfile.find({
-                                          type:{$eq: ["maven"]},
-                                          careerLevel :{$in: ["Expert", "New Professional", "Professional 5+ Years"]}
-                                        }) },
-                                  ]}
-                                  .then(users => {
-                                  return dbProfile.find({
-                                    _id: { $nin: dbProfile._id },
-                                    type: { $in: [dbProfile.type] }, // we could replace "!user.type" with >> ["maverick"] or ["maven"], depending on type/occasion
-                                    languages: { $in: dbProfile.languages }
-                                  });
-                                }) 
+//                                 ,else: { $eq: ["maverick"] },   
+//                                   $switch: {
+//                                     branches: [
+//                                       { case: careerLevelQuery = {$eq: ["Professional 5+ Years"]}, then: 
+//                                         dbProfile.find({
+//                                           type:{$eq: ["maven"]},
+//                                           careerLevel :{$in: ["Expert"]}
+//                                         }) },
+//                                       { case: careerLevelQuery= {$eq: ["New Professional"]}, then: 
+//                                         dbProfile.find({
+//                                           type:{$eq: ["maven"]},
+//                                           careerLevel :{$in: ["Expert", "Professional 5+ Years"]}
+//                                         }) },
+//                                       { case: careerLevelQuery= {$eq: ["College"]}, then: 
+//                                        dbProfile.find({
+//                                           type:{$eq: ["maven"]},
+//                                           careerLevel :{$in: ["Expert", "New Professional", "Professional 5+ Years"]}
+//                                         }) },
+//                                   ]}
+//                                   .then(users => {
+//                                   return dbProfile.find({
+//                                     _id: { $nin: dbProfile._id },
+//                                     type: { $in: [dbProfile.type] }, // we could replace "!user.type" with >> ["maverick"] or ["maven"], depending on type/occasion
+//                                     languages: { $in: dbProfile.languages }
+//                                   });
+//                                 }) 
 
 
 
-                        }
-                    }
-                }
-            }])
- }
-};
+//                         }
+//                     }
+//                 }
+//             }])
+//  }
+// };
+
+//=========++++===============================================
 
 
 //  
