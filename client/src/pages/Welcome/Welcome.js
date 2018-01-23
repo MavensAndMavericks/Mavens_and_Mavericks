@@ -47,7 +47,7 @@ handleShowModal(){
 	          <Col size="md-12" style={{margin:"0px"}}>
               <Parallax1/>
 
-              <SlideShow/>
+              <SlideShow />
               <Parallax1b/>
 	          </Col>
 	        </Row>

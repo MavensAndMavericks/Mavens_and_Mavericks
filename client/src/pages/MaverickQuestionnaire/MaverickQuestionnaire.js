@@ -46,6 +46,7 @@ class MaverickQuestionnaire extends Component {
     lastName:"",
     type: "maven",
     gitHub:"",
+    password: "",
     quote: "",
     coded: "",
     profession: "",
@@ -61,13 +62,14 @@ class MaverickQuestionnaire extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons ) {
+    if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.password ) {
       // console.log("Hey!  Lorna so cool! :)  We're Jelly.");   
       API.saveQuestionnaire({
         firstName: this.state.firstName,
         lastName: this.state.lastName,
         type: this.state.type,
         gitHub: this.state.gitHub,
+        password: this.state.password,
         quote: this.state.quote,
         coded: this.state.coded,
         profession: this.state.profession,
@@ -229,6 +231,13 @@ class MaverickQuestionnaire extends Component {
 
             <Row>
               <Col size="md-12"> 
+                <h5> Create a Password. (Must be at least 6 characters long)</h5>
+                  <InputBox
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.handleInputChange}
+                    name="password"
+                  />
                 <h5>1. What is your GitHub Handler?</h5>
                   <InputBox
                     value={this.state.github}
@@ -269,10 +278,10 @@ class MaverickQuestionnaire extends Component {
                 <div>
                   <div row className="radio">
                       <h5>7. What is your current level of experience? </h5>
+                        <Input onChange={this.handleOptionChange} name="experience" type='radio' value="Novice" checked={this.state.careerLevel.value} label='Novice' />
                         <Input onChange={this.handleOptionChange} name="experience" type='radio' value="College" checked={this.state.careerLevel.value} label='College' />
                         <Input onChange={this.handleOptionChange} name="experience" type='radio' value="New Professional" checked={this.state.careerLevel.value} label='New Professional' />
                         <Input onChange={this.handleOptionChange} name="experience" type='radio' value="Professional 5+ Years" checked={this.state.careerLevel.value} label='Professional 5+ Years' />
-                        <Input onChange={this.handleOptionChange} name="experience" type='radio' value="Expert" checked={this.state.careerLevel.value} label='Expert' />
                   </div>
                 </div>
                 <br/>

@@ -1,30 +1,118 @@
-import React from "react";
+//React Library imports:
+//=============================
+import React, { Component } from "react";
 
-import "./Signup.css";
+//API Routing Import:
+//=============================
+import API from "../../utils/API";
+
+//External Imports:
+//=============================
 import {Modal} from "react-materialize";
 
-const Signup = () =>
-  <div className="fixed-action-btn toolbar sign-up">
+//Componenet imports:
+//=============================
+import "./Signup.css";
+import { InputBox, FormBtn } from "../Form";
+//=================================================================================
 
-    <a className="btn-floating btn-large blue">
-      <i className="large material-icons">person_pin</i>
-      <span> Sign Up</span>
-    </a>
+class Signup extends Component {
+  state = {
+    gitHub:"",
+    password: "",
+    id:"",
+    type: ""
+  }
 
-    <ul>
-      
-      <li className="waves-effect waves-light"><a href="/MaverickQuestionnaire"><i className="material-icons">wb_incandescent</i>  Mentee Sign Up</a></li>
-      <li className="waves-effect waves-light"><a href="/MavenQuestionnaire"><i className="material-icons">vpn_key</i>  Mentor Sign Up</a></li>  
- 
-      <Modal
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  }
 
-	header='Modal Header'
-	trigger={<li className="modalClass"><i className="material-icons">computer</i>  Sign In</li>}>
-	<p>SEND BIRD GOES HERE.</p>
-    </Modal> 
 
-    </ul>
-  </div>
+  handleSignUpSubmit = event => {
+    event.preventDefault();
+    
+    API.getQuestionnaireGithub(this.state.gitHub)
+       .then(res =>
+         this.setState({ 
+          id:res.data, //._id
+          // type:res.data.type
+         })
+       )                       
+        .then(() => {
+          console.log(this.state.id); 
+          console.log(this.state.type);
+          //window.location.pathname = "/api/questionnaires/" + this.state.id + "/" + this.state.type  
+        })
+        .catch(err => console.log(err))            
+  }
+
+  render() {
+    return(
+        <div className="fixed-action-btn toolbar sign-up">
+
+          <a className="btn-floating btn-large blue">
+            <i className="large material-icons">person_pin</i>
+            <span> Sign Up</span>
+          </a>
+
+          <ul>
+            
+            <li className="waves-effect waves-light"><a href="/MaverickQuestionnaire"><i className="material-icons">wb_incandescent</i>  Mentee Sign Up</a></li>
+            <li className="waves-effect waves-light"><a href="/MavenQuestionnaire"><i className="material-icons">vpn_key</i>  Mentor Sign Up</a></li>  
+       
+{/* ///////////////////////////////*/}
+            <Modal
+          	header={<h4 style={{textAlign:"center"}}>Welcome Back</h4>}
+          	trigger={<li className="modalClass"><i className="material-icons">computer</i> Sign In</li>}>
+
+            <h5 style={{textAlign:"center"}}> Time to get back to that awesome project of yours!</h5>
+            <br/>
+
+            <h5>Github Handler:</h5>
+            <InputBox
+             value={this.state.gitHub}
+             onChange={this.handleInputChange}
+             name="gitHub"
+             />
+
+            <h5>Account Password:</h5>
+            <InputBox
+            type="password"
+             value={this.state.password}
+             onChange={this.handleInputChange}
+             name="password"
+             />
+
+             <br/>
+             <br/>
+             <br/>
+             <br/>
+
+             <FormBtn
+              disabled={!(this.state.gitHub && this.state.password)}
+              onClick={this.handleSignUpSubmit}
+            >Submit
+            </FormBtn>
+            
+            
+          </Modal> 
+{/* ///////////////////////////////*/}
+
+          </ul>
+        </div>
+    );
+  }
+}
 
 export default Signup;
 
+
+            // modalFooter= {<FormBtn
+            //   disabled={!(this.state.gitHub && this.state.password)}
+            //   onClick={this.handleSignUpSubmit}
+            // >Submit
+            // </FormBtn>}>
