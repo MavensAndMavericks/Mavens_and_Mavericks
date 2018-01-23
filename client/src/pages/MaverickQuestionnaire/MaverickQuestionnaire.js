@@ -278,10 +278,10 @@ class MaverickQuestionnaire extends Component {
                 <div>
                   <div row className="radio">
                       <h5>7. What is your current level of experience? </h5>
+                        <Input onChange={this.handleOptionChange} name="experience" type='radio' value="Novice" checked={this.state.careerLevel.value} label='Novice' />
                         <Input onChange={this.handleOptionChange} name="experience" type='radio' value="College" checked={this.state.careerLevel.value} label='College' />
                         <Input onChange={this.handleOptionChange} name="experience" type='radio' value="New Professional" checked={this.state.careerLevel.value} label='New Professional' />
                         <Input onChange={this.handleOptionChange} name="experience" type='radio' value="Professional 5+ Years" checked={this.state.careerLevel.value} label='Professional 5+ Years' />
-                        <Input onChange={this.handleOptionChange} name="experience" type='radio' value="Expert" checked={this.state.careerLevel.value} label='Expert' />
                   </div>
                 </div>
                 <br/>
