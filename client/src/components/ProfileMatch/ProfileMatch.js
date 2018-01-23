@@ -1,5 +1,4 @@
-
-	//React Library imports:
+//React Library imports:
 //=============================
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
@@ -20,74 +19,58 @@ import Jumbotron from "../Jumbotron";
 class ProfileMatch extends Component {
 	state = {
 		questionnaire: [],
-		id: "",
-		firstName:"", 
-		lastName: "", 
-		type: "",
-		gitHub: "",
-		quote: "", 
-		coded: "", 
-		profession: "",
-		schooling: "",
-		impact: "",
-		reasons: "",
-		careerLevel: "",
-	    languages: [],
-	    industryExperience: []
+		matches: []
 
 	};
 
+	componentDidMount() {
+		console.log("Pathname = " + window.location.pathname);
+	    const url = window.location.pathname;
+	    const id = url.split("/")[3];
+	    console.log("id = " + id);
 
-	// componentDidMount(id) {
-	// 	this.loadMatches(id);
-	// };
+	    this.loadQuestionnaire(id);
+	};
 
-	// //Matching Logic =========================================
-	// loadMatches = (id) => {
-	//    API.getMatches(id)
 
-	//    //var count = 0;
-	//    //for(i=0; i <)
-	//      .then(res =>
-	//        this.setState({ 
-	//        	questionnaire:res.data,
 
-	//     	})
-	//      )
-	//      .catch(err => console.log(err));
-	// }; 
+	loadQuestionnaire = (id) => {
+	   API.getMatches(id)
+	     .then(res =>
+	       this.setState({ 
+	       	matches:res.data 
+	       })
+	     )
+	     .then(() => {
+	   console.log("hey" + this.state.matches);
+	     }) // MUST MAKE THIS A FUNCTION that renders a FUNCTION >>> by making this a function in a PROMISE chain, it will NOT PROCESS until the promise BEFORE IT has rendered its result!!! :)
+	     .catch(err => console.log(err));
+	}; 
 
+
+	handleInputChange = event => {
+	    const { name, value } = event.target;
+	    this.setState({
+	      [name]: value
+	    });
+	};
 
 	render() {
 		return(
 			<div>	
-				<Container className="container profile-matches">
+				<Container className="container profile-bio">
 
 			    	<Row>
 				    	<Col size="sm-12">
-				    		<div className="profile-matches">
-
+				    		<div className="profile-bio">
+				    			{/*<br/>
+						    	<h3 className="text-center">ProfileBio</h3>*/}
+						    
 							   <Jumbotron className="jumbotron"> 			            
-					           {this.state.questionnaire ? (
+					           {this.state.matches ? (
 					              
-					                  <main key={this.state._id}>
-					                     <Col size="sm-4">	
-					                      <img className="img-responsive" src={"http://placehold.it/300x300&text=slide1"} alt="Github Profile Pic"/> 
-					                     </Col>
+					                  <main> {this.state.matches}
 
-					                     <Col size="sm-8">	
-					                      <h2>
-					                        <strong>Name: {this.state.questionnaire.firstName} {this.state.questionnaire.lastName}</strong>
-					                      </h2>
-					                      <h3> 
-	 									  	<Link to={"https://github.com/" + this.state.questionnaire.gitHub} target="_blank">
-	 							               	<strong>Github Handler: {this.state.questionnaire.gitHub}</strong>
-	 							           	</Link>
-	 									   </h3>
-					                      <h4>Industries of Interest {this.state.questionnaire.industries} </h4>
-	 									  <h4>Languages: {this.state.questionnaire.languages} </h4>
-	 									  <h4>Reason for Mentorship {this.state.questionnaire.impact} </h4>
-					                     </Col>
 					                  </main>
 
 					            ) : (
@@ -95,10 +78,15 @@ class ProfileMatch extends Component {
 					              <h3 className="text-center">No Results to Display</h3>
 					           )}
 
+
 					           </Jumbotron>
 				           </div>
 						</Col>
 					</Row>
+
+					<br/>
+	                <br/>
+					
 
 				</Container>
 

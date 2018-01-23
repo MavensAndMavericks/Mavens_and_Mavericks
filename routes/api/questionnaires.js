@@ -19,8 +19,8 @@ router
     .delete(questionnairesController.remove);
 
 // Matches with "/api/questionnaires/:id/matches"
-// router
-//     .route('/:id')
-//     .get(questionnairesController.findMatches);
+router
+    .route('/:id/matches')
+    .get(questionnairesController.findMatches);
 
 module.exports = router;
