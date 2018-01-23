@@ -54,49 +54,59 @@ module.exports = {
 
 
 findMatches: function(req, res) {
-var careerLevelQuery;
-var languageQuery;
+// var dbProfile = db.Questionnaire;
+  var careerLevelQuery;
+  var languageQuery;
 
-let dbProfile = db.Questionnaire
+db.Questionnaire
 .findById({ _id: req.params.id })
+.then(dbProfile => {
 
 
-//CONDITIONAL FOR CAREER LEVEL============================
-if (dbProfile.type === "maven") {
-    $switch: {
-        (dbProfile.careerLevel)
-        branches: [
-          { case: { $eq: ["New Professional"] }, then: careerLevelQuery = { $in: ["College", "Novice"]} },
-          { case: { $eq: ["Professional 5+ Years"]}, then: careerLevelQuery = { $in: ["New Professional", "College", "Novice"]} },
-          { case: { $eq: ["Expert"]}, then: careerLevelQuery = { $in: ["Professional 5+ years", "New Professional", "College", "Novice"]} },
-          { case: { $eq: ["College"]}, then: careerLevelQuery = { $in: ["Novice"]} }
-        ]
-    }
-}
-else {
-    $switch: {
-        branches: [
-          { case: { $eq: ["Novice"]}, then: careerLevelQuery = { $in: ["College", "Professional 5+ years", "New Professional", "Expert"]} },
-          { case: { $eq: ["College"]}, then: careerLevelQuery = { $in: ["Professional 5+ years", "New Professional", "Expert"]} },
-          { case: { $eq: ["New Professional"] }, then: careerLevelQuery = { $in: ["College"]} },
-          { case: { $eq: ["Professional 5+ Years"]}, then: careerLevelQuery = { $in: ["New Professional", "College"]} }        
-        ]
-    }
-}
+  //CONDITIONAL FOR CAREER LEVEL============================
+  if (dbProfile.type === "maven") {
+      $switch: {
+          (dbProfile.careerLevel)
+          branches: [
+            { case: { $eq: ["New Professional"] }, then: careerLevelQuery = { $in: ["College", "Novice"]} },
+            { case: { $eq: ["Professional 5+ Years"]}, then: careerLevelQuery = { $in: ["New Professional", "College", "Novice"]} },
+            { case: { $eq: ["Expert"]}, then: careerLevelQuery = { $in: ["Professional 5+ years", "New Professional", "College", "Novice"]} },
+            { case: { $eq: ["College"]}, then: careerLevelQuery = { $in: ["Novice"]} }
+          ]
+      }
+  }
+  else {
+      $switch: {
+          branches: [
+            { case: { $eq: ["Novice"]}, then: careerLevelQuery = { $in: ["College", "Professional 5+ years", "New Professional", "Expert"]} },
+            { case: { $eq: ["College"]}, then: careerLevelQuery = { $in: ["Professional 5+ years", "New Professional", "Expert"]} },
+            { case: { $eq: ["New Professional"] }, then: careerLevelQuery = { $in: ["College"]} },
+            { case: { $eq: ["Professional 5+ Years"]}, then: careerLevelQuery = { $in: ["New Professional", "College"]} }        
+          ]
+      }
+  }
 
-return dbProfile.findAll({
-    _id: { $nin: dbProfile._id },
-    type: { $nin: dbProfile.type },
-    careerLevel: careerLevelQuery,
-    languages: { $in: dbProfile.languages },
-    industryExperience: { $in: dbProfile.industryExperience },
-
-}).then((dbProfile) => {
-    res.json(dbProfile);
+  return db.Questionnaire.find({
+      _id: { $nin: dbProfile._id },
+      type: { $nin: dbProfile.type },
+      careerLevel: careerLevelQuery,
+      languages: { $in: [dbProfile.languages] },
+      industryExperience: { $in: [dbProfile.industryExperience] },
 })
 
+
+  }).then((dbProfile) => {
+    console.log("hey")
+    console.log(dbProfile)
+      res.json(dbProfile);
+  })
+
 }
+
 }
+
+
+
 // return dbProfile.findAll({
 //     _id: { $nin: dbProfile._id },
 //     type: { $nin: dbProfile.type },
