@@ -15,8 +15,8 @@ router
   .delete(questionnairesController.remove);
 
 // Matches with "/api/mavens/:id/matches"
-  router
-  .route('/:id/matches')
-  .get(questionnairesController.findMatches);
+  // router
+  // .route('/:id/matches')
+  // .get(questionnairesController.findMatches);
 
 module.exports = router;
