@@ -15,6 +15,7 @@ import ExampleProj from "./pages/ExampleProj";
 import QandA from "./pages/QandA";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
+import ProfileMatch from "./pages/Match"
 
 
 //Componenet imports:
@@ -43,6 +44,8 @@ const App = () =>
 
         <Route exact path="/books/:id" component={Detail} />
         <Route component={NoMatch} /> 
+
+        <Route exact path="/api/questionnaires/:id/matches" component={ProfileMatch} />
       </Switch>
     </div>
   </Router>
