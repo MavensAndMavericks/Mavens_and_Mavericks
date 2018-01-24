@@ -1,5 +1,4 @@
-.page-footer {
-	background-color: blue;
-	margin: 50px;
-	margin-top: 5px;
+.footer {
+    display: table-row;
+    height: 1px;
 }

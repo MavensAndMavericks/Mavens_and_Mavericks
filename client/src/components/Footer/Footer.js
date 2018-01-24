@@ -5,6 +5,7 @@ import { Col, Row, Container } from "../Grid";
 
 //=================================================================================
 const Footer = () =>
+
   <footer className="page-footer" style={{backgroundColor: "blue"}}>
     <Container>
 
@@ -19,7 +20,7 @@ const Footer = () =>
           <h5 className="container text-center">Contact Us</h5>
           <a className="grey-text text-lighten-4 container text-center" href="https://github.com/MavensAndMavericks/Mavens_and_Mavericks"><strong>Github:</strong> https://github.com/MavensAndMavericks</a>
           <p className="grey-text text-lighten-4 container text-center"><strong>Email:</strong>
-            <span><a href="mailto:lisajetton21@gmail.com" id="was_download-button" class="btn btn-large waves-effect waves-light transparent darken-4 white-text">Contact</a></span>
+            <span><a href="mailto:lisajetton21@gmail.com" id="was_download-button" className="btn btn-large waves-effect waves-light transparent darken-4 white-text">Contact</a></span>
           </p>         
         </Col>
 
