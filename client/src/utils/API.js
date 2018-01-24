@@ -107,7 +107,11 @@ export default {
       res.json(res.data);
     })
   },
-
+  
+  // Deletes the githubProjects project selected&deletedo on main web profile page
+  deleteProject: function(id) {
+    return axios.delete("/api/books/" + id);
+  },
 
 ///////////////////////////////////////////////////////////////////////
 // $.ajax({
