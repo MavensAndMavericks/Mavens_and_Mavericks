@@ -23,6 +23,7 @@
     "body-parser": "^1.17.2",
     "chart.js": "^2.7.1",
     "express": "^4.15.4",
+    "express-session": "^1.15.6",
     "jquery": "^3.2.1",
     "mongoose": "^4.11.7",
     "prop-types": "^15.6.0",
