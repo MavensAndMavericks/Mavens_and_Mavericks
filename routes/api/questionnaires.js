@@ -7,6 +7,9 @@ router
     .get(questionnairesController.findAll)
     .post(questionnairesController.create);
 
+
+router.route('/session')
+    .get(questionnairesController.getSessionQuestionnaireId)
 // Matches with "/api/questionnaires/:id"
 router
     .route("/:id")

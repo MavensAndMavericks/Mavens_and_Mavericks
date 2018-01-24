@@ -24,9 +24,7 @@ class ProfileMatch extends Component {
 	};
 
 	componentDidMount() {
-		console.log("Pathname = " + window.location.pathname);
-	    const url = window.location.pathname;
-	    const id = url.split("/")[3];
+	    const id = this.props.id;
 	    console.log("id = " + id);
 
 	    this.loadQuestionnaire(id);
@@ -70,6 +68,8 @@ class ProfileMatch extends Component {
 					           {this.state.matches ? (
 					              
 					                  <main> {JSON.stringify(this.state.matches[0])}
+
+
 
 					                  </main>
 
