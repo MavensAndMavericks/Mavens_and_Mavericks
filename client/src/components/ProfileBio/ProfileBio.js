@@ -23,31 +23,24 @@ import "./ProfileBio.css";
 class ProfileBio extends Component {
 	state = {
 		questionnaire: null,
+		githubUrl: {}
 		// userId: "",
 	 //    nickname: "",
 	 //    error: "",
 		// id: "",
-		// firstName:"", 
-		// lastName: "", 
-		// type: "",
-		// gitHub: "",
-		// quote: "", 
-		// coded: "", 
-		// profession: "",
-		// schooling: "",
-		// impact: "",
-		// reasons: "",
-		// careerLevel: "",
-	 //    languages: [],
-	 //    industryExperience: [],
-	    githubUrl: ""
 	};
 
 	componentDidMount() {
-	    const id = this.props.id;
+		console.log("Pathname = " + window.location.pathname);
+	    const url = window.location.pathname;
+	    const id = url.split("/")[3];
 	    console.log("id = " + id);
 
-	    this.loadQuestionnaire(id);
+
+	    // const id = this.props.id;
+	    // console.log("id = " + id);
+
+	  	this.loadQuestionnaire(id);
 	};
 
 
@@ -182,6 +175,16 @@ class ProfileBio extends Component {
 					
 
 				</Container>
+			</div>
+		);
+	}
+}
+	
+export default ProfileBio;
+
+
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
 
 				{/*<div id="sb_widget"></div>*/}
 
@@ -209,12 +212,6 @@ class ProfileBio extends Component {
 	                </Row>
 	            </Container>
 */}
-			</div>
-		);
-	}
-}
-	
-export default ProfileBio;
 
 //////////////////////////////////////////////////
 //<h3><strong>{this.state.githubUrl.login}</strong></h3>

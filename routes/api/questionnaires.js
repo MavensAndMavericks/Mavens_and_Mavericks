@@ -38,12 +38,12 @@ router
 // Matches with "/api/questionnaires/:github"
 router
     .route("/signin/:github")
-    .get(questionnairesController.findOne)
+    .get(questionnairesController.findOne);
 
 // Matches with "/api/questionnaires/:id/matches"
 router
     .route('/:id/:type/matches')
-    .get(questionnairesController.findMatches);
+    .get(questionnairesController.findMatches)
     .post(questionnairesController.create);
 
 

@@ -151,7 +151,7 @@ class MaverickQuestionnaire extends Component {
   }
 
 // //For: IndustryExperience Checkboxes
-  createIndustryCheckboxes = () => (
+  createIndustryCheckboxes = () => {
     industryList.map(word => {
       return (
         <div className="input-group">        
@@ -164,7 +164,7 @@ class MaverickQuestionnaire extends Component {
         </div>
       )
     })
-  );
+  };
 
 
 //Radio Button Handling
