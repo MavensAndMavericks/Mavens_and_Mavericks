@@ -44,9 +44,7 @@ class ProfileBio extends Component {
 	};
 
 	componentDidMount() {
-		console.log("Pathname = " + window.location.pathname);
-	    const url = window.location.pathname;
-	    const id = url.split("/")[3];
+	    const id = this.props.id;
 	    console.log("id = " + id);
 
 	    this.loadQuestionnaire(id);

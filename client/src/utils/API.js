@@ -59,6 +59,10 @@ export default {
     return axios.post("/api/questionnaires/", questionnaireData);
   },
 
+  saveProjects: function(projectData){
+    return axios.post("api/questionnaires", projectData)
+  },
+
   // Saves a questionnaire to the database
   getMatches: function(id) {
     return axios.get("/api/questionnaires/" + id + "/matches");
