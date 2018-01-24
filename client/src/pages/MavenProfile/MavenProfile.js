@@ -48,9 +48,9 @@ class MavenProfile extends Component {
                 <ProfileBio id={this.props.match.params.id}/>
                 <br/>
 
-                <ProjectBoard/>
+                <ProjectBoard id={this.props.match.params.id}/>
 
-               <ProfileMatch/>
+               <ProfileMatch id={this.props.match.params.id}/>
 
                 
                

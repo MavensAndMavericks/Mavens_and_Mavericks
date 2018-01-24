@@ -25,6 +25,7 @@ const questionnaireSchema = new Schema({
   languages: { type: Array, required: true },
   industryExperience: { type: Array, required: true },
   projects: {type: Array, required: false},
+  matches: {type: Array, required: false},
   
   //personalityResults: { type: Array, required: true },  //modify as necessary >> after reveiwing the Traitify API
   date: { type: Date, default: Date.now }

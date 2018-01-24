@@ -31,11 +31,22 @@ module.exports = {
             })
             .catch(err => res.status(422).json(err));
     },
+    createProfile: function(req, res) {
+        db.Questionnaire
+            .create(req.body)
+            .then(dbProfile => {
+              
+              req.session.questionnaireId = dbProfile._id;
+
+              res.json(dbProfile);
+            })
+            .catch(err => res.status(422).json(err));
+    },
     create: function(req, res) {
         db.Questionnaire
             .create(req.body)
             .then(dbProfile => {
-              req.session.questionnaireId = dbProfile._id;
+              console.log("HEY Ladies and Gent ;)... This is the create func for all data other than profile data: " + dbProfile);
               res.json(dbProfile);
             })
             .catch(err => res.status(422).json(err));

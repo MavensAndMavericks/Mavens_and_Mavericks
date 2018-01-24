@@ -135,7 +135,7 @@ class ProfileBio extends Component {
 	render() {
 		return(
 			<div>	
-				<Container className="container profile-bio">
+				<Container className="container  profile-bio">
 
 			    	<Row>
 				    	<Col size="sm-12">

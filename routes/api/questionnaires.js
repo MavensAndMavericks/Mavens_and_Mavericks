@@ -5,11 +5,25 @@ const questionnairesController = require("../../controllers/questionnairesContro
 router
     .route("/")
     .get(questionnairesController.findAll)
+    .post(questionnairesController.createProfile);
+
+// Matches with "/api/questionnaires/projects"
+router
+    .route('/projects')
     .post(questionnairesController.create);
 
 
+
+/////////////////////////// SESSION STORAGE ROUTE: /////////////////////////////
+
+// Matches with "/api/questionnaires/session" >> THIS IS FOR THE SESSIONSTORAGE of USER DATA!!
 router.route('/session')
     .get(questionnairesController.getSessionQuestionnaireId)
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+
 // Matches with "/api/questionnaires/:id"
 router
     .route("/:id")
@@ -28,10 +42,10 @@ router
 
 // Matches with "/api/questionnaires/:id/matches"
 router
-    .route('/:id/matches')
+    .route('/:id/:type/matches')
     .get(questionnairesController.findMatches);
+    .post(questionnairesController.create);
 
-router
-    .route('/:projects')
-    .post(questionnairesController.saveProjects);
+
+
 module.exports = router;
