@@ -38,14 +38,14 @@ class Signup extends Component {
     API.getQuestionnaireGithub(this.state.gitHub)
        .then(res =>
          this.setState({ 
-          id:res.data, //._id
+          id:res.data.id
           // type:res.data.type
          })
        )                       
         .then(() => {
           console.log(this.state.id); 
           console.log(this.state.type);
-          //window.location.pathname = "/api/questionnaires/" + this.state.id + "/" + this.state.type  
+          // window.location.pathname = "/api/questionnaires/" + this.state.id + "/" + this.state.type  
         })
         .catch(err => console.log(err))            
   }

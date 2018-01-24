@@ -65,26 +65,54 @@ db.Questionnaire
 
   //CONDITIONAL FOR CAREER LEVEL============================
   if (dbProfile.type === "maven") {
-      $switch: {
-          (dbProfile.careerLevel)
-          branches: [
-            { case: { $eq: ["New Professional"] }, then: careerLevelQuery = { $in: ["College", "Novice"]} },
-            { case: { $eq: ["Professional 5+ Years"]}, then: careerLevelQuery = { $in: ["New Professional", "College", "Novice"]} },
-            { case: { $eq: ["Expert"]}, then: careerLevelQuery = { $in: ["Professional 5+ years", "New Professional", "College", "Novice"]} },
-            { case: { $eq: ["College"]}, then: careerLevelQuery = { $in: ["Novice"]} }
-          ]
-      }
+
+
+switch (dbProfile.careerLevel) {
+  case 'New Professional':
+    careerLevelQuery ={ $in: ["College", "Novice"]}
+    break;
+  case "Professional 5+ Years":
+    careerLevelQuery = { $in:["New Professional", "College", "Novice"]}
+    break;
+  case "Expert":
+     careerLevelQuery =  { $in: ["Professional 5+ years", "New Professional", "College", "Novice"]}
+    // expected output: "Mangoes and papayas are $2.79 a pound."
+    break;
+    case "College":
+    careerLevelQuery =  { $in:["Novice"] }
+  default:
+    console.log('Sorry, we are out of ' + expr + '.');
+}
+
+
+      console.log(careerLevelQuery)
+      console.log("Below is dbprofile.careerlevel...")
+      console.log(dbProfile.careerLevel)
+      console.log(dbProfile.type)
   }
+
   else {
-      $switch: {
-          branches: [
-            { case: { $eq: ["Novice"]}, then: careerLevelQuery = { $in: ["College", "Professional 5+ years", "New Professional", "Expert"]} },
-            { case: { $eq: ["College"]}, then: careerLevelQuery = { $in: ["Professional 5+ years", "New Professional", "Expert"]} },
-            { case: { $eq: ["New Professional"] }, then: careerLevelQuery = { $in: ["College"]} },
-            { case: { $eq: ["Professional 5+ Years"]}, then: careerLevelQuery = { $in: ["New Professional", "College"]} }        
-          ]
-      }
-  }
+
+
+    switch (dbProfile.careerLevel) {
+      case 'Novice':
+        careerLevelQuery = { $in: ["College", "Professional 5+ years", "New Professional", "Expert"]}
+        break;
+      case "College":
+        careerLevelQuery = { $in: ["Professional 5+ years", "New Professional", "Expert"]}
+        break;
+      case "New Professional":
+         careerLevelQuery = { $in: ["College"]}
+        // expected output: "Mangoes and papayas are $2.79 a pound."
+        break;
+        case "Professional 5+ Year":
+        { $in: ["New Professional", "College"]}
+      default:
+        console.log('Sorry, we are out of ' + expr + '.');
+    }
+
+
+}
 
   return db.Questionnaire.find({
       _id: { $nin: dbProfile._id },
@@ -94,9 +122,9 @@ db.Questionnaire
       industryExperience: { $in: [dbProfile.industryExperience] },
 })
 
-
   }).then((dbProfile) => {
     console.log("hey")
+    console.log(careerLevelQuery)
     console.log(dbProfile)
       res.json(dbProfile);
   })
@@ -117,7 +145,7 @@ db.Questionnaire
 //     res.json(dbProfile);
 // })
 
-////////////////==========THIS IS JEDDS PSUEDOCODE===================                                
+//==========THIS IS JEDDS PSUEDOCODE===================                                
 
 // findMatches: function(req, res) {
 // var dbProfile = db.Questionnaire
