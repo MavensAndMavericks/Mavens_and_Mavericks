@@ -69,7 +69,7 @@ class ProfileMatch extends Component {
 							   <Jumbotron className="jumbotron"> 			            
 					           {this.state.matches ? (
 					              
-					                  <main> {this.state.matches}
+					                  <main> {JSON.stringify(this.state.matches[0])}
 
 					                  </main>
 

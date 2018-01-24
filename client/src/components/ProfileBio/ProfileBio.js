@@ -22,7 +22,7 @@ import "./ProfileBio.css";
 //=================================================================================
 class ProfileBio extends Component {
 	state = {
-		questionnaire: [],
+		questionnaire: null,
 		// userId: "",
 	 //    nickname: "",
 	 //    error: "",
@@ -58,7 +58,7 @@ class ProfileBio extends Component {
 	   API.getQuestionnaire(id)
 	     .then(res =>
 	       this.setState({ 
-	       	questionnaire:res.data 
+	       	questionnaire:res.data
 	       })
 	     )
 	     .then(() => {// MUST MAKE THIS A FUNCTION that renders a FUNCTION >>> by making this a function in a PROMISE chain, it will NOT PROCESS until the promise BEFORE IT has rendered its result!!! :)
@@ -163,8 +163,8 @@ class ProfileBio extends Component {
 		 							               	<strong className="githubHandler">{this.state.githubUrl.login}</strong>
 		 							           	</Link>
 	 									   </h4>
-					                      <h5>Industries of Interest: {this.state.questionnaire.industryExperience} </h5>
-	 									  <h5>Languages: {this.state.questionnaire.languages} </h5>
+					                      <h5>Industries of Interest: {this.state.questionnaire.industryExperience.join(", ")} </h5>
+	 									  <h5>Languages: {this.state.questionnaire.languages.join(", ")} </h5>
 	 									  <h5>Reason for Mentorship: {this.state.questionnaire.impact} </h5>
 					                     </Col>
 					                  </main>
