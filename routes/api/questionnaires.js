@@ -28,4 +28,7 @@ router
     .route('/:id/matches')
     .get(questionnairesController.findMatches);
 
+router
+    .route('/:projects')
+    .post(questionnairesController.saveProjects);
 module.exports = router;
