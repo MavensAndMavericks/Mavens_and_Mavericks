@@ -8,8 +8,8 @@ router
     .post(questionnairesController.create);
 
 
-router.route('/session')
-    .get(questionnairesController.getSessionQuestionnaireId)
+// router.route('/session')
+//     .get(questionnairesController.getSessionQuestionnaireId)
 // Matches with "/api/questionnaires/:id"
 router
     .route("/:id")
@@ -31,7 +31,7 @@ router
     .route('/:id/matches')
     .get(questionnairesController.findMatches);
 
-router
-    .route('/:projects')
-    .post(questionnairesController.saveProjects);
+// router
+//     .route('/:projects')
+//     .post(questionnairesController.saveProjects);
 module.exports = router;
