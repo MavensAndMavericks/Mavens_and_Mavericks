@@ -38,7 +38,7 @@ class Signup extends Component {
     API.getQuestionnaireGithub(this.state.gitHub)
        .then(res =>
          this.setState({ 
-          id:res.data._id,
+          id:res.data.id,
           type:res.data.type
          })
        )                       

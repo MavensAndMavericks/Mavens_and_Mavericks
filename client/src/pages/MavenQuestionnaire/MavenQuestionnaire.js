@@ -2,7 +2,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import {Input} from 'react-materialize';
-
 //Componenet imports:
 import { Col, Row, Container } from "../../components/Grid";
 import { InputBox, TextArea, FormBtn } from "../../components/Form"; //QuestionsMentor
@@ -11,7 +10,6 @@ import Nav1 from "../../components/Nav1";
 import "./MavenQuestionnaire.css";
 import Footer from "../../components/Footer";
 import Signup from "../../components/Signup";
-
 //=================================================================================
 const langList = [
   "Javascript",
@@ -37,10 +35,7 @@ const industryList = [
   "Marketing",
   "Electrical Engineering",
   "Artifical Intelligence"
-
 ];
-
-
 ////////////////////////////////////////////////////////////////////
 class MavenQuestionnaire extends Component {
   state = {
@@ -58,14 +53,16 @@ class MavenQuestionnaire extends Component {
     reasons: "",
     careerLevel: "",   
     languages: [],
-    industryExperience: []
+    industryExperience: [],
+    githubAvatar: ""
     //personalityResults: []
   };
   
-
-
   handleFormSubmit = event => {
-    event.preventDefault();
+    event.preventDefault(); 
+       
+    this.loadGithub(this.state.gitHub);
+    console.log("questionnaire.gitHub = " + this.state.gitHub);
     if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.password ) {
       // console.log("Hey!  Lorna so cool! :)  We're Jelly.");   
       API.saveQuestionnaire({
@@ -82,39 +79,39 @@ class MavenQuestionnaire extends Component {
         reasons: this.state.reasons,
         careerLevel: this.state.careerLevel,
         languages: this.state.languages,
-        industryExperience: this.state.industryExperience
+        industryExperience: this.state.industryExperience,
+        githubAvatar: this.state.githubAvatar
         // personalityResults: this.state.personalityResults
       })          
-        
-        .catch(err => console.log(err))
         .then(res => {
           console.log(res.data._id); 
           this.setState({id: res.data._id});
-
-          //CALL THE UTILS/API FUNCTION THAT MAKES THE MATCHING QUERY HERE!!!!!!
-          // .then(res => this.handleMatching(res))
-
           window.location.pathname = "/api/questionnaires/" + this.state.id + "/maven"
-         
         })
+        .catch(err => console.log(err));  
+     
     }
   };
-
-
+  loadGithub = (gitHub) => {
+    API.getGithubUrl(gitHub)
+      .then(res =>
+         this.setState({ 
+            githubAvatar: res.data.avatar_url
+          })
+         )
+        .catch(err => console.log(err));
+  };
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
   };
-
-
   // // Checkbox Button Handling:
  //////////Language Checkboxes
   handleLanguageClick(event) {
     console.log(event.target.value)
     const languages = this.state.languages
-
     if(event.target.checked) {
       languages.push(event.target.value)
     } 
@@ -122,10 +119,8 @@ class MavenQuestionnaire extends Component {
       let index = languages.indexOf(event.target.value)
       languages.splice(index, 1)
     }
-
     this.setState({ languages : languages })
   }
-
   createLangCheckboxes = () => (
     langList.map(word => {
       return (
@@ -140,12 +135,10 @@ class MavenQuestionnaire extends Component {
       )
     })
   );
-
  //////////Industries Checkboxes
   handleIndustryClick(event) {
     console.log(event.target.value)
     const industryExperience = this.state.industryExperience
-
     if(event.target.checked) {
       industryExperience.push(event.target.value)
     } 
@@ -153,10 +146,8 @@ class MavenQuestionnaire extends Component {
       let index = industryExperience.indexOf(event.target.value)
       industryExperience.splice(index, 1)
     }
-
     this.setState({ industryExperience : industryExperience })
   }
-
 // //For: IndustryExperience Checkboxes
   createIndustryCheckboxes = () => (
     industryList.map(word => {
@@ -172,21 +163,18 @@ class MavenQuestionnaire extends Component {
       )
     })
   );
-
 //Radio Button Handling
   getInitialState= () => {
     return {
       careerLevel: "careerLevel2"
     };
   };
-
   handleOptionChange= (changeEvent) => {
     this.setState({
       careerLevel: changeEvent.target.value,
     });
   };
 //////////////////////////////////////////////////////////////////////////////////
-
   render() {
     return (
       <div>
@@ -206,7 +194,6 @@ class MavenQuestionnaire extends Component {
               </Jumbotron>
             </Col>
           </Row>
-
           <form>
             <Row>
               <Col size ="md-6">
@@ -234,7 +221,6 @@ class MavenQuestionnaire extends Component {
                   />
               </Col>
             </Row>
-
             <Row>
               <Col size="md-12"> 
                 <h5> Create a Password. (Must be at least 6 characters long)</h5>
@@ -286,7 +272,6 @@ class MavenQuestionnaire extends Component {
                     onChange={this.handleInputChange}
                     name="reasons"
                   />        
-
                 <div>
                   <div row className="radio">
                       <h5>8. What is your current level of experience? </h5>
@@ -295,7 +280,6 @@ class MavenQuestionnaire extends Component {
                         <Input onChange={this.handleOptionChange} name="experience" type='radio' value="Professional 5+ Years" checked={this.state.careerLevel.value} label='Professional 5+ Years' />
                         <Input onChange={this.handleOptionChange} name="experience" type='radio' value="Expert" checked={this.state.careerLevel.value} label='Expert' />
                   </div>
-
                 </div>
                 <br/>
               </Col>
@@ -303,7 +287,6 @@ class MavenQuestionnaire extends Component {
           </form>      
           <Row>
             <Col size="md-12">
-
               <form>
                 <div row className="checkbox">
                   <h5>9. What is your industry area of expertise? </h5>
@@ -311,17 +294,13 @@ class MavenQuestionnaire extends Component {
                     {this.createIndustryCheckboxes()}
                   </div>
                 </div>
-
                 <br/>
-
                 <div row className="checkbox">
                   <h5>10. What are your preferred languages? </h5>
                   <div className="input-group">
                     {this.createLangCheckboxes()}
                   </div>
                 </div>
-
-
                 <FormBtn
                   disabled={!(this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons)}
                   onClick={this.handleFormSubmit}
@@ -329,25 +308,18 @@ class MavenQuestionnaire extends Component {
                   Submit Answers
                 </FormBtn>
                 <br/>  
-
               </form>            
             </Col> 
           </Row>
         </Container>
-
         <Footer/>
-
       </div>
     );
   }
 }
-
 export default MavenQuestionnaire;
 //////////////////////////////
 //////////////////////////
-
-
-
   // getID = (github) => {
   //    API.findByGithub(github)
   //      .then(res =>
@@ -357,11 +329,9 @@ export default MavenQuestionnaire;
   //      .then(res => console.log(res.data._id))
   //      //.then( window.location.pathname ="/welcomeMaven/?"+ this.state.id ); //>>> <Link to={"/welcomeMaven/?" + questionnaire._id}>  <<<!!?? Would this work ??!!
   // };
-
 //////////////////////////////
 //////////////////////////////
 //////////////////////////////
-
   // toggle = (event) => {
   //   if (this.state.checkboxValue.includes(event.target.value)){
   //         const idx = this.state.checkboxValue.indexOf(event.target.value);
@@ -370,18 +340,14 @@ export default MavenQuestionnaire;
   //     else {
   //       this.setState({checkboxValue: this.state.checkboxValue.push(event.target.value})
   //     }
-
   //   this.setState({
   //     checkboxState: !this.state.checkboxState,
-
       
   //   });
   //   console.log(this.state.checkboxState)
   //   console.log(this.state.checkboxValue)
   //   console.log(event.target.value)
   // };
-
-
 // componentWillMount = () => {
 //   this.selectedCheckboxes = new Set();
 // }
@@ -392,7 +358,6 @@ export default MavenQuestionnaire;
 //       this.selectedCheckboxes.add(label); //..otherwise, (it's "off", so we need to) toggle "on".
 //     }
 //   };
-
   // createCheckbox = props => (
   //   <Checkbox
   //     label={options}
@@ -402,11 +367,7 @@ export default MavenQuestionnaire;
   //     key={options}
   //   />
   // );
-
-
 ////////////////////////
-
-
 //Checkbox Button Handling
 // function CheckboxSet(props) {  
 //   return (
@@ -427,16 +388,9 @@ export default MavenQuestionnaire;
 //     </div>
 //   );
 // }
-
-
-
 ///////////////////////
 //className="backgroundPic" style={{backgroundImage:"url(/assets/futuristic-Factory-Background)"}}
-
 //We removed this component and input the full radio questions: <QuestionsMentor/>
-
-
-
 // handleMatching = (res) = > {
 //   var length = res.length[i];
 //   var jlength = res.length[j];
@@ -490,3 +444,4 @@ export default MavenQuestionnaire;
  
   // };
   //////////////////////////////////////////////////////////////////////////////////////
+  
