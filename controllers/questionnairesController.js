@@ -3,136 +3,129 @@ const db = require("../models") // !! this should access the models folder !!
 
 // Defining methods for the assessmentsController
 module.exports = {
- findAll: function(req, res) {
-   db.Questionnaire
-     .find(req.query)
-     .sort({ date: -1 })
-     .then(dbProfile => res.json(dbProfile))
-     .catch(err => res.status(422).json(err));
- },
- findById: function(req, res) {
-   db.Questionnaire
-     .findById(req.params.id)
-     .then(dbProfile => {
-        console.log('QUERYYYY', req.params.id);
-        console.log(dbProfile)
-        res.json(dbProfile);
-      })
-     .catch(err => res.status(422).json(err));
- },
- findOne: function(req, res) {
-  db.Questionnaire
-    .findOne({"gitHub": req.params.github}, "_id type") //should locate where the github matches the github id provided, and return the related ID and type.
-    .then(dbProfile => {
-      console.log('Github Handler used for gitHub Query for Type and ID : ', req.params.github);
-      console.log(dbProfile)
-      res.json(dbProfile);
-    })
-   .catch(err => res.status(422).json(err));
- }, 
- create: function(req, res) {
-   db.Questionnaire
-     .create(req.body)
-     .then(dbProfile => res.json(dbProfile))
-     .catch(err => res.status(422).json(err));
- },
- update: function(req, res) {
-   db.Questionnaire
-     .findOneAndUpdate({ _id: req.params.id }, req.body)
-     .then(dbProfile => res.json(dbProfile))
-     .catch(err => res.status(422).json(err));
- },
- remove: function(req, res) {
-   db.Questionnaire
-     .findById({ _id: req.params.id })
-     .then(dbProfile => dbProfile.remove())
-     .then(dbProfile => res.json(dbProfile))
-     .catch(err => res.status(422).json(err));
- },
+    findAll: function(req, res) {
+        db.Questionnaire
+            .find(req.query)
+            .sort({ date: -1 })
+            .then(dbProfile => res.json(dbProfile))
+            .catch(err => res.status(422).json(err));
+    },
+    findById: function(req, res) {
+        db.Questionnaire
+            .findById(req.params.id)
+            .then(dbProfile => {
+                console.log('QUERYYYY', req.params.id);
+                console.log(dbProfile)
+                res.json(dbProfile);
+            })
+            .catch(err => res.status(422).json(err));
+    },
+    findOne: function(req, res) {
+        db.Questionnaire
+
+        
+            .findOne({ "gitHub": req.params.github}, "_id type") //should locate where the github matches the github id provided, and return the related ID and type.
+            .then(dbProfile => {
+                console.log('Github Handler used for gitHub Query for Type and ID : ', req.params.github);
+                console.log(dbProfile)
+                res.json(dbProfile);
+            })
+            // .catch(err) => {
+            //   console.log("422 will return");
+            //   return res.status(422).json(err);
+            // }
+            .catch(err => res.status(422).json(err));
+    },
+    create: function(req, res) {
+        db.Questionnaire
+            .create(req.body)
+            .then(dbProfile => res.json(dbProfile))
+            .catch(err => res.status(422).json(err));
+    },
+    update: function(req, res) {
+        db.Questionnaire
+            .findOneAndUpdate({ _id: req.params.id }, req.body)
+            .then(dbProfile => res.json(dbProfile))
+            .catch(err => res.status(422).json(err));
+    },
+    remove: function(req, res) {
+        db.Questionnaire
+            .findById({ _id: req.params.id })
+            .then(dbProfile => dbProfile.remove())
+            .then(dbProfile => res.json(dbProfile))
+            .catch(err => res.status(422).json(err));
+    },
+    findMatches: function(req, res) {
+        // var dbProfile = db.Questionnaire;
+        var careerLevelQuery;
+        var languageQuery;
+
+        db.Questionnaire
+            .findById({ _id: req.params.id })
+            .then(dbProfile => {
 
 
+                //CONDITIONAL FOR CAREER LEVEL============================
+                if (dbProfile.type === "maven") {
 
 
-findMatches: function(req, res) {
-// var dbProfile = db.Questionnaire;
-  var careerLevelQuery;
-  var languageQuery;
-
-db.Questionnaire
-.findById({ _id: req.params.id })
-.then(dbProfile => {
-
-
-  //CONDITIONAL FOR CAREER LEVEL============================
-  if (dbProfile.type === "maven") {
-
-
-switch (dbProfile.careerLevel) {
-  case 'New Professional':
-    careerLevelQuery ={ $in: ["College", "Novice"]}
-    break;
-  case "Professional 5+ Years":
-    careerLevelQuery = { $in:["New Professional", "College", "Novice"]}
-    break;
-  case "Expert":
-     careerLevelQuery =  { $in: ["Professional 5+ years", "New Professional", "College", "Novice"]}
-    // expected output: "Mangoes and papayas are $2.79 a pound."
-    break;
-    case "College":
-    careerLevelQuery =  { $in:["Novice"] }
-  default:
-    console.log('Sorry, we are out of ' + expr + '.');
-}
+                    switch (dbProfile.careerLevel) {
+                        case 'New Professional':
+                            careerLevelQuery = { $in: ["College", "Novice"] }
+                            break;
+                        case "Professional 5+ Years":
+                            careerLevelQuery = { $in: ["New Professional", "College", "Novice"] }
+                            break;
+                        case "Expert":
+                            careerLevelQuery = { $in: ["Professional 5+ years", "New Professional", "College", "Novice"] }
+                            // expected output: "Mangoes and papayas are $2.79 a pound."
+                            break;
+                        case "College":
+                            careerLevelQuery = { $in: ["Novice"] }
+                        default:
+                            console.log('Sorry, we are out of ' + expr + '.');
+                    }
 
 
-      console.log(careerLevelQuery)
-      console.log("Below is dbprofile.careerlevel...")
-      console.log(dbProfile.careerLevel)
-      console.log(dbProfile.type)
-  }
-
-  else {
+                    console.log(careerLevelQuery)
+                    console.log("Below is dbprofile.careerlevel...")
+                    console.log(dbProfile.careerLevel)
+                    console.log(dbProfile.type)
+                } else {
 
 
-    switch (dbProfile.careerLevel) {
-      case 'Novice':
-        careerLevelQuery = { $in: ["College", "Professional 5+ years", "New Professional", "Expert"]}
-        break;
-      case "College":
-        careerLevelQuery = { $in: ["Professional 5+ years", "New Professional", "Expert"]}
-        break;
-      case "New Professional":
-         careerLevelQuery = { $in: ["College"]}
-        // expected output: "Mangoes and papayas are $2.79 a pound."
-        break;
-        case "Professional 5+ Year":
-        careerLevelQuery = { $in: ["New Professional", "College"]}
-      default:
-        console.log('Sorry, we are out of ' + expr + '.');
+                    switch (dbProfile.careerLevel) {
+                        case 'Novice':
+                            careerLevelQuery = { $in: ["College", "Professional 5+ years", "New Professional", "Expert"] }
+                            break;
+                        case "College":
+                            careerLevelQuery = { $in: ["Professional 5+ years", "New Professional", "Expert"] }
+                            break;
+                        case "New Professional":
+                            careerLevelQuery = { $in: ["College"] }
+                            // expected output: "Mangoes and papayas are $2.79 a pound."
+                            break;
+                        case "Professional 5+ Year":
+                            careerLevelQuery = { $in: ["New Professional", "College"] }
+                        default:
+                            console.log('Sorry, we are out of ' + expr + '.');
+                    }
+                }
+                return db.Questionnaire.find({
+                    _id: { $nin: dbProfile._id },
+                    type: { $nin: dbProfile.type },
+                    careerLevel: careerLevelQuery,
+                    languages: { $in: [dbProfile.languages] },
+                    industryExperience: { $in: [dbProfile.industryExperience] },
+                })
+            }).then((dbProfile) => {
+                console.log("hey")
+                console.log(careerLevelQuery)
+                console.log(dbProfile)
+                res.json(dbProfile);
+            })
     }
-
-
 }
-
-  return db.Questionnaire.find({
-      _id: { $nin: dbProfile._id },
-      type: { $nin: dbProfile.type },
-      careerLevel: careerLevelQuery,
-      languages: { $in: [dbProfile.languages] },
-      industryExperience: { $in: [dbProfile.industryExperience] },
-})
-
-  }).then((dbProfile) => {
-    console.log("hey")
-    console.log(careerLevelQuery)
-    console.log(dbProfile)
-      res.json(dbProfile);
-  })
-
-}
-
-}
-
 
 
 // return dbProfile.findAll({
@@ -251,7 +244,7 @@ switch (dbProfile.careerLevel) {
 //                                     languages: { $in: dbProfile.languages }
 //                                   });
 //                                 }) 
-                                
+
 //                                 ,else: { $eq: ["maverick"] },   
 //                                   $switch: {
 //                                     branches: [
@@ -411,10 +404,3 @@ switch (dbProfile.careerLevel) {
 //     // });
 // }
 // };
-
-
-
-
-
-
-
