@@ -18,7 +18,7 @@ module.exports = {
                 console.log(dbProfile)
                 res.json(dbProfile);
             })
-            .catch(err => res.status(422).json(err));
+            .catch(err => res.status(455).json(err));
     },
     findOne: function(req, res) {
         db.Questionnaire     
@@ -34,10 +34,7 @@ module.exports = {
     create: function(req, res) {
         db.Questionnaire
             .create(req.body)
-            .then(dbProfile => {
-              // req.session.questionnaireId = dbProfile._id;
-              res.json(dbProfile);
-            })
+            .then(dbProfile => res.json(dbProfile))
             .catch(err => res.status(422).json(err));
     },
     update: function(req, res) {
@@ -57,11 +54,13 @@ module.exports = {
     //   console.log(JSON.stringify(req.session))
     //   res.json({questionnaireId: req.session.questionnaireId});
     // },
-    logOut: function (req, res) {
-      req.session.destroy(function () {
-        res.status(200).send();
-      })
-    },
+
+    // logOut: function (req, res) {
+    //   req.session.destroy(function () {
+    //     res.status(200).send();
+    //   })
+    // },
+
     findMatches: function(req, res) {
         // var dbProfile = db.Questionnaire;
         var careerLevelQuery;
@@ -93,12 +92,12 @@ module.exports = {
                             console.log('Sorry, we are out of ' + expr + '.');
                     }
 
-
                     console.log(careerLevelQuery)
                     console.log("Below is dbprofile.careerlevel...")
                     console.log(dbProfile.careerLevel)
                     console.log(dbProfile.type)
-                } else {
+
+                } else if (dbProfile.type === "maverick")  {
 
 
                     switch (dbProfile.careerLevel) {
@@ -117,6 +116,10 @@ module.exports = {
                         default:
                             console.log('Sorry, we are out of ' + expr + '.');
                     }
+                     console.log(dbProfile.type)
+
+
+                   
                 }
                 return db.Questionnaire.find({
                     _id: { $nin: dbProfile._id },

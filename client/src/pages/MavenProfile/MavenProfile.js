@@ -44,7 +44,7 @@ class MavenProfile extends Component {
                 <br/>
                 <br/>
                 <br/>
-            <ProfileBio/>
+            <ProfileBio />
 
 
                
