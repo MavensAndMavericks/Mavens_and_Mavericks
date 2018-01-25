@@ -38,31 +38,33 @@ const industryList = [
   "Electrical Engineering",
   "Artifical Intelligence"
 ];
-
 ////////////////////////////////////////////////////////////////////
 class MaverickQuestionnaire extends Component {
   state = {
+    id:"",
     firstName:"",
     lastName:"",
     type: "maven",
     gitHub:"",
-    password: "",
+    password:"",
     quote: "",
     coded: "",
     profession: "",
-    schooling: "",
-    impact: "",
+    goals: "",
     reasons: "",
-    careerLevel: "",
+    careerLevel: "",   
     languages: [],
-    industryExperience: []
+    industryExperience: [],
+    githubAvatar: ""
     //personalityResults: []
   };
   
-
   handleFormSubmit = event => {
-    event.preventDefault();
-    if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.password ) {
+    event.preventDefault(); 
+       
+    this.loadGithub(this.state.gitHub);
+    console.log("questionnaire.gitHub = " + this.state.gitHub);
+    if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.goals  && this.state.reasons && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.password ) {
       // console.log("Hey!  Lorna so cool! :)  We're Jelly.");   
       API.saveQuestionnaire({
         firstName: this.state.firstName,
@@ -73,41 +75,43 @@ class MaverickQuestionnaire extends Component {
         quote: this.state.quote,
         coded: this.state.coded,
         profession: this.state.profession,
-        schooling: this.state.schooling,
-        impact: this.state.impact,
+        goals: this.state.goals,
         reasons: this.state.reasons,
         careerLevel: this.state.careerLevel,
         languages: this.state.languages,
-        industryExperience: this.state.industryExperience
+        industryExperience: this.state.industryExperience,
+        githubAvatar: this.state.githubAvatar
         // personalityResults: this.state.personalityResults
       })          
-        // .then(res => this.handleMatching(res))
-        .catch(err => console.log(err))
-        .then( window.location.pathname ="/welcomeMaverick"); //>>> <Link to={"/welcomeMaverick/?" + questionnaire._id}>  <<<!!?? Would this work ??!!
+        .then(res => {
+          console.log(res.data._id); 
+          this.setState({id: res.data._id});
+          window.location.pathname = "/api/questionnaires/" + this.state.id + "/maverick"
+        })
+        .catch(err => console.log(err));  
+     
     }
   };
-
-  //////////////////////////////////////////////////////////////////////////////////
-  // constructor() {
-  //   super()
-  //   this.state - {
-  //     industryExperience: []
-  //   }
-  // };
-
+  loadGithub = (gitHub) => {
+    API.getGithubUrl(gitHub)
+      .then(res =>
+         this.setState({ 
+            githubAvatar: res.data.avatar_url
+          })
+         )
+        .catch(err => console.log(err));
+  };
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
   };
-
   // // Checkbox Button Handling:
  //////////Language Checkboxes
   handleLanguageClick(event) {
     console.log(event.target.value)
     const languages = this.state.languages
-
     if(event.target.checked) {
       languages.push(event.target.value)
     } 
@@ -115,10 +119,8 @@ class MaverickQuestionnaire extends Component {
       let index = languages.indexOf(event.target.value)
       languages.splice(index, 1)
     }
-
     this.setState({ languages : languages })
   }
-
   createLangCheckboxes = () => (
     langList.map(word => {
       return (
@@ -133,12 +135,10 @@ class MaverickQuestionnaire extends Component {
       )
     })
   );
-
  //////////Industries Checkboxes
   handleIndustryClick(event) {
     console.log(event.target.value)
     const industryExperience = this.state.industryExperience
-
     if(event.target.checked) {
       industryExperience.push(event.target.value)
     } 
@@ -146,10 +146,8 @@ class MaverickQuestionnaire extends Component {
       let index = industryExperience.indexOf(event.target.value)
       industryExperience.splice(index, 1)
     }
-
     this.setState({ industryExperience : industryExperience })
   }
-
 // //For: IndustryExperience Checkboxes
   createIndustryCheckboxes = () => (
     industryList.map(word => {
@@ -165,15 +163,12 @@ class MaverickQuestionnaire extends Component {
       )
     })
   );
-
-
 //Radio Button Handling
   getInitialState= () => {
     return {
       careerLevel: "careerLevel2"
     };
   };
-
   handleOptionChange= (changeEvent) => {
     this.setState({
       careerLevel: changeEvent.target.value,
@@ -309,7 +304,7 @@ class MaverickQuestionnaire extends Component {
                 </div>
 
                 <FormBtn
-                  disabled={!(this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons)}
+                  disabled={!(this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.goals && this.state.reasons)}
                   onClick={this.handleFormSubmit}
                 >
                   Submit Answers
