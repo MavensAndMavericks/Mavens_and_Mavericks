@@ -40,7 +40,9 @@ export default {
   // Saves a questionnaire to the database
   saveQuestionnaire: function(questionnaireData) {
     return axios.post("/api/questionnaires", questionnaireData);
-  }, 
+  // saveProjects: function(projectData){
+  //   return axios.post("api/questionnaires", pr)
+  },
   // Saves a project to the database
   saveProjects: function(id, type, github, projectName, projectData){
     return axios.post("api/questionnaires/" + id + "/" + type +"/session/" + github + "/" + projectName  + "/", projectData);
@@ -79,12 +81,25 @@ export default {
     // })
   },
 
+/////////////////////
+  // Gets a match for mavens from the the database
+  // getMatches: function(id) {
+  //   return axios.get("/api/questionnaires/" + id + "/matches");
+  // },
+////////////////////////
+    // Gets a match for the mavericks from the database
+  // getMaverickMatches: function(id) {
+  //   return axios.get("/api/questionnaires/" + id + "/mentee/matches");
+  // },
+/////////////////////////
+
   getSessionQuestionnaireId: function(id, type) {
     return axios.get("/api/questionnaires/" + id + "/" + type + "/session");
   },
   deleteSessionQuestionnaireId: function(id, type) {
     return axios.delete("/api/questionnaires/" + id + "/" + type + "/session");
   },
+
 
 //////////// MAKE THIS WORK ...SOON...
   // // Gets the github profile projects for the given github
@@ -108,7 +123,7 @@ export default {
   // Deletes the githubProjects project selected&deletedo on main web profile page
   deleteProject: function(id) {
     return axios.delete("/api/project/" + id);
-  },
+  }
 
 ///////////////////////////////////////////////////////////////////////
 // $.ajax({

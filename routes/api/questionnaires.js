@@ -7,7 +7,6 @@ router
     .get(questionnairesController.findAll)
     .post(questionnairesController.createProfile);
 
-// Matches with "/api/questionnaires/:id"
 router
     .route("/:id")
     .get(questionnairesController.findById)
@@ -26,6 +25,13 @@ router
 
 ///////////////////////////////////////////////////////////////////////////////
 /////////////////////////// SESSION STORAGE ROUTE: ////////////////////////////
+
+
+
+// Matches with "/api/questionnaires/session"
+// router.route('/session')
+//     .get(questionnairesController.getSessionQuestionnaireId)
+
 
 // Matches with "/api/questionnaires/:id/session" >> THIS IS FOR THE SESSIONSTORAGE of USER DATA!!
 router
@@ -48,5 +54,11 @@ router
     .route('/:id/:type/session/:github/:projectname')
     .post(questionnairesController.create)
     .get(questionnairesController.findAll);
+
+
+// router
+//     .route('/:id/mentee/:matches')
+//     .get(questionnairesController.findMatches);
+
 
 module.exports = router;

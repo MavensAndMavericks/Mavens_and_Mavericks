@@ -2,7 +2,7 @@
 //=============================
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Chip } from "react-materialize";
+
 
 //API Routing Import:
 //=============================
@@ -19,7 +19,7 @@ import "./ProfileMatch.css";
 //=================================================================================
 class ProfileMatch extends Component {
     state = {
-        questionnaire: [],
+        // questionnaire: [],
         matches: [],
         githubUrl: ""
 
@@ -29,6 +29,7 @@ class ProfileMatch extends Component {
         console.log("Pathname = " + window.location.pathname);
         const url = window.location.pathname;
         const id = url.split("/")[3];
+        // const type = url.split("/")[3]
         // const id = this.props.id
         console.log("id = " + id);
 
@@ -45,9 +46,10 @@ class ProfileMatch extends Component {
                 })
             )
             .then(() => {
+            	console.log("see below")
                 console.log(this.state.matches);
-                console.log(this.state.firstName)
-                this.loadGithub(this.state.matches.gitHub);
+                // console.log(this.state.firstName)
+                // this.loadGithub(this.state.matches.gitHub);
             }) // MUST MAKE THIS A FUNCTION that renders a FUNCTION >>> by making this a function in a PROMISE chain, it will NOT PROCESS until the promise BEFORE IT has rendered its result!!! :)
             .catch(err => console.log(err));
     };
@@ -81,49 +83,43 @@ class ProfileMatch extends Component {
                 /*<br/>
                 						    	<h3 className="text-center">ProfileBio</h3>*/
             }
-					            <Jumbotron className = "jumbotron" >
+					            <Jumbotron className = "jumbotron"> 
 					            <h2> Your Matches </h2> 
 					            <br/>
-		
-					            {this.state.matches.length ? ( 
-				                    <div className = "text-center" > 
-				                        {this.state.matches.map(match => ( 
-    				                        <Row>
-    				                            <main key = { match._id }>
-            					                     <Col size="sm-4">
-            					                     <Chip>	
-            					                      <img className="img-responsive" id="matchAvatar" src={match.githubAvatar} alt="Github Profile Pic"/> 
-            					                     {match.firstName} {match.lastName}
-            					                     </Chip>
-            					                     </Col>
+
+                                {this.state.matches.length ? ( 
+				                    <div className = "text-center" > {
+				                        this.state.matches.map(match => ( 
+				                            <Row>
+				                            <main key = { match._id }>
+					                     
+			                                 <img className="img-responsive" id="matchAvatar" src={match.githubAvatar} alt="Github Profile Pic"/> 
+
+				                            <Col size = "sm-8">
+					                            <h3> Name:
+					                            <strong className = "userFullName" > { match.firstName } { match.lastName } </strong> 
+					                            </h3>
+
+					                            <h4>
+					                            <strong> Github Handler: </strong>
+					                            <Link to = { "https://github.com/" + match.gitHub } target = "_blank" >
+					                            <strong className = "githubHandler" > { match.gitHub } </strong>
+					                            </Link> 
+					                            </h4>
+
+                            
+					                            <h5 > Industries of Interest: { match.industryExperience.join(", ") } </h5> 
+					                            <h5 > Languages: { match.languages.join(", ") } </h5>
+					                            <h5 > Reason for Mentorship: { match.impact } </h5>
+					                           </Col>
 
 
-            				                            <Col size = "sm-8">
-            					                            <h3> Name:
-            					                            <strong className = "userFullName" > { match.firstName } { match.lastName } </strong> 
-            					                            </h3>
+                            
+				                            </main> 
+				                            </Row>
 
-            					                            <h4>
-            					                            <strong> Github Handler: </strong>
-            					                            <Link to = { "https://github.com/" + match.gitHub } target = "_blank" >
-            					                            <strong className = "githubHandler" > { match.gitHub } </strong>
-            					                            </Link> 
-            					                            </h4>
-
-                                        
-            					                            <h5 > Industries of Interest: { match.industryExperience.join(", ") } </h5> 
-            					                            <h5 > Languages: { match.languages.join(", ") } </h5>
-            					                            <h5 > Reason for Mentorship: { match.impact } </h5>
-            					                           </Col>
-
-
-                                        
-            				                            </main> 
-            				                        </Row>
-                            				))
-                        				}
-
-                    
+                        				))
+                    				}                    
                     </div>
 
 
@@ -146,3 +142,50 @@ class ProfileMatch extends Component {
 }
 
 export default ProfileMatch;
+
+
+
+		// <img className="img-responsive" id="matchAvatar" src={match.githubAvatar} alt="Github Profile Pic"/> 
+					                     
+					       // {this.state.matches.length ? ( 
+				        //             <div className = "text-center" > {
+				        //                 this.state.matches.map(match => ( 
+				        //                     <Row>
+				        //                     <main key = { match._id }>
+					                     
+
+
+				        //                     <Col size = "sm-8">
+					       //                      <h3> Name:
+					       //                      <strong className = "userFullName" > { match.firstName } { match.lastName } </strong> 
+					       //                      </h3>
+
+					       //                      <h4>
+					       //                      <strong> Github Handler: </strong>
+					       //                      <Link to = { "https://github.com/" + match.gitHub } target = "_blank" >
+					       //                      <strong className = "githubHandler" > { match.gitHub } </strong>
+					       //                      </Link> 
+					       //                      </h4>
+
+                            
+					       //                      <h5 > Industries of Interest: { match.industryExperience.join(", ") } </h5> 
+					       //                      <h5 > Languages: { match.languages.join(", ") } </h5>
+					       //                      <h5 > Reason for Mentorship: { match.impact } </h5>
+					       //                     </Col>
+
+
+                            
+				        //                     </main> 
+				        //                     </Row>
+
+            //             				))
+            //         				}
+
+                    
+            //         </div>
+
+
+            //     ) : ( 
+            //         <h3 className = "text-center" > No Results to Display </h3>
+            //     )
+            // }
