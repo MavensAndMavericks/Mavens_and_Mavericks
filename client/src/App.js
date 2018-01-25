@@ -31,8 +31,9 @@ const App = () =>
         <Route exact path="/books" component={Books} />
         <Route exact path="/maverickquestionnaire" component={MaverickQuestionnaire} />
         <Route exact path="/mavenquestionnaire" component={MavenQuestionnaire} />
-        {/*<Route exact path="/api/questionnaires/:id/:maverick?"  component={MaverickProfile} />*/}
         <Route exact path="/api/questionnaires/:id/:maven?" component={MavenProfile} />
+        <Route exact path="/api/questionnaires/:id/:mentee/maverick?"  component={MaverickProfile} />
+        
         
         <Route exact path="/aboutus" component={AboutUs} />
         <Route exact path="/mentorsarekey" component={MentorDef} />
