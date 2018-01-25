@@ -9,13 +9,15 @@ import React, { Component } from "react";
 
 //Componenet imports:
 //=============================
-import Nav2 from "../../components/Nav2";
+import Nav3 from "../../components/Nav3";
+
 import SignOut from "../../components/SignOut";
 import ProfileBio from "../../components/ProfileBio";
 import ProjectBoard from "../../components/ProjectBoard";
 import { Col, Row } from "../../components/Grid";
 import Footer from "../../components/Footer";
-import "./MaverickProfile.css"
+import ProfileMatch from "../../components/ProfileMatch";
+import "./MaverickProfile.css";
 
 //import Parallax5 from "../../components/Parallax5";
 
@@ -26,7 +28,7 @@ class MaverickProfile extends Component {
   render() {
     return (
       <div>
-        <Nav2/>
+        <Nav3/>
         <SignOut />
 
           <Row>
@@ -38,6 +40,7 @@ class MaverickProfile extends Component {
 
                 <ProfileBio/>
                 <ProjectBoard/>
+                <ProfileMatch/>
               
               </div>
 
