@@ -18,7 +18,7 @@ module.exports = {
                 console.log(dbProfile)
                 res.json(dbProfile);
             })
-            .catch(err => res.status(422).json(err));
+            .catch(err => res.status(455).json(err));
     },
     findOne: function(req, res) {
         db.Questionnaire     
@@ -34,9 +34,7 @@ module.exports = {
     create: function(req, res) {
         db.Questionnaire
             .create(req.body)
-            .then(dbProfile => {            
-              res.json(dbProfile);
-            })
+            .then(dbProfile => res.json(dbProfile))
             .catch(err => res.status(422).json(err));
     },
     update: function(req, res) {

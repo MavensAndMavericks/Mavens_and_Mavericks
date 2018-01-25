@@ -32,7 +32,7 @@ const App = () =>
         <Route exact path="/maverickquestionnaire" component={MaverickQuestionnaire} />
         <Route exact path="/mavenquestionnaire" component={MavenQuestionnaire} />
         <Route exact path="/api/questionnaires/:id/:maven?" component={MavenProfile} />
-        <Route exact path="/api/questionnaires/:id/:mentee/:maverick?"  component={MaverickProfile} />
+        <Route exact path="/api/questionnaires/:id/:mentee/:maverick?" component={MaverickProfile} />
 
         
         <Route exact path="/aboutus" component={AboutUs} />
@@ -42,7 +42,7 @@ const App = () =>
         <Route exact path="/books/:id" component={Detail} />
         <Route component={NoMatch} /> 
 
-        <Route exact path="/api/questionnaires/:id/matches" component={ProfileMatch} />
+       
       </Switch>
     </div>
   </Router>
