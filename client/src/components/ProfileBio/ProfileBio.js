@@ -38,7 +38,7 @@ class ProfileBio extends Component {
 	   const type = this.props.type;//sessionstorage>
 	   console.log("type = " + type);
 
-	    const id = this.props.id; // <this is for sessionstorage>
+	    const id = this.props.id; //  //does this need to be "this.props._id" >> ie: with the underscore?!?!?!
 	    console.log("id = " + id);
 
 	  	this.loadQuestionnaire(id);

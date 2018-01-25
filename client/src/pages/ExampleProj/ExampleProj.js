@@ -11,6 +11,7 @@ import React, { Component } from "react";
 //=============================
 import Nav1 from "../../components/Nav1";
 import Signup from "../../components/Signup";
+import SignOut from "../../components/SignOut";
 import Parallax4 from "../../components/Parallax4";
 import { Col, Row } from "../../components/Grid";
 import Footer from "../../components/Footer";
@@ -21,7 +22,13 @@ class ExampleProj extends Component {
     return (
     	<div>
     		<Nav1/>
-        <Signup />
+        <div>                  
+           {typeof(sessionStorage.getItem("questionnaireId")) !== undefined ? (
+              <SignOut />
+            ) : (
+              <Signup />
+           )}
+        </div>
         <br/>
         <br/>
         <br/>

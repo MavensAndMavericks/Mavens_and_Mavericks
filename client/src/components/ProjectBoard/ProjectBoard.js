@@ -29,7 +29,7 @@ class ProjectBoard extends Component {
 	};
 
 	componentDidMount() {
-		const id = this.props.id;
+		const id = this.props.id; //does this need to be "this.props._id" >> ie: with the underscore?!?!?!
 	    console.log("id = " + id);
 
 	    this.loadQuestionnaire(id);

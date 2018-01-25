@@ -26,12 +26,12 @@ class ProfileMatch extends Component {
     };
 
     componentDidMount() {
-        console.log("Pathname = " + window.location.pathname);
-        const url = window.location.pathname;
-        const id = url.split("/")[3];
+        // console.log("Pathname = " + window.location.pathname);
+        // const url = window.location.pathname;
+        // const id = url.split("/")[3];
         // const type = url.split("/")[3]
-        // const id = this.props.id
-        console.log("id = " + id);
+        const id = this.props.id  //does this need to be "this.props._id" >> ie: with the underscore?!?!?!
+        console.log("id = " + this.props.id);
 
         this.loadQuestionnaire(id);
     };

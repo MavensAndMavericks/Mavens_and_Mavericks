@@ -17,6 +17,9 @@ import "./SignOut.css";
 class SignOut extends Component {
 
   handleSignOut = event => {
+    const id = this.props.id; //does this need to be "this.props._id" >> ie: with the underscore?!?!?!
+    console.log("id = " + id);
+
     API.deleteSessionQuestionnaireId(this.props.id, this.props.type)
       .then(res =>
          window.location.pathname = "/"

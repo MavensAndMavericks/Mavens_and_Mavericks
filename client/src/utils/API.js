@@ -1,25 +1,6 @@
 import axios from "axios";
 
 export default {
-//BOOKS
-  // Gets ALL books
-  getBooks: function() {
-    return axios.get("/api/books");
-  },
-  // Gets the book with the given id
-  getBook: function(id) {
-    return axios.get("/api/books/" + id);
-  },
-  // Deletes the book with the given id
-  deleteBook: function(id) {
-    return axios.delete("/api/books/" + id);
-  },
-  // Saves a book to the database
-  saveBook: function(bookData) {
-    return axios.post("/api/books", bookData);
-  },
-
-
 //QUESTIONNAIRE
   // Gets the questionnaire with the given id (in the URL/PARAMS)
   getQuestionnaire: function(id) {
