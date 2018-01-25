@@ -86,7 +86,9 @@ class MaverickQuestionnaire extends Component {
         .then(res => {
           console.log(res.data._id); 
           this.setState({id: res.data._id});
+
           window.location.pathname = "/api/questionnaires/" + this.state.id +  "/mentee/maverick"
+
         })
         .catch(err => console.log(err));  
      
