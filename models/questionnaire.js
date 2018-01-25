@@ -31,7 +31,7 @@ const questionnaireSchema = new Schema({
 
   projects: {type: Array, required: false},
   matches: {type: Array, required: false},
-  githubAvatar:{type: String, required: true},
+  githubAvatar:{type: String, required: false}, //toggle to true AFTER ALL the DATA IN THE DB includes ALL the correct entries/responses for its TYPE.
   
   //personalityResults: { type: Array, required: true },  //modify as necessary >> after reveiwing the Traitify API
   date: { type: Date, default: Date.now }

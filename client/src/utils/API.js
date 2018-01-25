@@ -19,23 +19,6 @@ export default {
     return axios.post("/api/books", bookData);
   },
 
-//USERS
-  // Gets ALL users
-  getUsers: function() {
-    return axios.get("/api/users");
-  },
-  // Gets the user with the given id
-  getUser: function(id) {
-    return axios.get("/api/users/" + id);
-  },
-  // Deletes the user with the given id
-  deleteUser: function(id) {
-    return axios.delete("/api/users/" + id);
-  },
-  // Saves a user to the database
-  saveUser: function(userData) {
-    return axios.post("/api/users", userData);
-  },
 
 //QUESTIONNAIRE
   // Gets the questionnaire with the given id (in the URL/PARAMS)
@@ -44,7 +27,7 @@ export default {
   },
   // Gets the questionnaire with the given github (in the URL/PARAMS)
   getQuestionnaireGithub: function(github) {
-    return axios.get("/api/questionnaires/signin/"  + github);
+    return axios.get("/api/questionnaires/signin/" + github);
   },
   // Gets ALL questionnaires
   getQuestionnaires: function() {
@@ -56,18 +39,23 @@ export default {
   },
   // Saves a questionnaire to the database
   saveQuestionnaire: function(questionnaireData) {
-    return axios.post("/api/questionnaires/", questionnaireData);
+    return axios.post("/api/questionnaires", questionnaireData);
+  }, 
+  // Saves a project to the database
+  saveProjects: function(id, type, github, projectName, projectData){
+    return axios.post("api/questionnaires/" + id + "/" + type +"/session/" + github + "/" + projectName  + "/", projectData);
   },
-
-  // saveProjects: function(projectData){
-  //   return axios.post("api/questionnaires", pr)
-  // }
-
-  // Saves a questionnaire to the database
-  getMatches: function(id) {
-    return axios.get("/api/questionnaires/" + id + "/matches");
+  getProjects: function(id, type, github, projectName, projectData){
+    return axios.get("api/questionnaires/" + id + "/" + type +"/session/" + github + "/" + projectName  + "/", projectData);
+  },
+  // Saves a Match to the database
+  saveMatches: function(id, type) {
+    return axios.get("/api/questionnaires/" + id + "/" + type + "/session/matches");
+  },
+  // Gets a Match from the database
+  getMatches: function(id, type) {
+    return axios.get("/api/questionnaires/" + id + "/" + type + "/session/matches");
     // return ({
-
 
     // "_id" : "5a60cc759fad410901e29878",
     // "firstName" : "test",
@@ -88,9 +76,14 @@ export default {
     //     "React"
     // ]
 
-
-
     // })
+  },
+
+  getSessionQuestionnaireId: function(id, type) {
+    return axios.get("/api/questionnaires/" + id + "/" + type + "/session");
+  },
+  deleteSessionQuestionnaireId: function(id, type) {
+    return axios.delete("/api/questionnaires/" + id + "/" + type + "/session");
   },
 
 //////////// MAKE THIS WORK ...SOON...
@@ -114,7 +107,7 @@ export default {
   
   // Deletes the githubProjects project selected&deletedo on main web profile page
   deleteProject: function(id) {
-    return axios.delete("/api/books/" + id);
+    return axios.delete("/api/project/" + id);
   },
 
 ///////////////////////////////////////////////////////////////////////

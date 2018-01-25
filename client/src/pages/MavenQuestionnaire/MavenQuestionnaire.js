@@ -279,13 +279,13 @@ class MavenQuestionnaire extends Component {
                     name="reasons"
                   />        
                 <div>
-                  <div row className="radio">
+                  <Row className="radio">
                       <h5>8. What is your current level of experience? </h5>
                         <Input onChange={this.handleOptionChange} name="experience" type='radio' value="College" checked={this.state.careerLevel.value} label='College' />
                         <Input onChange={this.handleOptionChange} name="experience" type='radio' value="New Professional" checked={this.state.careerLevel.value} label='New Professional' />
                         <Input onChange={this.handleOptionChange} name="experience" type='radio' value="Professional 5+ Years" checked={this.state.careerLevel.value} label='Professional 5+ Years' />
                         <Input onChange={this.handleOptionChange} name="experience" type='radio' value="Expert" checked={this.state.careerLevel.value} label='Expert' />
-                  </div>
+                  </Row>
                 </div>
                 <br/>
               </Col>
@@ -294,19 +294,19 @@ class MavenQuestionnaire extends Component {
           <Row>
             <Col size="md-12">
               <form>
-                <div row className="checkbox">
+                <Row className="checkbox">
                   <h5>9. What is your industry area of expertise? </h5>
                   <div className="input-group">
                     {this.createIndustryCheckboxes()}
                   </div>
-                </div>
+                </Row>
                 <br/>
-                <div row className="checkbox">
+                <Row className="checkbox">
                   <h5>10. What are your preferred languages? </h5>
                   <div className="input-group">
                     {this.createLangCheckboxes()}
                   </div>
-                </div>
+                </Row>
                 <FormBtn
                   disabled={!(this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons)}
                   onClick={this.handleFormSubmit}

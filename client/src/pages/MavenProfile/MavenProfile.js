@@ -28,43 +28,41 @@ import "./MavenProfile.css";
 
 class MavenProfile extends Component {
 
+  // componentDidMount() {
+  //   this.showSendbirdWidget();
+  // }
+  //   showSendbirdWidget = () => {
+  //   API.getProfiles()
+  //     console.log("I'm should be showing the widget")
+  //     .catch(err => console.log(err));
+  // }
+
 
   render() {
   
     return (
     	<div>
-    		<Nav2/> 
+    		<Nav2 id={this.props.questionnaire.params.id} type={this.props.questionnaire.params.type}/> 
 
         <SignOut />
 
 	        <Row>
 	          <Col className="justify-content-center" size="md-12">
 	            
-           <div className="background-image" style={{backgroundImage:"url(/assets/consumer-Electronic.jpeg)", marginTop:"75px"}}>
-                <br/>
-                <br/>
-                <br/>
-            <ProfileBio/>
+             <div className="background-image" style={{backgroundImage:"url(/assets/consumer-Electronic.jpeg)", marginTop:"75px"}}>
+                  <br/>
+                  <br/>
+                  <br/>
+                  
+                  <ProfileBio  id={this.props.questionnaire.params.id} type={this.props.questionnaire.params.type} />
+                 
+                  <br/>
 
+                  <ProjectBoard id={this.props.questionnaire.params.id} type={this.props.questionnaire.params.type} />
 
-               
-                <br/>
-
-                <ProjectBoard id={this.props.match.params.id}/>
-
-               <ProfileMatch id={this.props.match.params.id}/>
-
-                
-               
+                  <ProfileMatch id={this.props.match.params.id} type={this.props.match.params.type} />               
 
               </div>
-
-
-
-
- 
-
-
 
 	          </Col>
 	        </Row>
@@ -77,16 +75,8 @@ class MavenProfile extends Component {
 
 export default MavenProfile;
 
-
 //<ProfileBio id={this.props.match.params.id}/> THIS IS FOR THE SESSION
 
 // <MavenHeader/>
 
-  // componentDidMount() {
-  //   this.showSendbirdWidget();
-  // }
-  //   showSendbirdWidget = () => {
-  //   API.getProfiles()
-  //     console.log("I'm should be showing the widget")
-  //     .catch(err => console.log(err));
-  // }
+

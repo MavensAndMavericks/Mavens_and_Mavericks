@@ -31,12 +31,15 @@ class ProfileBio extends Component {
 	};
 
 	componentDidMount() {
+		// console.log("Pathname = " + window.location.pathname);
+ 	//     const url = window.location.pathname;
+ 	//     const id = url.split("/")[3]
+	   
+	   const type = this.props.type;//sessionstorage>
+	   console.log("type = " + type);
 
-		console.log("Pathname = " + window.location.pathname);
- 	    const url = window.location.pathname;
- 	    const id = url.split("/")[3]
-	    // const id = this.props.id; <this is for session>
-	    // console.log("id = " + id);
+	    const id = this.props.id; // <this is for sessionstorage>
+	    console.log("id = " + id);
 
 	  	this.loadQuestionnaire(id);
 	};

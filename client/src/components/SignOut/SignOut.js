@@ -1,20 +1,59 @@
-import React from "react";
+//React Libary Imports
+//=============================
+import React, { Component } from "react";
+
+//API Routing Import:
+//=============================
+import API from "../../utils/API";
+
+//Componenet imports:
+//=============================
 import "./SignOut.css";
+//import OAuthBtn from "../OAuthBtn";
 
-const SignOut = () =>
-  <div className="fixed-action-btn toolbar sign-out">
+//=================================================================================
+//=================================================================================
 
-    <a className="btn-floating btn-large blue">
-      <i className="large material-icons">person_pin</i>
-      <span> Sign Out</span>
-    </a>
+class SignOut extends Component {
 
-    <ul>
-      
-      <li className="waves-effect waves-light"><a href="/"><i className="material-icons">wb_incandescent</i>  Mentee Sign Out</a></li>
-      <li className="waves-effect waves-light"><a href="/"><i className="material-icons">vpn_key</i>  Mentor Sign Out</a></li>  
+  handleSignOut = event => {
+    API.deleteSessionQuestionnaireId(this.props.id, this.props.type)
+      .then(res =>
+         window.location.pathname = "/"
+      )
+      .catch(err => console.log(err));
+  }
 
-    </ul>
-  </div>
+  handleProfileClick = event => {
+    API.getSessionQuestionnaireId(this.props.id, this.props.type)
+      .then(res =>
+         window.location.pathname = "/api/questionnaires/" + res.data.questionnaireId + "/" + res.data.questionnaireType,
+      )
+      .catch(err => console.log(err));
+  }
+
+
+
+  render() {
+    return(
+      <div className="fixed-action-btn toolbar sign-out">
+
+        <a className="btn-floating btn-large blue">
+          <i className="large material-icons">person_pin</i>
+          <span> Sign Out</span>
+        </a>
+
+        <ul>
+          <li className="waves-effect waves-light"><a className="btn-xs btn-primary" onClick={this.handleProfileClick}><i className="material-icons">person_pin</i>My Profile</a></li>
+          <li className="waves-effect waves-light"><a onClick={this.handleSignOut}><i className="material-icons">computer</i> Sign Out</a></li> 
+
+        </ul>
+      </div>
+    );
+  }
+}
 
 export default SignOut;
+
+      // <li className="waves-effect waves-light"><a href="/"><i className="material-icons">wb_incandescent</i>  Mentee Sign Out</a></li>
+      // <li className="waves-effect waves-light"><a href="/"><i className="material-icons">vpn_key</i>  Mentor Sign Out</a></li> 
