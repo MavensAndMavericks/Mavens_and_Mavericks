@@ -44,7 +44,7 @@ class MaverickQuestionnaire extends Component {
     id:"",
     firstName:"",
     lastName:"",
-    type: "maven",
+    type: "maverick",
     gitHub:"",
     password:"",
     quote: "",
@@ -62,8 +62,8 @@ class MaverickQuestionnaire extends Component {
   handleFormSubmit = event => {
     event.preventDefault(); 
        
-    this.loadGithub(this.state.gitHub);
-    console.log("questionnaire.gitHub = " + this.state.gitHub);
+    // this.loadGithub(this.state.gitHub);
+    // console.log("questionnaire.gitHub = " + this.state.gitHub);
     if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.goals  && this.state.reasons && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.password ) {
       // console.log("Hey!  Lorna so cool! :)  We're Jelly.");   
       API.saveQuestionnaire({
