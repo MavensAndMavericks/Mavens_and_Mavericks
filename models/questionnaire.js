@@ -23,10 +23,12 @@ const questionnaireSchema = new Schema({
   goals: { type: String, required: false },
   impact: { type: String, required: false },
   
+
   reasons: { type: String, required: true },
   careerLevel: { type: String, required: false },
   languages: { type: Array, required: true },
   industryExperience: { type: Array, required: true },
+
   projects: {type: Array, required: false},
   matches: {type: Array, required: false},
   githubAvatar:{type: String, required: true},

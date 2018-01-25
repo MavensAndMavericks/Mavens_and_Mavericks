@@ -12,17 +12,13 @@ router
     .route('/projects')
     .post(questionnairesController.create);
 
-
-
 /////////////////////////// SESSION STORAGE ROUTE: /////////////////////////////
 
 // Matches with "/api/questionnaires/session" >> THIS IS FOR THE SESSIONSTORAGE of USER DATA!!
-router.route('/session')
-    .get(questionnairesController.getSessionQuestionnaireId)
+// router.route('/session')
+//     .get(questionnairesController.getSessionQuestionnaireId)
 
 ////////////////////////////////////////////////////////////////////////////////
-
-
 
 // Matches with "/api/questionnaires/:id"
 router
@@ -46,6 +42,8 @@ router
     .get(questionnairesController.findMatches)
     .post(questionnairesController.create);
 
-
+// router
+//     .route('/:projects')
+//     .post(questionnairesController.saveProjects);
 
 module.exports = router;

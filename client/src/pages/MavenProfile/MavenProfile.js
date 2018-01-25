@@ -40,12 +40,14 @@ class MavenProfile extends Component {
 	        <Row>
 	          <Col className="justify-content-center" size="md-12">
 	            
-              <div className="background-image" style={{backgroundImage:"url(/assets/consumer-Electronic.jpeg)", marginTop:"75px"}}>
+           <div className="background-image" style={{backgroundImage:"url(/assets/consumer-Electronic.jpeg)", marginTop:"75px"}}>
                 <br/>
                 <br/>
                 <br/>
+            <ProfileBio/>
 
-                <ProfileBio id={this.props.match.params.id}/>
+
+               
                 <br/>
 
                 <ProjectBoard id={this.props.match.params.id}/>
@@ -57,6 +59,13 @@ class MavenProfile extends Component {
 
               </div>
 
+
+
+
+ 
+
+
+
 	          </Col>
 	        </Row>
 
@@ -67,6 +76,9 @@ class MavenProfile extends Component {
 }
 
 export default MavenProfile;
+
+
+//<ProfileBio id={this.props.match.params.id}/> THIS IS FOR THE SESSION
 
 // <MavenHeader/>
 

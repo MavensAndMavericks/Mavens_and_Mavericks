@@ -31,13 +31,11 @@ class ProfileBio extends Component {
 	};
 
 	componentDidMount() {
+
 		console.log("Pathname = " + window.location.pathname);
-	    const url = window.location.pathname;
-	    const id = url.split("/")[3];
-	    console.log("id = " + id);
-
-
-	    // const id = this.props.id;
+ 	    const url = window.location.pathname;
+ 	    const id = url.split("/")[3]
+	    // const id = this.props.id; <this is for session>
 	    // console.log("id = " + id);
 
 	  	this.loadQuestionnaire(id);
@@ -71,6 +69,7 @@ class ProfileBio extends Component {
 	       )
 	      .catch(err => console.log(err));
 	};
+
 
 
 	//Sendbird USERNAME/NICKNAME Handling

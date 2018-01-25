@@ -5,6 +5,7 @@ import { Col, Row, Container } from "../Grid";
 
 //=================================================================================
 const Footer = () =>
+
   <footer className="page-footer" style={{backgroundColor: "blue"}}>
     <Container>
 
@@ -33,6 +34,6 @@ const Footer = () =>
       </Row>
 
     </Container>
-  </footer>;
+  </footer>
 
 export default Footer;
