@@ -58,14 +58,19 @@ class MavenQuestionnaire extends Component {
     reasons: "",
     careerLevel: "",   
     languages: [],
-    industryExperience: []
+    industryExperience: [],
+    githubAvatar: ""
     //personalityResults: []
   };
   
 
 
   handleFormSubmit = event => {
-    event.preventDefault();
+    event.preventDefault(); 
+
+    this.loadGithub(this.state.gitHub);
+    console.log("gitHub = " + this.state.gitHub);
+
     if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.password ) {
       // console.log("Hey!  Lorna so cool! :)  We're Jelly.");   
       API.saveQuestionnaire({
@@ -82,11 +87,10 @@ class MavenQuestionnaire extends Component {
         reasons: this.state.reasons,
         careerLevel: this.state.careerLevel,
         languages: this.state.languages,
-        industryExperience: this.state.industryExperience
+        industryExperience: this.state.industryExperience,
+        githubAvatar: this.state.githubAvatar
         // personalityResults: this.state.personalityResults
       })          
-        
-        .catch(err => console.log(err))
         .then(res => {
           console.log(res.data._id); 
           this.setState({id: res.data._id});
@@ -97,7 +101,18 @@ class MavenQuestionnaire extends Component {
           window.location.pathname = "/api/questionnaires/" + this.state.id + "/maven"
          
         })
+        .catch(err => console.log(err))
     }
+  };
+
+  loadGithub = (gitHub) => {
+    API.getGithubUrl(gitHub)
+      .then(res =>
+         this.setState({ 
+            githubAvatar: res.data.avatar_url
+          })
+         )
+        .catch(err => console.log(err));
   };
 
 

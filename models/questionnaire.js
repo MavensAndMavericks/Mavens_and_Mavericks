@@ -18,14 +18,18 @@ const questionnaireSchema = new Schema({
   quote: { type: String, required: true },
   coded: { type: String, required: true },
   profession: { type: String, required: true },
-  schooling: { type: String, required: true },
-  impact: { type: String, required: true },
+
+  schooling: { type: String, required: false },
+  goals: { type: String, required: false },
+  impact: { type: String, required: false },
+  
   reasons: { type: String, required: true },
   careerLevel: { type: String, required: false },
   languages: { type: Array, required: true },
   industryExperience: { type: Array, required: true },
   projects: {type: Array, required: false},
   matches: {type: Array, required: false},
+  githubAvatar:{type: String, required: true},
   
   //personalityResults: { type: Array, required: true },  //modify as necessary >> after reveiwing the Traitify API
   date: { type: Date, default: Date.now }

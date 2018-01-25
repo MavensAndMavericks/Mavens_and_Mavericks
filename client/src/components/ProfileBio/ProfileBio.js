@@ -146,7 +146,7 @@ class ProfileBio extends Component {
 
 					                     <Col size="sm-8">	
 					                      <h3>Name: 
-					                        <strong className="userFullName">{this.state.questionnaire.firstName} {this.state.questionnaire.lastName}</strong>
+					                        <strong className="userFullName">{" " + this.state.questionnaire.firstName} {this.state.questionnaire.lastName}</strong>
 					                      </h3>
 					                      <h4> 
 					                      	<strong>Github Handler: </strong>
@@ -156,7 +156,7 @@ class ProfileBio extends Component {
 	 									   </h4>
 					                      <h5>Industries of Interest: {this.state.questionnaire.industryExperience.join(", ")} </h5>
 	 									  <h5>Languages: {this.state.questionnaire.languages.join(", ")} </h5>
-	 									  <h5>Reason for Mentorship: {this.state.questionnaire.impact} </h5>
+	 									  <h5>Reason for Mentorship: {this.state.questionnaire.reasons} </h5>
 					                     </Col>
 					                  </main>
 
