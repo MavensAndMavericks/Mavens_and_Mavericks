@@ -86,43 +86,42 @@ class ProfileMatch extends Component {
 					            <br/>
 		
 					            {this.state.matches.length ? ( 
-				                    <div className = "text-center" > {
-				                        this.state.matches.map(match => ( 
-				                            <Row>
-				                            <main key = { match._id }>
-					                     <Col size="sm-4">
-					                     <Chip>	
-					                      <img className="img-responsive" id="matchAvatar" src={match.githubAvatar} alt="Github Profile Pic"/> 
-					                     {match.firstName} {match.lastName}
-					                     </Chip>
-					                     </Col>
+				                    <div className = "text-center" > 
+				                        {this.state.matches.map(match => ( 
+    				                        <Row>
+    				                            <main key = { match._id }>
+            					                     <Col size="sm-4">
+            					                     <Chip>	
+            					                      <img className="img-responsive" id="matchAvatar" src={match.githubAvatar} alt="Github Profile Pic"/> 
+            					                     {match.firstName} {match.lastName}
+            					                     </Chip>
+            					                     </Col>
 
 
-				                            <Col size = "sm-8">
-					                            <h3> Name:
-					                            <strong className = "userFullName" > { match.firstName } { match.lastName } </strong> 
-					                            </h3>
+            				                            <Col size = "sm-8">
+            					                            <h3> Name:
+            					                            <strong className = "userFullName" > { match.firstName } { match.lastName } </strong> 
+            					                            </h3>
 
-					                            <h4>
-					                            <strong> Github Handler: </strong>
-					                            <Link to = { "https://github.com/" + match.gitHub } target = "_blank" >
-					                            <strong className = "githubHandler" > { match.gitHub } </strong>
-					                            </Link> 
-					                            </h4>
+            					                            <h4>
+            					                            <strong> Github Handler: </strong>
+            					                            <Link to = { "https://github.com/" + match.gitHub } target = "_blank" >
+            					                            <strong className = "githubHandler" > { match.gitHub } </strong>
+            					                            </Link> 
+            					                            </h4>
 
-                            
-					                            <h5 > Industries of Interest: { match.industryExperience.join(", ") } </h5> 
-					                            <h5 > Languages: { match.languages.join(", ") } </h5>
-					                            <h5 > Reason for Mentorship: { match.impact } </h5>
-					                           </Col>
+                                        
+            					                            <h5 > Industries of Interest: { match.industryExperience.join(", ") } </h5> 
+            					                            <h5 > Languages: { match.languages.join(", ") } </h5>
+            					                            <h5 > Reason for Mentorship: { match.impact } </h5>
+            					                           </Col>
 
 
-                            
-				                            </main> 
-				                            </Row>
-
-                        				))
-                    				}
+                                        
+            				                            </main> 
+            				                        </Row>
+                            				))
+                        				}
 
                     
                     </div>

@@ -60,7 +60,6 @@ class MavenQuestionnaire extends Component {
   
   handleFormSubmit = event => {
     event.preventDefault(); 
-<<<<<<< HEAD
 
     this.loadGithub(this.state.gitHub);
     console.log("gitHub = " + this.state.gitHub);
@@ -88,6 +87,7 @@ class MavenQuestionnaire extends Component {
         .then(res => {
           console.log(res.data._id); 
           this.setState({id: res.data._id});
+          
           window.location.pathname = "/api/questionnaires/" + this.state.id + "/maven"
         })
 

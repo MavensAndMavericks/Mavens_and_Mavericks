@@ -38,9 +38,6 @@ const App = () =>
         <Route exact path="/mentorsarekey" component={MentorDef} />
         <Route exact path="/openprojects" component={ExampleProj} />
         <Route exact path="/QandA" component={QandA} />
-        
-        <Route exact path="/api/questionnaires/:github/:maven?" component={Welcome} />
-        <Route exact path="/api/questionnaires/:github/:maverick?" component={Welcome} />
 
         <Route exact path="/books/:id" component={Detail} />
         <Route component={NoMatch} /> 
