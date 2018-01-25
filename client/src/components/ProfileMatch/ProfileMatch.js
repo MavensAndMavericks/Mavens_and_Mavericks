@@ -2,6 +2,7 @@
 //=============================
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Chip } from "react-materialize";
 
 //API Routing Import:
 //=============================
@@ -11,7 +12,7 @@ import API from "../../utils/API";
 //=============================
 import { Col, Row, Container } from "../Grid";
 import Jumbotron from "../Jumbotron";
-
+import "./ProfileMatch.css";
 //import { List, ListItem } from "../List";
 
 
@@ -89,8 +90,11 @@ class ProfileMatch extends Component {
 				                        this.state.matches.map(match => ( 
 				                            <Row>
 				                            <main key = { match._id }>
-					                     <Col size="sm-4">	
-					                      <img className="img-responsive" src={match.githubAvatar} alt="Github Profile Pic"/> 
+					                     <Col size="sm-4">
+					                     <Chip>	
+					                      <img className="img-responsive" id="matchAvatar" src={match.githubAvatar} alt="Github Profile Pic"/> 
+					                     {match.firstName} {match.lastName}
+					                     </Chip>
 					                     </Col>
 
 
