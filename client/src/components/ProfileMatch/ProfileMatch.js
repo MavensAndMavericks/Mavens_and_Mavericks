@@ -45,7 +45,7 @@ class ProfileMatch extends Component {
                 })
             )
             .then(() => {
-            	console.log("see below")
+                console.log("see below")
                 console.log(this.state.matches);
                 this.loadGithub(this.state.matches.gitHub);
             }) // MUST MAKE THIS A FUNCTION that renders a FUNCTION >>> by making this a function in a PROMISE chain, it will NOT PROCESS until the promise BEFORE IT has rendered its result!!! :)
@@ -71,36 +71,36 @@ class ProfileMatch extends Component {
 
     render() {
         return ( 
-        	<div>
-            	<Container className = "container-fluid profile-bio" >
-            		<Row>
-            			<Col size = "sm-12" >
-            				<div className = "profile-bio" > {
+            <div>
+                <Container className = "container-fluid profile-bio" >
+                    <Row>
+                        <Col size = "sm-12" >
+                            <div className = "profile-bio" > {
                 /*<br/>
-                						    	<h3 className="text-center">ProfileBio</h3>*/
+                                                <h3 className="text-center">ProfileBio</h3>*/
             }
-					            <Jumbotron className = "jumbotron"> 
-					               <h2> Your Matches </h2> 
-					               <br/>
+                                <Jumbotron className = "jumbotron"> 
+                                   <h2> Your Matches </h2> 
+                                   <br/>
                                     {this.state.matches.length ? ( 
-				                        <div className = "text-center" > {
-				                            this.state.matches.map(match => ( 
-				                           
-				                                <main key = { match._id }>
+                                        <div className = "text-center" > {
+                                            this.state.matches.map(match => ( 
+                                           
+                                                <main key = { match._id }>
 
                                                     <div class="card horizontal">
-                                                    	<div class="card-image">
-                                                      		<img className="img-responsive" id="matchAvatar" src={match.githubAvatar} alt="Github Profile Pic"/>
-                                                      	</div>
-                                                      	<div class="card-stacked">
+                                                        <div class="card-image">
+                                                            <img className="img-responsive" id="matchAvatar" src={match.githubAvatar} alt="Github Profile Pic"/>
+                                                        </div>
+                                                        <div class="card-stacked">
                                                             <div class="card-content">
-                                                      		    <h2 id="yourMatches">{ match.firstName } { match.lastName }</h2>
+                                                                <h2 id="yourMatches">{ match.firstName } { match.lastName }</h2>
                                                                 <p class="cardFont grey-text">
-                                                                	<strong> Github Handler: </strong>
-                                                                	<Link to = { "https://github.com/" + match.gitHub } target = "_blank" >
-                                                                	   <strong className = "githubHandler" > { match.gitHub } </strong>
-                                                                	</Link> 
-                                                                	<br/>
+                                                                    <strong> Github Handler: </strong>
+                                                                    <Link to = { "https://github.com/" + match.gitHub } target = "_blank" >
+                                                                       <strong className = "githubHandler" > { match.gitHub } </strong>
+                                                                    </Link> 
+                                                                    <br/>
                                                                     Industries of Interest: { match.industryExperience.join(", ") }
                                                                     <br/> 
                                                                     Languages: { match.languages.join(", ") } 
@@ -111,10 +111,10 @@ class ProfileMatch extends Component {
                                                         </div>
 
                                                     </div>
-				                                </main> 
+                                                </main> 
 
-                        				        ))
-                    				        }          
+                                                ))
+                                            }          
                                         </div>
 
 

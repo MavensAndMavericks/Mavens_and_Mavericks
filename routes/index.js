@@ -9,7 +9,7 @@ router.use("/api", apiRoutes);
 //otherwise root:
 router.use(function(req, res) {
   console.log("No API route found, going to index.html.");
-  res.sendFile(path.join(__dirname, "../client/public/index.html")); //does this need to read "/client/PUBLIC/index.html" instead of "client/BUILD/index.html"??
+  res.sendFile(path.join(__dirname, "../client/build/index.html")); //does this need to read "/client/PUBLIC/index.html" instead of "client/BUILD/index.html"??
 });
  
  // getProfiles: function(questionnaireData) {

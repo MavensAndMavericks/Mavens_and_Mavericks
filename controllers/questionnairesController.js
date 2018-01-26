@@ -5,7 +5,7 @@ const db = require("../models") // !! this should access the models folder !!
 module.exports = {
     findAll: function(req, res) {
         db.Questionnaire
-            .find(req.query)
+            .find(req.query) //what is the req.query here? >>, what percisely does this check?
             .sort({ date: -1 })
             .then(dbProfile => res.json(dbProfile))
             .catch(err => res.status(422).json(err));
@@ -21,8 +21,10 @@ module.exports = {
             .catch(err => res.status(455).json(err));
     },
     findOne: function(req, res) {
-        db.Questionnaire
-            .findOne({ "gitHub": req.params.github }, "_id type") //should locate where the github matches the github id provided, and return the related ID and type.
+
+        db.Questionnaire     
+            .findOne({ "gitHub": req.params.github}, "_id type password") //should locate where the github matches the github id provided, and return the related ID and type.
+
             .then(dbProfile => {
                 req.session.questionnaireId = dbProfile._id;
                 console.log('Github Handler used for gitHub Query for Type and ID : ', req.params.github);
@@ -31,10 +33,22 @@ module.exports = {
             })
             .catch(err => res.status(422).json(err));
     },
+    createProfile: function(req, res) {
+        db.Questionnaire
+            .create(req.body)
+            .then(dbProfile => {                          
+              // req.session.questionnaireId = dbProfile._id;
+              res.json(dbProfile);
+            })
+            .catch(err => res.status(422).json(err));
+    },
     create: function(req, res) {
         db.Questionnaire
             .create(req.body)
-            .then(dbProfile => res.json(dbProfile))
+            .then(dbProfile => {
+              console.log("HEY Ladies and Gent ;)... This is the create func for all data other than profile data: " + dbProfile);
+              res.json(dbProfile);
+            })
             .catch(err => res.status(422).json(err));
     },
     update: function(req, res) {
@@ -50,17 +64,17 @@ module.exports = {
             .then(dbProfile => res.json(dbProfile))
             .catch(err => res.status(422).json(err));
     },
-    // getSessionQuestionnaireId: function(req, res) {
-    //   console.log(JSON.stringify(req.session))
-    //   res.json({questionnaireId: req.session.questionnaireId});
-    // },
 
-    // logOut: function (req, res) {
-    //   req.session.destroy(function () {
-    //     res.status(200).send();
-    //   })
-    // },
-
+    getSessionQuestionnaireId: function(req, res) {
+      console.log(JSON.stringify(req.session))
+      res.json({questionnaireId: req.session.questionnaireId, questionnaireType: req.session.questionnaireType});
+    },
+    logOut: function (req, res) {
+      this.getSessionQuestionnaireId(req.id, req.type),
+      req.session.destroy(function () {
+        res.status(200).send();
+      })
+    },
     findMatches: function(req, res) {
         // var dbProfile = db.Questionnaire;
         var careerLevelQuery;

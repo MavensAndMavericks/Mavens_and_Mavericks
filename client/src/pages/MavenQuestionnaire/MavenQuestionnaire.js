@@ -60,12 +60,15 @@ class MavenQuestionnaire extends Component {
   
   handleFormSubmit = event => {
     event.preventDefault(); 
-       
+
+    this.loadGithub(this.state.gitHub);
+    console.log("gitHub = " + this.state.gitHub);
     
     API.getGithubUrl(this.state.gitHub).then((res) => {
     const githubAvatar = res.data.avatar_url;
     console.log("questionnaire.gitHub = " + this.state.gitHub);
     console.log(this.state.githubAvatar)
+
     if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.password ) {
       // console.log("Hey!  Lorna so cool! :)  We're Jelly.");   
       API.saveQuestionnaire({
@@ -89,14 +92,20 @@ class MavenQuestionnaire extends Component {
         .then(res => {
           console.log(res.data._id); 
           this.setState({id: res.data._id});
+
+          // Clear sessionStorage
+          sessionStorage.clear();
+          // Store all content into sessionStorage
+          sessionStorage.setItem("questionnaireId", this.state.id); //<this is for sessionstorage>
+          sessionStorage.setItem("questionnaireType", this.state.type); //<this is for sessionstorage>
+          
           window.location.pathname = "/api/questionnaires/" + this.state.id + "/maven"
         })
-        .catch(err => console.log(err));  
-     
+
+        .catch(err => console.log(err));       
     }
-
-
-    })
+  });
+    
     // console.log("questionnaire.gitHub = " + this.state.gitHub);
     // console.log(this.state.githubAvatar)
     // if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.password ) {
