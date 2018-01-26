@@ -56,7 +56,7 @@ export default {
   },
   // Saves a questionnaire to the database
   saveQuestionnaire: function(questionnaireData) {
-    return axios.post("/api/questionnaires/", questionnaireData);
+    return axios.post("/api/questionnaires/", questionnaireData );
   },
 
   // saveProjects: function(projectData){
@@ -68,10 +68,7 @@ export default {
     return axios.get("/api/questionnaires/" + id + "/matches");
   },
 
-    // Saves a questionnaire to the database
-  // getMaverickMatches: function(id) {
-  //   return axios.get("/api/questionnaires/" + id + "/mentee/matches");
-  // },
+
 
 //////////// MAKE THIS WORK ...SOON...
   // // Gets the github profile projects for the given github
