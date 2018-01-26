@@ -39,16 +39,19 @@ class ProjectBoard extends Component {
 	   API.getQuestionnaire(id)
 	     .then(res =>
 	       this.setState({ 
-	       	questionnaire:res.data,
-	       	github: res.data.gitHub,
-	       	id: res.data._id
+		       	questionnaire:res.data,
+		       	github: res.data.gitHub,
+		       	id: res.data._id
 	       })
+
 	     )
 	     .then(() => {// MUST MAKE THIS A FUNCTION that renders a FUNCTION >>> by making this a function in a PROMISE chain, it will NOT PROCESS until the promise BEFORE IT has rendered its result!!! :)
-	     	console.log("this.state.questionnaire : " + this.state.questionnaire);
-	     	console.log("this.state.gitHub = " + this.state.gitHub);
+	     	console.log("this.state.questionnaire : ");
+	     	console.log(this.state.questionnaire);
+	     	console.log("this.state.gitHub = " + this.state.github);
+
 	     	this.loadGithub(this.state.gitHub);
-	     	}) 
+	     }) 
 	     .catch(err => console.log(err));
 	}; 
 
@@ -61,6 +64,9 @@ class ProjectBoard extends Component {
 		  )
 		  .then(() => {// MUST MAKE THIS A FUNCTION that renders a FUNCTION >>> by making this a function in a PROMISE chain, it will NOT PROCESS until the promise BEFORE IT has rendered its result!!! :)
 	     	console.log("this.state.githubProjects = " + this.state.githubProjects);
+	     	console.log(this.state.githubProjects[0]);
+	     	console.log(this.state.githubProjects.length);
+
 	     	API.saveProjects({
         		projects: this.state.githubProjects
         	})
@@ -75,13 +81,23 @@ class ProjectBoard extends Component {
 	};
 
 
-	displayProjectLanguages = (project) => {
-	  	if(project.languages_url.length) {
-			for(let language of project.languages_url) {
-			    return language + " ";
+	displayProjectLanguages = (projectName) => {
+		API.getProjectLanguages(this.state.github, projectName)
+	     .then(res => {
+	     	const projectLang = res.data;
+		  	console.log("projectLang = " + projectLang);
+
+			if(projectLang.length) {
+				let langArray = [];
+				for(let language of projectLang) {
+				    langArray.push(language + " ");
+				}
+				console.log("language Array for proejct = " + langArray);
+				return langArray;
 			}
-		};
-	}
+	     })
+	     .catch(err => console.log(err));
+	};
 
 
   render() {
@@ -101,14 +117,14 @@ class ProjectBoard extends Component {
 		              <main key={project._id}>
 
 
-		                <Col m={3} s={6} size="md-3">
-		                	<Card header={<CardTitle reveal image={project.html_url} waves='light'/>}
-								title={project.html_url}
+		                <Col l={3} m={4} s={6} size="s-3">
+		                	<Card header={<CardTitle reveal image={<iframe src={project.html_url} height="200px" width="200px"></iframe>} waves='light'/>}
+								title={project.name}
 								reveal={
 									<div>
-										<p>Description: {project.description}</p>
-										<p>Languages Used: {this.displayProjectLanguages(project)}</p>
-			                            <p>Lasted Updated: {moment(project.updated_at, "YYYY-MM-DD HH:mm Z").format("MM-DD-YYYY")}</p>
+										<p style={{color:"#01010a"}}>Description: {project.description}</p>
+										<p style={{color:"#01010a"}}>Languages Used: {this.displayProjectLanguages(project.name)}</p>
+			                            <p style={{color:"#01010a"}}>Lasted Updated: {moment(project.updated_at, "YYYY-MM-DD HH:mm Z").format("MM-DD-YYYY")}</p>
 		                            </div>
 								}>
 								<Link to={"/project/" + project.name} target="_blank">	  	

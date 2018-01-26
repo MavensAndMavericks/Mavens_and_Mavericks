@@ -35,7 +35,7 @@ module.exports = {
         db.Questionnaire
             .create(req.body)
             .then(dbProfile => {                          
-              req.session.questionnaireId = dbProfile._id;
+              // req.session.questionnaireId = dbProfile._id;
               res.json(dbProfile);
             })
             .catch(err => res.status(422).json(err));
@@ -73,7 +73,6 @@ module.exports = {
         res.status(200).send();
       })
     },
-
     findMatches: function(req, res) {
         // var dbProfile = db.Questionnaire;
         var careerLevelQuery;

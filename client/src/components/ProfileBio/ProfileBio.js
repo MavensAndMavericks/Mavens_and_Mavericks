@@ -138,7 +138,7 @@ class ProfileBio extends Component {
 				    			{/*<br/>
 						    	<h3 className="text-center">ProfileBio</h3>*/}
 						    
-							   <Jumbotron className="jumbotron"> 			            
+							   <Jumbotron className="img-responsive"> 			            
 					           {this.state.questionnaire ? (
 					              
 					                  <main key={this.state._id}>

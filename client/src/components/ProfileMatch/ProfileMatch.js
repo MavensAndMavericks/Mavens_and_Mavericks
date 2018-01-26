@@ -42,7 +42,6 @@ class ProfileMatch extends Component {
             .then(res =>
                 this.setState({
                     matches: res.data
-
                 })
             )
             .then(() => {
@@ -65,7 +64,6 @@ class ProfileMatch extends Component {
     };
 
 
-
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
@@ -80,62 +78,55 @@ class ProfileMatch extends Component {
             		<Row>
             			<Col size = "sm-12" >
             				<div className = "profile-bio" > {
-                /*<br/>
-                						    	<h3 className="text-center">ProfileBio</h3>*/
-            }
-					            <Jumbotron className = "jumbotron"> 
-					            <h2> Your Matches </h2> 
-					            <br/>
 
-                                {this.state.matches.length ? ( 
-				                    <div className = "text-center" > {
-				                        this.state.matches.map(match => ( 
-				                            <Row>
-				                            <main key = { match._id }>
-					                     
-			                                 <img className="img-responsive" id="matchAvatar" src={match.githubAvatar} alt="Github Profile Pic"/> 
+					            <Jumbotron className="img-responsive"> 
+    					            <h2> Your Matches </h2> 
+    					            <br/>
 
-				                            <Col size = "sm-8">
-					                            <h3> Name:
-					                            <strong className = "userFullName" > { match.firstName } { match.lastName } </strong> 
-					                            </h3>
+                                        {this.state.matches.length ? ( 
+        				                    <div className = "text-center" > {
+        				                        this.state.matches.map(match => ( 
+        				                            <Row>
+        				                            <main key = { match._id }>
+        					                     
+        			                                 <img className="img-responsive" id="matchAvatar" src={match.githubAvatar} alt="Github Profile Pic"/> 
 
-					                            <h4>
-					                            <strong> Github Handler: </strong>
-					                            <Link to = { "https://github.com/" + match.gitHub } target = "_blank" >
-					                            <strong className = "githubHandler" > { match.gitHub } </strong>
-					                            </Link> 
-					                            </h4>
+        				                            <Col size = "sm-8">
+        					                            <h3> Name:
+        					                               <strong className = "userFullName" > " " + { match.firstName } { match.lastName } </strong> 
+        					                            </h3>
 
-                            
-					                            <h5 > Industries of Interest: { match.industryExperience.join(", ") } </h5> 
-					                            <h5 > Languages: { match.languages.join(", ") } </h5>
-					                            <h5 > Reason for Mentorship: { match.impact } </h5>
-					                           </Col>
+        					                            <h4>
+            					                            <strong> Github Handler: </strong>
+            					                            <Link to = { "https://github.com/" + match.gitHub } target = "_blank" >
+            					                            <strong className = "githubHandler" > { match.gitHub } </strong>
+            					                            </Link> 
+        					                            </h4>
 
+        					                            <h5 > Industries of Interest: { match.industryExperience.join(", ") } </h5> 
+        					                            <h5 > Languages: { match.languages.join(", ") } </h5>
+        					                            <h5 > Reason for Mentorship: { match.impact } </h5>
+        					                        </Col>
 
-                            
-				                            </main> 
-				                            </Row>
+        				                            </main> 
+        				                            </Row>
+                                                ))
+                                            }                    
+                                            </div>
 
-                        				))
-                    				}                    
-                    </div>
+                                            ) : ( 
+                                            <h3 className = "text-center" > No Results to Display </h3>
+                                            )
+                                        }
 
+                                </Jumbotron>
+                            </div> 
+                        </Col>
+                    </Row>
+        	        <br/>
+        	        <br/>
 
-                ) : ( 
-                    <h3 className = "text-center" > No Results to Display </h3>
-                )
-            }
-
-            </Jumbotron>
-            </div> 
-            </Col>
-            </Row>
-
-	          <br/>
-	          <br/>
-            </Container>
+                </Container>
             </div>
         );
     }
@@ -143,49 +134,4 @@ class ProfileMatch extends Component {
 
 export default ProfileMatch;
 
-
-
-		// <img className="img-responsive" id="matchAvatar" src={match.githubAvatar} alt="Github Profile Pic"/> 
-					                     
-					       // {this.state.matches.length ? ( 
-				        //             <div className = "text-center" > {
-				        //                 this.state.matches.map(match => ( 
-				        //                     <Row>
-				        //                     <main key = { match._id }>
-					                     
-
-
-				        //                     <Col size = "sm-8">
-					       //                      <h3> Name:
-					       //                      <strong className = "userFullName" > { match.firstName } { match.lastName } </strong> 
-					       //                      </h3>
-
-					       //                      <h4>
-					       //                      <strong> Github Handler: </strong>
-					       //                      <Link to = { "https://github.com/" + match.gitHub } target = "_blank" >
-					       //                      <strong className = "githubHandler" > { match.gitHub } </strong>
-					       //                      </Link> 
-					       //                      </h4>
-
-                            
-					       //                      <h5 > Industries of Interest: { match.industryExperience.join(", ") } </h5> 
-					       //                      <h5 > Languages: { match.languages.join(", ") } </h5>
-					       //                      <h5 > Reason for Mentorship: { match.impact } </h5>
-					       //                     </Col>
-
-
-                            
-				        //                     </main> 
-				        //                     </Row>
-
-            //             				))
-            //         				}
-
-                    
-            //         </div>
-
-
-            //     ) : ( 
-            //         <h3 className = "text-center" > No Results to Display </h3>
-            //     )
-            // }
+{/*// <img className="img-responsive" id="matchAvatar" src={match.githubAvatar} alt="Github Profile Pic"/> */}

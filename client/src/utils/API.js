@@ -62,6 +62,13 @@ export default {
     // })
   },
 
+  getSessionQuestionnaireId: function(id, type) {
+    return axios.get("/api/questionnaires/" + id + "/" + type + "/session");
+  },
+  deleteSessionQuestionnaireId: function(id, type) {
+    return axios.delete("/api/questionnaires/" + id + "/" + type + "/session");
+  },
+
 /////////////////////
   // Gets a match for mavens from the the database
   // getMatches: function(id) {
@@ -74,18 +81,10 @@ export default {
   // },
 /////////////////////////
 
-  getSessionQuestionnaireId: function(id, type) {
-    return axios.get("/api/questionnaires/" + id + "/" + type + "/session");
-  },
-  deleteSessionQuestionnaireId: function(id, type) {
-    return axios.delete("/api/questionnaires/" + id + "/" + type + "/session");
-  },
 
-
-//////////// MAKE THIS WORK ...SOON...
   // // Gets the github profile projects for the given github
   getGithubProjects: function(github) {
-    return axios.get("https://api.github.com/users/" + github + "/repos", function(req, res) { //"https://api.github.com/users/" + github + "/repos"
+    return axios.get("https://api.github.com/users/wisnioa/repos", function(req, res) { //"https://api.github.com/users/" + github + "/repos"
       console.log("github repos" + res.data);
       console.log(res.status);
       res.json(res.data);
@@ -100,13 +99,23 @@ export default {
       res.json(res.data);
     })
   },
-  
+
+  getProjectLanguages: function(github, projectName) {
+    return axios.get("https://api.github.com/repos/wisnioa/" + projectName + "/languages", function(req, res) {
+      console.log("github project languages" + res.data);
+      console.log(res.status);
+      res.json(res.data);
+    })
+  },
   // Deletes the githubProjects project selected&deletedo on main web profile page
   deleteProject: function(id) {
     return axios.delete("/api/project/" + id);
   }
 
 ///////////////////////////////////////////////////////////////////////
+// repo languages:  //"https://api.github.com/repos/wisnioa/amandaAwesome/languages //"https://api.github.com/repos/" + github + "/" + projectName + "/languages"
+// repos:   //"https://api.github.com/users/" + github + "/repos"
+ 
 // $.ajax({
 //  url: "https://api.github.com/users/wisnioa/repos",
 //  jsonp: true,

@@ -90,6 +90,12 @@ class MavenQuestionnaire extends Component {
         .then(res => {
           console.log(res.data._id); 
           this.setState({id: res.data._id});
+
+          // Clear sessionStorage
+          sessionStorage.clear();
+          // Store all content into sessionStorage
+          sessionStorage.setItem("questionnaireId", this.state.id); //<this is for sessionstorage>
+          sessionStorage.setItem("questionnaireType", this.state.type); //<this is for sessionstorage>
           
           window.location.pathname = "/api/questionnaires/" + this.state.id + "/maven"
         })
