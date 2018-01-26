@@ -12,7 +12,6 @@ import API from "../../utils/API";
 import * as moment from 'moment';
 import {Card, CardTitle} from 'react-materialize';
 
-
 //Componenet imports:
 //=============================
 import "./ProjectBoard.css";
@@ -150,7 +149,6 @@ class ProjectBoard extends Component {
     );
   }
 }
-
 
 export default ProjectBoard;
 

@@ -14,17 +14,19 @@ module.exports = {
         db.Questionnaire
             .findById(req.params.id)
             .then(dbProfile => {
-                console.log('QUERYYYY', req.params.id);
-                console.log(dbProfile)
+                console.log('Find by ID:', req.params.id);
+                // console.log(dbProfile)
                 res.json(dbProfile);
             })
             .catch(err => res.status(455).json(err));
     },
     findOne: function(req, res) {
+
         db.Questionnaire     
             .findOne({ "gitHub": req.params.github}, "_id type password") //should locate where the github matches the github id provided, and return the related ID and type.
+
             .then(dbProfile => {
-                // req.session.questionnaireId = dbProfile._id;
+                req.session.questionnaireId = dbProfile._id;
                 console.log('Github Handler used for gitHub Query for Type and ID : ', req.params.github);
                 console.log(dbProfile)
                 res.json(dbProfile);
@@ -95,20 +97,28 @@ module.exports = {
                             careerLevelQuery = { $in: ["New Professional", "College", "Novice"] }
                             break;
                         case "Expert":
-                            careerLevelQuery = { $in: ["Professional 5+ years", "New Professional", "College", "Novice"] } 
+                            careerLevelQuery = { $in: ["Professional 5+ years", "New Professional", "College", "Novice"] }
                             break;
                         case "College":
                             careerLevelQuery = { $in: ["Novice"] }
                         default:
-                            console.log('Sorry, we are out of ' + expr + '.');
+                            console.log('Sorry, we are out of results');
                     }
-
+                    console.log("===================")
+                    console.log("===================")
+                    console.log("===================")
                     console.log(careerLevelQuery)
                     console.log("Below is dbprofile.careerlevel...")
                     console.log(dbProfile.careerLevel)
-                    console.log(dbProfile.type)
 
-                } else if (dbProfile.type === "maverick")  {
+                    console.log(dbProfile.type)
+                    console.log("===================")
+                    console.log("===================")
+                    console.log("===================")
+
+
+
+                } else if (dbProfile.type === "maverick") {
 
 
                     switch (dbProfile.careerLevel) {
@@ -124,24 +134,42 @@ module.exports = {
                         case "Professional 5+ Year":
                             careerLevelQuery = { $in: ["New Professional", "College"] }
                         default:
-                            console.log('Sorry, we are out of ' + expr + '.');
+                            console.log("Sorry, we are out of results");
                     }
-                     console.log(dbProfile.type)
+
+console.log("this is workin")
 
 
-                   
+
+
                 }
+
+                console.log("===================")
+                console.log("===================")
+                console.log("===================")
+                console.log("This is debugging")
+                console.log(dbProfile.type);
+                console.log(dbProfile._id);
+                console.log(careerLevelQuery);
+                console.log(dbProfile.languages);
+                console.log(dbProfile.industryExperience)
+                console.log("===================")
+
                 return db.Questionnaire.find({
                     _id: { $nin: dbProfile._id },
                     type: { $nin: dbProfile.type },
                     careerLevel: careerLevelQuery,
-                    languages: { $in: ["Javascript", "Python", "PHP", "Ruby", "C++", "SQL", "Go", "Scala", "React", "Vue", "HTML/CSS"] },
-                    industryExperience: { $in: ["Security", "Commerce", "Finance", "Health", "Gaming", "Social Media", "Web Design", "Marketing", "Electrical Engineering", "Artificial Intelligence"] },
+                    languages: { $in: dbProfile.languages },
+                    industryExperience: { $in: dbProfile.industryExperience }
+
+                    // languages: { $in: ["Javascript", "Python", "PHP", "Ruby", "C++", "SQL", "Go", "Scala", "React", "Vue", "HTML/CSS"] },
+                    // industryExperience: { $in: ["Security", "Commerce", "Finance", "Health", "Gaming", "Social Media", "Web Design", "Marketing", "Electrical Engineering", "Artificial Intelligence"] }
                 })
             }).then((dbProfile) => {
                 console.log("hey")
                 console.log(careerLevelQuery)
-                console.log(dbProfile)
+                // console.log(dbProfile)
+
                 res.json(dbProfile);
             })
     }
