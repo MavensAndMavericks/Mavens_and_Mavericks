@@ -1,4 +1,32 @@
-#matchAvatar{
-	width: 20%;
-	height: 5%;
+.jumbotron{
+	padding-right: 150px;
+	padding-left: 150px;
 }
+
+
+#matchAvatar{
+	width: 300px;
+	height: 300px;
+}
+
+
+/*.card {
+padding-right: 50px;
+padding-left: 50px;
+
+}*/
+
+#matchPhoto{
+	width: 100%;
+}
+
+#yourMatches{
+	color: black;
+}
+
+.cardFont{
+	color: black;
+	font-size: 90px;
+}
+
+

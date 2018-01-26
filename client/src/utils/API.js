@@ -20,10 +20,13 @@ export default {
   },
   // Saves a questionnaire to the database
   saveQuestionnaire: function(questionnaireData) {
+
     return axios.post("/api/questionnaires", questionnaireData);
+
   // saveProjects: function(projectData){
   //   return axios.post("api/questionnaires", pr)
   },
+
   // Saves a project to the database
   saveProjects: function(id, type, github, projectName, projectData){
     return axios.post("api/questionnaires/" + id + "/" + type +"/session/" + github + "/" + projectName  + "/", projectData);
@@ -80,7 +83,6 @@ export default {
   //   return axios.get("/api/questionnaires/" + id + "/mentee/matches");
   // },
 /////////////////////////
-
 
   // // Gets the github profile projects for the given github
   getGithubProjects: function(github) {

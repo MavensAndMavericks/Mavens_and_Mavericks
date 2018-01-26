@@ -63,9 +63,11 @@ class MavenQuestionnaire extends Component {
 
     this.loadGithub(this.state.gitHub);
     console.log("gitHub = " + this.state.gitHub);
-       
-    // this.loadGithub(this.state.gitHub);
-    // console.log("gitHub = " + this.state.gitHub);
+    
+    API.getGithubUrl(this.state.gitHub).then((res) => {
+    const githubAvatar = res.data.avatar_url;
+    console.log("questionnaire.gitHub = " + this.state.gitHub);
+    console.log(this.state.githubAvatar)
 
     if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.password ) {
       // console.log("Hey!  Lorna so cool! :)  We're Jelly.");   
@@ -84,7 +86,7 @@ class MavenQuestionnaire extends Component {
         careerLevel: this.state.careerLevel,
         languages: this.state.languages,
         industryExperience: this.state.industryExperience,
-        githubAvatar: this.state.githubAvatar
+        githubAvatar: githubAvatar
         // personalityResults: this.state.personalityResults
       })          
         .then(res => {
@@ -102,6 +104,7 @@ class MavenQuestionnaire extends Component {
 
         .catch(err => console.log(err));       
     }
+
   };
 
   loadGithub = (gitHub) => {

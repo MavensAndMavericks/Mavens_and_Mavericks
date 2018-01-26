@@ -19,7 +19,7 @@ import "./ProfileMatch.css";
 //=================================================================================
 class ProfileMatch extends Component {
     state = {
-        // questionnaire: [],
+        questionnaire: [],
         matches: [],
         githubUrl: ""
 
@@ -33,7 +33,7 @@ class ProfileMatch extends Component {
         const id = this.props.id  //does this need to be "this.props._id" >> ie: with the underscore?!?!?!
         console.log("id = " + this.props.id);
 
-        this.loadQuestionnaire(id);
+        this.loadQuestionnaire(id)
     };
 
 
@@ -47,8 +47,7 @@ class ProfileMatch extends Component {
             .then(() => {
             	console.log("see below")
                 console.log(this.state.matches);
-                // console.log(this.state.firstName)
-                // this.loadGithub(this.state.matches.gitHub);
+                this.loadGithub(this.state.matches.gitHub);
             }) // MUST MAKE THIS A FUNCTION that renders a FUNCTION >>> by making this a function in a PROMISE chain, it will NOT PROCESS until the promise BEFORE IT has rendered its result!!! :)
             .catch(err => console.log(err));
     };
@@ -60,7 +59,7 @@ class ProfileMatch extends Component {
                     githubUrl: res.data //single obj //.avatar_url >>>> to find the pic
                 })
             )
-            .catch(err => console.log(err));
+            .catch(err => console.log("More errors in profile match" + err));
     };
 
 
@@ -123,6 +122,7 @@ class ProfileMatch extends Component {
                             </div> 
                         </Col>
                     </Row>
+
         	        <br/>
         	        <br/>
 
@@ -135,3 +135,4 @@ class ProfileMatch extends Component {
 export default ProfileMatch;
 
 {/*// <img className="img-responsive" id="matchAvatar" src={match.githubAvatar} alt="Github Profile Pic"/> */}
+

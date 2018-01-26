@@ -95,8 +95,7 @@ module.exports = {
                             careerLevelQuery = { $in: ["New Professional", "College", "Novice"] }
                             break;
                         case "Expert":
-                            careerLevelQuery = { $in: ["Professional 5+ years", "New Professional", "College", "Novice"] }
-                            // expected output: "Mangoes and papayas are $2.79 a pound."
+                            careerLevelQuery = { $in: ["Professional 5+ years", "New Professional", "College", "Novice"] } 
                             break;
                         case "College":
                             careerLevelQuery = { $in: ["Novice"] }
@@ -121,7 +120,6 @@ module.exports = {
                             break;
                         case "New Professional":
                             careerLevelQuery = { $in: ["College"] }
-                            // expected output: "Mangoes and papayas are $2.79 a pound."
                             break;
                         case "Professional 5+ Year":
                             careerLevelQuery = { $in: ["New Professional", "College"] }
@@ -137,8 +135,8 @@ module.exports = {
                     _id: { $nin: dbProfile._id },
                     type: { $nin: dbProfile.type },
                     careerLevel: careerLevelQuery,
-                    languages: { $in: [dbProfile.languages] },
-                    industryExperience: { $in: [dbProfile.industryExperience] },
+                    languages: { $in: ["Javascript", "Python", "PHP", "Ruby", "C++", "SQL", "Go", "Scala", "React", "Vue", "HTML/CSS"] },
+                    industryExperience: { $in: ["Security", "Commerce", "Finance", "Health", "Gaming", "Social Media", "Web Design", "Marketing", "Electrical Engineering", "Artificial Intelligence"] },
                 })
             }).then((dbProfile) => {
                 console.log("hey")

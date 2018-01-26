@@ -28,8 +28,16 @@ const App = () =>
         <Route exact path="/" component={Welcome} /> 
         <Route exact path="/maverickquestionnaire" component={MaverickQuestionnaire} />
         <Route exact path="/mavenquestionnaire" component={MavenQuestionnaire} />
+<<<<<<< HEAD
         <Route exact path="/api/questionnaires/:id/:type?" component={MavenProfile} />
         <Route exact path="/api/questionnaires/:id/:mentee/:type?" component={MaverickProfile} />
+=======
+
+        <Route exact path="/api/questionnaires/:id/:type" component={MavenProfile} />
+        <Route exact path="/api/questionnaires/:id/:mentee/:maverick" component={MaverickProfile} />
+
+
+>>>>>>> master
         
         <Route exact path="/mavensandmavericks" component={MeetPage} />
         <Route exact path="/aboutus" component={AboutUs} />
