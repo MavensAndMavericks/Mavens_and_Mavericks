@@ -62,10 +62,11 @@ class MaverickQuestionnaire extends Component {
   handleFormSubmit = event => {
     event.preventDefault(); 
        
-    // this.loadGithub(this.state.gitHub);
+    this.loadGithub(this.state.gitHub);
     // console.log("questionnaire.gitHub = " + this.state.gitHub);
     if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.goals  && this.state.reasons && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.password ) {
       // console.log("Hey!  Lorna so cool! :)  We're Jelly.");   
+
       API.saveQuestionnaire({
         firstName: this.state.firstName,
         lastName: this.state.lastName,
@@ -94,15 +95,18 @@ class MaverickQuestionnaire extends Component {
      
     }
   };
+
+
   loadGithub = (gitHub) => {
     API.getGithubUrl(gitHub)
-      .then(res =>
+      .then(res => {
          this.setState({ 
             githubAvatar: res.data.avatar_url
           })
-         )
-        .catch(err => console.log(err));
+         })
+        .catch(err => console.log("This is an error" + err));
   };
+
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
