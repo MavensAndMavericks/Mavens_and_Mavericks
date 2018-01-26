@@ -8,7 +8,56 @@ import { Col, Row } from "../Grid";
 
 class CommentWall extends component {
 
+    state = {
+        questionnaire: [],
 
+        githubUrl: ""
+
+    };
+
+    componentDidMount() {
+        console.log("Pathname = " + window.location.pathname);
+        const url = window.location.pathname;
+        const id = url.split("/")[3];
+        // const type = url.split("/")[3]
+        // const id = this.props.id
+        console.log("id = " + id);
+
+        this.loadQuestionnaire(id)
+    };
+
+
+    loadQuestionnaire = (id) => {
+        API.getMatches(id)
+            .then(res =>
+                this.setState({
+                    matches: res.data
+                })
+            )
+            .then(() => {
+            	console.log("see below")
+                console.log(this.state.matches);
+                this.loadGithub(this.state.matches.gitHub);
+            }) // MUST MAKE THIS A FUNCTION that renders a FUNCTION >>> by making this a function in a PROMISE chain, it will NOT PROCESS until the promise BEFORE IT has rendered its result!!! :)
+            .catch(err => console.log(err));
+    };
+
+    loadGithub = (gitHub) => {
+        API.getGithubUrl(gitHub)
+            .then(res =>
+                this.setState({
+                    githubUrl: res.data //single obj //.avatar_url >>>> to find the pic
+                })
+            )
+            .catch(err => console.log("More errors in profile match" + err));
+    };
+
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+        });
+    };
 
     render() {
         return

@@ -12,8 +12,13 @@ import Footer from "../../components/Footer";
 
 class CommentPage extends Component {
 
+state = {
+    questionnaire: null,
+    github: "",
+    id: "",
+    project: {}
 
-
+}
     render() {
         return
         <div>
