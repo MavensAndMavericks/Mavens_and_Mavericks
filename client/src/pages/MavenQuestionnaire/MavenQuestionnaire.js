@@ -104,21 +104,39 @@ class MavenQuestionnaire extends Component {
 
         .catch(err => console.log(err));       
     }
-
+  });
+    
+    // console.log("questionnaire.gitHub = " + this.state.gitHub);
+    // console.log(this.state.githubAvatar)
+    // if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.password ) {
+    //   // console.log("Hey!  Lorna so cool! :)  We're Jelly.");   
+    //   API.saveQuestionnaire({
+    //     firstName: this.state.firstName,
+    //     lastName: this.state.lastName,
+    //     type: this.state.type,
+    //     gitHub: this.state.gitHub,
+    //     password: this.state.password,
+    //     quote: this.state.quote,
+    //     coded: this.state.coded,
+    //     profession: this.state.profession,
+    //     schooling: this.state.schooling,
+    //     impact: this.state.impact,
+    //     reasons: this.state.reasons,
+    //     careerLevel: this.state.careerLevel,
+    //     languages: this.state.languages,
+    //     industryExperience: this.state.industryExperience,
+    //     githubAvatar: this.state.githubAvatar
+    //     // personalityResults: this.state.personalityResults
+    //   })          
+    //     .then(res => {
+    //       console.log(res.data._id); 
+    //       this.setState({id: res.data._id});
+    //       window.location.pathname = "/api/questionnaires/" + this.state.id + "/maven"
+    //     })
+    //     .catch(err => console.log(err));  
+     
+    // }
   };
-
-  loadGithub = (gitHub) => {
-    API.getGithubUrl(gitHub)
-      .then(res =>
-         this.setState({ 
-            githubAvatar: res.data.avatar_url
-          })
-         )
-        .catch(err => console.log(err));
-  };
-
-
-
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -291,13 +309,13 @@ class MavenQuestionnaire extends Component {
                     name="reasons"
                   />        
                 <div>
-                  <Row className="radio">
+                  <div row className="radio">
                       <h5>8. What is your current level of experience? </h5>
                         <Input onChange={this.handleOptionChange} name="experience" type='radio' value="College" checked={this.state.careerLevel.value} label='College' />
                         <Input onChange={this.handleOptionChange} name="experience" type='radio' value="New Professional" checked={this.state.careerLevel.value} label='New Professional' />
                         <Input onChange={this.handleOptionChange} name="experience" type='radio' value="Professional 5+ Years" checked={this.state.careerLevel.value} label='Professional 5+ Years' />
                         <Input onChange={this.handleOptionChange} name="experience" type='radio' value="Expert" checked={this.state.careerLevel.value} label='Expert' />
-                  </Row>
+                  </div>
                 </div>
                 <br/>
               </Col>
@@ -306,19 +324,19 @@ class MavenQuestionnaire extends Component {
           <Row>
             <Col size="md-12">
               <form>
-                <Row className="checkbox">
+                <div row className="checkbox">
                   <h5>9. What is your industry area of expertise? </h5>
                   <div className="input-group">
                     {this.createIndustryCheckboxes()}
                   </div>
-                </Row>
+                </div>
                 <br/>
-                <Row className="checkbox">
+                <div row className="checkbox">
                   <h5>10. What are your preferred languages? </h5>
                   <div className="input-group">
                     {this.createLangCheckboxes()}
                   </div>
-                </Row>
+                </div>
                 <FormBtn
                   disabled={!(this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons)}
                   onClick={this.handleFormSubmit}

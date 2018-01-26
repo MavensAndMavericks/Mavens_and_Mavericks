@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 // }))
 
 // Serve up static assets
-app.use('/', express.static(path.join(__dirname + '/client/public'))); //SHOULD THIS READ: "client/BUILD" or "client/PUBLIC"?!?! >> IS "build" a REACT term?
+app.use('/', express.static(path.join(__dirname + '/client/build'))); //SHOULD THIS READ: "client/BUILD" or "client/PUBLIC"?!?! >> IS "build" a REACT term?
 
 
 
