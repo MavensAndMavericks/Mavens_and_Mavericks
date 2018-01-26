@@ -18,14 +18,21 @@ const questionnaireSchema = new Schema({
   quote: { type: String, required: true },
   coded: { type: String, required: true },
   profession: { type: String, required: true },
+
   schooling: { type: String, required: false },
-  goals: { type: String, required: false},
+  goals: { type: String, required: false },
   impact: { type: String, required: false },
+  
+
   reasons: { type: String, required: true },
   careerLevel: { type: String, required: false },
   languages: { type: Array, required: true },
   industryExperience: { type: Array, required: true },
-  githubAvatar: {type: String, required: false},
+
+  projects: {type: Array, required: false},
+  matches: {type: Array, required: false},
+  githubAvatar:{type: String, required: false}, //toggle to true AFTER ALL the DATA IN THE DB includes ALL the correct entries/responses for its TYPE.
+
   
   //personalityResults: { type: Array, required: true },  //modify as necessary >> after reveiwing the Traitify API
   date: { type: Date, default: Date.now }

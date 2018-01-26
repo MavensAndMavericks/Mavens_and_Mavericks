@@ -1,7 +1,6 @@
 //React Library imports:
 //=============================
 import React, { Component } from "react";
-//import { Link } from "react-router-dom";
 
 //API Routing Import:
 //=============================
@@ -9,24 +8,18 @@ import React, { Component } from "react";
 
 //Componenet imports:
 //=============================
-import Nav2 from "../../components/Nav2";
-// import MavenHeader from "../../components/MavenHeader";
+import Nav1 from "../../components/Nav1";
 import SignOut from "../../components/SignOut";
 import ProfileBio from "../../components/ProfileBio";
 import ProfileMatch from "../../components/ProfileMatch";
 import ProjectBoard from "../../components/ProjectBoard";
 import { Col, Row } from "../../components/Grid";
 import Footer from "../../components/Footer";
-import "./MavenProfile.css";
-// import API from "../../utils/API";
-
-
+import "./MeetPage.css";
 //import Parallax5 from "../../components/Parallax5";
 
 //=================================================================================
-// !! href for this page === "welcomeMaven" !!
-
-class MavenProfile extends Component {
+class MeetPage extends Component {
 
   // componentDidMount() {
   //   this.showSendbirdWidget();
@@ -42,7 +35,7 @@ class MavenProfile extends Component {
   
     return (
     	<div>
-    		<Nav2 id={this.props.match.params.id} type={this.props.match.params.type}/> 
+    		<Nav1/> 
 
         <SignOut />
 
@@ -54,13 +47,13 @@ class MavenProfile extends Component {
                   <br/>
                   <br/>
                   
-                  <ProfileBio  id={this.props.match.params.id} type={this.props.match.params.type} />
+                  <ProfileBio/>
                  
                   <br/>
 
-                  <ProjectBoard id={this.props.match.params.id} type={this.props.match.params.type} />
+                  <ProjectBoard/>
 
-                  <ProfileMatch id={this.props.match.params.id} type={this.props.match.params.type} />               
+                  <ProfileMatch/>               
 
               </div>
 
@@ -73,10 +66,5 @@ class MavenProfile extends Component {
   }
 }
 
-export default MavenProfile;
-
-//<ProfileBio id={this.props.match.params.id}/> THIS IS FOR THE SESSION
-
-// <MavenHeader/>
-
+export default MeetPage;
 

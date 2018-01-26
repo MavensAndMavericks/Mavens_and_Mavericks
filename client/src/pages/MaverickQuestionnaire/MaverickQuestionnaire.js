@@ -56,7 +56,6 @@ class MaverickQuestionnaire extends Component {
     languages: [],
     industryExperience: [],
     githubAvatar: ""
-    //personalityResults: []
   };
   
   handleFormSubmit = event => {
@@ -67,6 +66,7 @@ class MaverickQuestionnaire extends Component {
     console.log("questionnaire.gitHub = " + this.state.gitHub);
     console.log(this.state.githubAvatar)
     if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.goals && this.state.reasons && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.password ) {
+
       // console.log("Hey!  Lorna so cool! :)  We're Jelly.");   
       API.saveQuestionnaire({
         firstName: this.state.firstName,
@@ -176,7 +176,7 @@ class MaverickQuestionnaire extends Component {
     this.setState({ industryExperience : industryExperience })
   }
 // //For: IndustryExperience Checkboxes
-  createIndustryCheckboxes = () => (
+  createIndustryCheckboxes = () => {
     industryList.map(word => {
       return (
         <div className="input-group">        
@@ -189,7 +189,9 @@ class MaverickQuestionnaire extends Component {
         </div>
       )
     })
-  );
+  };
+
+
 //Radio Button Handling
   getInitialState= () => {
     return {
@@ -352,7 +354,7 @@ class MaverickQuestionnaire extends Component {
 
 export default MaverickQuestionnaire;
 
-// handleMatching = (res) = > {
+ //handleMatching// = (res) = > //{
 //   var length = res.length[i];
 //   var jlength = res.length[j];
 
