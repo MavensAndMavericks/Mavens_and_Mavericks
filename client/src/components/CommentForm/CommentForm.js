@@ -7,7 +7,7 @@ import { Col, Row } from "../Grid";
 class CommentForm extends Component {
 
     state = {
-		questionnaire: [],
+	
         matches: [],
         githubUrl: ""
 
