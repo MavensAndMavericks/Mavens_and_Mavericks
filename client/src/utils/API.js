@@ -51,6 +51,11 @@ export default {
     return axios.delete("/api/questionnaires/" + id + "/" + type + "/session");
   },
 
+// Gets the questionnaire with the given github (in the URL/PARAMS)
+getQuestionnaireGithub: function(github) {
+  console.log("this is the gibhub param = " + github);
+  return axios.get("/api/questionnaires/signin/" + github);
+},
 /////////////////////
   // Gets a match for mavens from the the database
   // getMatches: function(id) {

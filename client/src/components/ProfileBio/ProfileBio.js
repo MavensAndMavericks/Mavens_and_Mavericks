@@ -40,7 +40,11 @@ class ProfileBio extends Component {
 
 	    const id = this.props.id; //  //does this need to be "this.props._id" >> ie: with the underscore?!?!?!
 	    console.log("id = " + id);
-
+// Clear sessionStorage
+          sessionStorage.clear();
+          // Store all content into sessionStorage
+          sessionStorage.setItem("questionnaireId", id); //<this is for sessionstorage>
+          sessionStorage.setItem("questionnaireType", type); //<this is for sessionstorage>
 	  	this.loadQuestionnaire(id);
 	};
 
@@ -139,16 +143,6 @@ class ProfileBio extends Component {
                     <Row>
                      <Col size="md-12">
                      <div className="profile-bio">
-                     
-
-
-
-
-
-			    	
-				    	
-				    		
-
 
 						    
 							   <Jumbotron className="img-responsive"> 			            
@@ -169,9 +163,15 @@ class ProfileBio extends Component {
 		 							               	<strong className="githubHandler">{this.state.githubUrl.login}</strong>
 		 							           	</Link>
 	 									   </h4>
+										  <h5>Current Job: {this.state.questionnaire.profession}</h5>
 					                      <h5>Industries of Interest: {this.state.questionnaire.industryExperience.join(", ")} </h5>
 	 									  <h5>Languages: {this.state.questionnaire.languages.join(", ")} </h5>
+										   <h5>Years of coding: {this.state.questionnaire.coded}</h5>
 	 									  <h5>Reason for Mentorship: {this.state.questionnaire.reasons} </h5>
+										 <h5>Favorite quote: {this.state.questionnaire.quote}</h5>
+									
+
+
 					                     </Col>
 					                  </main>
 
