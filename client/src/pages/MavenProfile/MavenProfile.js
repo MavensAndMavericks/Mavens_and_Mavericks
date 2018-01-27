@@ -66,7 +66,7 @@ class MavenProfile extends Component {
                   <ProfileMatch id={this.props.match.params.id} type={this.props.match.params.type} />               
 
              
-
+              </div>
 
 	          </Col>
 	        </Row>
@@ -79,8 +79,8 @@ class MavenProfile extends Component {
 
 export default MavenProfile;
 
-//<ProfileBio id={this.props.match.params.id}/> THIS IS FOR THE SESSION
+{/* //<ProfileBio id={this.props.match.params.id}/> THIS IS FOR THE SESSION
 
 // <MavenHeader/>
 
-
+ */}
