@@ -28,11 +28,13 @@ class SignOut extends Component {
   }
 
   handleProfileClick = event => {
-    API.getSessionQuestionnaireId(this.props.id, this.props.type)
-      .then(res =>
-         window.location.pathname = "/api/questionnaires/" + res.data.questionnaireId + "/" + res.data.questionnaireType,
-      )
-      .catch(err => console.log(err));
+    const id = sessionStorage.getItem("questionnaireId", id);
+    console.log("id = " + id); //<this is for sessionstorage>
+    const type =sessionStorage.getItem("questionnaireType", type); //<this is for sessionstorage>
+    console.log("type =" + type);
+
+         window.location.pathname = "/api/questionnaires/" + id + "/" + type
+  
   }
 
 
