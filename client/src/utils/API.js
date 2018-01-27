@@ -41,28 +41,7 @@ export default {
   // Gets a Match from the database
   getMatches: function(id, type) {
     return axios.get("/api/questionnaires/" + id + "/" + type + "/session/matches");
-    // return ({
 
-    // "_id" : "5a60cc759fad410901e29878",
-    // "firstName" : "test",
-    // "lastName" : "fds",
-    // "type" : "maverick",
-    // "gitHub" : "fds",
-    // "quote" : "fd",
-    // "coded" : "fgds",
-    // "profession" : "sf",
-    // "schooling" : "sfd",
-    // "impact" : "fds",
-    // "reasons" : "sdfg",
-    // "careerLevel" : "New Professional",
-    // "industryExperience" : [ 
-    //     "Security"
-    // ],
-    // "languages" : [ 
-    //     "React"
-    // ]
-
-    // })
   },
 
   getSessionQuestionnaireId: function(id, type) {
@@ -84,31 +63,35 @@ export default {
   // },
 /////////////////////////
 
-  // // Gets the github profile projects for the given github
-  getGithubProjects: function(github) {
-    return axios.get("https://api.github.com/users/wisnioa/repos", function(req, res) { //"https://api.github.com/users/" + github + "/repos"
-      console.log("github repos" + res.data);
-      console.log(res.status);
-      res.json(res.data);
-    })
-  },
+ // Gets the github profile projects for the given github
+ getGithubProjects: function(github) {
+  console.log("....");
+  console.log(github);
+   return axios.get("https://api.github.com/users/" + github + "/repos", function(req, res) { //"https://api.github.com/users/" + github + "/repos"
+     console.log("CURRENT github repos" + res.data);
+     console.log(res.status);
+     res.json(res.data);
+   })
+ },
 
-  // Gets the github profile PIC for the given github
-  getGithubUrl: function(github) {
-    return axios.get("https://api.github.com/users/" + github, function(req, res) { //"https://api.github.com/users/" + github
-      console.log("github urls" + res.data);
-      console.log(res.status);
-      res.json(res.data);
-    })
-  },
+ // Gets the github profile PIC for the given github
+ getGithubUrl: function(github) {
+   console.log("github param = " + github);
+   return axios.get("https://api.github.com/users/" + github, function(req, res) { //"https://api.github.com/users/" + github
+     console.log("CURRENT github urls" + res.data);
+     console.log(res.status);
+     res.json(res.data);
+   })
+ },
 
-  getProjectLanguages: function(github, projectName) {
-    return axios.get("https://api.github.com/repos/wisnioa/" + projectName + "/languages", function(req, res) {
-      console.log("github project languages" + res.data);
-      console.log(res.status);
-      res.json(res.data);
-    })
-  },
+ getProjectLanguages: function(github, projectName) {
+   return axios.get("https://api.github.com/repos/" + github + "/" + projectName + "/languages", function(req, res) {
+     console.log("CURRENT github project languages" + res.data);
+     console.log(res.status);
+     res.json(res.data);
+   })
+ },
+ 
   // Deletes the githubProjects project selected&deletedo on main web profile page
   deleteProject: function(id) {
     return axios.delete("/api/project/" + id);

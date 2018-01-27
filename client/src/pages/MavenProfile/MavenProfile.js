@@ -49,7 +49,9 @@ class MavenProfile extends Component {
 	        <Row>
 	          <Col className="justify-content-center" size="md-12">
 	            
+
              <div className="background-image" style={{backgroundImage:"url(/assets/consumer-Electronic.jpeg)", marginTop:"75px"}}>
+
                   <br/>
                   <br/>
                   <br/>
@@ -58,11 +60,13 @@ class MavenProfile extends Component {
                  
                   <br/>
 
+
                   <ProjectBoard id={this.props.match.params.id} type={this.props.match.params.type} />
 
                   <ProfileMatch id={this.props.match.params.id} type={this.props.match.params.type} />               
 
-              </div>
+             
+
 
 	          </Col>
 	        </Row>
