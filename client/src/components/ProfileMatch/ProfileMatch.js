@@ -80,6 +80,13 @@ class ProfileMatch extends Component {
                      <Col size="md-12">
                      <Jumbotron className="img-responsive">
                          
+
+
+
+            
+                
+                                 
+
                                    <h2> Your Matches </h2> 
                                    <br/>
                                     {this.state.matches.length ? ( 

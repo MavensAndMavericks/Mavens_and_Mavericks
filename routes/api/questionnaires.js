@@ -45,13 +45,13 @@ router
 
 // Matches with "/api/questionnaires/:id/:type/session/matches"
 router
-    .route('/:id/:type/matches')
+    .route('/:id/:type/session/:matches')
     .get(questionnairesController.findMatches)
     .post(questionnairesController.create);
 
-// Matches with "/api/questionnaires/projectName"
+// Matches with "/api/questionnaires/:id/:type/session/:github/:projectname"
 router
-    .route('/projectName')
+    .route('/:id/:type/session/:github/:projectname')
     .post(questionnairesController.create)
     .get(questionnairesController.findAll);
 

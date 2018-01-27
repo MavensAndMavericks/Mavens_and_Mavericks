@@ -28,10 +28,7 @@ class ProjectBoard extends Component {
 	};
 
 	componentDidMount() {
-	   const type = this.props.type;//sessionstorage>
-	   console.log("type = " + type);
-
-	    const id = this.props.id; //  //does this need to be "this.props._id" >> ie: with the underscore?!?!?!
+		const id = this.props.id; //does this need to be "this.props._id" >> ie: with the underscore?!?!?!
 	    console.log("id = " + id);
 
 	    this.loadQuestionnaire(id);
@@ -48,14 +45,16 @@ class ProjectBoard extends Component {
 
 	     )
 	     .then(() => {// MUST MAKE THIS A FUNCTION that renders a FUNCTION >>> by making this a function in a PROMISE chain, it will NOT PROCESS until the promise BEFORE IT has rendered its result!!! :)
-	     	console.log("this.state.questionnaire : ");
+	     	console.log("this.state.questionnaire : (see below)");
 
              console.log(this.state.questionnaire);
              console.log("this.state.gitHub = (see below)");
              console.log(this.state.github);
              this.loadGithub(this.state.github); //this.state.gitHub
-             console.log(this.state.gitHub);
+             // console.log(this.state.gitHub);
 	     }) 
+	     	
+
 	     .catch(err => console.log(err));
 	}; 
 
@@ -68,10 +67,10 @@ class ProjectBoard extends Component {
 		  )
 		  .then(() => {// MUST MAKE THIS A FUNCTION that renders a FUNCTION >>> by making this a function in a PROMISE chain, it will NOT PROCESS until the promise BEFORE IT has rendered its result!!! :)
 	     	console.log("this.state.githubProjects = " + this.state.githubProjects);
-	     	console.log("this.state.githubProjects[0] = " + this.state.githubProjects[0]);
+	     	console.log(this.state.githubProjects[0]);
 	     	console.log(this.state.githubProjects.length);
 
-	     	API.saveProjectsDB({
+	     	API.saveProjects({
         		projects: this.state.githubProjects
         	})
 	       })
@@ -111,61 +110,11 @@ class ProjectBoard extends Component {
 
         <Row>
           <Col size="md-12">
-
-	        <Jumbotron className = "jumbotron"> 
-	          <h3 className="text-center">Check out your projects!</h3>
-              <h5 className="text-center">What will you build today?</h5>
-
-	            {this.state.githubProjects.length ? ( 
-	                <div className = "text-center" > {
-	                    this.state.githubProjects.map(project => ( 
-	                   
-	                        <main key = { project._id }>
-
-	                            <div class="card horizontal sticky-action">	                         
-	                                <div class="card-image">
-	                                    <iframe src={project.html_url} height="200px" width="200px"></iframe>
-	                                </div>
-
-	                                <div class="card-stacked card-action">
-	                                    <div className="card-content card-title activator grey-text text-darken-4 text-center">
-											<span>
-						                        <h4><strong>Repo Name: </strong>
-							                  		<Link to={"/project/" + project.name} target="_blank">	  	
-										               	<strong className="projectName">{project.name}</strong>
-										           	</Link>
-											  	</h4><i className="material-icons right">more_vert</i>
-										  	</span>
-			                        		<p><a target="_blank" href={project.html_url}>See Code</a></p>
-	                                    </div>
-	                                </div>
-
-			                        <div className="card-reveal">
-			                            <span className="card-title grey-text text-darken-4 text-center">{project.name}<i class="material-icons right">close</i></span>
-			                            <p>Description: {project.description}</p>
-			                            <p>Languages Used: {this.displayProjectLanguages(project)}</p>
-			                            <p>Lasted Updated: {moment(project.updated_at, "YYYY-MM-DD HH:mm Z").format("MM-DD-YYYY")}</p>
-			                        </div>
-
-	                            </div>
-
-	                        </main> 
-	                        ))
-	                    }          
-	                </div>
-
-
-	                ) : ( 
-	                    <h3 className = "text-center" > No Results to Display </h3>
-	                )
-	            }
-
-	        </Jumbotron>
-
-
-{/*            <Jumbotron className="img-responsive">
+            <Jumbotron className="img-responsive">
               <h3 className="text-center">Check out your projects!</h3>
               <h5 className="text-center">What will you build today?</h5>
+              <br/>
+              <br/>
 
 	            {this.state.githubProjects.length ? (
 	              <div className="text-center">
@@ -198,7 +147,7 @@ class ProjectBoard extends Component {
 	              </h3>
 	            )}
             </Jumbotron>
-*/}
+
           </Col>
         </Row>
 
@@ -212,6 +161,31 @@ export default ProjectBoard;
 //linking to a separate page "which addes a /project/ + the name of the project (repo on github)", that will load this particular project's info.
 
 
+		         //        <Col m={4} s={12} size="m-4 s-12">
+
+
+		         //            <div className="card sticky-action">
+		         //                <div className="card-image waves-effect waves-block waves-light">
+		         //                    <iframe src={project.html_url} height="200px" width="200px"></iframe>
+		         //                </div>
+		         //                <div className="card-action">
+		         //                    <span className="card-title activator grey-text text-darken-4 text-center">
+			        //                 <h4><strong>Repo Name: </strong>
+				       //            		<Link to={"/project/" + project.name} target="_blank">	  	
+							    //            	<strong className="projectName">{project.name}</strong>
+							    //        	</Link>
+								  	// </h4><i className="material-icons right">more_vert</i></span>
+			        //                 <p><a target="_blank" href={project.html_url}>See Code</a></p>
+		         //                </div>
+		         //                <div className="card-reveal">
+		         //                    <span className="card-title grey-text text-darken-4 text-center">{project.name}<i class="material-icons right">close</i></span>
+		         //                    <p>Description: {project.description}</p>
+		         //                    <p>Languages Used: {this.displayProjectLanguages(project)}</p>
+		         //                    <p>Lasted Updated: {moment(project.updated_at, "YYYY-MM-DD HH:mm Z").format("MM-DD-YYYY")}</p>
+		         //                </div>
+		         //            </div>
+		         //        </Col>
+		    ///////////////////////////////////////////////////////////////////////////////
 		                {/*<Col m={4} s={12} size="m-4 s-12">*/}
 
 
