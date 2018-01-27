@@ -18,21 +18,30 @@ import Footer from "../../components/Footer";
 
 //=================================================================================
 class AboutUs extends Component {
+
+componentDidMount(id) {
+  this.helloSessionId(id)
+}
+helloSessionId = () => {
+ const sessionId = sessionStorage.getItem("questionnaireId");
+  console.log(sessionId)
+}
+
   render() {
     return (
     	<div>
     		<Nav1/>
 
         <div>                  
-           {typeof(sessionStorage.getItem("questionnaireId")) !== undefined ? (
-              <SignOut />
-            ) : (
+           {sessionStorage.getItem("questionnaireId") === null ? (
               <Signup />
+            ) : (
+              <SignOut />
            )}
         </div>
 
 
-        <Signup />
+        
 
         <br/>
         <br/>

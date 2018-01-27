@@ -37,6 +37,8 @@ class Signup extends Component {
     console.log(this.state.gitHub);
     
     API.getQuestionnaireGithub(this.state.gitHub)
+
+    
        .then(res => {
           console.log("verify password : " + res.data.password);
           if(this.state.password === res.data.password) {
@@ -44,6 +46,7 @@ class Signup extends Component {
                 id:res.data._id,
                 type:res.data.type
               })
+              
            }
            else {
             return alert("Opps! It looks like your password is incorrect. No worries, just try again; you have 3 attempts to remember correctly.");
@@ -55,11 +58,11 @@ class Signup extends Component {
           console.log(this.state.id); 
           console.log(this.state.type);
 
-          // Clear sessionStorage
-          sessionStorage.clear();
-          // Store all content into sessionStorage
-          sessionStorage.setItem("questionnaireId", this.state.id); //<this is for sessionstorage>
-          sessionStorage.setItem("questionnaireType", this.state.type); //<this is for sessionstorage>
+          // // Clear sessionStorage
+          // sessionStorage.clear();
+          // // Store all content into sessionStorage
+          // sessionStorage.setItem("questionnaireId", this.state.id); //<this is for sessionstorage>
+          // sessionStorage.setItem("questionnaireType", this.state.type); //<this is for sessionstorage>
 
           window.location.pathname = "/api/questionnaires/" + this.state.id + "/" + this.state.type  
         })

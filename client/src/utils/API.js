@@ -42,7 +42,18 @@ export default {
   deleteSessionQuestionnaireId: function(id, type) {
     return axios.delete("/api/questionnaires/" + id + "/" + type + "/session");
   },
-//////////////////////////////////////////////////////////////////////
+
+/////////////////////
+  // Gets a match for mavens from the the database
+  // getMatches: function(id) {
+  //   return axios.get("/api/questionnaires/" + id + "/matches");
+  // },
+////////////////////////
+    // Gets a match for the mavericks from the database
+  // getMaverickMatches: function(id) {
+  //   return axios.get("/api/questionnaires/" + id + "/mentee/matches");
+  // },
+/////////////////////////
 
  // Gets the github profile projects for the given github
  getGithubProjects: function(github) {
