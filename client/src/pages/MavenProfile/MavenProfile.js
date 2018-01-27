@@ -42,9 +42,9 @@ class MavenProfile extends Component {
   
     return (
     	<div>
-    		<Nav2 id={this.props.match.params.id} type={this.props.match.params.type}/> 
+    		<Nav2 id={this.props.match.computedMatch.params.id} type={this.props.match.computedMatch.params.type}/> 
 
-        <SignOut />
+        <SignOut id={this.props.match.computedMatch.params.id} type={this.props.match.computedMatch.params.type} />
 
 	        <Row>
 	          <Col className="justify-content-center" size="md-12">
@@ -54,13 +54,13 @@ class MavenProfile extends Component {
                   <br/>
                   <br/>
                   
-                  <ProfileBio  id={this.props.match.params.id} type={this.props.match.params.type} />
+                  <ProfileBio  id={this.props.match.computedMatch.params.id} type={this.props.match.computedMatch.params.type} />
                  
                   <br/>
 
-                  <ProjectBoard id={this.props.match.params.id} type={this.props.match.params.type} />
+                  <ProjectBoard id={this.props.match.computedMatch.params.id} type={this.props.match.computedMatch.params.type} />
 
-                  <ProfileMatch id={this.props.match.params.id} type={this.props.match.params.type} />               
+                  <ProfileMatch id={this.props.match.computedMatch.params.id} type={this.props.match.computedMatch.params.type} />               
 
               </div>
 

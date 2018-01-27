@@ -16,7 +16,7 @@ const Nav2 = () =>
         <img src="/favicon.png" alt="Mavens and Mavericks Logo" style={{width:"100px", height:"75px"}} />
       </a>
        
-	  <MavenHeader/>
+	  <MavenHeader id={this.props.id}/>
       <Dropdown/>
       
     </div>

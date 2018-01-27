@@ -23,7 +23,7 @@ class ExampleProj extends Component {
     	<div>
     		<Nav1/>
         <div>                  
-           {typeof(sessionStorage.getItem("questionnaireId")) !== undefined ? (
+           {typeof(sessionStorage.getItem("questionnaireId")) !== undefined || typeof(sessionStorage.getItem("questionnaireId")) !== null ? (
               <SignOut />
             ) : (
               <Signup />
