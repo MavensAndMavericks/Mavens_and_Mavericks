@@ -22,13 +22,15 @@ class MentorDef extends Component {
     return (
     	<div>
     		<Nav1/>
+                         
          <div>                  
-            {typeof(sessionStorage.getItem("questionnaireId")) !== undefined ? (
-                <SignOut />
-              ) : (
-            <Signup />
-               )}
-          </div>
+           {sessionStorage.getItem("questionnaireId") === null ? (
+              <Signup />
+            ) : (
+              <SignOut />
+           )}
+        </div>
+
         <br/>
         <br/>
         <br/>
