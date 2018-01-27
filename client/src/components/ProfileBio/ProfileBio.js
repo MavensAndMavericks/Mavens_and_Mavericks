@@ -134,44 +134,48 @@ class ProfileBio extends Component {
 	render() {
 		return(
 
-
-
             <div>
                 <Container fluid>
                     <br/>
 
                     <Row>
-                     <Col size="md-12">
-                     <div className="profile-bio">
-
-						    
+                     	<Col size="md-12">
+                     		<div className="profile-bio">
+	    
 							   <Jumbotron className="img-responsive"> 			            
-					           {this.state.questionnaire ? (
+					           		{this.state.questionnaire ? (
 					              
 					                  <main key={this.state._id}>
 					                     <Col size="sm-4">	
+					                      <br/>
+					                      <br/>
 					                      <img className="img-responsive" src={this.state.githubUrl.avatar_url} alt="Github Profile Pic"/> 
+					                      <br/>
+					                      <br/>
+					                      <p>"{this.state.questionnaire.quote}"</p>
 					                     </Col>
 
-					                     <Col size="sm-8">	
-					                      <h3>Name: 
+					                     <Col size="sm-1"></Col>
+
+					                     <Col size="sm-7">
+					                      <h3>
 					                        <strong className="userFullName">{" " + this.state.questionnaire.firstName} {this.state.questionnaire.lastName}</strong>
-					                      </h3>
+					                      </h3>	
+					                      <h4>{this.state.questionnaire.profession}</h4>
 					                      <h4> 
 					                      	<strong>Github Handler: </strong>
 		 									  	<Link to={"https://github.com/" + this.state.githubUrl.login} target="_blank">
 		 							               	<strong className="githubHandler">{this.state.githubUrl.login}</strong>
 		 							           	</Link>
 	 									   </h4>
-										  <h5>Current Job: {this.state.questionnaire.profession}</h5>
-					                      <h5>Industries of Interest: {this.state.questionnaire.industryExperience.join(", ")} </h5>
-	 									  <h5>Languages: {this.state.questionnaire.languages.join(", ")} </h5>
-										   <h5>Years of coding: {this.state.questionnaire.coded}</h5>
-	 									  <h5>Reason for Mentorship: {this.state.questionnaire.reasons} </h5>
-										 <h5>Favorite quote: {this.state.questionnaire.quote}</h5>
-									
-
-
+	 									   
+	 									   
+	 									  <hr/>									  
+										  <p><strong>Languages:</strong><br/>{this.state.questionnaire.languages.join(", ")}</p>
+					                      <p><strong>Industry Interest:</strong><br/>{this.state.questionnaire.industryExperience.join(", ")}</p>								  
+										   <p><strong>Coding Experience:</strong><br/> {this.state.questionnaire.coded}</p>
+	 									  <p><strong>Reason for Mentorship:</strong><br/> {this.state.questionnaire.reasons}</p>
+										 									
 					                     </Col>
 					                  </main>
 
@@ -184,10 +188,6 @@ class ProfileBio extends Component {
 				           </div>
 						</Col>
 					</Row>
-
-					<br/>
-	                <br/>
-					
 
 				</Container>
 			</div>

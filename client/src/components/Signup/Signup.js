@@ -26,14 +26,15 @@ class Signup extends Component {
 
   handleInputChange = event => {
     const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
+      this.setState({
+        [name]: value
+      });
   }
 
 
   handleSignUpSubmit = event => {
     event.preventDefault();
+    console.log(this.state.gitHub);
     
     API.getQuestionnaireGithub(this.state.gitHub)
 

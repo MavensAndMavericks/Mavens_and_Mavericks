@@ -41,14 +41,14 @@ class MavenProfile extends Component {
   render() {
   
     return (
-    	<div>
-    		<Nav2 id={this.props.match.params.id} type={this.props.match.params.type}/> 
+      <div>
+        <Nav2 id={this.props.match.params.id} type={this.props.match.params.type}/> 
 
         <SignOut />
 
-	        <Row>
-	          <Col className="justify-content-center" size="md-12">
-	            
+          <Row>
+            <Col className="justify-content-center" size="md-12">
+              
 
              {/* <div className="background-image" style={{backgroundImage:"url(/assets/consumer-Electronic.jpeg)", marginTop:"75px"}}> */}
 
@@ -57,9 +57,6 @@ class MavenProfile extends Component {
                   <br/>
                   
                   <ProfileBio  id={this.props.match.params.id} type={this.props.match.params.type} />
-                 
-                  <br/>
-
 
                   <ProjectBoard id={this.props.match.params.id} type={this.props.match.params.type} />
 
@@ -68,14 +65,9 @@ class MavenProfile extends Component {
              
               {/* </div> */}
 
-	          </Col>
-	        </Row>
+            </Col>
+          </Row>
           <br/>
-          <br/>
-          
-          
-  
-
 
         <Footer/>
       </div>
@@ -86,7 +78,5 @@ class MavenProfile extends Component {
 export default MavenProfile;
 
 {/* //<ProfileBio id={this.props.match.params.id}/> THIS IS FOR THE SESSION
-
 // <MavenHeader/>
-
  */}

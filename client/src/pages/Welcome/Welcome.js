@@ -10,6 +10,7 @@ import React, { Component } from "react";
 //Componenet imports:
 //=============================
 import Nav1 from "../../components/Nav1";
+import SignOut from "../../components/SignOut";
 import Signup from "../../components/Signup";
 //import WelcomeMsg from "../../components/WelcomeMsg";
 
@@ -39,7 +40,15 @@ handleShowModal(){
     return (
     	<div>
     		<Nav1/>
-        <Signup />
+        
+        <div>
+          {sessionStorage.getItem("questionnaireId") === null ? (
+            <Signup />
+          ) : (
+              <SignOut />
+            )}
+        </div>
+
         <br/>
         <br/>
 

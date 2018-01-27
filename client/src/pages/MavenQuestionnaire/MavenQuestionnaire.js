@@ -61,52 +61,52 @@ class MavenQuestionnaire extends Component {
   handleFormSubmit = event => {
     event.preventDefault(); 
 
-
     // this.loadGithub(this.state.gitHub);
-
     console.log("gitHub = " + this.state.gitHub);
+
     
     API.getGithubUrl(this.state.gitHub).then((res) => {
-    const githubAvatar = res.data.avatar_url;
-    console.log("questionnaire.gitHub = " + this.state.gitHub);
-    console.log(this.state.githubAvatar)
+      const githubAvatar = res.data.avatar_url;
+      console.log("questionnaire.gitHub = " + this.state.gitHub);
+      console.log(githubAvatar)
 
-    if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.password ) {
-      // console.log("Hey!  Lorna so cool! :)  We're Jelly.");   
-      API.saveQuestionnaire({
-        firstName: this.state.firstName,
-        lastName: this.state.lastName,
-        type: this.state.type,
-        gitHub: this.state.gitHub,
-        password: this.state.password,
-        quote: this.state.quote,
-        coded: this.state.coded,
-        profession: this.state.profession,
-        schooling: this.state.schooling,
-        impact: this.state.impact,
-        reasons: this.state.reasons,
-        careerLevel: this.state.careerLevel,
-        languages: this.state.languages,
-        industryExperience: this.state.industryExperience,
-        githubAvatar: githubAvatar
-        // personalityResults: this.state.personalityResults
-      })          
-        .then(res => {
-          console.log(res.data._id); 
-          this.setState({id: res.data._id});
+      if (this.state.firstName && this.state.lastName && this.state.gitHub && this.state.quote && this.state.coded && this.state.profession && this.state.schooling && this.state.impact && this.state.reasons && this.state.careerLevel && this.state.languages && this.state.industryExperience && this.state.password ) {
+        // console.log("Hey!  Lorna so cool! :)  We're Jelly.");   
+        API.saveQuestionnaire({
+          firstName: this.state.firstName,
+          lastName: this.state.lastName,
+          type: this.state.type,
+          gitHub: this.state.gitHub,
+          password: this.state.password,
+          quote: this.state.quote,
+          coded: this.state.coded,
+          profession: this.state.profession,
+          schooling: this.state.schooling,
+          impact: this.state.impact,
+          reasons: this.state.reasons,
+          careerLevel: this.state.careerLevel,
+          languages: this.state.languages,
+          industryExperience: this.state.industryExperience,
+          githubAvatar: githubAvatar
+          // personalityResults: this.state.personalityResults
+        })          
+          .then(res => {
+            console.log(res.data._id); 
+            this.setState({id: res.data._id});
 
-          // Clear sessionStorage
-          sessionStorage.clear();
-          // Store all content into sessionStorage
-          sessionStorage.setItem("questionnaireId", this.state.id); //<this is for sessionstorage>
-          sessionStorage.setItem("questionnaireType", this.state.type); //<this is for sessionstorage>
-          
-          window.location.pathname = "/api/questionnaires/" + this.state.id + "/maven"
-        })
+            // Clear sessionStorage
+            sessionStorage.clear();
+            // Store all content into sessionStorage
+            sessionStorage.setItem("questionnaireId", this.state.id); //<this is for sessionstorage>
+            sessionStorage.setItem("questionnaireType", this.state.type); //<this is for sessionstorage>
+            
+            window.location.pathname = "/api/questionnaires/" + this.state.id + "/maven"
+          })
 
-        .catch(err => console.log(err));       
-    }
-  });
+          .catch(err => console.log(err));       
+      }
+    });
+  };
     
     // console.log("questionnaire.gitHub = " + this.state.gitHub);
     // console.log(this.state.githubAvatar)
@@ -138,7 +138,8 @@ class MavenQuestionnaire extends Component {
     //     .catch(err => console.log(err));  
      
     // }
-  };
+ 
+
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
