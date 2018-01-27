@@ -61,8 +61,9 @@ class MavenQuestionnaire extends Component {
   handleFormSubmit = event => {
     event.preventDefault(); 
 
-      // this.loadGithub(this.state.gitHub);
-      // console.log("gitHub = " + this.state.gitHub);
+    // this.loadGithub(this.state.gitHub);
+    console.log("gitHub = " + this.state.gitHub);
+
     
     API.getGithubUrl(this.state.gitHub).then((res) => {
       const githubAvatar = res.data.avatar_url;

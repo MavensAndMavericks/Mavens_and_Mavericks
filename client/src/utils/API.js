@@ -32,7 +32,7 @@ export default {
   },
   // Gets a Match from the database
   getMatches: function(id, type) {
-    return axios.get("/api/questionnaires/" + id + "/" + type + "/matches");
+    return axios.get("/api/questionnaires/" + id + "/" + type + "/session/matches");
   },
 
   //////////////////////////////////////////////////////////////////
@@ -44,33 +44,35 @@ export default {
   },
 //////////////////////////////////////////////////////////////////////
 
-  // // Gets the github profile projects for the given github
-  getGithubProjects: function(github) {
-    console.log(github);
-    return axios.get("https://api.github.com/users/" + github + "/repos", function(req, res) { //"https://api.github.com/users/" + github + "/repos"
-      console.log("CURRENT github repos" + res.data);
-      console.log(res.status);
-      res.json(res.data);
-    })
-  },
+ // Gets the github profile projects for the given github
+ getGithubProjects: function(github) {
+  console.log("....");
+  console.log(github);
+   return axios.get("https://api.github.com/users/" + github + "/repos", function(req, res) { //"https://api.github.com/users/" + github + "/repos"
+     console.log("CURRENT github repos" + res.data);
+     console.log(res.status);
+     res.json(res.data);
+   })
+ },
 
-  // Gets the github profile PIC for the given github
-  getGithubUrl: function(github) {
-    console.log("github param = " + github);
-    return axios.get("https://api.github.com/users/" + github, function(req, res) { //"https://api.github.com/users/" + github
-      console.log("CURRENT github urls" + res.data);
-      console.log(res.status);
-      res.json(res.data);
-    })
-  },
+ // Gets the github profile PIC for the given github
+ getGithubUrl: function(github) {
+   console.log("github param = " + github);
+   return axios.get("https://api.github.com/users/" + github, function(req, res) { //"https://api.github.com/users/" + github
+     console.log("CURRENT github urls" + res.data);
+     console.log(res.status);
+     res.json(res.data);
+   })
+ },
 
-  getProjectLanguages: function(github, projectName) {
-    return axios.get("https://api.github.com/repos/" + github + "/" + projectName + "/languages", function(req, res) {
-      console.log("CURRENT github project languages" + res.data);
-      console.log(res.status);
-      res.json(res.data);
-    })
-  },
+ getProjectLanguages: function(github, projectName) {
+   return axios.get("https://api.github.com/repos/" + github + "/" + projectName + "/languages", function(req, res) {
+     console.log("CURRENT github project languages" + res.data);
+     console.log(res.status);
+     res.json(res.data);
+   })
+ },
+ 
   // Saves a project to the database
   saveProjectsDB: function(projectData){
     return axios.post("api/questionnaires/projectName", projectData);
@@ -78,7 +80,6 @@ export default {
   getProjectsDB: function(projectData){
     return axios.get("api/questionnaires/projectName", projectData);
   },
-
   // Deletes the githubProjects project selected&deletedo on main web profile page
   deleteProject: function(id) {
     return axios.delete("/api/project/" + id);
