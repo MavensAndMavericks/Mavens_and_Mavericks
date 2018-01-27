@@ -46,6 +46,7 @@ class ProjectBoard extends Component {
 	     )
 	     .then(() => {// MUST MAKE THIS A FUNCTION that renders a FUNCTION >>> by making this a function in a PROMISE chain, it will NOT PROCESS until the promise BEFORE IT has rendered its result!!! :)
 	     	console.log("this.state.questionnaire : ");
+
              console.log(this.state.questionnaire);
              console.log("this.state.gitHub = (see below)");
              console.log(this.state.github);
@@ -53,6 +54,7 @@ class ProjectBoard extends Component {
              console.log(this.state.gitHub);
 	     }) 
 	     	
+
 	     .catch(err => console.log(err));
 	}; 
 

@@ -131,6 +131,7 @@ class ProfileBio extends Component {
 		return(
 
 
+
             <div>
                 <Container fluid>
                     <br/>
@@ -147,6 +148,7 @@ class ProfileBio extends Component {
 			    	
 				    	
 				    		
+
 
 						    
 							   <Jumbotron className="img-responsive"> 			            

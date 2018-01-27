@@ -72,6 +72,7 @@ class ProfileMatch extends Component {
     render() {
         return ( 
             <div>
+
                 <Container fluid>
                     <br/>
 
@@ -85,6 +86,7 @@ class ProfileMatch extends Component {
             
                 
                                  
+
                                    <h2> Your Matches </h2> 
                                    <br/>
                                     {this.state.matches.length ? ( 
