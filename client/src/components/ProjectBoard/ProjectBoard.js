@@ -174,7 +174,7 @@ class ProjectBoard extends Component {
 
 
 		                <Col l={3} m={4} s={6} size="s-3">
-		                	<Card header={<CardTitle reveal image={<iframe src={project.html_url} height="200px" width="200px"></iframe>} waves='light'/>}
+		                	<Card style={{height: "250px"}} header={<CardTitle reveal waves='light'/>}
 								title={project.name}
 								reveal={
 									<div>
@@ -183,7 +183,7 @@ class ProjectBoard extends Component {
 			                            <p style={{color:"#01010a"}}>Lasted Updated: {moment(project.updated_at, "YYYY-MM-DD HH:mm Z").format("MM-DD-YYYY")}</p>
 		                            </div>
 								}>
-								<Link to={"/project/" + project.name} target="_blank">	  	
+								<Link to={project.html_url} target="_blank">	  	
 							       	<p>Review and Comment on this project.</p>
 							    </Link>								
 							</Card>
