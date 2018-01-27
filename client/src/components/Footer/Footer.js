@@ -30,8 +30,8 @@ const Footer = () =>
         <Row>
         
         <Col size="s-12">
-        <div style={{textAlign: "center", position: "fixed", bottom: "15px", right: "41%"}}>
-          <p className="container text-center">
+        <div style={{textAlign: "center", position: "relative", bottom: "15px", left: "10%"}}>
+          <p className="container text-center" >
           © 2018 Copyright | Mavens and Mavericks
           </p>
           </div>
