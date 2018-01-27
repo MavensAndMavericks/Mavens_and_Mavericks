@@ -104,7 +104,7 @@ class ProfileMatch extends Component {
                                                                 <h2 id="yourMatches">{ match.firstName } { match.lastName }</h2>
                                                                 <p class="cardFont grey-text">
                                                                     <strong> Github Handler: </strong>
-                                                                    <Link to = { "https://github.com/" + match.gitHub } target = "_blank" >
+                                                                    <Link to = {"/api/questionnaires/" + match._id + "/" + match.type} target = "_blank" >
                                                                        <strong className = "githubHandler" > { match.gitHub } </strong>
                                                                     </Link> 
                                                                     <br/>
@@ -122,8 +122,7 @@ class ProfileMatch extends Component {
 
                                                 ))
                                             }          
-                                        </div>
-
+                                        </div> 
 
                                         ) : ( 
                                             <h3 className = "text-center" > No Results to Display </h3>
@@ -143,3 +142,6 @@ class ProfileMatch extends Component {
 }
 
 export default ProfileMatch;
+
+
+         // { "https://github.com/" + match.gitHub } target="_blank"

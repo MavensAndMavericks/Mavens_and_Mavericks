@@ -12,7 +12,8 @@ import AboutUs from "./pages/AboutUs";
 import MentorDef from "./pages/MentorDef";
 import ExampleProj from "./pages/ExampleProj";
 import QandA from "./pages/QandA";
-import MeetPage from "./pages/MeetPage"
+import MeetPage from "./pages/MeetPage";
+//import CommentPage from "./pages/CommentPage;
 
 import NoMatch from "./pages/NoMatch";
 
