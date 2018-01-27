@@ -11,22 +11,30 @@ const Footer = () =>
 
       <Row>
 
-        <Col size="sm-6">
-          <h6 className="white-text container text-center">Meet the faces and <br/> motivations behind the scenes.</h6>
-          <h6><a className="text-center grey-text text-lighten-3 container" href="/aboutus">Who we are.</a></h6>
+        <Col size="lg-8">
+        <div style={{textAlign: "center"}}>
+          <h5 className="white-text container">Meet the faces and <br/> motivations behind the scenes.</h5>
+          <p><a className="text-center" href="/aboutus">Who we are.</a></p>
+          </div>
         </Col>
 
-        <Col size="sm-6">
-          <h5 className="container text-center">Contact Us</h5>
+        <Col size="lg-4">
+        <div style={{textAlign: "center"}}>
+          <h5 className="container">Contact Us</h5>
           <a className="grey-text text-lighten-4 container text-center" href="https://github.com/MavensAndMavericks/Mavens_and_Mavericks">https://github.com/MavensAndMavericks</a>
-            <span><a href="mailto:lisajetton21@gmail.com" id="download-btn" className="btn btn-xs waves-effect waves-light transparent darken-4 white-text">Send an email.</a></span>       
+            <span ><a className= "text-center" href="mailto:lisajetton21@gmail.com" id="download-btn" className="btn btn-xs waves-effect waves-light transparent darken-4 white-text">Send an email.</a></span>       
+        </div>
         </Col>
-
+         </Row>
         <br/>
-        <Col size="sm-12">
+        <Row>
+        
+        <Col size="s-12">
+        <div style={{textAlign: "center", position: "fixed", bottom: "15px", right: "41%"}}>
           <p className="container text-center">
           © 2018 Copyright | Mavens and Mavericks
           </p>
+          </div>
         </Col>
 
       </Row>
