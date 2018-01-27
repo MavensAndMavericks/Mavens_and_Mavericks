@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 import Nav1 from "../../components/Nav2";
 import CommentForm from "../../components/CommentForm";
+import CommentWall from "../../components/CommentWall";
 import SignOut from "../../components/SignOut";
 import Footer from "../../components/Footer";
 
@@ -11,8 +12,13 @@ import Footer from "../../components/Footer";
 
 class CommentPage extends Component {
 
+state = {
+    questionnaire: null,
+    github: "",
+    id: "",
+    project: {}
 
-
+}
     render() {
         return
         <div>
@@ -20,10 +26,12 @@ class CommentPage extends Component {
             <Nav1 />
             <Signout />
 
-
+            <CommentWall />
 
 
             <CommentForm />
+
+            <Footer />
 
 
 

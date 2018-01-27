@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 // }))
 
 // Serve up static assets
-app.use('/', express.static(path.join(__dirname + '/client/public'))); //SHOULD THIS READ: "client/BUILD" or "client/PUBLIC"?!?! >> IS "build" a REACT term?
+app.use('/', express.static(path.join(__dirname + '/client/build'))); //SHOULD THIS READ: "client/BUILD" or "client/PUBLIC"?!?! >> IS "build" a REACT term?
 
 
 
@@ -49,7 +49,7 @@ app.use(routes);
 mongoose.Promise = global.Promise; // Set up promises with mongoose
 
 // Connect to the Mongo DB
-const MONGODB_URI = "mongodb://heroku_p6dj1jmx:vdojlgvrsvdl6becgahtq7skel@ds237947.mlab.com:37947/heroku_p6dj1jmx"
+//const MONGODB_URI = "mongodb://heroku_p6dj1jmx:vdojlgvrsvdl6becgahtq7skel@ds237947.mlab.com:37947/heroku_p6dj1jmx"
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/mavSquared", // !! DB in mongoose, (Robo 3t), should be "mavSquared" !!
 

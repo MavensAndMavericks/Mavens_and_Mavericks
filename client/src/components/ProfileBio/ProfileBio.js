@@ -23,35 +23,25 @@ import "./ProfileBio.css";
 class ProfileBio extends Component {
 	state = {
 		questionnaire: null,
+		githubUrl: {}
 		// userId: "",
 	 //    nickname: "",
 	 //    error: "",
 		// id: "",
-		// firstName:"", 
-		// lastName: "", 
-		// type: "",
-		// gitHub: "",
-		// quote: "", 
-		// coded: "", 
-		// profession: "",
-		// schooling: "",
-		// impact: "",
-		// reasons: "",
-		// careerLevel: "",
-	 //    languages: [],
-	 //    industryExperience: [],
-	    githubUrl: ""
 	};
 
 	componentDidMount() {
+		// console.log("Pathname = " + window.location.pathname);
+ 	//     const url = window.location.pathname;
+ 	//     const id = url.split("/")[3]
+	   
+	   const type = this.props.type;//sessionstorage>
+	   console.log("type = " + type);
 
-		console.log("Pathname = " + window.location.pathname);
- 	    const url = window.location.pathname;
- 	    const id = url.split("/")[3]
-	    // const id = this.props.id; 
+	    const id = this.props.id; //  //does this need to be "this.props._id" >> ie: with the underscore?!?!?!
 	    console.log("id = " + id);
 
-	    this.loadQuestionnaire(id);
+	  	this.loadQuestionnaire(id);
 	};
 
 
@@ -139,16 +129,27 @@ class ProfileBio extends Component {
 
 	render() {
 		return(
-			<div>	
-				<Container className="container profile-bio">
 
-			    	<Row>
-				    	<Col size="sm-12">
-				    		<div className="profile-bio">
-				    			{/*<br/>
-						    	<h3 className="text-center">ProfileBio</h3>*/}
+
+            <div>
+                <Container fluid>
+                    <br/>
+
+                    <Row>
+                     <Col size="md-12">
+                     <div className="profile-bio">
+                     
+
+
+
+
+
+			    	
+				    	
+				    		
+
 						    
-							   <Jumbotron className="jumbotron"> 			            
+							   <Jumbotron className="img-responsive"> 			            
 					           {this.state.questionnaire ? (
 					              
 					                  <main key={this.state._id}>
@@ -158,7 +159,7 @@ class ProfileBio extends Component {
 
 					                     <Col size="sm-8">	
 					                      <h3>Name: 
-					                        <strong className="userFullName">{this.state.questionnaire.firstName} {this.state.questionnaire.lastName}</strong>
+					                        <strong className="userFullName">{" " + this.state.questionnaire.firstName} {this.state.questionnaire.lastName}</strong>
 					                      </h3>
 					                      <h4> 
 					                      	<strong>Github Handler: </strong>
@@ -168,7 +169,7 @@ class ProfileBio extends Component {
 	 									   </h4>
 					                      <h5>Industries of Interest: {this.state.questionnaire.industryExperience.join(", ")} </h5>
 	 									  <h5>Languages: {this.state.questionnaire.languages.join(", ")} </h5>
-	 									  <h5>Reason for Mentorship: {this.state.questionnaire.impact} </h5>
+	 									  <h5>Reason for Mentorship: {this.state.questionnaire.reasons} </h5>
 					                     </Col>
 					                  </main>
 
@@ -187,6 +188,16 @@ class ProfileBio extends Component {
 					
 
 				</Container>
+			</div>
+		);
+	}
+}
+	
+export default ProfileBio;
+
+
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
 
 				{/*<div id="sb_widget"></div>*/}
 
@@ -214,12 +225,6 @@ class ProfileBio extends Component {
 	                </Row>
 	            </Container>
 */}
-			</div>
-		);
-	}
-}
-	
-export default ProfileBio;
 
 //////////////////////////////////////////////////
 //<h3><strong>{this.state.githubUrl.login}</strong></h3>

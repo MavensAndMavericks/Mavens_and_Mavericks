@@ -1,0 +1,14 @@
+.background-image {
+    justify-content: center;
+    z-index: 2;
+    padding: 0px;
+    margin: 0px;
+	height: 1500px; 
+
+	/* Create the parallax scrolling effect */
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+    
+}

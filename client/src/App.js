@@ -3,7 +3,6 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //Page imports:
-import Books from "./pages/Books";
 import Welcome from "./pages/Welcome"
 import MavenQuestionnaire from "./pages/MavenQuestionnaire";
 import MaverickQuestionnaire from "./pages/MaverickQuestionnaire";
@@ -13,10 +12,9 @@ import AboutUs from "./pages/AboutUs";
 import MentorDef from "./pages/MentorDef";
 import ExampleProj from "./pages/ExampleProj";
 import QandA from "./pages/QandA";
-import Detail from "./pages/Detail";
-import NoMatch from "./pages/NoMatch";
-import ProfileMatch from "./pages/Match"
+import MeetPage from "./pages/MeetPage"
 
+import NoMatch from "./pages/NoMatch";
 
 //Componenet imports:
 //import Nav from "./components/Nav";
@@ -28,23 +26,19 @@ const App = () =>
     <div>
       <Switch>
         <Route exact path="/" component={Welcome} /> 
-        <Route exact path="/books" component={Books} />
         <Route exact path="/maverickquestionnaire" component={MaverickQuestionnaire} />
         <Route exact path="/mavenquestionnaire" component={MavenQuestionnaire} />
-
-        <Route exact path="/api/questionnaires/:id/:maven" component={MavenProfile} />
-        <Route exact path="/api/questionnaires/:id/:mentee/:maverick" component={MaverickProfile} />
-
-
+       {/* <Route exact path="/api/questionnaires/:id/:type/project/:projectname"  component={CommentPage} />*/}
+        <Route exact path="/api/questionnaires/:id/:type" component={MavenProfile} />
+        <Route exact path="/api/questionnaires/:id/:type/maverick" component={MaverickProfile} />
         
+        <Route exact path="/mavensandmavericks" component={MeetPage} />
         <Route exact path="/aboutus" component={AboutUs} />
         <Route exact path="/mentorsarekey" component={MentorDef} />
         <Route exact path="/openprojects" component={ExampleProj} />
         <Route exact path="/QandA" component={QandA} />
-        <Route exact path="/books/:id" component={Detail} />
-        <Route component={NoMatch} /> 
 
-       
+        <Route component={NoMatch} />        
       </Switch>
     </div>
   </Router>

@@ -5,12 +5,7 @@ const questionnairesController = require("../../controllers/questionnairesContro
 router
     .route("/")
     .get(questionnairesController.findAll)
-    .post(questionnairesController.create);
-
-
-// router.route('/session')
-//     .get(questionnairesController.getSessionQuestionnaireId)
-
+    .post(questionnairesController.createProfile);
 
 router
     .route("/:id")
@@ -22,23 +17,48 @@ router
     .put(questionnairesController.update)
     .delete(questionnairesController.remove);
 
-// Matches with "/api/questionnaires/:github"
+// Matches with "/api/questionnaires/signin/:github"
 router
-    // .route("/signin/:github")
     .route("/signin/:github")
-    .get(questionnairesController.findOne)
+    .get(questionnairesController.findOne);
 
-// Matches with "/api/questionnaires/:id/matches"
+
+///////////////////////////////////////////////////////////////////////////////
+/////////////////////////// SESSION STORAGE ROUTE: ////////////////////////////
+
+
+
+// Matches with "/api/questionnaires/session"
+// router.route('/session')
+//     .get(questionnairesController.getSessionQuestionnaireId)
+
+
+// Matches with "/api/questionnaires/:id/session" >> THIS IS FOR THE SESSIONSTORAGE of USER DATA!!
 router
-    .route('/:id/matches')
-    .get(questionnairesController.findMatches);
+    .route('/:id/:type/session')
+    .get(questionnairesController.getSessionQuestionnaireId)
+    .delete(questionnairesController.logOut);
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+
+// Matches with "/api/questionnaires/:id/:type/session/matches"
+router
+    .route('/:id/:type/session/:matches')
+    .get(questionnairesController.findMatches)
+    .post(questionnairesController.create);
+
+// Matches with "/api/questionnaires/:id/:type/session/:github/:projectname"
+router
+    .route('/:id/:type/session/:github/:projectname')
+    .post(questionnairesController.create)
+    .get(questionnairesController.findAll);
+
 
 // router
 //     .route('/:id/mentee/:matches')
 //     .get(questionnairesController.findMatches);
 
 
-// router
-//     .route('/:projects')
-//     .post(questionnairesController.saveProjects);
 module.exports = router;
