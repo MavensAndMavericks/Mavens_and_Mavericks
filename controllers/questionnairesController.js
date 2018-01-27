@@ -100,7 +100,7 @@ module.exports = {
                             careerLevelQuery = { $in: ["New Professional", "College", "Novice"] }
                             break;
                         case "Expert":
-                            careerLevelQuery = { $in: ["Professional 5+ years", "New Professional", "College", "Novice"] }
+                            careerLevelQuery = { $in: ["Professional 5+ Years", "New Professional", "College", "Novice"] }
                             break;
                         case "College":
                             careerLevelQuery = { $in: ["Novice"] }
@@ -126,15 +126,15 @@ module.exports = {
 
                     switch (dbProfile.careerLevel) {
                         case 'Novice':
-                            careerLevelQuery = { $in: ["College", "Professional 5+ years", "New Professional", "Expert"] }
+                            careerLevelQuery = { $in: ["College", "Professional 5+ Years", "New Professional", "Expert"] }
                             break;
                         case "College":
-                            careerLevelQuery = { $in: ["Professional 5+ years", "New Professional", "Expert"] }
+                            careerLevelQuery = { $in: ["Professional 5+ Years", "New Professional", "Expert"] }
                             break;
                         case "New Professional":
                             careerLevelQuery = { $in: ["College"] }
                             break;
-                        case "Professional 5+ Year":
+                        case "Professional 5+ Years":
                             careerLevelQuery = { $in: ["New Professional", "College"] }
                         default:
                             console.log("Sorry, we are out of results");
