@@ -73,7 +73,7 @@ class ProfileMatch extends Component {
         return ( 
             <div>
 
-                <Container fluid>
+                <Container fluid style={{marginBottom: "100px"}}>
                     <br/>
 
                     <Row>

@@ -34,7 +34,7 @@ class MaverickProfile extends Component {
           <Row>
             <Col className="justify-content-center" size="md-12">
               
-              <div className="background-image" style={{backgroundImage:"url(/assets/consumer-Electronic.jpeg)", marginTop:"75px"}}>
+              {/* <div className="background-image" style={{backgroundImage:"url(/assets/consumer-Electronic.jpeg)", marginTop:"75px"}}> */}
                 <br/>
                 <br/>
 
@@ -42,10 +42,27 @@ class MaverickProfile extends Component {
                 <ProjectBoard/>
                 <ProfileMatch/>
               
-              </div>
+              {/* </div> */}
 
             </Col>
           </Row>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+
 
         <Footer/>
       </div>

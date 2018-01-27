@@ -6,7 +6,7 @@ import "./MaverickHeader.css";
 //=================================================================================
 const MaverickHeader = () =>
 	  <div className="nav-header-maverick"> 
-	    <h3> Welcome Maverick</h3>
+	    <h3> Welcome Back!</h3>
 	  </div>;
 
 export default MaverickHeader;
