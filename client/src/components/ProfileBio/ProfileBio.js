@@ -134,34 +134,15 @@ class ProfileBio extends Component {
 	render() {
 		return(
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 0b0c38201adca56a8bde7313690fbc41dab0e944
             <div>
                 <Container fluid>
                     <br/>
 
                     <Row>
-<<<<<<< HEAD
                      <Col size="md-12">
                      <div className="profile-bio">
-                     
-
-
-
-
-
-			    	
-				    	
-				    		
 
 						    
-=======
-                     	<Col size="md-12">
-                     		<div className="profile-bio">
-	    
->>>>>>> 0b0c38201adca56a8bde7313690fbc41dab0e944
 							   <Jumbotron className="img-responsive"> 			            
 					           		{this.state.questionnaire ? (
 					              
