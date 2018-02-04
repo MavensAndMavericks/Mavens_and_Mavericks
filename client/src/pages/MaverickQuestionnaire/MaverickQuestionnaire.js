@@ -329,7 +329,6 @@ class MaverickQuestionnaire extends Component {
   }
 }
 
-<<<<<<< HEAD
 export default MaverickQuestionnaire;
 
 // handleMatching = (res) = > {
@@ -396,6 +395,3 @@ export default MaverickQuestionnaire;
   // }
  
   // };
-=======
-export default MaverickQuestionnaire;
->>>>>>> 0b0c38201adca56a8bde7313690fbc41dab0e944

@@ -46,18 +46,9 @@ class MavenProfile extends Component {
 
         <SignOut />
 
-<<<<<<< HEAD
 	        <Row>
 	          <Col className="justify-content-center" size="md-12">
 	            
-=======
-          <Row>
-            <Col className="justify-content-center" size="md-12">
-              
-
-             {/* <div className="background-image" style={{backgroundImage:"url(/assets/consumer-Electronic.jpeg)", marginTop:"75px"}}> */}
-
->>>>>>> 0b0c38201adca56a8bde7313690fbc41dab0e944
                   <br/>
                   <br/>
                   <br/>
@@ -69,10 +60,6 @@ class MavenProfile extends Component {
                   <ProfileMatch id={this.props.match.params.id} type={this.props.match.params.type} />               
 
              
-<<<<<<< HEAD
-=======
-              {/* </div> */}
->>>>>>> 0b0c38201adca56a8bde7313690fbc41dab0e944
 
             </Col>
           </Row>

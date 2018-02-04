@@ -72,28 +72,16 @@ class ProfileMatch extends Component {
     render() {
         return ( 
             <div>
-<<<<<<< HEAD
-                <Container fluid>
-=======
 
                 <Container fluid style={{marginBottom: "100px"}}>
->>>>>>> 0b0c38201adca56a8bde7313690fbc41dab0e944
                     <br/>
 
                     <Row>
                      <Col size="md-12">
                      <Jumbotron className="img-responsive">
-                         
-
-
-
-            
+                    
                 
                                  
-<<<<<<< HEAD
-=======
-
->>>>>>> 0b0c38201adca56a8bde7313690fbc41dab0e944
                                    <h2> Your Matches </h2> 
                                    <br/>
                                     {this.state.matches.length ? ( 
