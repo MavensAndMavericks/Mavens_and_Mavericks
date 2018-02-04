@@ -88,9 +88,17 @@ class MaverickQuestionnaire extends Component {
         .then(res => {
           console.log(res.data._id); 
           this.setState({id: res.data._id});
-          window.location.pathname = "/api/questionnaires/" + this.state.id + "/maverick"
+
+          // Clear sessionStorage
+          sessionStorage.clear();
+          // Store all content into sessionStorage
+          sessionStorage.setItem("questionnaireId", this.state.id); //<this is for sessionstorage>
+          sessionStorage.setItem("questionnaireType", this.state.type); //<this is for sessionstorage>
+          
+          window.location.pathname = "/api/questionnaires/" + this.state.id + "/maven"
         })
-        .catch(err => console.log(err));  
+
+        .catch(err => console.log(err)); 
      
     }
 
@@ -322,3 +330,68 @@ class MaverickQuestionnaire extends Component {
 }
 
 export default MaverickQuestionnaire;
+
+// handleMatching = (res) = > {
+//   var length = res.length[i];
+//   var jlength = res.length[j];
+
+//   API.getQuestionnaires({
+//     for (var i=0; i < res.length; i++){
+//       if(type==="maverick"){
+//         for (var j=0; j< length; j++){
+
+//           if (this.state.maverickLanguages === this.state.mavenLanguages){
+//             for (var k= 0; k< jlength; k++){
+//               // if-else statement for industry
+//             }
+//           }
+//         }
+//       }
+//     }
+//   })
+// }
+
+
+
+
+  // handleMatching = (res) => {
+
+  //    // This should be our current client's results
+  //    const currentResults = res.data;
+  //   if (currentResults.type === "maven") {
+  //     //then search for all those in "mavericks"
+  //     API.getQuestionnaire()
+  //       .then(res => {
+  //         const maverick = res.data.filter(questionnaire => questionnaire.type === "maverick")
+  //       }).catch(err => console.log(err));
+  //     };
+  //Maven Logic
+  //1. iterate over mavericks to find least amount of difference between languages
+  //  a loop
+  
+  // for (i=0; i < maverick.length; i++){
+  
+  //  let currentUserLang = currentResults.languages;
+  //  let maverickLang = maverick[i].languages;
+  // let matching = [];
+
+  //  currentUserLang.forEach(function(element, maverickLang){
+  //    for (let lang of maverickLang){
+  //   if (element === lang){
+  //       maverickLang[]
+  //   }
+
+  //    }
+  //  })
+
+//    arr.forEach(function callback(currentValue[, index[, array]]) {
+//     //your iterator
+// }[, thisArg]);
+
+  //2. iterate over mavericks to find least amount of difference between industries
+  //  a loop 
+  // a match === array of first 15 matches, assign this array to the match model
+
+  // }
+ 
+  // };

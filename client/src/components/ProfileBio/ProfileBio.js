@@ -24,21 +24,27 @@ class ProfileBio extends Component {
 	state = {
 		questionnaire: null,
 		githubUrl: {}
+		// userId: "",
+	 //    nickname: "",
+	 //    error: "",
+		// id: "",
 	};
 
-	componentDidMount() {	   
+	componentDidMount() {
+		// console.log("Pathname = " + window.location.pathname);
+ 	//     const url = window.location.pathname;
+ 	//     const id = url.split("/")[3]
+	   
 	   const type = this.props.type;//sessionstorage>
 	   console.log("type = " + type);
 
 	    const id = this.props.id; //  //does this need to be "this.props._id" >> ie: with the underscore?!?!?!
 	    console.log("id = " + id);
-		
-	   // Clear sessionStorage
-	    sessionStorage.clear();
-	   // Store all content into sessionStorage
-	    sessionStorage.setItem("questionnaireId", id); //<this is for sessionstorage>
-	    sessionStorage.setItem("questionnaireType", type); //<this is for sessionstorage>
-	  	
+// Clear sessionStorage
+          sessionStorage.clear();
+          // Store all content into sessionStorage
+          sessionStorage.setItem("questionnaireId", id); //<this is for sessionstorage>
+          sessionStorage.setItem("questionnaireType", type); //<this is for sessionstorage>
 	  	this.loadQuestionnaire(id);
 	};
 
@@ -133,9 +139,10 @@ class ProfileBio extends Component {
                     <br/>
 
                     <Row>
-                     	<Col size="md-12">
-                     		<div className="profile-bio">
-	    
+                     <Col size="md-12">
+                     <div className="profile-bio">
+
+						    
 							   <Jumbotron className="img-responsive"> 			            
 					           		{this.state.questionnaire ? (
 					              
