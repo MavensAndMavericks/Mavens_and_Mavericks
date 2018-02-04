@@ -24,23 +24,21 @@ class ProfileBio extends Component {
 	state = {
 		questionnaire: null,
 		githubUrl: {}
-		// userId: "",
-	 //    nickname: "",
-	 //    error: "",
-		// id: "",
 	};
 
-	componentDidMount() {
-		// console.log("Pathname = " + window.location.pathname);
- 	//     const url = window.location.pathname;
- 	//     const id = url.split("/")[3]
-	   
+	componentDidMount() {	   
 	   const type = this.props.type;//sessionstorage>
 	   console.log("type = " + type);
 
 	    const id = this.props.id; //  //does this need to be "this.props._id" >> ie: with the underscore?!?!?!
 	    console.log("id = " + id);
-
+		
+	   // Clear sessionStorage
+	    sessionStorage.clear();
+	   // Store all content into sessionStorage
+	    sessionStorage.setItem("questionnaireId", id); //<this is for sessionstorage>
+	    sessionStorage.setItem("questionnaireType", type); //<this is for sessionstorage>
+	  	
 	  	this.loadQuestionnaire(id);
 	};
 
@@ -130,12 +128,16 @@ class ProfileBio extends Component {
 	render() {
 		return(
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0b0c38201adca56a8bde7313690fbc41dab0e944
             <div>
                 <Container fluid>
                     <br/>
 
                     <Row>
+<<<<<<< HEAD
                      <Col size="md-12">
                      <div className="profile-bio">
                      
@@ -149,27 +151,45 @@ class ProfileBio extends Component {
 				    		
 
 						    
+=======
+                     	<Col size="md-12">
+                     		<div className="profile-bio">
+	    
+>>>>>>> 0b0c38201adca56a8bde7313690fbc41dab0e944
 							   <Jumbotron className="img-responsive"> 			            
-					           {this.state.questionnaire ? (
+					           		{this.state.questionnaire ? (
 					              
 					                  <main key={this.state._id}>
 					                     <Col size="sm-4">	
+					                      <br/>
+					                      <br/>
 					                      <img className="img-responsive" src={this.state.githubUrl.avatar_url} alt="Github Profile Pic"/> 
+					                      <br/>
+					                      <br/>
+					                      <p>"{this.state.questionnaire.quote}"</p>
 					                     </Col>
 
-					                     <Col size="sm-8">	
-					                      <h3>Name: 
+					                     <Col size="sm-1"></Col>
+
+					                     <Col size="sm-7">
+					                      <h3>
 					                        <strong className="userFullName">{" " + this.state.questionnaire.firstName} {this.state.questionnaire.lastName}</strong>
-					                      </h3>
+					                      </h3>	
+					                      <h4>{this.state.questionnaire.profession}</h4>
 					                      <h4> 
 					                      	<strong>Github Handler: </strong>
 		 									  	<Link to={"https://github.com/" + this.state.githubUrl.login} target="_blank">
 		 							               	<strong className="githubHandler">{this.state.githubUrl.login}</strong>
 		 							           	</Link>
 	 									   </h4>
-					                      <h5>Industries of Interest: {this.state.questionnaire.industryExperience.join(", ")} </h5>
-	 									  <h5>Languages: {this.state.questionnaire.languages.join(", ")} </h5>
-	 									  <h5>Reason for Mentorship: {this.state.questionnaire.reasons} </h5>
+	 									   
+	 									   
+	 									  <hr/>									  
+										  <p><strong>Languages:</strong><br/>{this.state.questionnaire.languages.join(", ")}</p>
+					                      <p><strong>Industry Interest:</strong><br/>{this.state.questionnaire.industryExperience.join(", ")}</p>								  
+										   <p><strong>Coding Experience:</strong><br/> {this.state.questionnaire.coded}</p>
+	 									  <p><strong>Reason for Mentorship:</strong><br/> {this.state.questionnaire.reasons}</p>
+										 									
 					                     </Col>
 					                  </main>
 
@@ -182,10 +202,6 @@ class ProfileBio extends Component {
 				           </div>
 						</Col>
 					</Row>
-
-					<br/>
-	                <br/>
-					
 
 				</Container>
 			</div>

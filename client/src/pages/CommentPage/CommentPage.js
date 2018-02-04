@@ -33,9 +33,6 @@ state = {
 
             <Footer />
 
-
-
-
         </div>
 
 

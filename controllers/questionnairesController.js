@@ -21,12 +21,15 @@ module.exports = {
             .catch(err => res.status(455).json(err));
     },
     findOne: function(req, res) {
-
+        console.log("===================")
+        console.log("Below is req.params.github being sent in..")
+        console.log(req.params.github)
+        console.log("===================")
         db.Questionnaire     
             .findOne({ "gitHub": req.params.github}, "_id type password") //should locate where the github matches the github id provided, and return the related ID and type.
 
             .then(dbProfile => {
-                req.session.questionnaireId = dbProfile._id;
+                // req.session.questionnaireId = dbProfile._id;
                 console.log('Github Handler used for gitHub Query for Type and ID : ', req.params.github);
                 console.log(dbProfile)
                 res.json(dbProfile);
@@ -97,7 +100,7 @@ module.exports = {
                             careerLevelQuery = { $in: ["New Professional", "College", "Novice"] }
                             break;
                         case "Expert":
-                            careerLevelQuery = { $in: ["Professional 5+ years", "New Professional", "College", "Novice"] }
+                            careerLevelQuery = { $in: ["Professional 5+ Years", "New Professional", "College", "Novice"] }
                             break;
                         case "College":
                             careerLevelQuery = { $in: ["Novice"] }
@@ -123,15 +126,15 @@ module.exports = {
 
                     switch (dbProfile.careerLevel) {
                         case 'Novice':
-                            careerLevelQuery = { $in: ["College", "Professional 5+ years", "New Professional", "Expert"] }
+                            careerLevelQuery = { $in: ["College", "Professional 5+ Years", "New Professional", "Expert"] }
                             break;
                         case "College":
-                            careerLevelQuery = { $in: ["Professional 5+ years", "New Professional", "Expert"] }
+                            careerLevelQuery = { $in: ["Professional 5+ Years", "New Professional", "Expert"] }
                             break;
                         case "New Professional":
                             careerLevelQuery = { $in: ["College"] }
                             break;
-                        case "Professional 5+ Year":
+                        case "Professional 5+ Years":
                             careerLevelQuery = { $in: ["New Professional", "College"] }
                         default:
                             console.log("Sorry, we are out of results");

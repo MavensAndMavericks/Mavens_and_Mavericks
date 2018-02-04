@@ -4,6 +4,7 @@ export default {
 //QUESTIONNAIRE
   // Gets the questionnaire with the given id (in the URL/PARAMS)
   getQuestionnaire: function(id) {
+    console.log("getting the questionnaire with id");
     return axios.get("/api/questionnaires/" + id);
   },
   // Gets the questionnaire with the given github (in the URL/PARAMS)
@@ -51,6 +52,11 @@ export default {
     return axios.delete("/api/questionnaires/" + id + "/" + type + "/session");
   },
 
+// Gets the questionnaire with the given github (in the URL/PARAMS)
+getQuestionnaireGithub: function(github) {
+  console.log("this is the gibhub param = " + github);
+  return axios.get("/api/questionnaires/signin/" + github);
+},
 /////////////////////
   // Gets a match for mavens from the the database
   // getMatches: function(id) {
@@ -120,21 +126,17 @@ export default {
   // }); 
 
 ///////////////////////////////////////////////////////////////////
-  // getProfile: function() {
-  //   return axios.get("/api/mavens");
-  // }
 
-  // saveProfile: function() {
-  //   return axios.post("/api/mavens/:id");
-  // }
-
-
-//////////////////
-  // getMavens: function(questionnaireData) {
-  //   return axios.post("/api/questionnaires", questionnaireData);
+ 
+  // Saves a project to the database
+  // saveProjectsDB: function(projectData){
+  //   return axios.post("api/questionnaires/projectName", projectData);
   // },
+  // getProjectsDB: function(projectData){
+  //   return axios.get("api/questionnaires/projectName", projectData);
+  // },
+  // // Deletes the githubProjects project selected&deletedo on main web profile page
+  // deleteProject: function(id) {
+  //   return axios.delete("/api/project/" + id);
 
-  // getMavericks: function(questionnaireData) {
-  // return axios.post("/api/questionnaires", questionnaireData);
-  // }
  }

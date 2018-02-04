@@ -19,20 +19,22 @@ class SignOut extends Component {
   handleSignOut = event => {
     const id = this.props.id; //does this need to be "this.props._id" >> ie: with the underscore?!?!?!
     console.log("id = " + id);
-
-    API.deleteSessionQuestionnaireId(this.props.id, this.props.type)
-      .then(res =>
+    sessionStorage.clear();
+    // API.deleteSessionQuestionnaireId(this.props.id, this.props.type)
+      // .then(res =>
          window.location.pathname = "/"
-      )
-      .catch(err => console.log(err));
+      // )
+      // .catch(err => console.log(err));
   }
 
   handleProfileClick = event => {
-    API.getSessionQuestionnaireId(this.props.id, this.props.type)
-      .then(res =>
-         window.location.pathname = "/api/questionnaires/" + res.data.questionnaireId + "/" + res.data.questionnaireType,
-      )
-      .catch(err => console.log(err));
+    const id = sessionStorage.getItem("questionnaireId", id);
+    console.log("id = " + id); //<this is for sessionstorage>
+    const type =sessionStorage.getItem("questionnaireType", type); //<this is for sessionstorage>
+    console.log("type =" + type);
+
+         window.location.pathname = "/api/questionnaires/" + id + "/" + type
+  
   }
 
 

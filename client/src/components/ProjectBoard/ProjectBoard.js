@@ -45,14 +45,26 @@ class ProjectBoard extends Component {
 
 	     )
 	     .then(() => {// MUST MAKE THIS A FUNCTION that renders a FUNCTION >>> by making this a function in a PROMISE chain, it will NOT PROCESS until the promise BEFORE IT has rendered its result!!! :)
+<<<<<<< HEAD
 	     	console.log("this.state.questionnaire : ");
+=======
+	     	console.log("this.state.questionnaire : (see below)");
+
+>>>>>>> 0b0c38201adca56a8bde7313690fbc41dab0e944
              console.log(this.state.questionnaire);
              console.log("this.state.gitHub = (see below)");
              console.log(this.state.github);
              this.loadGithub(this.state.github); //this.state.gitHub
+<<<<<<< HEAD
              console.log(this.state.gitHub);
 	     }) 
 	     	
+=======
+             // console.log(this.state.gitHub);
+	     }) 
+	     	
+
+>>>>>>> 0b0c38201adca56a8bde7313690fbc41dab0e944
 	     .catch(err => console.log(err));
 	}; 
 
@@ -81,7 +93,7 @@ class ProjectBoard extends Component {
 	      .catch(err => console.log(err));
 	};
 
-
+	// {this.displayProjectLanguages(project.name)}
 	displayProjectLanguages = (projectName) => {
 		API.getProjectLanguages(this.state.github, projectName)
 	     .then(res => {
@@ -111,30 +123,41 @@ class ProjectBoard extends Component {
             <Jumbotron className="img-responsive">
               <h3 className="text-center">Check out your projects!</h3>
               <h5 className="text-center">What will you build today?</h5>
+              <br/>
+              <br/>
 
 	            {this.state.githubProjects.length ? (
 	              <div className="text-center">
                 	{this.state.githubProjects.map(project => (                      
 		              <main key={project._id}>
+		                <Col size="s-4">
+		                	  <div className="card horizontal">
+							    <div className="card-image waves-effect waves-block waves-light">
+							      <iframe className="activator" id="projectIframe" src={project.html_url} height="200px" width="200px"></iframe>
+							    </div>
 
+							    <div class="card-stacked">
+								    <div className="card-content">
+								      <br/>
+								      <br/>
+								      <br/>
 
-		                <Col l={3} m={4} s={6} size="s-3">
-		                	<Card header={<CardTitle reveal image={<iframe src={project.html_url} height="200px" width="200px"></iframe>} waves='light'/>}
-								title={project.name}
-								reveal={
-									<div>
-										<p style={{color:"#01010a"}}>Description: {project.description}</p>
-										<p style={{color:"#01010a"}}>Languages Used: {this.displayProjectLanguages(project.name)}</p>
-			                            <p style={{color:"#01010a"}}>Lasted Updated: {moment(project.updated_at, "YYYY-MM-DD HH:mm Z").format("MM-DD-YYYY")}</p>
-		                            </div>
-								}>
-								<Link to={"/project/" + project.name} target="_blank">	  	
-							       	<p>Review and Comment on this project.</p>
-							    </Link>								
-							</Card>
+								      <span className="card-title activator grey-text text-darken-4"><h3>{project.name}</h3><i className="material-icons right">more_vert</i></span>
+								      <Link to={project.html_url} target="_blank">	  	
+								      		<h5><strong>Review and Comment on this project.</strong></h5>
+								      </Link>	
+								    </div>
+								</div>
+							    <div className="card-reveal">
+							      <br/>
+							      <span className="card-title grey-text text-darken-4" style={{color:"#01010a"}}><h3>{project.name}</h3><i className="material-icons right">close</i></span>
+							      <hr/>
+							      <h5 style={{color:"#01010a"}}>Description: {project.description !== null ? project.description : "None."}</h5>
+								  <h5 style={{color:"#01010a"}}>Principle Language Used: {project.language} </h5>
+	                              <p style={{color:"#01010a"}}>Lasted Updated: {moment(project.updated_at, "YYYY-MM-DD HH:mm Z").format("MM-DD-YYYY")}</p>
+							    </div>
+							  </div>
 		                </Col>
-
-
 		              </main>
 	                ))}
 	              </div>
@@ -181,5 +204,77 @@ export default ProjectBoard;
 		         //                </div>
 		         //            </div>
 		         //        </Col>
+		    ///////////////////////////////////////////////////////////////////////////////
+		                {/*<Col m={4} s={12} size="m-4 s-12">*/}
 
 
+		                    {/*<div className="card sticky-action">*/}
+		                        {/*<div className="card-image waves-effect waves-block waves-light">*/}
+		                            {/*<iframe src={project.html_url} height="200px" width="200px"></iframe>*/}
+		                        // </div>
+
+		                        {/*<div className="card-action">*/}
+		                            {/*<span className="card-title activator grey-text text-darken-4 text-center">*/}
+			                        {/*<h4><strong>Repo Name: </strong>*/}
+				                  		{/*<Link to={"/project/" + project.name} target="_blank">	  	*/}
+							               	{/*<strong className="projectName">{project.name}</strong>*/}
+							           	// </Link>
+								  	// </h4><i className="material-icons right">more_vert</i></span>
+			                        {/*<p><a target="_blank" href={project.html_url}>See Code</a></p>*/}
+		                        // </div>
+
+		                //         <div className="card-reveal">
+		                //             <span className="card-title grey-text text-darken-4 text-center">{project.name}<i class="material-icons right">close</i></span>
+		                //             <p>Description: {project.description}</p>
+		                //             <p>Languages Used: {this.displayProjectLanguages(project)}</p>
+		                //             <p>Lasted Updated: {moment(project.updated_at, "YYYY-MM-DD HH:mm Z").format("MM-DD-YYYY")}</p>
+		                //         </div>
+		                //     </div>
+		                // </Col>
+
+
+{/*                                <Jumbotron className = "jumbotron"> 
+                                   <h2> Your Matches </h2> 
+                                   <br/>
+                                    {this.state.matches.length ? ( 
+                                        <div className = "text-center" > {
+                                            this.state.matches.map(match => ( 
+                                           
+                                                <main key = { match._id }>
+
+                                                    <div class="card horizontal">
+                                                        <div class="card-image">
+                                                            <img className="img-responsive" id="matchAvatar" src={match.githubAvatar} alt="Github Profile Pic"/>
+                                                        </div>
+                                                        <div class="card-stacked">
+                                                            <div class="card-content">
+                                                                <h2 id="yourMatches">{ match.firstName } { match.lastName }</h2>
+                                                                <p class="cardFont grey-text">
+                                                                    <strong> Github Handler: </strong>
+                                                                    <Link to = { "https://github.com/" + match.gitHub } target = "_blank" >
+                                                                       <strong className = "githubHandler" > { match.gitHub } </strong>
+                                                                    </Link> 
+                                                                    <br/>
+                                                                    Industries of Interest: { match.industryExperience.join(", ") }
+                                                                    <br/> 
+                                                                    Languages: { match.languages.join(", ") } 
+                                                                    <br/>
+                                                                    Reason for Mentorship: { match.impact } 
+                                                                    </p>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </main> 
+
+                                                ))
+                                            }          
+                                        </div>
+
+
+                                        ) : ( 
+                                            <h3 className = "text-center" > No Results to Display </h3>
+                                        )
+                                    }
+
+                                </Jumbotron>*/}
