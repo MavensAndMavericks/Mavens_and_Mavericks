@@ -72,14 +72,19 @@ class ProfileMatch extends Component {
     render() {
         return ( 
             <div>
-                <Container className = "container-fluid profile-bio" >
+                <Container fluid>
+                    <br/>
+
                     <Row>
-                        <Col size = "sm-12" >
-                            <div className = "profile-bio" > {
-                /*<br/>
-                                                <h3 className="text-center">ProfileBio</h3>*/
-            }
-                                <Jumbotron className = "jumbotron"> 
+                     <Col size="md-12">
+                     <Jumbotron className="img-responsive">
+                         
+
+
+
+            
+                
+                                 
                                    <h2> Your Matches </h2> 
                                    <br/>
                                     {this.state.matches.length ? ( 
@@ -124,7 +129,7 @@ class ProfileMatch extends Component {
                                     }
 
                                 </Jumbotron>
-                            </div> 
+                          
                         </Col>
                     </Row>
                 <br/>

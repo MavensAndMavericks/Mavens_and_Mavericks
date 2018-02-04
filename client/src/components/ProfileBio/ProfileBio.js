@@ -129,14 +129,25 @@ class ProfileBio extends Component {
 
 	render() {
 		return(
-			<div>	
-				<Container className="container  profile-bio">
 
-			    	<Row>
-				    	<Col size="sm-12">
-				    		<div className="profile-bio">
-				    			{/*<br/>
-						    	<h3 className="text-center">ProfileBio</h3>*/}
+
+            <div>
+                <Container fluid>
+                    <br/>
+
+                    <Row>
+                     <Col size="md-12">
+                     <div className="profile-bio">
+                     
+
+
+
+
+
+			    	
+				    	
+				    		
+
 						    
 							   <Jumbotron className="img-responsive"> 			            
 					           {this.state.questionnaire ? (
