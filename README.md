@@ -28,7 +28,7 @@ Provide References to current work and create channels for communication and rev
 
 ## API's Utilized
 * Github
-    * https://developers.google.com/maps/
+    * https://developer.github.com/v3/
 
 ## Milestones
 
