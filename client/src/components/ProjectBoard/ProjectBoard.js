@@ -93,7 +93,7 @@ class ProjectBoard extends Component {
 	      .catch(err => console.log(err));
 	};
 
-	// {this.displayProjectLanguages(project.name)}
+
 	displayProjectLanguages = (projectName) => {
 		API.getProjectLanguages(this.state.github, projectName)
 	     .then(res => {
@@ -130,34 +130,25 @@ class ProjectBoard extends Component {
 	              <div className="text-center">
                 	{this.state.githubProjects.map(project => (                      
 		              <main key={project._id}>
-		                <Col size="s-4">
-		                	  <div className="card horizontal">
-							    <div className="card-image waves-effect waves-block waves-light">
-							      <iframe className="activator" id="projectIframe" src={project.html_url} height="200px" width="200px"></iframe>
-							    </div>
 
-							    <div class="card-stacked">
-								    <div className="card-content">
-								      <br/>
-								      <br/>
-								      <br/>
 
-								      <span className="card-title activator grey-text text-darken-4"><h3>{project.name}</h3><i className="material-icons right">more_vert</i></span>
-								      <Link to={project.html_url} target="_blank">	  	
-								      		<h5><strong>Review and Comment on this project.</strong></h5>
-								      </Link>	
-								    </div>
-								</div>
-							    <div className="card-reveal">
-							      <br/>
-							      <span className="card-title grey-text text-darken-4" style={{color:"#01010a"}}><h3>{project.name}</h3><i className="material-icons right">close</i></span>
-							      <hr/>
-							      <h5 style={{color:"#01010a"}}>Description: {project.description !== null ? project.description : "None."}</h5>
-								  <h5 style={{color:"#01010a"}}>Principle Language Used: {project.language} </h5>
-	                              <p style={{color:"#01010a"}}>Lasted Updated: {moment(project.updated_at, "YYYY-MM-DD HH:mm Z").format("MM-DD-YYYY")}</p>
-							    </div>
-							  </div>
+		                <Col l={3} m={4} s={6} size="s-3">
+		                	<Card style={{height: "250px"}} header={<CardTitle reveal waves='light'/>}
+								title={project.name}
+								reveal={
+									<div>
+										<p style={{color:"#01010a"}}>Description: {project.description}</p>
+										<p style={{color:"#01010a"}}>Languages Used: {this.displayProjectLanguages(project.name)}</p>
+			                            <p style={{color:"#01010a"}}>Lasted Updated: {moment(project.updated_at, "YYYY-MM-DD HH:mm Z").format("MM-DD-YYYY")}</p>
+		                            </div>
+								}>
+								<Link to={project.html_url} target="_blank">	  	
+							       	<p>Review and Comment on this project.</p>
+							    </Link>								
+							</Card>
 		                </Col>
+
+
 		              </main>
 	                ))}
 	              </div>
