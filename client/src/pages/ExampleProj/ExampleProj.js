@@ -35,8 +35,10 @@ class ExampleProj extends Component {
         <br/>
         
 	        <Row className="valign-wrapper">
+          
 	          <Col className="justify-content-center" size="md-12" style={{margin:"0px"}}>
 	            <Parallax4/>
+
 	          </Col>
 	        </Row>
         <Footer/>
