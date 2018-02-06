@@ -34,10 +34,14 @@ class MentorDef extends Component {
         <br/>
         <br/>
         <br/>
-        
+     
 	        <Row className="valign-wrapper">
 	          <Col className="justify-content-center" size="md-12" style={{margin:"0px"}}>
-	            <Parallax2/>
+           
+  
+	          
+              
+        <Parallax2/>
 	          </Col>
 	        </Row>
         <Footer/>
