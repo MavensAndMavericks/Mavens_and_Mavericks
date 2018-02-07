@@ -172,7 +172,7 @@ class ProfileBio extends Component {
 
 					              <h3 className="text-center">No Results to Display</h3>
 					           )}
-
+								
 					           </Jumbotron>
 				           </div>
 						</Col>

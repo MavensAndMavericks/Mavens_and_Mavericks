@@ -75,7 +75,6 @@ class Signup extends Component {
 
           <a className="btn-floating btn-large blue">
             <i className="large material-icons">person_pin</i>
-            <span> Sign Up</span>
           </a>
 
           <ul>

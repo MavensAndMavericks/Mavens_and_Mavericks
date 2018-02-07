@@ -97,7 +97,14 @@ getQuestionnaireGithub: function(github) {
      res.json(res.data);
    })
  },
- 
+//GET /repos/:owner/:repo/stats/commit_activity
+  getProjectStats: function(github, projectName) {
+   return axios.get("https://api.github.com/repos/" + github + "/" + projectName + "/stats/commit_activity", function(req, res) {
+     console.log("CURRENT github project languages" + res.data);
+     console.log(res.status);
+     res.json(res.data);
+   })
+ },
   // Deletes the githubProjects project selected&deletedo on main web profile page
   deleteProject: function(id) {
     return axios.delete("/api/project/" + id);
