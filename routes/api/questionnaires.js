@@ -45,7 +45,7 @@ router
 
 // Matches with "/api/questionnaires/:id/:type/session/matches"
 router
-    .route('/:id/:type/session/:matches')
+    .route('/:id/:type/session/matches')
     .get(questionnairesController.findMatches)
     .post(questionnairesController.create);
 
