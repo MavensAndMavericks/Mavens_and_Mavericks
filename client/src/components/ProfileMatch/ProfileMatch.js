@@ -22,7 +22,6 @@ class ProfileMatch extends Component {
         questionnaire: [],
         matches: [],
         githubUrl: ""
-
     };
 
     componentDidMount() {
@@ -47,19 +46,8 @@ class ProfileMatch extends Component {
             .then(() => {
                 console.log("see below")
                 console.log(this.state.matches);
-                this.loadGithub(this.state.matches.gitHub);
             }) // MUST MAKE THIS A FUNCTION that renders a FUNCTION >>> by making this a function in a PROMISE chain, it will NOT PROCESS until the promise BEFORE IT has rendered its result!!! :)
             .catch(err => console.log(err));
-    };
-
-    loadGithub = (gitHub) => {
-        API.getGithubUrl(gitHub)
-            .then(res =>
-                this.setState({
-                    githubUrl: res.data //single obj //.avatar_url >>>> to find the pic
-                })
-            )
-            .catch(err => console.log("More errors in profile match" + err));
     };
 
     handleInputChange = event => {

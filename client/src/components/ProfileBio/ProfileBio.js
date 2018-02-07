@@ -40,7 +40,7 @@ class ProfileBio extends Component {
 
 	    const id = this.props.id; //  //does this need to be "this.props._id" >> ie: with the underscore?!?!?!
 	    console.log("id = " + id);
-// Clear sessionStorage
+		// Clear sessionStorage
           sessionStorage.clear();
           // Store all content into sessionStorage
           sessionStorage.setItem("questionnaireId", id); //<this is for sessionstorage>
@@ -59,22 +59,10 @@ class ProfileBio extends Component {
 	     )
 	     .then(() => {// MUST MAKE THIS A FUNCTION that renders a FUNCTION >>> by making this a function in a PROMISE chain, it will NOT PROCESS until the promise BEFORE IT has rendered its result!!! :)
 	     	console.log("questionnaire.gitHub = " + this.state.questionnaire.gitHub);
-	     	this.loadGithub(this.state.questionnaire.gitHub);
 	     	console.log("_onSignUp is using the following gitHub, and firstName/lastName :" + this.state.questionnaire.gitHub + ", " + this.state.questionnaire.firstName + ", " + this.state.questionnaire.lastName);
 	     	this._onSignUp(this.state.questionnaire.github, this.state.questionnaire.firstName, this.state.questionnaire.lastName); // !! PASSING THE GITHUB/FULLNAME TO SENDBIRD HERE !!
 	     }) 
 	     .catch(err => console.log(err));
-	}; 
-
-
-	loadGithub = (gitHub) => {
-		API.getGithubUrl(gitHub)
-		  .then(res =>
-	       this.setState({ 
-	   		githubUrl: res.data //single obj //.avatar_url >>>> to find the pic
-	        })
-	       )
-	      .catch(err => console.log(err));
 	};
 
 

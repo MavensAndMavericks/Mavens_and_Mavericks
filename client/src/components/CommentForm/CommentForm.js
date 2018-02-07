@@ -34,19 +34,8 @@ class CommentForm extends Component {
             )
             .then(() => {
                 console.log(this.state.matches);
-                console.log(this.state.firstName)
-                this.loadGithub(this.state.matches.gitHub);
+                console.log(this.state.firstName);
             }) // MUST MAKE THIS A FUNCTION that renders a FUNCTION >>> by making this a function in a PROMISE chain, it will NOT PROCESS until the promise BEFORE IT has rendered its result!!! :)
-            .catch(err => console.log(err));
-    };
-
-    loadGithub = (gitHub) => {
-        API.getGithubUrl(gitHub)
-            .then(res =>
-                this.setState({
-                    githubUrl: res.data //single obj //.avatar_url >>>> to find the pic
-                })
-            )
             .catch(err => console.log(err));
     };
 
