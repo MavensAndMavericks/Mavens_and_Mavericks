@@ -13,7 +13,7 @@ import {Modal} from "react-materialize";
 //Componenet imports:
 //=============================
 import "./Signup.css";
-import { InputBox, FormBtn } from "../Form";
+import { InputBox, FormBtn, FormBtnModal } from "../Form";
 //=================================================================================
 
 class Signup extends Component {
@@ -89,6 +89,7 @@ class Signup extends Component {
             <Modal
             
             	header={<h4 style={{textAlign:"center"}}>Welcome Back</h4>}
+              fixedFooter
             	trigger={<li className="modalClass"><i className="material-icons">computer</i> Sign In</li>}>
 
               <h5 style={{textAlign:"center"}}> Time to get back to that awesome project of yours!</h5>
@@ -110,15 +111,13 @@ class Signup extends Component {
                />
 
                <br/>
-               <br/>
-               <br/>
-               <br/>
+          
 
-               <FormBtn
+               <FormBtnModal
                 disabled={!(this.state.gitHub && this.state.password)}
                 onClick={this.handleSignUpSubmit}
               >Submit
-              </FormBtn>        
+              </FormBtnModal>        
               
             </Modal> 
 
@@ -132,8 +131,4 @@ class Signup extends Component {
 export default Signup;
 
 
-            // modalFooter= {<FormBtn
-            //   disabled={!(this.state.gitHub && this.state.password)}
-            //   onClick={this.handleSignUpSubmit}
-            // >Submit
-            // </FormBtn>}>
+
