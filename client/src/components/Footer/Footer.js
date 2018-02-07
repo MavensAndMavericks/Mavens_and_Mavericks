@@ -11,29 +11,42 @@ const Footer = () =>
 
       <Row>
 
-        <Col size="lg-8">
-        <div style={{textAlign: "center"}}>
-          <h5 className="white-text container">Meet the faces and <br/> motivations behind the scenes.</h5>
-          <p><a className="text-center" href="/aboutus">Who we are.</a></p>
+        <Col size="s-12 lg-6">
+          <div style={{textAlign: "center"}}>
+            <br/>
+            <h5 className="white-text container">Meet the faces and <br/> motivations behind the scenes.</h5>
+            <br/>
+            <a className="grey-text text-lighten-4 container text-center" href="/aboutus" target="_blank"><img class="contact-img" src="/assets/ProfilePerson.png" height="40px" alt="person"/><span>  Who we are</span></a>
           </div>
         </Col>
 
-        <Col size="lg-4">
-        <div style={{textAlign: "center"}}>
-          <h5 className="container">Contact Us</h5>
-          <a className="grey-text text-lighten-4 container text-center" href="https://github.com/MavensAndMavericks/Mavens_and_Mavericks">https://github.com/MavensAndMavericks</a>
-            <span ><a className= "text-center" href="mailto:lisajetton21@gmail.com" id="download-btn" className="btn btn-xs waves-effect waves-light transparent darken-4 white-text">Send an email.</a></span>       
-        </div>
+        <Col size="s-12 lg-6">
+          <div style={{textAlign: "center"}}>
+            <br/>
+            <h5 className="container">Contact Us</h5>
+            <br/>
+            <Row>
+              <Col size="s-6">
+                <a className="grey-text text-lighten-4 container text-center" href="mailto:lisajetton21@gmail.com" target="_blank"><img class="contact-img" src="/assets/email.png" height="40px" alt="email"/></a>
+              </Col>
+              <Col size="s-6">
+                <a className="grey-text text-lighten-4 container text-center" href="https://github.com/MavensAndMavericks/Mavens_and_Mavericks" target="_blank"><img class="contact-img" src="/assets/github.png" height="40px" alt="github"/></a>
+              </Col>
+            </Row>
+          </div>
         </Col>
-         </Row>
-        <br/>
-        <Row>
+      
+      </Row>
+       
+      <br/>
+        
+      <Row>
         
         <Col size="s-12">
-        <div style={{textAlign: "center", position: "relative", bottom: "15px", left: "10%"}}>
-          <p className="container text-center" >
-          © 2018 Copyright | Mavens and Mavericks
-          </p>
+          <div style={{ textAlign: "center" }}>
+            <p className="container text-center" >
+              Mavens and Mavericks | © 2018 Copyright
+            </p>
           </div>
         </Col>
 
