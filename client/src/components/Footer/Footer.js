@@ -26,12 +26,12 @@ const Footer = () =>
             <h5 className="container">Contact Us</h5>
             <br/>
             <Row>
-              <Col size="s-6">
-                <a className="grey-text text-lighten-4 container text-center" href="mailto:lisajetton21@gmail.com" target="_blank"><img class="contact-img" src="/assets/email.png" height="40px" alt="email"/></a>
-              </Col>
-              <Col size="s-6">
-                <a className="grey-text text-lighten-4 container text-center" href="https://github.com/MavensAndMavericks/Mavens_and_Mavericks" target="_blank"><img class="contact-img" src="/assets/github.png" height="40px" alt="github"/></a>
-              </Col>
+              
+                <a className="grey-text text-lighten-4" href="mailto:lisajetton21@gmail.com" target="_blank"><img class="contact-img" src="/assets/email.png" height="40px" alt="email"/></a>
+              
+              
+                <a className="grey-text text-lighten-4" href="https://github.com/MavensAndMavericks/Mavens_and_Mavericks" target="_blank"><img class="contact-img" src="/assets/github.png" height="40px" alt="github"/></a>
+  
             </Row>
           </div>
         </Col>
