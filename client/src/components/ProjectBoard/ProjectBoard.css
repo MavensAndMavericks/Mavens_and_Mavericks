@@ -1,3 +1,9 @@
+#projectIframe {
+	width: 300px;
+	height: 300px;
+	z-index: 0; 
+}
+
 .project-board {
     color: white;
     text-align: center;

@@ -53,7 +53,7 @@ class MavenHeader extends Component {
 	render() {
     	return(
 		  <div className="nav-header-maven"> 
-		    <h3> Welcome Back {this.state.gitHub}</h3>
+		    <h3> Welcome Back {this.state.firstName}</h3>
 		  </div>
     	);
   	}

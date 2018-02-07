@@ -61,6 +61,12 @@ class WelcomeMsg extends Component {
 		};
 	};
 
+	handleOpenSignUp = event => {
+		event.preventDefault();
+
+		//CAN WE OPEN THE NAV BAR YOYO HERE?!?!?!
+	}
+
 	render() {
 		return(
 		  <div className="welcome-msg"> 
@@ -73,10 +79,14 @@ class WelcomeMsg extends Component {
 			</h2>
 
 		    <hr style={{color:"#3e3f3a"}}/>
+
+		    <a className="btn btn-primary btn-ld" onClick={this.handleOpenSignUp} > Let's Get Started!</a>
+
 		  </div>
+
+
 		);
 	}
 }
 
 export default WelcomeMsg;
-

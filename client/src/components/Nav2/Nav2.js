@@ -18,7 +18,7 @@ class Nav2 extends Component {
 
 	render() {
     	return(
-		  <nav className="navbar navbar-default navbar-fixed-top" style={{padding: "50px", zIndex: 1}}>
+		  <nav className="navbar navbar-default navbar-fixed-top" style={{padding: "50px", zIndex: 2}}>
 		    <div className="container-fluid">
 
 		      <a href="/" className="navbar-brand">
