@@ -189,13 +189,11 @@ class ProjectBoard extends Component {
 		                <Col size="s-4">
 		                	  <div className="card horizontal">
 							    <div className="card-image waves-effect waves-block waves-light">
-							   	  <canvas id={project.id} width="200" height="200">{this.displayProjectStats(project)}</canvas>
+							   	  <canvas id={project.id} width="400%" height="200">{this.displayProjectStats(project)}</canvas>
 							    </div>
 
 							    <div class="card-stacked">
 								    <div className="card-content">
-								      <br/>
-								      <br/>
 								      <br/>
 
 								      <span className="card-title activator grey-text text-darken-4"><h3>{project.name}</h3><i className="material-icons right">more_vert</i></span>
@@ -205,11 +203,10 @@ class ProjectBoard extends Component {
 								    </div>
 								</div>
 							    <div className="card-reveal">
-							      <br/>
-							      <span className="card-title grey-text text-darken-4" style={{color:"#01010a"}}><h3>{project.name}</h3><i className="material-icons right">close</i></span>
+							      <span className="card-title grey-text text-darken-4" style={{color:"#01010a"}}><h5>{project.name}</h5><i className="material-icons right">close</i></span>
 							      <hr/>
-							      <h5 style={{color:"#01010a"}}>Description: {project.description !== null ? project.description : "None."}</h5>
-								  <h5 style={{color:"#01010a"}}>Principle Language Used: {project.language !== null ? project.language : "None."} </h5>
+							      <h6 style={{color:"#01010a"}}>Description: {project.description !== null ? project.description : "None."}</h6>
+								  <h6 style={{color:"#01010a"}}>Principle Language Used: {project.language !== null ? project.language : "None."} </h6>
 	                              <p style={{color:"#01010a"}}>Lasted Updated: {moment(project.updated_at, "YYYY-MM-DD HH:mm Z").format("MM-DD-YYYY")}</p>
 							    </div>
 							  </div>
