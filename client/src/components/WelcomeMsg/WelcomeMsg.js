@@ -80,7 +80,7 @@ class WelcomeMsg extends Component {
 
 		    <hr style={{color:"#3e3f3a"}}/>
 
-		    <a className="btn btn-primary btn-ld" onClick={this.handleOpenSignUp} > Let's Get Started!</a>
+		    {/* <a className="btn btn-primary btn-ld" onClick={this.handleOpenSignUp} > Let's Get Started!</a> */}
 
 		  </div>
 
