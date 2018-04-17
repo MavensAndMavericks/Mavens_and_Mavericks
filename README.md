@@ -3,8 +3,7 @@
 
 View the application [here](https://mavens-and-mavericks.herokuapp.com)!
 
-
-<a href="https://imgflip.com/gif/21wtxk"><img src="https://i.imgflip.com/21wtxk.gif" title="made at imgflip.com"/></a>
+![](https://media.giphy.com/media/26FfjfWjlvs4XZ5Wo/giphy.gif)
 
 [![My Website][websiteStatus]][websiteStatus]
 
