@@ -59,11 +59,15 @@ Provide References to current work and create channels for communication and rev
 
 Amanda Wisniowski – FullStack Developer, UX Design & Tester
 
-Lorna Stevens – Full Stack Developer, Content Editor & Tester
-
 Austin Parisi – Full Stack Developer & SendBird Chat Specialist
 
 Lisa Jetton – Full Stack Developer, UX Design & Content Editor
+
+Lorna Stevens – Full Stack Developer, Content Editor & Tester
+
+
+
+
 
 
 <!-- Markdown link & img dfn's -->
